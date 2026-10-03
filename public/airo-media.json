@@ -1,0 +1,2975 @@
+{
+  "logo/horizontal": {
+    "mediaType": "logo",
+    "currentUrl": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/eefe7432-60b6-41a6-9d84-1ceb0c07c93f/horizontal-transparent-138aff1c-2c10-4a0b-a9b9-c2454b266c48/logo-logo.png",
+    "searchQuery": "horizontal",
+    "alternatives": [
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/d88f0d05-9a55-43a8-9a49-80ea79e3584d/transparent-42046ab5-1567-40ca-8078-dce9f98e2e37/logo-logo.png",
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/c637210f-ddb2-48d9-bc37-c58b33a5a96d/favicon-transparent-01042ded-7680-4b74-b975-5d87ab104abe/logo-logo.png",
+      "https://img1.wsimg.com/isteam/getty/652925014",
+      "https://img1.wsimg.com/isteam/getty/1372302933",
+      "https://img1.wsimg.com/isteam/getty/2158919442",
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/fa3b886a-3ba1-4c55-87ed-d79795604d76/horizontal-transparent-a46aa588-2558-4b8d-8a48-705e0d0af878/logo-logo.png",
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/3d7f9f20-cfad-4d56-9930-5072c6798fed/transparent-dee79191-36fd-4670-bd84-4bbb99be3326/logo-logo.png",
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/a6c9d220-9aab-4739-a5c8-8014763d9a91/horizontal-transparent-e89008f3-4bac-4b54-8d6b-66735ccbaa92/logo-logo.png"
+    ],
+    "logoSourceMap": {
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/eefe7432-60b6-41a6-9d84-1ceb0c07c93f/horizontal-transparent-138aff1c-2c10-4a0b-a9b9-c2454b266c48/logo-logo.png": {
+        "sessionId": "eefe7432-60b6-41a6-9d84-1ceb0c07c93f",
+        "logoId": "138aff1c-2c10-4a0b-a9b9-c2454b266c48",
+        "groupId": "f97192d2-287a-4825-816c-73b950980f19"
+      },
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/d88f0d05-9a55-43a8-9a49-80ea79e3584d/transparent-42046ab5-1567-40ca-8078-dce9f98e2e37/logo-logo.png": {
+        "sessionId": "d88f0d05-9a55-43a8-9a49-80ea79e3584d",
+        "logoId": "42046ab5-1567-40ca-8078-dce9f98e2e37",
+        "groupId": "f97192d2-287a-4825-816c-73b950980f19"
+      }
+    },
+    "logoGroupId": "f97192d2-287a-4825-816c-73b950980f19",
+    "solidUrlMap": {
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/eefe7432-60b6-41a6-9d84-1ceb0c07c93f/horizontal-transparent-138aff1c-2c10-4a0b-a9b9-c2454b266c48/logo-logo.png": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/eefe7432-60b6-41a6-9d84-1ceb0c07c93f/horizontal-original-138aff1c-2c10-4a0b-a9b9-c2454b266c48/logo-logo.png",
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/d88f0d05-9a55-43a8-9a49-80ea79e3584d/transparent-42046ab5-1567-40ca-8078-dce9f98e2e37/logo-logo.png": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/d88f0d05-9a55-43a8-9a49-80ea79e3584d/original-42046ab5-1567-40ca-8078-dce9f98e2e37/logo-logo.png"
+    },
+    "mockupUrlMap": {
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/eefe7432-60b6-41a6-9d84-1ceb0c07c93f/horizontal-transparent-138aff1c-2c10-4a0b-a9b9-c2454b266c48/logo-logo.png": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/eefe7432-60b6-41a6-9d84-1ceb0c07c93f/horizontal-transparent-138aff1c-2c10-4a0b-a9b9-c2454b266c48/logo-logo.png"
+    },
+    "landscapeMockupUrlMap": {},
+    "productMockupsMap": {
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/a6c9d220-9aab-4739-a5c8-8014763d9a91/horizontal-transparent-e89008f3-4bac-4b54-8d6b-66735ccbaa92/logo-logo.png": [
+        {
+          "type": "mug",
+          "label": "Mug",
+          "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/a6c9d220-9aab-4739-a5c8-8014763d9a91/horizontal-mockup-mug-e89008f3-4bac-4b54-8d6b-66735ccbaa92/logo-logo.png"
+        },
+        {
+          "type": "card",
+          "label": "Business Card",
+          "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/a6c9d220-9aab-4739-a5c8-8014763d9a91/horizontal-mockup-card-e89008f3-4bac-4b54-8d6b-66735ccbaa92/logo-logo.png"
+        },
+        {
+          "type": "tshirt",
+          "label": "T-Shirt",
+          "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/a6c9d220-9aab-4739-a5c8-8014763d9a91/horizontal-mockup-tshirt-e89008f3-4bac-4b54-8d6b-66735ccbaa92/logo-logo.png"
+        },
+        {
+          "type": "box",
+          "label": "Packaging",
+          "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/a6c9d220-9aab-4739-a5c8-8014763d9a91/horizontal-mockup-box-e89008f3-4bac-4b54-8d6b-66735ccbaa92/logo-logo.png"
+        }
+      ],
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/79a5c2c3-45cc-4402-869c-a54be4978fd9/horizontal-transparent-15c9da4a-fa67-47c5-8b53-73dc80ffa5b2/logo-logo.png": [
+        {
+          "type": "mug",
+          "label": "Mug",
+          "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/79a5c2c3-45cc-4402-869c-a54be4978fd9/horizontal-mockup-mug-15c9da4a-fa67-47c5-8b53-73dc80ffa5b2/logo-logo.png"
+        },
+        {
+          "type": "card",
+          "label": "Business Card",
+          "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/79a5c2c3-45cc-4402-869c-a54be4978fd9/horizontal-mockup-card-15c9da4a-fa67-47c5-8b53-73dc80ffa5b2/logo-logo.png"
+        },
+        {
+          "type": "tshirt",
+          "label": "T-Shirt",
+          "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/79a5c2c3-45cc-4402-869c-a54be4978fd9/horizontal-mockup-tshirt-15c9da4a-fa67-47c5-8b53-73dc80ffa5b2/logo-logo.png"
+        },
+        {
+          "type": "box",
+          "label": "Packaging",
+          "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/79a5c2c3-45cc-4402-869c-a54be4978fd9/horizontal-mockup-box-15c9da4a-fa67-47c5-8b53-73dc80ffa5b2/logo-logo.png"
+        }
+      ],
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/fa3b886a-3ba1-4c55-87ed-d79795604d76/horizontal-transparent-a46aa588-2558-4b8d-8a48-705e0d0af878/logo-logo.png": [
+        {
+          "type": "mug",
+          "label": "Mug",
+          "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/fa3b886a-3ba1-4c55-87ed-d79795604d76/horizontal-mockup-mug-a46aa588-2558-4b8d-8a48-705e0d0af878/logo-logo.png"
+        },
+        {
+          "type": "card",
+          "label": "Business Card",
+          "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/fa3b886a-3ba1-4c55-87ed-d79795604d76/horizontal-mockup-card-a46aa588-2558-4b8d-8a48-705e0d0af878/logo-logo.png"
+        },
+        {
+          "type": "tshirt",
+          "label": "T-Shirt",
+          "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/fa3b886a-3ba1-4c55-87ed-d79795604d76/horizontal-mockup-tshirt-a46aa588-2558-4b8d-8a48-705e0d0af878/logo-logo.png"
+        },
+        {
+          "type": "box",
+          "label": "Packaging",
+          "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/fa3b886a-3ba1-4c55-87ed-d79795604d76/horizontal-mockup-box-a46aa588-2558-4b8d-8a48-705e0d0af878/logo-logo.png"
+        }
+      ],
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/eefe7432-60b6-41a6-9d84-1ceb0c07c93f/horizontal-transparent-138aff1c-2c10-4a0b-a9b9-c2454b266c48/logo-logo.png": [
+        {
+          "type": "mug",
+          "label": "Mug",
+          "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/eefe7432-60b6-41a6-9d84-1ceb0c07c93f/horizontal-mockup-mug-138aff1c-2c10-4a0b-a9b9-c2454b266c48/logo-logo.png"
+        },
+        {
+          "type": "card",
+          "label": "Business Card",
+          "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/eefe7432-60b6-41a6-9d84-1ceb0c07c93f/horizontal-mockup-card-138aff1c-2c10-4a0b-a9b9-c2454b266c48/logo-logo.png"
+        },
+        {
+          "type": "tshirt",
+          "label": "T-Shirt",
+          "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/eefe7432-60b6-41a6-9d84-1ceb0c07c93f/horizontal-mockup-tshirt-138aff1c-2c10-4a0b-a9b9-c2454b266c48/logo-logo.png"
+        },
+        {
+          "type": "box",
+          "label": "Packaging",
+          "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/eefe7432-60b6-41a6-9d84-1ceb0c07c93f/horizontal-mockup-box-138aff1c-2c10-4a0b-a9b9-c2454b266c48/logo-logo.png"
+        }
+      ]
+    },
+    "productMockups": [
+      {
+        "type": "mug",
+        "label": "Mug",
+        "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/eefe7432-60b6-41a6-9d84-1ceb0c07c93f/horizontal-mockup-mug-138aff1c-2c10-4a0b-a9b9-c2454b266c48/logo-logo.png"
+      },
+      {
+        "type": "card",
+        "label": "Business Card",
+        "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/eefe7432-60b6-41a6-9d84-1ceb0c07c93f/horizontal-mockup-card-138aff1c-2c10-4a0b-a9b9-c2454b266c48/logo-logo.png"
+      },
+      {
+        "type": "tshirt",
+        "label": "T-Shirt",
+        "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/eefe7432-60b6-41a6-9d84-1ceb0c07c93f/horizontal-mockup-tshirt-138aff1c-2c10-4a0b-a9b9-c2454b266c48/logo-logo.png"
+      },
+      {
+        "type": "box",
+        "label": "Packaging",
+        "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/eefe7432-60b6-41a6-9d84-1ceb0c07c93f/horizontal-mockup-box-138aff1c-2c10-4a0b-a9b9-c2454b266c48/logo-logo.png"
+      }
+    ],
+    "userModified": true,
+    "createdAt": "2026-09-17T15:04:02.927Z",
+    "lastUpdated": "2026-09-17T20:36:45.050Z",
+    "surfaceMode": "light",
+    "generatedForSurfaceColor": "#F5F5F5",
+    "darkSurfaceUrl": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/eefe7432-60b6-41a6-9d84-1ceb0c07c93f/horizontal-transparent-138aff1c-2c10-4a0b-a9b9-c2454b266c48/logo-logo.png",
+    "lightSurfaceUrl": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/d88f0d05-9a55-43a8-9a49-80ea79e3584d/transparent-42046ab5-1567-40ca-8078-dce9f98e2e37/logo-logo.png"
+  },
+  "pages/home/hero-fallback": {
+    "requestedSize": {
+      "width": 1920,
+      "height": 1080,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1715539187",
+    "searchQuery": "dark cinematic film production camera professional cinematography studio",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2272136010",
+      "https://img1.wsimg.com/isteam/getty/2276901861"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:04:04.343Z",
+    "lastUpdated": "2026-09-17T15:04:04.343Z",
+    "gettyId": "1715539187",
+    "alternativeGettyIds": [
+      "2272136010",
+      "2276901861"
+    ]
+  },
+  "pages/home/service-ai-production": {
+    "requestedSize": {
+      "width": 800,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2277434364",
+    "searchQuery": "artificial intelligence digital technology dark futuristic creative production",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2286855037"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:04:04.970Z",
+    "lastUpdated": "2026-09-17T15:04:04.970Z",
+    "gettyId": "2277434364",
+    "alternativeGettyIds": [
+      "2286855037"
+    ]
+  },
+  "pages/home/company-intro": {
+    "requestedSize": {
+      "width": 1200,
+      "height": 800,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2239299480",
+    "searchQuery": "professional creative agency dark studio editing cinematic production",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2186859168",
+      "https://img1.wsimg.com/isteam/getty/1012246042"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:04:06.567Z",
+    "lastUpdated": "2026-09-17T15:04:06.567Z",
+    "gettyId": "2239299480",
+    "alternativeGettyIds": [
+      "2186859168",
+      "1012246042"
+    ]
+  },
+  "pages/home/service-3d-cgi": {
+    "requestedSize": {
+      "width": 800,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1153899947",
+    "searchQuery": "3D CGI render environment dark futuristic digital animation",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2228306362"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:04:07.831Z",
+    "lastUpdated": "2026-09-17T15:04:07.831Z",
+    "gettyId": "1153899947",
+    "alternativeGettyIds": [
+      "2228306362"
+    ]
+  },
+  "pages/home/service-branding": {
+    "requestedSize": {
+      "width": 800,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2292398345",
+    "searchQuery": "luxury brand design creative direction dark editorial photography",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1398596019"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:04:08.883Z",
+    "lastUpdated": "2026-09-17T15:04:08.883Z",
+    "gettyId": "2292398345",
+    "alternativeGettyIds": [
+      "1398596019"
+    ]
+  },
+  "pages/home/hero-video": {
+    "mediaType": "video",
+    "currentUrl": "https://blobby.wsimg.com/getty/videos/1132467989",
+    "thumbnailUrl": "https://media.gettyimages.com/id/1132467989/video/behind-the-scenes-silhouette-camera-and-camera-operator.jpg?b=1&s=192x192&k=20&c=8mvo4_vb_gKo-GeBRXnoYkgnEXJGmF_zBIbtIVHgMv4=",
+    "searchQuery": "cinematic film camera professional cinematography dark studio production",
+    "alternatives": [],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:04:10.487Z",
+    "lastUpdated": "2026-09-17T15:04:10.487Z",
+    "gettyId": "1132467989"
+  },
+  "pages/home/service-social-media": {
+    "requestedSize": {
+      "width": 800,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1485893991",
+    "searchQuery": "social media content creation professional dark studio smartphone",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2255970619"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:04:10.771Z",
+    "lastUpdated": "2026-09-17T15:04:10.771Z",
+    "gettyId": "1485893991",
+    "alternativeGettyIds": [
+      "2255970619"
+    ]
+  },
+  "pages/home/service-video-production": {
+    "requestedSize": {
+      "width": 800,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2289483530",
+    "searchQuery": "cinematic video production film camera dark professional studio lighting",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2206331269"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:04:13.414Z",
+    "lastUpdated": "2026-09-17T15:04:13.414Z",
+    "gettyId": "2289483530",
+    "alternativeGettyIds": [
+      "2206331269"
+    ]
+  },
+  "pages/home/portfolio-3": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1455318889",
+    "searchQuery": "luxury hotel hospitality dark cinematic interior photography",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1480170743"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:04:14.467Z",
+    "lastUpdated": "2026-09-17T15:04:14.467Z",
+    "gettyId": "1455318889",
+    "alternativeGettyIds": [
+      "1480170743"
+    ]
+  },
+  "pages/home/portfolio-1": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2229570789",
+    "searchQuery": "luxury commercial advertising cinematic dark dramatic photography",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1440627430"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:04:16.193Z",
+    "lastUpdated": "2026-09-17T15:04:16.193Z",
+    "gettyId": "2229570789",
+    "alternativeGettyIds": [
+      "1440627430"
+    ]
+  },
+  "pages/home/portfolio-2": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/908021140",
+    "searchQuery": "automotive luxury car dark cinematic photography dramatic lighting",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2265015996"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:04:16.463Z",
+    "lastUpdated": "2026-09-17T15:04:16.463Z",
+    "gettyId": "908021140",
+    "alternativeGettyIds": [
+      "2265015996"
+    ]
+  },
+  "pages/home/contact-cta": {
+    "requestedSize": {
+      "width": 1200,
+      "height": 800,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1349975359",
+    "searchQuery": "creative director dark studio professional cinematic production team",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2210357845"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:04:16.939Z",
+    "lastUpdated": "2026-09-17T15:04:16.939Z",
+    "gettyId": "1349975359",
+    "alternativeGettyIds": [
+      "2210357845"
+    ]
+  },
+  "pages/home/service-vfx": {
+    "requestedSize": {
+      "width": 800,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1369156549",
+    "searchQuery": "visual effects post production editing dark professional workstation",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1937031192"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:04:18.322Z",
+    "lastUpdated": "2026-09-17T15:04:18.322Z",
+    "gettyId": "1369156549",
+    "alternativeGettyIds": [
+      "1937031192"
+    ]
+  },
+  "logo/favicon": {
+    "mediaType": "logo",
+    "currentUrl": "/airo-assets/uploads/logo-favicon-6593de42.png",
+    "searchQuery": "",
+    "alternatives": [
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/c637210f-ddb2-48d9-bc37-c58b33a5a96d/favicon-transparent-01042ded-7680-4b74-b975-5d87ab104abe/logo-logo.png"
+    ],
+    "userModified": true,
+    "createdAt": "2026-09-17T15:04:19.346Z",
+    "lastUpdated": "2026-09-17T20:35:19.533Z",
+    "surfaceMode": "light",
+    "lightSurfaceUrl": "/airo-assets/uploads/logo-favicon-6593de42.png",
+    "uploadSources": {
+      "/airo-assets/uploads/logo-favicon-6593de42.png": "amyysmfmun_1789662587953_file_wNHWJ7_av8.png"
+    },
+    "uploadContentHash": "42880f2bbf4a0fb4f5dadcb8bb8de4952465a99e3aaa3194e95aafa55ea56207"
+  },
+  "pages/about/medical": {
+    "requestedSize": {
+      "width": 900,
+      "height": 700,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2205091219",
+    "searchQuery": "medical professional doctor healthcare content creation studio",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2248008668",
+      "https://img1.wsimg.com/isteam/getty/2225284548",
+      "https://img1.wsimg.com/isteam/getty/635956712",
+      "https://img1.wsimg.com/isteam/getty/2239785832"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:52:18.619Z",
+    "lastUpdated": "2026-09-17T15:52:18.619Z",
+    "gettyId": "2205091219",
+    "alternativeGettyIds": [
+      "2248008668",
+      "2225284548",
+      "635956712",
+      "2239785832"
+    ]
+  },
+  "pages/about/hero": {
+    "requestedSize": {
+      "width": 1920,
+      "height": 1080,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2105995601",
+    "searchQuery": "cinematic film production dark studio professional cinematography",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2105853585",
+      "https://img1.wsimg.com/isteam/getty/2173562661",
+      "https://img1.wsimg.com/isteam/getty/1203610729",
+      "https://img1.wsimg.com/isteam/getty/1219220319"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:52:19.728Z",
+    "lastUpdated": "2026-09-17T15:52:19.728Z",
+    "gettyId": "2105995601",
+    "alternativeGettyIds": [
+      "2105853585",
+      "2173562661",
+      "1203610729",
+      "1219220319"
+    ]
+  },
+  "pages/about/process": {
+    "requestedSize": {
+      "width": 900,
+      "height": 700,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2108872175",
+    "searchQuery": "creative agency team working dark modern office professional",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1354009766",
+      "https://img1.wsimg.com/isteam/getty/1130691390",
+      "https://img1.wsimg.com/isteam/getty/1145317045",
+      "https://img1.wsimg.com/isteam/getty/1388311832"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:52:20.688Z",
+    "lastUpdated": "2026-09-17T15:52:20.688Z",
+    "gettyId": "2108872175",
+    "alternativeGettyIds": [
+      "1354009766",
+      "1130691390",
+      "1145317045",
+      "1388311832"
+    ]
+  },
+  "pages/about/story": {
+    "requestedSize": {
+      "width": 900,
+      "height": 700,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2260083719",
+    "searchQuery": "creative director dark studio professional team collaboration",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2260083714",
+      "https://img1.wsimg.com/isteam/getty/1150899226",
+      "https://img1.wsimg.com/isteam/getty/2263278305",
+      "https://img1.wsimg.com/isteam/getty/2190360216"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:52:22.743Z",
+    "lastUpdated": "2026-09-17T15:52:22.743Z",
+    "gettyId": "2260083719",
+    "alternativeGettyIds": [
+      "2260083714",
+      "1150899226",
+      "2263278305",
+      "2190360216"
+    ]
+  },
+  "pages/about/expertise": {
+    "requestedSize": {
+      "width": 900,
+      "height": 700,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2278116769",
+    "searchQuery": "professional video production camera equipment dark cinematic",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2273319818",
+      "https://img1.wsimg.com/isteam/getty/1410016049",
+      "https://img1.wsimg.com/isteam/getty/1282341816",
+      "https://img1.wsimg.com/isteam/getty/2285132075"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:52:24.239Z",
+    "lastUpdated": "2026-09-17T15:52:24.239Z",
+    "gettyId": "2278116769",
+    "alternativeGettyIds": [
+      "2273319818",
+      "1410016049",
+      "1282341816",
+      "2285132075"
+    ]
+  },
+  "pages/services/commercial-photography": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2228002852",
+    "searchQuery": "luxury commercial product photography dark studio professional",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2284383532",
+      "https://img1.wsimg.com/isteam/getty/175178333"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:56:49.544Z",
+    "lastUpdated": "2026-09-17T15:56:49.544Z",
+    "gettyId": "2228002852",
+    "alternativeGettyIds": [
+      "2284383532",
+      "175178333"
+    ]
+  },
+  "pages/services/voiceover-audio": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1990228440",
+    "searchQuery": "voiceover recording studio microphone professional dark sound",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1451776362",
+      "https://img1.wsimg.com/isteam/getty/2250159897"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:56:50.685Z",
+    "lastUpdated": "2026-09-17T15:56:50.685Z",
+    "gettyId": "1990228440",
+    "alternativeGettyIds": [
+      "1451776362",
+      "2250159897"
+    ]
+  },
+  "pages/services/social-media-management": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1768936805",
+    "searchQuery": "social media management content strategy professional dark studio",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2286859942",
+      "https://img1.wsimg.com/isteam/getty/1502375872"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:56:52.467Z",
+    "lastUpdated": "2026-09-17T15:56:52.467Z",
+    "gettyId": "1768936805",
+    "alternativeGettyIds": [
+      "2286859942",
+      "1502375872"
+    ]
+  },
+  "pages/services/scriptwriting": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1307091834",
+    "searchQuery": "creative director scriptwriting storyboard dark professional studio",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1388957553",
+      "https://img1.wsimg.com/isteam/getty/1979883244"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:56:53.429Z",
+    "lastUpdated": "2026-09-17T15:56:53.429Z",
+    "gettyId": "1307091834",
+    "alternativeGettyIds": [
+      "1388957553",
+      "1979883244"
+    ]
+  },
+  "pages/services/medical-content": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1418512444",
+    "searchQuery": "medical doctor healthcare professional filming studio interview",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/852225428",
+      "https://img1.wsimg.com/isteam/getty/1490665488"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:56:54.309Z",
+    "lastUpdated": "2026-09-17T15:56:54.309Z",
+    "gettyId": "1418512444",
+    "alternativeGettyIds": [
+      "852225428",
+      "1490665488"
+    ]
+  },
+  "pages/services/3d-animation-cgi": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1917724786",
+    "searchQuery": "3D CGI animation render dark futuristic digital production",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2242540596",
+      "https://img1.wsimg.com/isteam/getty/2242540625"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:56:55.343Z",
+    "lastUpdated": "2026-09-17T15:56:55.343Z",
+    "gettyId": "1917724786",
+    "alternativeGettyIds": [
+      "2242540596",
+      "2242540625"
+    ]
+  },
+  "pages/services/digital-marketing": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2220332265",
+    "searchQuery": "digital marketing advertising analytics data dark professional",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2290786340",
+      "https://img1.wsimg.com/isteam/getty/2212839501"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:56:58.133Z",
+    "lastUpdated": "2026-09-17T15:56:58.133Z",
+    "gettyId": "2220332265",
+    "alternativeGettyIds": [
+      "2290786340",
+      "2212839501"
+    ]
+  },
+  "pages/services/branding-design": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1369827352",
+    "searchQuery": "brand identity graphic design creative dark editorial luxury",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2161293274",
+      "https://img1.wsimg.com/isteam/getty/2290803826"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:56:59.266Z",
+    "lastUpdated": "2026-09-17T15:56:59.266Z",
+    "gettyId": "1369827352",
+    "alternativeGettyIds": [
+      "2161293274",
+      "2290803826"
+    ]
+  },
+  "pages/services/video-production": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1135569876",
+    "searchQuery": "cinematic film production camera crew dark professional set",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2105995601",
+      "https://img1.wsimg.com/isteam/getty/1391625060"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:57:01.150Z",
+    "lastUpdated": "2026-09-17T15:57:01.150Z",
+    "gettyId": "1135569876",
+    "alternativeGettyIds": [
+      "2105995601",
+      "1391625060"
+    ]
+  },
+  "pages/services/ai-production": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2263139529",
+    "searchQuery": "artificial intelligence digital technology creative production dark abstract",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1141225062",
+      "https://img1.wsimg.com/isteam/getty/2002631951"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:57:02.225Z",
+    "lastUpdated": "2026-09-17T15:57:02.225Z",
+    "gettyId": "2263139529",
+    "alternativeGettyIds": [
+      "1141225062",
+      "2002631951"
+    ]
+  },
+  "pages/services/vfx-post-production": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1937031192",
+    "searchQuery": "visual effects post production editing dark professional monitor",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1369156549",
+      "https://img1.wsimg.com/isteam/getty/1012246042"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:57:03.563Z",
+    "lastUpdated": "2026-09-17T15:57:03.563Z",
+    "gettyId": "1937031192",
+    "alternativeGettyIds": [
+      "1369156549",
+      "1012246042"
+    ]
+  },
+  "pages/services/content-creation": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2278526919",
+    "searchQuery": "video content creator filming reels professional dark studio camera",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2267893872",
+      "https://img1.wsimg.com/isteam/getty/2272644140"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:57:05.329Z",
+    "lastUpdated": "2026-09-17T15:57:05.329Z",
+    "gettyId": "2278526919",
+    "alternativeGettyIds": [
+      "2267893872",
+      "2272644140"
+    ]
+  },
+  "pages/services/website-design": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2217250820",
+    "searchQuery": "website design UI UX dark screen professional digital",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1304835109",
+      "https://img1.wsimg.com/isteam/getty/2208156879"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:57:07.201Z",
+    "lastUpdated": "2026-09-17T15:57:07.201Z",
+    "gettyId": "2217250820",
+    "alternativeGettyIds": [
+      "1304835109",
+      "2208156879"
+    ]
+  },
+  "pages/services/luxury-advertising": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2215839848",
+    "searchQuery": "luxury advertising automotive perfume dark cinematic dramatic",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1334517206",
+      "https://img1.wsimg.com/isteam/getty/2149954181"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:57:08.479Z",
+    "lastUpdated": "2026-09-17T15:57:08.479Z",
+    "gettyId": "2215839848",
+    "alternativeGettyIds": [
+      "1334517206",
+      "2149954181"
+    ]
+  },
+  "pages/services/content-creator": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2207520374",
+    "searchQuery": "influencer content creator filming professional studio dark camera",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2207519970",
+      "https://img1.wsimg.com/isteam/getty/2292288590"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:57:10.033Z",
+    "lastUpdated": "2026-09-17T15:57:10.033Z",
+    "gettyId": "2207520374",
+    "alternativeGettyIds": [
+      "2207519970",
+      "2292288590"
+    ]
+  },
+  "pages/services/podcast-production": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2200119521",
+    "searchQuery": "podcast studio professional microphone dark recording broadcast",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2200179639",
+      "https://img1.wsimg.com/isteam/getty/2203861345"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T15:57:10.861Z",
+    "lastUpdated": "2026-09-17T15:57:10.861Z",
+    "gettyId": "2200119521",
+    "alternativeGettyIds": [
+      "2200179639",
+      "2203861345"
+    ]
+  },
+  "pages/industries/arts-entertainment": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1468187875",
+    "searchQuery": "arts entertainment performance dark dramatic cinematic stage",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2269711537",
+      "https://img1.wsimg.com/isteam/getty/2229570789"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:03:00.220Z",
+    "lastUpdated": "2026-09-17T16:03:00.220Z",
+    "gettyId": "1468187875",
+    "alternativeGettyIds": [
+      "2269711537",
+      "2229570789"
+    ]
+  },
+  "pages/industries/interior-design": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2174023008",
+    "searchQuery": "luxury interior design furniture dark elegant cinematic",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2277632393",
+      "https://img1.wsimg.com/isteam/getty/2242719207"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:03:03.935Z",
+    "lastUpdated": "2026-09-17T16:03:03.935Z",
+    "gettyId": "2174023008",
+    "alternativeGettyIds": [
+      "2277632393",
+      "2242719207"
+    ]
+  },
+  "pages/industries/restaurants-dining": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2182329274",
+    "searchQuery": "fine dining restaurant dark elegant cinematic food luxury",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1445691943",
+      "https://img1.wsimg.com/isteam/getty/1254067055"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:03:05.050Z",
+    "lastUpdated": "2026-09-17T16:03:05.050Z",
+    "gettyId": "2182329274",
+    "alternativeGettyIds": [
+      "1445691943",
+      "1254067055"
+    ]
+  },
+  "pages/industries/luxury-brands": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2265451413",
+    "searchQuery": "luxury brand dark cinematic elegant premium product",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2240814250",
+      "https://img1.wsimg.com/isteam/getty/2285467471"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:03:05.940Z",
+    "lastUpdated": "2026-09-17T16:03:05.940Z",
+    "gettyId": "2265451413",
+    "alternativeGettyIds": [
+      "2240814250",
+      "2285467471"
+    ]
+  },
+  "pages/industries/real-estate": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2170561826",
+    "searchQuery": "luxury real estate property development dark architectural cinematic",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2031316057",
+      "https://img1.wsimg.com/isteam/getty/2260206371"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:03:07.416Z",
+    "lastUpdated": "2026-09-17T16:03:07.416Z",
+    "gettyId": "2170561826",
+    "alternativeGettyIds": [
+      "2031316057",
+      "2260206371"
+    ]
+  },
+  "pages/industries/perfume-fragrance": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2247578921",
+    "searchQuery": "luxury perfume fragrance bottle dark cinematic dramatic",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2293579162",
+      "https://img1.wsimg.com/isteam/getty/2272142953"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:03:09.048Z",
+    "lastUpdated": "2026-09-17T16:03:09.048Z",
+    "gettyId": "2247578921",
+    "alternativeGettyIds": [
+      "2293579162",
+      "2272142953"
+    ]
+  },
+  "pages/industries/healthcare-hospitals": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2157724375",
+    "searchQuery": "hospital healthcare professional dark cinematic modern",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1043634632",
+      "https://img1.wsimg.com/isteam/getty/2257869830"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:03:10.256Z",
+    "lastUpdated": "2026-09-17T16:03:10.256Z",
+    "gettyId": "2157724375",
+    "alternativeGettyIds": [
+      "1043634632",
+      "2257869830"
+    ]
+  },
+  "pages/industries/tourism-travel": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1705603474",
+    "searchQuery": "luxury travel destination cinematic dark dramatic landscape",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/638595154",
+      "https://img1.wsimg.com/isteam/getty/1550792215"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:03:11.480Z",
+    "lastUpdated": "2026-09-17T16:03:11.480Z",
+    "gettyId": "1705603474",
+    "alternativeGettyIds": [
+      "638595154",
+      "1550792215"
+    ]
+  },
+  "pages/industries/beauty-cosmetics": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1500602423",
+    "searchQuery": "beauty cosmetics luxury dark cinematic product editorial",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1714693582",
+      "https://img1.wsimg.com/isteam/getty/1500604813"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:03:12.851Z",
+    "lastUpdated": "2026-09-17T16:03:12.851Z",
+    "gettyId": "1500602423",
+    "alternativeGettyIds": [
+      "1714693582",
+      "1500604813"
+    ]
+  },
+  "pages/industries/retail-ecommerce": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2248401702",
+    "searchQuery": "retail luxury shopping dark cinematic product display",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/899740684",
+      "https://img1.wsimg.com/isteam/getty/2128412866"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:03:13.587Z",
+    "lastUpdated": "2026-09-17T16:03:13.587Z",
+    "gettyId": "2248401702",
+    "alternativeGettyIds": [
+      "899740684",
+      "2128412866"
+    ]
+  },
+  "pages/industries/hotels-resorts": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2249880221",
+    "searchQuery": "luxury hotel resort dark cinematic elegant interior",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2202646605",
+      "https://img1.wsimg.com/isteam/getty/1455318889"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:03:14.941Z",
+    "lastUpdated": "2026-09-17T16:03:14.941Z",
+    "gettyId": "2249880221",
+    "alternativeGettyIds": [
+      "2202646605",
+      "1455318889"
+    ]
+  },
+  "pages/industries/automotive": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2265015996",
+    "searchQuery": "luxury automotive car dark cinematic dramatic studio",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2148110386",
+      "https://img1.wsimg.com/isteam/getty/970105988"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:03:16.265Z",
+    "lastUpdated": "2026-09-17T16:03:16.265Z",
+    "gettyId": "2265015996",
+    "alternativeGettyIds": [
+      "2148110386",
+      "970105988"
+    ]
+  },
+  "pages/industries/medical-clinics": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2214265813",
+    "searchQuery": "medical clinic doctor consultation professional dark studio",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1459277005",
+      "https://img1.wsimg.com/isteam/getty/2288164607"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:03:17.405Z",
+    "lastUpdated": "2026-09-17T16:03:17.405Z",
+    "gettyId": "2214265813",
+    "alternativeGettyIds": [
+      "1459277005",
+      "2288164607"
+    ]
+  },
+  "pages/industries/sports-fitness": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1356540658",
+    "searchQuery": "sports fitness athlete dark dramatic cinematic professional",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/860069526",
+      "https://img1.wsimg.com/isteam/getty/1837763568"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:03:19.170Z",
+    "lastUpdated": "2026-09-17T16:03:19.170Z",
+    "gettyId": "1356540658",
+    "alternativeGettyIds": [
+      "860069526",
+      "1837763568"
+    ]
+  },
+  "pages/industries/education": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2261719770",
+    "searchQuery": "education university learning dark professional modern",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2259360297",
+      "https://img1.wsimg.com/isteam/getty/2225606872"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:03:20.059Z",
+    "lastUpdated": "2026-09-17T16:03:20.059Z",
+    "gettyId": "2261719770",
+    "alternativeGettyIds": [
+      "2259360297",
+      "2225606872"
+    ]
+  },
+  "pages/industries/technology": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2155587771",
+    "searchQuery": "technology innovation dark futuristic digital professional",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2178485658",
+      "https://img1.wsimg.com/isteam/getty/2252873401"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:03:21.159Z",
+    "lastUpdated": "2026-09-17T16:03:21.159Z",
+    "gettyId": "2155587771",
+    "alternativeGettyIds": [
+      "2178485658",
+      "2252873401"
+    ]
+  },
+  "pages/industries/fashion-lifestyle": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1430286160",
+    "searchQuery": "luxury fashion lifestyle dark editorial cinematic model",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2115197354",
+      "https://img1.wsimg.com/isteam/getty/1391187951"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:03:22.264Z",
+    "lastUpdated": "2026-09-17T16:03:22.264Z",
+    "gettyId": "1430286160",
+    "alternativeGettyIds": [
+      "2115197354",
+      "1391187951"
+    ]
+  },
+  "pages/industries/corporate": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2224880833",
+    "searchQuery": "corporate business professional dark modern office executive",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1705796790",
+      "https://img1.wsimg.com/isteam/getty/1705796778"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:03:24.110Z",
+    "lastUpdated": "2026-09-17T16:03:24.110Z",
+    "gettyId": "2224880833",
+    "alternativeGettyIds": [
+      "1705796790",
+      "1705796778"
+    ]
+  },
+  "pages/portfolio/medical-01": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1959739757",
+    "searchQuery": "medical doctor healthcare professional dark cinematic studio portrait",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/862718166",
+      "https://img1.wsimg.com/isteam/getty/2190085135",
+      "https://img1.wsimg.com/isteam/getty/2183432591",
+      "https://img1.wsimg.com/isteam/getty/1467112565"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:07:34.427Z",
+    "lastUpdated": "2026-09-17T16:07:34.427Z",
+    "gettyId": "1959739757",
+    "alternativeGettyIds": [
+      "862718166",
+      "2190085135",
+      "2183432591",
+      "1467112565"
+    ]
+  },
+  "pages/portfolio/cinematic-01": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1391625060",
+    "searchQuery": "cinematic film production camera dark dramatic professional set",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2105995601",
+      "https://img1.wsimg.com/isteam/getty/2173562661",
+      "https://img1.wsimg.com/isteam/getty/1203610729",
+      "https://img1.wsimg.com/isteam/getty/1219220319"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:07:36.464Z",
+    "lastUpdated": "2026-09-17T16:07:36.464Z",
+    "gettyId": "1391625060",
+    "alternativeGettyIds": [
+      "2105995601",
+      "2173562661",
+      "1203610729",
+      "1219220319"
+    ]
+  },
+  "pages/portfolio/ai-01": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2266733884",
+    "searchQuery": "artificial intelligence digital abstract glowing dark technology",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2263139529",
+      "https://img1.wsimg.com/isteam/getty/2260463768",
+      "https://img1.wsimg.com/isteam/getty/1371766879",
+      "https://img1.wsimg.com/isteam/getty/2267621669"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:07:37.118Z",
+    "lastUpdated": "2026-09-17T16:07:37.118Z",
+    "gettyId": "2266733884",
+    "alternativeGettyIds": [
+      "2263139529",
+      "2260463768",
+      "1371766879",
+      "2267621669"
+    ]
+  },
+  "pages/portfolio/cgi-01": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2242540596",
+    "searchQuery": "3D CGI render abstract futuristic dark digital environment",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2257104912",
+      "https://img1.wsimg.com/isteam/getty/2228306404",
+      "https://img1.wsimg.com/isteam/getty/2228306337",
+      "https://img1.wsimg.com/isteam/getty/2223274939"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:07:37.465Z",
+    "lastUpdated": "2026-09-17T16:07:37.465Z",
+    "gettyId": "2242540596",
+    "alternativeGettyIds": [
+      "2257104912",
+      "2228306404",
+      "2228306337",
+      "2223274939"
+    ]
+  },
+  "pages/portfolio/automotive-01": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1355304357",
+    "searchQuery": "luxury sports car dark dramatic studio cinematic advertising",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/961809650",
+      "https://img1.wsimg.com/isteam/getty/1429829435",
+      "https://img1.wsimg.com/isteam/getty/2280952632",
+      "https://img1.wsimg.com/isteam/getty/908021140"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:07:38.706Z",
+    "lastUpdated": "2026-09-17T16:07:38.706Z",
+    "gettyId": "1355304357",
+    "alternativeGettyIds": [
+      "961809650",
+      "1429829435",
+      "2280952632",
+      "908021140"
+    ]
+  },
+  "pages/portfolio/cinematic-04": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2260095205",
+    "searchQuery": "cinematic portrait dramatic dark moody lighting professional",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2272163980",
+      "https://img1.wsimg.com/isteam/getty/2256768695",
+      "https://img1.wsimg.com/isteam/getty/1494832599"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:07:51.824Z",
+    "lastUpdated": "2026-09-17T16:07:51.824Z",
+    "gettyId": "2260095205",
+    "alternativeGettyIds": [
+      "2272163980",
+      "2256768695",
+      "1494832599"
+    ]
+  },
+  "pages/portfolio/cinematic-03": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2272136017",
+    "searchQuery": "professional video production lighting dark dramatic studio crew",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2149100039",
+      "https://img1.wsimg.com/isteam/getty/2272136010",
+      "https://img1.wsimg.com/isteam/getty/1359494231"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:07:52.610Z",
+    "lastUpdated": "2026-09-17T16:07:52.610Z",
+    "gettyId": "2272136017",
+    "alternativeGettyIds": [
+      "2149100039",
+      "2272136010",
+      "1359494231"
+    ]
+  },
+  "pages/portfolio/automotive-02": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2205539155",
+    "searchQuery": "luxury car headlights dark night dramatic motion blur",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1444952404",
+      "https://img1.wsimg.com/isteam/getty/2238429281",
+      "https://img1.wsimg.com/isteam/getty/108222468"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:07:54.495Z",
+    "lastUpdated": "2026-09-17T16:07:54.495Z",
+    "gettyId": "2205539155",
+    "alternativeGettyIds": [
+      "1444952404",
+      "2238429281",
+      "108222468"
+    ]
+  },
+  "pages/portfolio/cinematic-02": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2210359225",
+    "searchQuery": "film director cinematographer dark moody studio behind scenes",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1129464294",
+      "https://img1.wsimg.com/isteam/getty/2105995601",
+      "https://img1.wsimg.com/isteam/getty/108351008"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:07:56.677Z",
+    "lastUpdated": "2026-09-17T16:07:56.677Z",
+    "gettyId": "2210359225",
+    "alternativeGettyIds": [
+      "1129464294",
+      "2105995601",
+      "108351008"
+    ]
+  },
+  "pages/portfolio/automotive-03": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1165525437",
+    "searchQuery": "sports car interior cockpit dark cinematic luxury detail",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1325902943",
+      "https://img1.wsimg.com/isteam/getty/2289536861",
+      "https://img1.wsimg.com/isteam/getty/1164925431"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:07:59.693Z",
+    "lastUpdated": "2026-09-17T16:07:59.693Z",
+    "gettyId": "1165525437",
+    "alternativeGettyIds": [
+      "1325902943",
+      "2289536861",
+      "1164925431"
+    ]
+  },
+  "pages/portfolio/cgi-02": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1222227258",
+    "searchQuery": "photorealistic 3D product render dark luxury abstract CGI",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1314689780",
+      "https://img1.wsimg.com/isteam/getty/2209051948",
+      "https://img1.wsimg.com/isteam/getty/1352147387"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:08:17.610Z",
+    "lastUpdated": "2026-09-17T16:08:17.610Z",
+    "gettyId": "1222227258",
+    "alternativeGettyIds": [
+      "1314689780",
+      "2209051948",
+      "1352147387"
+    ]
+  },
+  "pages/portfolio/automotive-04": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2249686809",
+    "searchQuery": "luxury car exterior dark rain reflections dramatic cinematic",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1547211594",
+      "https://img1.wsimg.com/isteam/getty/1141145653",
+      "https://img1.wsimg.com/isteam/getty/2198423539"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:08:19.337Z",
+    "lastUpdated": "2026-09-17T16:08:19.337Z",
+    "gettyId": "2249686809",
+    "alternativeGettyIds": [
+      "1547211594",
+      "1141145653",
+      "2198423539"
+    ]
+  },
+  "pages/portfolio/medical-03": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1709919752",
+    "searchQuery": "medical 3D anatomy science visualization dark blue digital",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1709919731",
+      "https://img1.wsimg.com/isteam/getty/1715546256",
+      "https://img1.wsimg.com/isteam/getty/1715545209"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:08:20.246Z",
+    "lastUpdated": "2026-09-17T16:08:20.246Z",
+    "gettyId": "1709919752",
+    "alternativeGettyIds": [
+      "1709919731",
+      "1715546256",
+      "1715545209"
+    ]
+  },
+  "pages/portfolio/medical-02": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1394904718",
+    "searchQuery": "surgeon operating room dark dramatic professional medical",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1191652220",
+      "https://img1.wsimg.com/isteam/getty/1540853904",
+      "https://img1.wsimg.com/isteam/getty/1330728677"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:08:22.119Z",
+    "lastUpdated": "2026-09-17T16:08:22.119Z",
+    "gettyId": "1394904718",
+    "alternativeGettyIds": [
+      "1191652220",
+      "1540853904",
+      "1330728677"
+    ]
+  },
+  "pages/portfolio/medical-04": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2244236844",
+    "searchQuery": "healthcare clinic professional interview dark studio lighting",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1838017140",
+      "https://img1.wsimg.com/isteam/getty/2195008949",
+      "https://img1.wsimg.com/isteam/getty/1367547093"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:08:23.590Z",
+    "lastUpdated": "2026-09-17T16:08:23.590Z",
+    "gettyId": "2244236844",
+    "alternativeGettyIds": [
+      "1838017140",
+      "2195008949",
+      "1367547093"
+    ]
+  },
+  "pages/portfolio/ai-03": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2226611713",
+    "searchQuery": "AI generated digital art abstract dark futuristic creative",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2267621669",
+      "https://img1.wsimg.com/isteam/getty/2169848685",
+      "https://img1.wsimg.com/isteam/getty/2169848681"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:08:36.563Z",
+    "lastUpdated": "2026-09-17T16:08:36.563Z",
+    "gettyId": "2226611713",
+    "alternativeGettyIds": [
+      "2267621669",
+      "2169848685",
+      "2169848681"
+    ]
+  },
+  "pages/portfolio/cgi-04": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1331135724",
+    "searchQuery": "skeleton watch mechanism close up detail",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2282218779",
+      "https://img1.wsimg.com/isteam/getty/2293284049",
+      "https://img1.wsimg.com/isteam/getty/2249578145",
+      "https://img1.wsimg.com/isteam/getty/2220217981"
+    ],
+    "userModified": true,
+    "createdAt": "2026-09-17T16:08:39.445Z",
+    "lastUpdated": "2026-09-17T19:56:56.326Z",
+    "alternativeGettyIds": [
+      "2282218779",
+      "2293284049",
+      "2249578145",
+      "2220217981"
+    ],
+    "caption": "skeleton watch mechanism close up detail"
+  },
+  "pages/portfolio/ai-04": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1373119580",
+    "searchQuery": "machine learning data science dark technology visualization",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1492457274",
+      "https://img1.wsimg.com/isteam/getty/1752905583",
+      "https://img1.wsimg.com/isteam/getty/2249363005"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:08:42.324Z",
+    "lastUpdated": "2026-09-17T16:08:42.324Z",
+    "gettyId": "1373119580",
+    "alternativeGettyIds": [
+      "1492457274",
+      "1752905583",
+      "2249363005"
+    ]
+  },
+  "pages/portfolio/cgi-03": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1447004239",
+    "searchQuery": "3D architectural visualization building dark dramatic render",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2170561826",
+      "https://img1.wsimg.com/isteam/getty/1516938158",
+      "https://img1.wsimg.com/isteam/getty/1271138539"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:08:46.761Z",
+    "lastUpdated": "2026-09-17T16:08:46.761Z",
+    "gettyId": "1447004239",
+    "alternativeGettyIds": [
+      "2170561826",
+      "1516938158",
+      "1271138539"
+    ]
+  },
+  "pages/portfolio/ai-02": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2286344819",
+    "searchQuery": "AI neural network visualization dark blue glowing digital",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2267621669",
+      "https://img1.wsimg.com/isteam/getty/2280253225",
+      "https://img1.wsimg.com/isteam/getty/2267760113"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:08:48.079Z",
+    "lastUpdated": "2026-09-17T16:08:48.079Z",
+    "gettyId": "2286344819",
+    "alternativeGettyIds": [
+      "2267621669",
+      "2280253225",
+      "2267760113"
+    ]
+  },
+  "pages/portfolio/realestate-01": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2277418183",
+    "searchQuery": "luxury residential property exterior night dramatic architecture",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2289596504",
+      "https://img1.wsimg.com/isteam/getty/2254966328",
+      "https://img1.wsimg.com/isteam/getty/2262551800"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:09:01.257Z",
+    "lastUpdated": "2026-09-17T16:09:01.257Z",
+    "gettyId": "2277418183",
+    "alternativeGettyIds": [
+      "2289596504",
+      "2254966328",
+      "2262551800"
+    ]
+  },
+  "pages/portfolio/realestate-04": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2286895519",
+    "searchQuery": "luxury villa pool dark night cinematic architectural",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2101307720",
+      "https://img1.wsimg.com/isteam/getty/1271791858",
+      "https://img1.wsimg.com/isteam/getty/1492313721"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:09:02.483Z",
+    "lastUpdated": "2026-09-17T16:09:02.483Z",
+    "gettyId": "2286895519",
+    "alternativeGettyIds": [
+      "2101307720",
+      "1271791858",
+      "1492313721"
+    ]
+  },
+  "pages/portfolio/realestate-03": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1405004417",
+    "searchQuery": "aerial drone city skyline night luxury real estate",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1812298054",
+      "https://img1.wsimg.com/isteam/getty/1366334853",
+      "https://img1.wsimg.com/isteam/getty/1722829100"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:09:05.319Z",
+    "lastUpdated": "2026-09-17T16:09:05.319Z",
+    "gettyId": "1405004417",
+    "alternativeGettyIds": [
+      "1812298054",
+      "1366334853",
+      "1722829100"
+    ]
+  },
+  "pages/portfolio/realestate-02": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2281701603",
+    "searchQuery": "luxury penthouse interior dark dramatic modern architecture",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2281701581",
+      "https://img1.wsimg.com/isteam/getty/1363817537",
+      "https://img1.wsimg.com/isteam/getty/1455319673"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:09:06.734Z",
+    "lastUpdated": "2026-09-17T16:09:06.734Z",
+    "gettyId": "2281701603",
+    "alternativeGettyIds": [
+      "2281701581",
+      "1363817537",
+      "1455319673"
+    ]
+  },
+  "pages/portfolio/interior-01": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2242719242",
+    "searchQuery": "luxury interior design dark moody living room dramatic lighting",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1455318889",
+      "https://img1.wsimg.com/isteam/getty/1624395436",
+      "https://img1.wsimg.com/isteam/getty/1089787116"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:09:09.721Z",
+    "lastUpdated": "2026-09-17T16:09:09.721Z",
+    "gettyId": "2242719242",
+    "alternativeGettyIds": [
+      "1455318889",
+      "1624395436",
+      "1089787116"
+    ]
+  },
+  "pages/portfolio/interior-02": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1478962897",
+    "searchQuery": "luxury bedroom dark elegant cinematic interior design",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1478962900",
+      "https://img1.wsimg.com/isteam/getty/1353440472",
+      "https://img1.wsimg.com/isteam/getty/1454430108"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:09:23.423Z",
+    "lastUpdated": "2026-09-17T16:09:23.423Z",
+    "gettyId": "1478962897",
+    "alternativeGettyIds": [
+      "1478962900",
+      "1353440472",
+      "1454430108"
+    ]
+  },
+  "pages/portfolio/hotel-02": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2167389167",
+    "searchQuery": "luxury hotel pool night dark dramatic resort cinematic",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/116407095",
+      "https://img1.wsimg.com/isteam/getty/1198357650",
+      "https://img1.wsimg.com/isteam/getty/907614450"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:09:24.661Z",
+    "lastUpdated": "2026-09-17T16:09:24.661Z",
+    "gettyId": "2167389167",
+    "alternativeGettyIds": [
+      "116407095",
+      "1198357650",
+      "907614450"
+    ]
+  },
+  "pages/portfolio/interior-03": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2276009871",
+    "searchQuery": "luxury kitchen dark marble countertop modern interior",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2269022896",
+      "https://img1.wsimg.com/isteam/getty/1431962143",
+      "https://img1.wsimg.com/isteam/getty/2284268586"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:09:27.125Z",
+    "lastUpdated": "2026-09-17T16:09:27.125Z",
+    "gettyId": "2276009871",
+    "alternativeGettyIds": [
+      "2269022896",
+      "1431962143",
+      "2284268586"
+    ]
+  },
+  "pages/portfolio/interior-04": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2249188945",
+    "searchQuery": "luxury furniture showroom dark dramatic editorial photography",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2174023008",
+      "https://img1.wsimg.com/isteam/getty/949748600",
+      "https://img1.wsimg.com/isteam/getty/2159352095"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:09:28.785Z",
+    "lastUpdated": "2026-09-17T16:09:28.785Z",
+    "gettyId": "2249188945",
+    "alternativeGettyIds": [
+      "2174023008",
+      "949748600",
+      "2159352095"
+    ]
+  },
+  "pages/portfolio/hotel-01": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2291829653",
+    "searchQuery": "luxury hotel lobby dark elegant marble cinematic interior",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2249880221",
+      "https://img1.wsimg.com/isteam/getty/1337655533",
+      "https://img1.wsimg.com/isteam/getty/2176749302"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:09:30.396Z",
+    "lastUpdated": "2026-09-17T16:09:30.396Z",
+    "gettyId": "2291829653",
+    "alternativeGettyIds": [
+      "2249880221",
+      "1337655533",
+      "2176749302"
+    ]
+  },
+  "pages/portfolio/hotel-03": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2246572881",
+    "searchQuery": "luxury hotel suite dark cinematic bedroom dramatic lighting",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1480170692",
+      "https://img1.wsimg.com/isteam/getty/2277337499",
+      "https://img1.wsimg.com/isteam/getty/1316757388"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:09:44.975Z",
+    "lastUpdated": "2026-09-17T16:09:44.975Z",
+    "gettyId": "2246572881",
+    "alternativeGettyIds": [
+      "1480170692",
+      "2277337499",
+      "1316757388"
+    ]
+  },
+  "pages/portfolio/beauty-01": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2293579162",
+    "searchQuery": "luxury perfume bottle dark dramatic cinematic product photography",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2247578921",
+      "https://img1.wsimg.com/isteam/getty/2272142953",
+      "https://img1.wsimg.com/isteam/getty/896987468"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:09:47.531Z",
+    "lastUpdated": "2026-09-17T16:09:47.531Z",
+    "gettyId": "2293579162",
+    "alternativeGettyIds": [
+      "2247578921",
+      "2272142953",
+      "896987468"
+    ]
+  },
+  "pages/portfolio/beauty-03": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2289825422",
+    "searchQuery": "luxury skincare product dark background dramatic light",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2292122959",
+      "https://img1.wsimg.com/isteam/getty/2258514689",
+      "https://img1.wsimg.com/isteam/getty/2268426734"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:09:49.367Z",
+    "lastUpdated": "2026-09-17T16:09:49.367Z",
+    "gettyId": "2289825422",
+    "alternativeGettyIds": [
+      "2292122959",
+      "2258514689",
+      "2268426734"
+    ]
+  },
+  "pages/portfolio/beauty-02": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2193641586",
+    "searchQuery": "beauty cosmetics makeup dark editorial luxury cinematic",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1448655692",
+      "https://img1.wsimg.com/isteam/getty/1347847371",
+      "https://img1.wsimg.com/isteam/getty/1447590641"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:09:52.086Z",
+    "lastUpdated": "2026-09-17T16:09:52.086Z",
+    "gettyId": "2193641586",
+    "alternativeGettyIds": [
+      "1448655692",
+      "1347847371",
+      "1447590641"
+    ]
+  },
+  "pages/portfolio/hotel-04": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1445691943",
+    "searchQuery": "luxury restaurant fine dining dark elegant cinematic ambience",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2182329274",
+      "https://img1.wsimg.com/isteam/getty/2253901509",
+      "https://img1.wsimg.com/isteam/getty/1254067055"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:09:53.852Z",
+    "lastUpdated": "2026-09-17T16:09:53.852Z",
+    "gettyId": "1445691943",
+    "alternativeGettyIds": [
+      "2182329274",
+      "2253901509",
+      "1254067055"
+    ]
+  },
+  "pages/portfolio/social-03": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2203861345",
+    "searchQuery": "podcast recording studio dark professional microphone broadcast",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2235675176",
+      "https://img1.wsimg.com/isteam/getty/2196621300",
+      "https://img1.wsimg.com/isteam/getty/2282819492"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:10:08.149Z",
+    "lastUpdated": "2026-09-17T16:10:08.149Z",
+    "gettyId": "2203861345",
+    "alternativeGettyIds": [
+      "2235675176",
+      "2196621300",
+      "2282819492"
+    ]
+  },
+  "pages/portfolio/beauty-04": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1497138074",
+    "searchQuery": "luxury fragrance advertising dark dramatic woman editorial",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1466793431",
+      "https://img1.wsimg.com/isteam/getty/1048803736",
+      "https://img1.wsimg.com/isteam/getty/1134281096"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:10:10.004Z",
+    "lastUpdated": "2026-09-17T16:10:10.004Z",
+    "gettyId": "1497138074",
+    "alternativeGettyIds": [
+      "1466793431",
+      "1048803736",
+      "1134281096"
+    ]
+  },
+  "pages/portfolio/social-02": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1491459228",
+    "searchQuery": "social media influencer dark studio professional lighting portrait",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2211449842",
+      "https://img1.wsimg.com/isteam/getty/1726244695",
+      "https://img1.wsimg.com/isteam/getty/1255044177"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:10:11.517Z",
+    "lastUpdated": "2026-09-17T16:10:11.517Z",
+    "gettyId": "1491459228",
+    "alternativeGettyIds": [
+      "2211449842",
+      "1726244695",
+      "1255044177"
+    ]
+  },
+  "pages/portfolio/social-01": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2207520438",
+    "searchQuery": "content creator professional studio filming dark camera setup",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2217280065",
+      "https://img1.wsimg.com/isteam/getty/1516112493",
+      "https://img1.wsimg.com/isteam/getty/1390318645"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:10:12.900Z",
+    "lastUpdated": "2026-09-17T16:10:12.900Z",
+    "gettyId": "2207520438",
+    "alternativeGettyIds": [
+      "2217280065",
+      "1516112493",
+      "1390318645"
+    ]
+  },
+  "pages/portfolio/social-04": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2289646026",
+    "searchQuery": "social media content production dark studio phone camera reel",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/936422184",
+      "https://img1.wsimg.com/isteam/getty/2170776893",
+      "https://img1.wsimg.com/isteam/getty/2207962255"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:10:14.548Z",
+    "lastUpdated": "2026-09-17T16:10:14.548Z",
+    "gettyId": "2289646026",
+    "alternativeGettyIds": [
+      "936422184",
+      "2170776893",
+      "2207962255"
+    ]
+  },
+  "logo/primary": {
+    "mediaType": "logo",
+    "currentUrl": "/airo-assets/uploads/logo-primary-bf36455f.png",
+    "searchQuery": "",
+    "alternatives": [
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/7b2309e8-b68b-4e1f-94ea-2a57d6698ede/transparent-e4d49001-0644-4d40-8be0-c430ff508f98/logo-logo.png"
+    ],
+    "productMockupsMap": {
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/f68864d7-f9b8-4851-94e2-56cb488e8b7b/transparent-6c94db5f-7266-46d5-ab22-8efef036a8db/logo-logo.png": [
+        {
+          "type": "mug",
+          "label": "Mug",
+          "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/f68864d7-f9b8-4851-94e2-56cb488e8b7b/mockup-mug-6c94db5f-7266-46d5-ab22-8efef036a8db/logo-logo.png"
+        },
+        {
+          "type": "card",
+          "label": "Business Card",
+          "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/f68864d7-f9b8-4851-94e2-56cb488e8b7b/mockup-card-6c94db5f-7266-46d5-ab22-8efef036a8db/logo-logo.png"
+        },
+        {
+          "type": "tshirt",
+          "label": "T-Shirt",
+          "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/f68864d7-f9b8-4851-94e2-56cb488e8b7b/mockup-tshirt-6c94db5f-7266-46d5-ab22-8efef036a8db/logo-logo.png"
+        },
+        {
+          "type": "box",
+          "label": "Packaging",
+          "url": "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/f68864d7-f9b8-4851-94e2-56cb488e8b7b/mockup-box-6c94db5f-7266-46d5-ab22-8efef036a8db/logo-logo.png"
+        }
+      ]
+    },
+    "userModified": true,
+    "createdAt": "2026-09-17T16:30:17.418Z",
+    "lastUpdated": "2026-09-17T20:35:19.533Z",
+    "surfaceMode": "light",
+    "lightSurfaceUrl": "/airo-assets/uploads/logo-primary-bf36455f.png",
+    "uploadSources": {
+      "/airo-assets/uploads/logo-primary-bf36455f.png": "amyysmfmun_1789662587953_file_wNHWJ7_av8.png"
+    },
+    "uploadContentHash": "42880f2bbf4a0fb4f5dadcb8bb8de4952465a99e3aaa3194e95aafa55ea56207",
+    "naturalOrientation": "square"
+  },
+  "logo/vertical": {
+    "mediaType": "logo",
+    "currentUrl": "/airo-assets/uploads/logo-vertical-81dfdf45.png",
+    "searchQuery": "",
+    "alternatives": [
+      "https://isteam.wsimg.com/genai-assistant/logoagent/customer/3a8469e0-6a29-424f-8bf0-4e6a7d6b8712/session/c1836bc2-b007-4dbd-91f9-f0b99819adb0/vertical-transparent-a092eb57-b615-4c7e-9b64-8560ceedc5b7/logo-logo.png"
+    ],
+    "userModified": true,
+    "createdAt": "2026-09-17T16:30:17.418Z",
+    "lastUpdated": "2026-09-17T20:35:19.533Z",
+    "surfaceMode": "light",
+    "lightSurfaceUrl": "/airo-assets/uploads/logo-vertical-81dfdf45.png",
+    "uploadSources": {
+      "/airo-assets/uploads/logo-vertical-81dfdf45.png": "amyysmfmun_1789662587953_file_wNHWJ7_av8.png"
+    },
+    "uploadContentHash": "42880f2bbf4a0fb4f5dadcb8bb8de4952465a99e3aaa3194e95aafa55ea56207",
+    "naturalOrientation": "vertical"
+  },
+  "pages/services/social-media-advertising": {
+    "requestedSize": {
+      "width": 800,
+      "height": 450,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2281129058",
+    "searchQuery": "paid social media advertising campaign digital marketing dark professional",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2256972569",
+      "https://img1.wsimg.com/isteam/getty/2265370921"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:38:01.727Z",
+    "lastUpdated": "2026-09-17T16:38:01.727Z",
+    "gettyId": "2281129058",
+    "alternativeGettyIds": [
+      "2256972569",
+      "2265370921"
+    ]
+  },
+  "pages/services/integrated-advertising": {
+    "requestedSize": {
+      "width": 800,
+      "height": 450,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1381334524",
+    "searchQuery": "integrated digital advertising multi-channel campaign dark cinematic production",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2234997888",
+      "https://img1.wsimg.com/isteam/getty/626071554"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:38:02.605Z",
+    "lastUpdated": "2026-09-17T16:38:02.605Z",
+    "gettyId": "1381334524",
+    "alternativeGettyIds": [
+      "2234997888",
+      "626071554"
+    ]
+  },
+  "pages/services/influencer-marketing": {
+    "requestedSize": {
+      "width": 800,
+      "height": 450,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2154699835",
+    "searchQuery": "influencer content creator filming professional studio dark cinematic",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2207520438",
+      "https://img1.wsimg.com/isteam/getty/2207519970"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T16:38:02.975Z",
+    "lastUpdated": "2026-09-17T16:38:02.975Z",
+    "gettyId": "2154699835",
+    "alternativeGettyIds": [
+      "2207520438",
+      "2207519970"
+    ]
+  },
+  "pages/luxury-brands/gallery-diamond-ring": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/137838640",
+    "searchQuery": "diamond ring artistic lighting black background luxury jewellery",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/157305462",
+      "https://img1.wsimg.com/isteam/getty/1935152882"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T19:49:06.645Z",
+    "lastUpdated": "2026-09-17T19:49:06.645Z",
+    "gettyId": "137838640",
+    "alternativeGettyIds": [
+      "157305462",
+      "1935152882"
+    ]
+  },
+  "pages/luxury-brands/gallery-perfume-bottle": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2288540930",
+    "searchQuery": "luxury perfume bottle elegant glass reflections dark cinematic",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2247578921",
+      "https://img1.wsimg.com/isteam/getty/2221617055"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T19:49:09.021Z",
+    "lastUpdated": "2026-09-17T19:49:09.021Z",
+    "gettyId": "2288540930",
+    "alternativeGettyIds": [
+      "2247578921",
+      "2221617055"
+    ]
+  },
+  "pages/luxury-brands/gallery-watch-3d-animation": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1331135724",
+    "searchQuery": "photorealistic 3D watch animation concept dark luxury product render",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/916408346",
+      "https://img1.wsimg.com/isteam/getty/2225858807"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T19:49:12.568Z",
+    "lastUpdated": "2026-09-17T19:49:12.568Z",
+    "gettyId": "1331135724",
+    "alternativeGettyIds": [
+      "916408346",
+      "2225858807"
+    ]
+  },
+  "pages/luxury-brands/gallery-perfume-gold-particles": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2279839906",
+    "searchQuery": "perfume bottle abstract gold particles dark cinematic luxury fragrance",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1323452202",
+      "https://img1.wsimg.com/isteam/getty/2293579157"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T19:49:14.269Z",
+    "lastUpdated": "2026-09-17T19:49:14.269Z",
+    "gettyId": "2279839906",
+    "alternativeGettyIds": [
+      "1323452202",
+      "2293579157"
+    ]
+  },
+  "pages/luxury-brands/gallery-jewellery-necklace": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2275633363",
+    "searchQuery": "fine jewellery necklace premium commercial photography dark elegant",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2177500169",
+      "https://img1.wsimg.com/isteam/getty/494058443"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T19:49:17.057Z",
+    "lastUpdated": "2026-09-17T19:49:17.057Z",
+    "gettyId": "2275633363",
+    "alternativeGettyIds": [
+      "2177500169",
+      "494058443"
+    ]
+  },
+  "pages/luxury-brands/gallery-jewellery-editorial": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/652925014",
+    "searchQuery": "fine jewellery editorial advertising scene luxury dark dramatic",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2046740355",
+      "https://img1.wsimg.com/isteam/getty/968313070"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T19:49:18.784Z",
+    "lastUpdated": "2026-09-17T19:49:18.784Z",
+    "gettyId": "652925014",
+    "alternativeGettyIds": [
+      "2046740355",
+      "968313070"
+    ]
+  },
+  "pages/luxury-brands/gallery-diamond-earrings": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1372302933",
+    "searchQuery": "diamond earrings floating product composition dark luxury jewellery",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1168606506",
+      "https://img1.wsimg.com/isteam/getty/1454335196"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T19:49:20.910Z",
+    "lastUpdated": "2026-09-17T19:49:20.910Z",
+    "gettyId": "1372302933",
+    "alternativeGettyIds": [
+      "1168606506",
+      "1454335196"
+    ]
+  },
+  "pages/luxury-brands/gallery-watch-cgi": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2158919442",
+    "searchQuery": "luxury wristwatch close-up CGI product visualization dark dramatic studio",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2291991745",
+      "https://img1.wsimg.com/isteam/getty/2237472237"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T19:49:24.953Z",
+    "lastUpdated": "2026-09-17T19:49:24.953Z",
+    "gettyId": "2158919442",
+    "alternativeGettyIds": [
+      "2291991745",
+      "2237472237"
+    ]
+  },
+  "pages/luxury-brands/gallery-watch-macro": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1435904774",
+    "searchQuery": "ultra luxury mechanical watch cinematic macro photography dark dramatic",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2267914896",
+      "https://img1.wsimg.com/isteam/getty/874746308"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T19:49:28.011Z",
+    "lastUpdated": "2026-09-17T19:49:28.011Z",
+    "gettyId": "1435904774",
+    "alternativeGettyIds": [
+      "2267914896",
+      "874746308"
+    ]
+  },
+  "pages/luxury-brands/gallery-fragrance-cinematic": {
+    "requestedSize": {
+      "width": 900,
+      "height": 600,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2149954181",
+    "searchQuery": "luxury fragrance advertising concept cinematic lighting dark dramatic",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2272038967",
+      "https://img1.wsimg.com/isteam/getty/2204414241"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T19:49:28.929Z",
+    "lastUpdated": "2026-09-17T19:49:28.929Z",
+    "gettyId": "2149954181",
+    "alternativeGettyIds": [
+      "2272038967",
+      "2204414241"
+    ]
+  },
+  "pages/luxury-brands/hero": {
+    "requestedSize": {
+      "width": 1920,
+      "height": 900,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2240814250",
+    "searchQuery": "luxury brand dark cinematic elegant premium product advertising",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2265451413",
+      "https://img1.wsimg.com/isteam/getty/2285467471"
+    ],
+    "userModified": false,
+    "createdAt": "2026-09-17T19:49:37.141Z",
+    "lastUpdated": "2026-09-17T19:49:37.141Z",
+    "gettyId": "2240814250",
+    "alternativeGettyIds": [
+      "2265451413",
+      "2285467471"
+    ]
+  },
+  "imported/image-1789675016806": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/2282218779",
+    "searchQuery": "child dancing neon purple background",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/2282218779"
+    ],
+    "userModified": false,
+    "displacedFrom": "pages/portfolio/cgi-04",
+    "createdAt": "2026-09-17T19:56:56.810Z",
+    "lastUpdated": "2026-09-17T19:56:56.810Z",
+    "caption": "child dancing neon purple background"
+  }
+}

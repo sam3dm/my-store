@@ -1,0 +1,267 @@
+{
+  "hero": {
+    "eyebrow": "Industries We Serve",
+    "headline": "Every Industry. A Unique Story.",
+    "body": "We combine strategy, cinematic storytelling, advanced technology and creative excellence to produce distinctive brand experiences across industries."
+  },
+  "industries": [
+    {
+      "id": "ind-01",
+      "number": "01",
+      "title": "Healthcare & Hospitals",
+      "tagline": "Accuracy. Authority. Trust.",
+      "description": "Healthcare organisations demand communication that is clinically accurate, visually compelling and deeply trusted. We produce hospital brand films, patient education content, surgical procedure animations, institutional campaigns and doctor-led social media — all developed in direct collaboration with qualified medical professionals. Every piece of clinical content undergoes qualified medical review before publication.",
+      "capabilities": [
+        "Hospital brand films & institutional campaigns",
+        "Patient education & explainer videos",
+        "Scientific 3D medical animation",
+        "Doctor-led social media content",
+        "Qualified medical review process"
+      ]
+    },
+    {
+      "id": "ind-02",
+      "number": "02",
+      "title": "Medical Clinics & Doctors",
+      "tagline": "Credibility. Reach. Results.",
+      "description": "Private clinics and specialist doctors require content that builds authority and drives patient trust. We create professional doctor interview series, clinic brand films, treatment explainer videos, before-and-after case study content and social media campaigns — all produced with clinical accuracy and reviewed by qualified healthcare professionals.",
+      "capabilities": [
+        "Doctor interview & profile films",
+        "Clinic brand films & campaigns",
+        "Treatment explainer videos",
+        "Social media content for clinics",
+        "Medical photography & visual identity"
+      ]
+    },
+    {
+      "id": "ind-03",
+      "number": "03",
+      "title": "Luxury Brands",
+      "tagline": "Prestige. Elegance. Distinction.",
+      "description": "Luxury brands demand a visual language that communicates exclusivity, craftsmanship and desire. We produce cinematic brand films, luxury product photography, editorial campaigns, social media content and CGI product visualisations that position your brand at the pinnacle of its category.",
+      "capabilities": [
+        "Cinematic luxury brand films",
+        "Editorial product photography",
+        "CGI product visualisation",
+        "Social media content & campaigns",
+        "Brand identity & visual design"
+      ]
+    },
+    {
+      "id": "ind-04",
+      "number": "04",
+      "title": "Automotive",
+      "tagline": "Power. Precision. Performance.",
+      "description": "Automotive advertising demands cinematic precision — the perfect light, the perfect angle, the perfect moment. We produce dramatic automotive commercials, CGI vehicle renders, dynamic driving sequences, launch campaigns and social media content that captures the essence of every vehicle.",
+      "capabilities": [
+        "Cinematic automotive commercials",
+        "CGI vehicle renders & visualisation",
+        "Dynamic driving sequences",
+        "Launch campaign production",
+        "Automotive photography"
+      ]
+    },
+    {
+      "id": "ind-05",
+      "number": "05",
+      "title": "Real Estate & Property Development",
+      "tagline": "Vision. Scale. Aspiration.",
+      "description": "Real estate developers and property brands need content that sells vision before a single brick is laid. We produce architectural CGI, photorealistic 3D walkthroughs, cinematic property films, aerial cinematography, development launch campaigns and social media content that drives enquiries and builds brand prestige.",
+      "capabilities": [
+        "Architectural CGI & 3D walkthroughs",
+        "Cinematic property films",
+        "Aerial cinematography & drone",
+        "Development launch campaigns",
+        "Social media & digital marketing"
+      ]
+    },
+    {
+      "id": "ind-06",
+      "number": "06",
+      "title": "Interior Design & Furniture",
+      "tagline": "Space. Light. Atmosphere.",
+      "description": "Interior design and furniture brands live and die by their visual presentation. We produce cinematic interior photography, 3D room visualisations, brand films, social media content and CGI product renders that showcase craftsmanship, materiality and spatial excellence.",
+      "capabilities": [
+        "Cinematic interior photography",
+        "3D room & product visualisation",
+        "Brand films & showroom content",
+        "Social media campaigns",
+        "CGI furniture renders"
+      ]
+    },
+    {
+      "id": "ind-07",
+      "number": "07",
+      "title": "Hotels & Resorts",
+      "tagline": "Experience. Luxury. Escape.",
+      "description": "Hospitality brands compete on experience, and experience begins with content. We produce cinematic hotel films, room and amenity photography, food and beverage content, social media campaigns and digital marketing strategies that fill rooms and build brand loyalty.",
+      "capabilities": [
+        "Cinematic hotel & resort films",
+        "Room, amenity & F&B photography",
+        "Social media content & management",
+        "Digital marketing campaigns",
+        "Brand identity & visual design"
+      ]
+    },
+    {
+      "id": "ind-08",
+      "number": "08",
+      "title": "Tourism & Travel",
+      "tagline": "Destination. Discovery. Desire.",
+      "description": "Tourism and travel brands need content that makes audiences feel the destination before they arrive. We produce cinematic destination films, aerial cinematography, travel photography, social media campaigns and digital marketing strategies that inspire journeys and drive bookings.",
+      "capabilities": [
+        "Cinematic destination films",
+        "Aerial cinematography & drone",
+        "Travel photography",
+        "Social media campaigns",
+        "Digital marketing & lead generation"
+      ]
+    },
+    {
+      "id": "ind-09",
+      "number": "09",
+      "title": "Sports & Fitness",
+      "tagline": "Energy. Intensity. Inspiration.",
+      "description": "Sports and fitness brands demand content with energy, intensity and emotional impact. We produce dynamic sports commercials, athlete profile films, event coverage, gym and facility photography, social media content and brand campaigns that motivate audiences and build communities.",
+      "capabilities": [
+        "Dynamic sports commercials",
+        "Athlete profile & documentary films",
+        "Event coverage & highlights",
+        "Gym & facility photography",
+        "Social media content & campaigns"
+      ]
+    },
+    {
+      "id": "ind-10",
+      "number": "10",
+      "title": "Beauty & Cosmetics",
+      "tagline": "Radiance. Desire. Identity.",
+      "description": "Beauty and cosmetics brands require content that is visually flawless and emotionally resonant. We produce cinematic beauty campaigns, product photography, tutorial and how-to content, social media campaigns and brand films that build desire and drive sales across every platform.",
+      "capabilities": [
+        "Cinematic beauty campaigns",
+        "Product photography & CGI renders",
+        "Tutorial & how-to content",
+        "Social media campaigns",
+        "Influencer & creator production"
+      ]
+    },
+    {
+      "id": "ind-11",
+      "number": "11",
+      "title": "Perfume & Fragrance",
+      "tagline": "Sensory. Evocative. Timeless.",
+      "description": "Fragrance advertising is among the most cinematic of all brand communications — it must evoke sensation through image alone. We produce dramatic perfume commercials, CGI bottle visualisations, editorial photography and social media campaigns that translate scent into desire.",
+      "capabilities": [
+        "Dramatic perfume commercials",
+        "CGI bottle & product visualisation",
+        "Editorial fragrance photography",
+        "Social media campaigns",
+        "Luxury brand positioning"
+      ]
+    },
+    {
+      "id": "ind-12",
+      "number": "12",
+      "title": "Fashion & Lifestyle",
+      "tagline": "Style. Culture. Aspiration.",
+      "description": "Fashion and lifestyle brands require content that captures culture, communicates identity and creates aspiration. We produce editorial fashion films, lookbook photography, runway and event coverage, social media campaigns and brand content that defines and elevates every collection.",
+      "capabilities": [
+        "Editorial fashion films",
+        "Lookbook & campaign photography",
+        "Runway & event coverage",
+        "Social media content & campaigns",
+        "Brand identity & visual design"
+      ]
+    },
+    {
+      "id": "ind-13",
+      "number": "13",
+      "title": "Restaurants & Fine Dining",
+      "tagline": "Flavour. Atmosphere. Experience.",
+      "description": "Restaurant and fine dining brands compete on atmosphere, cuisine and experience — and all three must be communicated through exceptional content. We produce cinematic restaurant films, food photography, chef profile content, social media campaigns and digital marketing strategies that fill tables and build loyal followings.",
+      "capabilities": [
+        "Cinematic restaurant & brand films",
+        "Food & beverage photography",
+        "Chef profile & kitchen content",
+        "Social media campaigns",
+        "Digital marketing & reservations"
+      ]
+    },
+    {
+      "id": "ind-14",
+      "number": "14",
+      "title": "Technology & Innovation",
+      "tagline": "Future. Clarity. Impact.",
+      "description": "Technology brands need content that makes complex innovation feel accessible, exciting and essential. We produce product launch films, explainer animations, CGI product visualisations, AI-assisted content, social media campaigns and digital marketing strategies that position technology brands as leaders.",
+      "capabilities": [
+        "Product launch films & campaigns",
+        "Explainer animations & CGI",
+        "AI-assisted content production",
+        "Social media campaigns",
+        "Digital marketing & lead generation"
+      ]
+    },
+    {
+      "id": "ind-15",
+      "number": "15",
+      "title": "Education",
+      "tagline": "Knowledge. Aspiration. Future.",
+      "description": "Educational institutions and e-learning platforms require content that inspires, informs and builds trust. We produce institutional brand films, campus photography, course promotion content, student testimonial series, social media campaigns and digital marketing strategies that drive enrolment and build reputation.",
+      "capabilities": [
+        "Institutional brand films",
+        "Campus & facility photography",
+        "Course promotion & e-learning content",
+        "Social media campaigns",
+        "Digital marketing & enrolment"
+      ]
+    },
+    {
+      "id": "ind-16",
+      "number": "16",
+      "title": "Corporate Organisations",
+      "tagline": "Leadership. Credibility. Vision.",
+      "description": "Corporate organisations require content that communicates leadership, builds stakeholder confidence and defines organisational culture. We produce corporate brand films, annual report content, executive profile series, internal communications, event coverage and social media campaigns that strengthen corporate identity.",
+      "capabilities": [
+        "Corporate brand films",
+        "Executive profile series",
+        "Annual report & investor content",
+        "Event coverage & documentation",
+        "Social media & communications"
+      ]
+    },
+    {
+      "id": "ind-17",
+      "number": "17",
+      "title": "Retail & E-Commerce",
+      "tagline": "Product. Desire. Conversion.",
+      "description": "Retail and e-commerce brands need content that drives desire and converts browsers into buyers. We produce product photography, CGI product renders, campaign content, social media advertising, video ads and digital marketing strategies that increase traffic, engagement and sales.",
+      "capabilities": [
+        "Product photography & CGI renders",
+        "Campaign & advertising content",
+        "Social media advertising",
+        "Video ads & reels",
+        "Digital marketing & e-commerce strategy"
+      ]
+    },
+    {
+      "id": "ind-18",
+      "number": "18",
+      "title": "Arts & Entertainment",
+      "tagline": "Creativity. Culture. Spectacle.",
+      "description": "Arts and entertainment brands demand content that matches the ambition and energy of the work itself. We produce event films, performance documentation, artist profile content, promotional campaigns, social media content and digital marketing strategies that build audiences and sell out venues.",
+      "capabilities": [
+        "Event & performance films",
+        "Artist profile & documentary content",
+        "Promotional campaigns",
+        "Social media content & campaigns",
+        "Digital marketing & ticket sales"
+      ]
+    }
+  ],
+  "cta": {
+    "eyebrow": "Let's Work Together",
+    "headline": "Your Industry. Our Creative Expertise.",
+    "body": "Whatever your industry, we bring the same commitment to creative excellence, strategic thinking and cinematic quality. Tell us about your project.",
+    "buttonLabel": "Contact Us"
+  }
+}

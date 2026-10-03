@@ -1,0 +1,163 @@
+{
+  "hero": {
+    "eyebrow": "About Metropolitan",
+    "headline": "Built on Craft. Driven by Vision.",
+    "subheadline": "Dubai's Premier Creative Production Studio"
+  },
+  "story": {
+    "eyebrow": "Our Story",
+    "headline": "Where Ambition Meets Artistry.",
+    "paragraphs": [
+      {
+        "id": "story-p1",
+        "text": "Metropolitan Digital Marketing was founded with a singular conviction: that every brand deserves world-class creative production. Born in Dubai — a city that embodies ambition, luxury and global vision — we set out to build a studio that could compete on the world stage."
+      },
+      {
+        "id": "story-p2",
+        "text": "Over the years, we have grown into a full-service creative powerhouse, combining strategic digital marketing with cinematic production capabilities that rival the finest studios anywhere in the world. Our team brings approximately 15–20 years of professional experience across creative production, advertising, visual design and content development."
+      },
+      {
+        "id": "story-p3",
+        "text": "Today, Metropolitan serves luxury brands, healthcare organisations, automotive companies, hotels, real estate developers, sports organisations and businesses across multiple industries — delivering creative solutions that are impossible to ignore."
+      }
+    ]
+  },
+  "vision": {
+    "eyebrow": "Our Vision",
+    "headline": "To be the most respected creative studio in the Middle East and beyond.",
+    "body": "We envision a world where every brand — regardless of industry — has access to cinematic-quality creative production. We are building that future, one extraordinary project at a time."
+  },
+  "mission": {
+    "eyebrow": "Our Mission",
+    "headline": "To transform ambitious ideas into powerful brand experiences.",
+    "body": "Our mission is to deliver integrated creative solutions that combine strategic marketing intelligence with cinematic storytelling, advanced visual technology and relentless creative innovation — producing work that moves audiences and drives measurable results."
+  },
+  "expertise": {
+    "eyebrow": "Our Expertise",
+    "headline": "A Multidisciplinary Creative Force.",
+    "intro": "Our capabilities span the full creative spectrum — from digital strategy and social media management to Hollywood-grade film production, photorealistic CGI, cutting-edge VFX and AI-powered content creation.",
+    "disciplines": [
+      {
+        "id": "exp-1",
+        "title": "Digital Marketing & Social Media",
+        "description": "Complete social media management across Instagram, TikTok, YouTube and Facebook — strategy, content creation, community management and performance analytics."
+      },
+      {
+        "id": "exp-2",
+        "title": "Cinematic Production",
+        "description": "Luxury commercials, TV advertisements, corporate films, brand films and professional film directing — every frame crafted with the precision of a feature film."
+      },
+      {
+        "id": "exp-3",
+        "title": "3D Animation & CGI",
+        "description": "Photorealistic 3D animation, product visualisation, architectural visualisation and cinematic CGI environments that blur the line between reality and imagination."
+      },
+      {
+        "id": "exp-4",
+        "title": "Visual Effects & Post-Production",
+        "description": "VFX, compositing, motion graphics, professional editing, colour grading and cinematic finishing that elevates every production to broadcast quality."
+      },
+      {
+        "id": "exp-5",
+        "title": "AI Content Production",
+        "description": "AI-assisted creative concepts, AI-generated visuals, AI animation and innovative advertising production that positions our clients at the frontier of creative technology."
+      },
+      {
+        "id": "exp-6",
+        "title": "Branding & Graphic Design",
+        "description": "Corporate identity, brand design, advertising graphics, social media templates and visual communication systems that define and distinguish."
+      }
+    ]
+  },
+  "medical": {
+    "eyebrow": "Healthcare Specialisation",
+    "headline": "Medical Content Creation. Done Right.",
+    "paragraphs": [
+      {
+        "id": "med-p1",
+        "text": "Healthcare communication demands a standard that goes beyond aesthetics. It requires accuracy, authority and trust. Metropolitan has developed a specialised capability in medical content creation, working in direct collaboration with qualified doctors and licensed healthcare professionals."
+      },
+      {
+        "id": "med-p2",
+        "text": "Our medical content team produces clinically accurate, visually compelling content for hospitals, clinics, pharmaceutical brands, medical device companies and healthcare organisations. Every piece of content is reviewed and approved by qualified medical professionals before production."
+      },
+      {
+        "id": "med-p3",
+        "text": "From patient education videos and surgical procedure animations to healthcare brand campaigns and doctor-led social media content — we deliver medical communication that is both scientifically credible and creatively exceptional."
+      }
+    ],
+    "callout": "All medical content is produced in collaboration with qualified doctors and licensed healthcare professionals."
+  },
+  "process": {
+    "eyebrow": "Our Creative Process",
+    "headline": "From Concept to Creation.",
+    "steps": [
+      {
+        "id": "proc-1",
+        "number": "01",
+        "title": "Discovery & Strategy",
+        "description": "We begin by immersing ourselves in your brand, your audience and your objectives. Deep research, competitive analysis and strategic planning form the foundation of every project."
+      },
+      {
+        "id": "proc-2",
+        "number": "02",
+        "title": "Creative Concept",
+        "description": "Our creative team develops bold, distinctive concepts that align with your brand identity and resonate with your target audience. We present multiple creative directions for your consideration."
+      },
+      {
+        "id": "proc-3",
+        "number": "03",
+        "title": "Production",
+        "description": "With concept approved, our production team executes with precision — whether on a film set, in a CGI environment, in post-production or across digital channels."
+      },
+      {
+        "id": "proc-4",
+        "number": "04",
+        "title": "Refinement & Delivery",
+        "description": "We refine every detail until the work meets our exacting standards. Final delivery is accompanied by full asset packages, usage guidelines and ongoing support."
+      }
+    ]
+  },
+  "whyUs": {
+    "eyebrow": "Why Metropolitan",
+    "headline": "The Standard of Excellence.",
+    "points": [
+      {
+        "id": "why-1",
+        "title": "Cinematic Excellence",
+        "description": "Every frame is crafted with the precision of a feature film. We bring Hollywood-grade production values to every brand story we tell."
+      },
+      {
+        "id": "why-2",
+        "title": "15–20 Years of Expertise",
+        "description": "Our multidisciplinary team brings deep professional experience across creative production, advertising, visual design and content development."
+      },
+      {
+        "id": "why-3",
+        "title": "Full-Service Creative Studio",
+        "description": "From strategy and concept through production and post, we deliver end-to-end creative solutions under one roof in Dubai."
+      },
+      {
+        "id": "why-4",
+        "title": "Technology-Driven Innovation",
+        "description": "We combine AI, CGI, VFX and advanced digital tools to produce experiences that are impossible to ignore."
+      },
+      {
+        "id": "why-5",
+        "title": "Healthcare Expertise",
+        "description": "Unique in the region — our medical content division works directly with qualified doctors to produce clinically accurate, compelling healthcare communication."
+      },
+      {
+        "id": "why-6",
+        "title": "Dubai-Based, World-Class",
+        "description": "Headquartered in Dubai, we serve clients across the UAE, the Middle East and internationally — bringing global creative standards to every engagement."
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": "Let's Create Together",
+    "headline": "Ready to Create Something Extraordinary?",
+    "body": "Tell us about your project. Our team is ready to transform your vision into a cinematic brand experience that the world will remember.",
+    "buttonLabel": "Start Your Project"
+  }
+}

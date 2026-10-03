@@ -1,0 +1,40 @@
+{
+  "industries": [
+    "Luxury Brands",
+    "Healthcare",
+    "Automotive",
+    "Hotels & Hospitality",
+    "Real Estate",
+    "Sports",
+    "Corporate",
+    "Technology",
+    "Fashion",
+    "Food & Beverage"
+  ],
+  "differentiators": [
+    {
+      "number": "01",
+      "title": "Cinematic Excellence",
+      "body": "Every frame is crafted with the precision of a feature film. We bring Hollywood-grade production values to every brand story we tell.",
+      "id": "j9F8MU77WnxwAQHBSSOqv"
+    },
+    {
+      "number": "02",
+      "title": "15–20 Years of Expertise",
+      "body": "Our multidisciplinary team brings deep professional experience across creative production, advertising, visual design and content development.",
+      "id": "GDEuRxLbKlZmra8QL4FPx"
+    },
+    {
+      "number": "03",
+      "title": "Full-Service Creative Studio",
+      "body": "From strategy and concept through production and post, we deliver end-to-end creative solutions under one roof in Dubai.",
+      "id": "wNBaSW4sbNBdg5mmXFwQv"
+    },
+    {
+      "number": "04",
+      "title": "Technology-Driven Innovation",
+      "body": "We combine AI, CGI, VFX and advanced digital tools to produce experiences that are impossible to ignore.",
+      "id": "7SYB9uzRL0iqCJPzn56H0"
+    }
+  ]
+}

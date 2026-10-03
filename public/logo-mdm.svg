@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" fill="none">
+
+  <!--
+    MD Mark — traced from the uploaded logo:
+    • "M": top horizontal bar, two vertical legs, two downward arrow-point feet
+    • "D": top horizontal bar (shared), right vertical leg, bottom horizontal bar,
+           plus an upward arrow-point on the top-right corner
+    Stroke weight ~10px throughout. All white, transparent background.
+  -->
+
+  <!-- ═══ SHARED TOP HORIZONTAL BAR (spans full mark) ═══ -->
+  <rect x="150" y="100" width="460" height="11" fill="white"/>
+
+  <!-- ═══ M — left two pillars ═══ -->
+  <!-- Left outer pillar -->
+  <rect x="150" y="100" width="11" height="155" fill="white"/>
+  <!-- Left inner pillar (centre of M) -->
+  <rect x="295" y="100" width="11" height="155" fill="white"/>
+
+  <!-- Left outer foot — downward arrowhead -->
+  <polygon points="144,255 167,255 155.5,282" fill="white"/>
+  <!-- Left inner foot — downward arrowhead -->
+  <polygon points="289,255 312,255 300.5,282" fill="white"/>
+
+  <!-- ═══ D — right bracket shape ═══ -->
+  <!-- Right vertical pillar -->
+  <rect x="598" y="100" width="11" height="166" fill="white"/>
+  <!-- Bottom horizontal of D -->
+  <rect x="370" y="255" width="239" height="11" fill="white"/>
+
+  <!-- Upward arrow on top-right of D -->
+  <!-- Vertical stem of arrow (above the shared top bar) -->
+  <rect x="598" y="58" width="11" height="53" fill="white"/>
+  <!-- Arrowhead pointing up -->
+  <polygon points="591,62 615,62 604.5,42" fill="white"/>
+
+  <!-- ═══ WORDMARK ═══ -->
+  <text
+    x="450"
+    y="355"
+    text-anchor="middle"
+    font-family="Montserrat, 'Helvetica Neue', Arial, sans-serif"
+    font-weight="500"
+    font-size="26"
+    letter-spacing="9"
+    fill="white"
+  >METROPOLITAN DIGITAL MARKETING</text>
+
+</svg>

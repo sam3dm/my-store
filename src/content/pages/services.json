@@ -1,0 +1,263 @@
+{
+  "hero": {
+    "eyebrow": "What We Do",
+    "headline": "Creative Solutions. Without Limits.",
+    "subheadline": "19 Disciplines. One Studio. Infinite Possibilities.",
+    "body": "From social media advertising campaigns to influencer marketing, Hollywood-grade cinematic production, photorealistic CGI and AI-powered content — Metropolitan delivers integrated creative solutions that transform brands and move audiences."
+  },
+  "services": [
+    {
+      "id": "svc-01",
+      "number": "01",
+      "title": "Social Media Management",
+      "tagline": "Strategy. Content. Growth.",
+      "description": "Complete social media management across Instagram, TikTok, YouTube and Facebook. We handle strategy, content planning, publishing, community management, audience engagement and in-depth performance analytics — so your brand shows up consistently, compellingly and at scale.",
+      "deliverables": [
+        "Platform strategy & content calendars",
+        "Instagram, TikTok, YouTube, Facebook",
+        "Community management & engagement",
+        "Performance reporting & analytics"
+      ]
+    },
+    {
+      "id": "svc-02",
+      "number": "02",
+      "title": "Social Media Content Creation",
+      "tagline": "Reels. Shorts. Campaigns.",
+      "description": "High-impact social content built for the scroll. Our production team creates cinematic Reels, YouTube Shorts, TikTok videos, professional photography and full campaign assets — content that stops the scroll and builds audiences that convert.",
+      "deliverables": [
+        "Instagram Reels & TikTok videos",
+        "YouTube Shorts & long-form content",
+        "Professional photography",
+        "Campaign asset production"
+      ]
+    },
+    {
+      "id": "svc-03",
+      "number": "03",
+      "title": "Cinematic Video Production",
+      "tagline": "Films. Commercials. Brand Stories.",
+      "description": "From luxury television commercials to corporate brand films, our production team delivers cinematic storytelling with Hollywood-grade precision. We handle concept, scripting, directing, cinematography, production management and full post-production.",
+      "deliverables": [
+        "TV commercials & luxury brand films",
+        "Corporate & documentary films",
+        "Professional film directing",
+        "Full production management"
+      ]
+    },
+    {
+      "id": "svc-04",
+      "number": "04",
+      "title": "3D Animation & CGI",
+      "tagline": "Photorealistic. Limitless. Extraordinary.",
+      "description": "We create photorealistic 3D animation, character animation, product visualisation, architectural CGI and cinematic environments that blur the boundary between reality and imagination. Every render is crafted to broadcast and advertising standards.",
+      "deliverables": [
+        "Photorealistic 3D animation",
+        "Product & architectural visualisation",
+        "Character animation & CGI environments",
+        "Advertising & broadcast 3D"
+      ]
+    },
+    {
+      "id": "svc-05",
+      "number": "05",
+      "title": "Visual Effects & Post-Production",
+      "tagline": "VFX. Compositing. Finishing.",
+      "description": "Our post-production team delivers world-class VFX, compositing, motion graphics, professional editing and cinematic colour grading. We elevate every production to broadcast quality — from single-shot VFX to full feature-length post pipelines.",
+      "deliverables": [
+        "VFX & compositing",
+        "Motion graphics & titles",
+        "Professional editing & colour grading",
+        "Broadcast & streaming finishing"
+      ]
+    },
+    {
+      "id": "svc-06",
+      "number": "06",
+      "title": "AI Creative Production",
+      "tagline": "AI-Assisted. Future-Forward.",
+      "description": "We harness the latest AI tools to produce visuals, animation and advertising concepts that push creative boundaries. AI-assisted ideation, AI-generated imagery, AI animation and innovative production workflows position our clients at the frontier of creative technology.",
+      "deliverables": [
+        "AI-assisted creative concepts",
+        "AI-generated visuals & imagery",
+        "AI animation production",
+        "Innovative AI advertising"
+      ]
+    },
+    {
+      "id": "svc-07",
+      "number": "07",
+      "title": "Medical Content Production",
+      "tagline": "Accurate. Authoritative. Compelling.",
+      "description": "Healthcare communication demands clinical accuracy alongside creative excellence. Our medical content division works in direct collaboration with qualified doctors and licensed healthcare professionals to produce patient education videos, surgical animations, doctor-led social content and healthcare brand campaigns.",
+      "deliverables": [
+        "Patient education & explainer videos",
+        "Scientific 3D medical animation",
+        "Doctor interview & healthcare campaigns",
+        "Clinically reviewed content"
+      ]
+    },
+    {
+      "id": "svc-08",
+      "number": "08",
+      "title": "Podcast Production",
+      "tagline": "Multi-Camera. Professional. Broadcast-Ready.",
+      "description": "Full-service podcast production from studio setup to final delivery. We provide multi-camera filming, professional sound engineering, broadcast-quality lighting, expert editing and post-production — creating podcasts that look and sound like premium broadcast content.",
+      "deliverables": [
+        "Multi-camera studio filming",
+        "Professional sound & lighting",
+        "Expert editing & post-production",
+        "Broadcast-quality delivery"
+      ]
+    },
+    {
+      "id": "svc-09",
+      "number": "09",
+      "title": "Commercial Photography",
+      "tagline": "Automotive. Luxury. Editorial.",
+      "description": "Premium commercial photography for automotive brands, luxury products, hotels, interiors, fashion and corporate clients. Our photographers combine technical mastery with an editorial eye to produce images that define brand identity and command attention.",
+      "deliverables": [
+        "Automotive & luxury product photography",
+        "Hotel & interior photography",
+        "Corporate & editorial photography",
+        "Full retouching & delivery"
+      ]
+    },
+    {
+      "id": "svc-10",
+      "number": "10",
+      "title": "Branding & Graphic Design",
+      "tagline": "Identity. Design. Distinction.",
+      "description": "We build brand identities that endure. From corporate identity systems and logo design to advertising graphics, social media templates and complete visual communication frameworks — we create the visual language that defines how the world sees your brand.",
+      "deliverables": [
+        "Corporate identity & logo design",
+        "Brand guidelines & systems",
+        "Advertising & print graphics",
+        "Social media visual templates"
+      ]
+    },
+    {
+      "id": "svc-11",
+      "number": "11",
+      "title": "Website Design",
+      "tagline": "Premium. Responsive. Conversion-Focused.",
+      "description": "We design and build premium responsive websites and landing pages that combine aesthetic excellence with performance. Every site is crafted for conversion, optimised for search and built to represent your brand at the highest level.",
+      "deliverables": [
+        "Premium responsive website design",
+        "Landing page design & development",
+        "UI/UX design & prototyping",
+        "SEO-optimised build & delivery"
+      ]
+    },
+    {
+      "id": "svc-12",
+      "number": "12",
+      "title": "Digital Marketing & Advertising",
+      "tagline": "Strategy. Paid Media. Results.",
+      "description": "Data-driven digital marketing campaigns that deliver measurable results. We develop campaign strategy, manage paid social advertising, execute lead generation programmes and provide transparent analytics reporting — turning marketing spend into business growth.",
+      "deliverables": [
+        "Campaign strategy & planning",
+        "Paid social & search advertising",
+        "Lead generation programmes",
+        "Analytics & performance reporting"
+      ]
+    },
+    {
+      "id": "svc-13",
+      "number": "13",
+      "title": "Scriptwriting & Creative Direction",
+      "tagline": "Concepts. Scripts. Direction.",
+      "description": "Compelling creative begins with a powerful idea. Our creative directors and writers develop original concepts, scripts, storyboards and shot lists — then guide the production from first draft to final frame, ensuring creative integrity at every stage.",
+      "deliverables": [
+        "Creative concept development",
+        "Script & dialogue writing",
+        "Storyboarding & shot lists",
+        "On-set creative direction"
+      ]
+    },
+    {
+      "id": "svc-14",
+      "number": "14",
+      "title": "Voiceover & Audio Production",
+      "tagline": "Voice. Sound. Atmosphere.",
+      "description": "Professional voiceover recording, sound design and audio post-production for advertising, corporate films, e-learning and broadcast content. We work with a curated roster of professional voice artists across multiple languages and accents.",
+      "deliverables": [
+        "Professional voiceover recording",
+        "Multi-language voice artists",
+        "Sound design & music",
+        "Audio post-production & mixing"
+      ]
+    },
+    {
+      "id": "svc-15",
+      "number": "15",
+      "title": "Luxury Advertising",
+      "tagline": "Automotive. Perfume. Hospitality.",
+      "description": "Specialist luxury advertising production for automotive, perfume, beauty, hospitality and real estate brands. We understand the visual language of luxury — the light, the pace, the silence — and we translate it into advertising that commands premium positioning.",
+      "deliverables": [
+        "Luxury automotive advertising",
+        "Perfume & beauty campaigns",
+        "Hospitality & real estate advertising",
+        "Premium brand positioning"
+      ]
+    },
+    {
+      "id": "svc-16",
+      "number": "16",
+      "title": "Content Creator Production",
+      "tagline": "Creators. Influencers. Platforms.",
+      "description": "Professional production support for content creators, influencers and digital personalities on YouTube, Instagram and TikTok. We provide studio access, cinematography, editing, colour grading and full post-production — elevating creator content to broadcast quality.",
+      "deliverables": [
+        "YouTube & long-form production",
+        "Instagram & TikTok content",
+        "Professional editing & colour",
+        "Creator studio & equipment"
+      ]
+    },
+    {
+      "id": "svc-17",
+      "number": "17",
+      "title": "Social Media Advertising Campaigns",
+      "tagline": "Paid. Targeted. Performance-Driven.",
+      "description": "Full-service paid advertising campaigns across Instagram, Facebook, TikTok, YouTube, LinkedIn, Snapchat and Google Ads. We develop advertising strategy, produce professional creative, manage campaign setup and optimise performance — turning advertising spend into measurable business results.",
+      "deliverables": [
+        "Advertising strategy & campaign planning",
+        "Audience research & targeting",
+        "Professional video advertisement production",
+        "Campaign management, optimisation & reporting"
+      ]
+    },
+    {
+      "id": "svc-18",
+      "number": "18",
+      "title": "Influencer & Celebrity Marketing",
+      "tagline": "Talent. Collaboration. Impact.",
+      "description": "Professional influencer marketing campaigns and collaborations with celebrities, public figures and digital content creators. We manage the full process — from talent identification and outreach to creative direction, professional production and campaign performance analysis.",
+      "deliverables": [
+        "Influencer identification & talent research",
+        "Outreach, coordination & collaboration management",
+        "Sponsored content & Instagram Reels / TikTok production",
+        "YouTube collaborations & campaign performance analysis"
+      ]
+    },
+    {
+      "id": "svc-19",
+      "number": "19",
+      "title": "Integrated Digital Advertising",
+      "tagline": "Multi-Channel. Unified. Powerful.",
+      "description": "We develop integrated advertising campaigns that combine social media advertising, influencer marketing, cinematic video production, CGI and 3D advertising, AI-assisted creative, commercial photography and brand storytelling — delivering a unified campaign presence across every channel.",
+      "deliverables": [
+        "Integrated multi-channel campaign strategy",
+        "Social media advertising & influencer marketing",
+        "Cinematic video, CGI & AI-assisted creative production",
+        "Brand storytelling & unified campaign delivery"
+      ]
+    }
+  ],
+  "cta": {
+    "eyebrow": "Let's Create Together",
+    "headline": "Let's Bring Your Vision to Life.",
+    "body": "Tell us about your project. Our team is ready to deliver a creative solution that exceeds every expectation.",
+    "buttonLabel": "Start Your Project"
+  }
+}

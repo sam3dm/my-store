@@ -1,0 +1,29 @@
+{
+  "hero": {
+    "eyebrow": "Industry Specialisation",
+    "headline": "THE ART OF EXCEPTIONAL BRANDS.",
+    "intro": "At Metropolitan Digital Marketing, we bring luxury brands to life through cinematic storytelling, sophisticated visual design and carefully crafted digital experiences. From exquisite watches and fine jewellery to exclusive fragrances and premium lifestyle products, we create advertising content that reflects elegance, craftsmanship and distinction."
+  },
+  "gallery": {
+    "eyebrow": "Production Showcase",
+    "heading": "CREATIVE CAPABILITIES",
+    "disclaimer": "The following visuals represent the production services and creative capabilities we apply to luxury brand campaigns. All images are conceptual production references — not client deliverables."
+  },
+  "process": {
+    "eyebrow": "How We Work",
+    "heading": "THE PRODUCTION PROCESS"
+  },
+  "services": {
+    "eyebrow": "Digital Marketing",
+    "heading": "LUXURY BRAND DIGITAL SERVICES",
+    "body": "Beyond production, we manage the complete digital presence of luxury brands across social media, paid advertising, influencer partnerships and content strategy. Our team understands the specific requirements of luxury communication — discretion, consistency, exclusivity and aspiration — and applies them across every platform and touchpoint."
+  },
+  "cta": {
+    "eyebrow": "Ready to Begin",
+    "heading": "START YOUR LUXURY PROJECT.",
+    "body": "Tell us about your brand and campaign objectives. Our creative team will respond with a tailored production proposal.",
+    "primaryButton": "Start Your Project",
+    "secondaryButton": "Explore Services",
+    "backLink": "← Back to All Industries"
+  }
+}

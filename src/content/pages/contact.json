@@ -1,0 +1,178 @@
+{
+  "hero": {
+    "eyebrow": "Get in Touch",
+    "headline": "Let's Create Something Extraordinary.",
+    "subheadline": "Tell us your vision. We'll bring it to life with cinematic precision and creative excellence."
+  },
+  "methods": {
+    "form": {
+      "eyebrow": "Send a Message",
+      "headline": "Start the Conversation",
+      "body": "Fill in the form below and our team will respond within 24 hours."
+    },
+    "whatsapp": {
+      "label": "WhatsApp",
+      "description": "Message us directly for a fast response",
+      "number": "+971 50 822 1108",
+      "href": "https://wa.me/971508221108"
+    },
+    "phone": {
+      "label": "Direct Call",
+      "description": "Speak with our team directly",
+      "number": "+971 50 822 1108",
+      "href": "tel:+971508221108"
+    },
+    "email": {
+      "label": "Email",
+      "description": "Send us a detailed brief",
+      "address": "info@metropolitandigitalmarketing.com",
+      "href": "mailto:info@metropolitandigitalmarketing.com"
+    }
+  },
+  "location": {
+    "label": "Location",
+    "city": "Dubai",
+    "country": "United Arab Emirates",
+    "detail": "Available for projects across the UAE and internationally"
+  },
+  "social": {
+    "instagram": {
+      "label": "Instagram",
+      "href": "https://www.instagram.com/metropolitan_markting/"
+    }
+  },
+  "services": [
+    {
+      "id": "s-01",
+      "label": "Cinematic Video Production"
+    },
+    {
+      "id": "s-02",
+      "label": "Social Media Management"
+    },
+    {
+      "id": "s-03",
+      "label": "3D Animation & CGI"
+    },
+    {
+      "id": "s-04",
+      "label": "VFX & Post-Production"
+    },
+    {
+      "id": "s-05",
+      "label": "AI Creative Production"
+    },
+    {
+      "id": "s-06",
+      "label": "Branding & Identity Design"
+    },
+    {
+      "id": "s-07",
+      "label": "Medical Content Production"
+    },
+    {
+      "id": "s-08",
+      "label": "Luxury Advertising"
+    },
+    {
+      "id": "s-09",
+      "label": "Commercial Photography"
+    },
+    {
+      "id": "s-10",
+      "label": "Podcast Production"
+    },
+    {
+      "id": "s-11",
+      "label": "Scriptwriting & Storyboarding"
+    },
+    {
+      "id": "s-12",
+      "label": "Voiceover & Audio Production"
+    },
+    {
+      "id": "s-13",
+      "label": "Website Design & Development"
+    },
+    {
+      "id": "s-14",
+      "label": "Digital Marketing & Strategy"
+    },
+    {
+      "id": "s-15",
+      "label": "Content Creator Management"
+    },
+    {
+      "id": "s-17",
+      "label": "Social Media Advertising Campaigns"
+    },
+    {
+      "id": "s-18",
+      "label": "Influencer & Celebrity Marketing"
+    },
+    {
+      "id": "s-19",
+      "label": "Integrated Digital Advertising"
+    },
+    {
+      "id": "s-16",
+      "label": "Other / Not Listed"
+    }
+  ],
+  "budgets": [
+    {
+      "id": "b-01",
+      "label": "Under AED 5,000"
+    },
+    {
+      "id": "b-02",
+      "label": "AED 5,000 – 15,000"
+    },
+    {
+      "id": "b-03",
+      "label": "AED 15,000 – 50,000"
+    },
+    {
+      "id": "b-04",
+      "label": "AED 50,000 – 150,000"
+    },
+    {
+      "id": "b-05",
+      "label": "AED 150,000+"
+    },
+    {
+      "id": "b-06",
+      "label": "Prefer not to say"
+    }
+  ],
+  "contactMethods": [
+    {
+      "id": "cm-01",
+      "label": "Email"
+    },
+    {
+      "id": "cm-02",
+      "label": "WhatsApp"
+    },
+    {
+      "id": "cm-03",
+      "label": "Phone Call"
+    },
+    {
+      "id": "cm-04",
+      "label": "Video Call"
+    }
+  ],
+  "privacy": {
+    "text": "I agree to the collection and processing of my personal data in accordance with Metropolitan Digital Marketing's privacy policy.",
+    "note": "Your information is kept strictly confidential and never shared with third parties."
+  },
+  "success": {
+    "headline": "Message Received.",
+    "body": "Thank you for reaching out. Our team will review your brief and respond within 24 hours. For urgent enquiries, please contact us directly via WhatsApp.",
+    "whatsappLabel": "Message us on WhatsApp"
+  },
+  "footer": {
+    "copyright": "© METROPOLITAN DIGITAL MARKETING. ALL RIGHTS RESERVED."
+  }
+}

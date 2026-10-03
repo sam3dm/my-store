@@ -1,0 +1,381 @@
+{
+  "hero": {
+    "eyebrow": "Our Work",
+    "headline": "Ideas Brought to Life.",
+    "subheadline": "Cinematic Production. Creative Technology. Extraordinary Visual Experiences."
+  },
+  "categories": [
+    {
+      "id": "all",
+      "label": "All Work"
+    },
+    {
+      "id": "cinematic",
+      "label": "Cinematic Production"
+    },
+    {
+      "id": "automotive",
+      "label": "Automotive"
+    },
+    {
+      "id": "medical",
+      "label": "Medical & Healthcare"
+    },
+    {
+      "id": "cgi",
+      "label": "3D Animation & CGI"
+    },
+    {
+      "id": "ai",
+      "label": "AI Creative"
+    },
+    {
+      "id": "realestate",
+      "label": "Real Estate"
+    },
+    {
+      "id": "interior",
+      "label": "Interior Design"
+    },
+    {
+      "id": "hotel",
+      "label": "Hotels & Hospitality"
+    },
+    {
+      "id": "beauty",
+      "label": "Perfume & Beauty"
+    },
+    {
+      "id": "social",
+      "label": "Social Media"
+    }
+  ],
+  "items": [
+    {
+      "id": "p-01",
+      "category": "cinematic",
+      "slot": "cinematic-01",
+      "title": "Production Craft",
+      "label": "Cinematic Production",
+      "type": "Creative Concept"
+    },
+    {
+      "id": "p-02",
+      "category": "cinematic",
+      "slot": "cinematic-02",
+      "title": "Studio Direction",
+      "label": "Cinematic Production",
+      "type": "Creative Concept"
+    },
+    {
+      "id": "p-03",
+      "category": "cinematic",
+      "slot": "cinematic-03",
+      "title": "Crew & Set",
+      "label": "Cinematic Production",
+      "type": "Creative Concept"
+    },
+    {
+      "id": "p-04",
+      "category": "cinematic",
+      "slot": "cinematic-04",
+      "title": "Cinematic Portrait",
+      "label": "Cinematic Production",
+      "type": "Concept Visualization"
+    },
+    {
+      "id": "p-05",
+      "category": "automotive",
+      "slot": "automotive-01",
+      "title": "Dark Studio",
+      "label": "Automotive Advertising",
+      "type": "Concept Visualization"
+    },
+    {
+      "id": "p-06",
+      "category": "automotive",
+      "slot": "automotive-02",
+      "title": "Night Motion",
+      "label": "Automotive Advertising",
+      "type": "Concept Visualization"
+    },
+    {
+      "id": "p-07",
+      "category": "automotive",
+      "slot": "automotive-03",
+      "title": "Interior Detail",
+      "label": "Automotive Advertising",
+      "type": "Concept Visualization"
+    },
+    {
+      "id": "p-08",
+      "category": "automotive",
+      "slot": "automotive-04",
+      "title": "Rain Reflections",
+      "label": "Automotive Advertising",
+      "type": "Concept Visualization"
+    },
+    {
+      "id": "p-09",
+      "category": "medical",
+      "slot": "medical-01",
+      "title": "Doctor Profile",
+      "label": "Medical & Healthcare",
+      "type": "Creative Concept"
+    },
+    {
+      "id": "p-10",
+      "category": "medical",
+      "slot": "medical-02",
+      "title": "Surgical Excellence",
+      "label": "Medical & Healthcare",
+      "type": "Creative Concept"
+    },
+    {
+      "id": "p-11",
+      "category": "medical",
+      "slot": "medical-03",
+      "title": "Scientific Visualisation",
+      "label": "Medical & Healthcare",
+      "type": "Concept Visualization"
+    },
+    {
+      "id": "p-12",
+      "category": "medical",
+      "slot": "medical-04",
+      "title": "Expert Interview",
+      "label": "Medical & Healthcare",
+      "type": "Creative Concept"
+    },
+    {
+      "id": "p-13",
+      "category": "cgi",
+      "slot": "cgi-01",
+      "title": "Digital Cityscape",
+      "label": "3D Animation & CGI",
+      "type": "Concept Visualization"
+    },
+    {
+      "id": "p-14",
+      "category": "cgi",
+      "slot": "cgi-02",
+      "title": "Luxury Product Render",
+      "label": "3D Animation & CGI",
+      "type": "Concept Visualization"
+    },
+    {
+      "id": "p-15",
+      "category": "cgi",
+      "slot": "cgi-03",
+      "title": "Architectural CGI",
+      "label": "3D Animation & CGI",
+      "type": "Concept Visualization"
+    },
+    {
+      "id": "p-16",
+      "category": "cgi",
+      "slot": "cgi-04",
+      "title": "Motion Study",
+      "label": "3D Animation & CGI",
+      "type": "Concept Visualization"
+    },
+    {
+      "id": "p-17",
+      "category": "ai",
+      "slot": "ai-01",
+      "title": "Data Iceberg",
+      "label": "AI Creative Production",
+      "type": "Concept Visualization"
+    },
+    {
+      "id": "p-18",
+      "category": "ai",
+      "slot": "ai-02",
+      "title": "Neural Wave",
+      "label": "AI Creative Production",
+      "type": "Concept Visualization"
+    },
+    {
+      "id": "p-19",
+      "category": "ai",
+      "slot": "ai-03",
+      "title": "Cyberspace",
+      "label": "AI Creative Production",
+      "type": "Concept Visualization"
+    },
+    {
+      "id": "p-20",
+      "category": "ai",
+      "slot": "ai-04",
+      "title": "Blockchain Abstract",
+      "label": "AI Creative Production",
+      "type": "Concept Visualization"
+    },
+    {
+      "id": "p-21",
+      "category": "realestate",
+      "slot": "realestate-01",
+      "title": "Mansion Facade",
+      "label": "Real Estate",
+      "type": "Creative Concept"
+    },
+    {
+      "id": "p-22",
+      "category": "realestate",
+      "slot": "realestate-02",
+      "title": "Dark Penthouse",
+      "label": "Real Estate",
+      "type": "Creative Concept"
+    },
+    {
+      "id": "p-23",
+      "category": "realestate",
+      "slot": "realestate-03",
+      "title": "City Aerial",
+      "label": "Real Estate",
+      "type": "Creative Concept"
+    },
+    {
+      "id": "p-24",
+      "category": "realestate",
+      "slot": "realestate-04",
+      "title": "Villa at Night",
+      "label": "Real Estate",
+      "type": "Creative Concept"
+    },
+    {
+      "id": "p-25",
+      "category": "interior",
+      "slot": "interior-01",
+      "title": "Dark Living Room",
+      "label": "Interior Design",
+      "type": "Creative Concept"
+    },
+    {
+      "id": "p-26",
+      "category": "interior",
+      "slot": "interior-02",
+      "title": "Luxury Bedroom",
+      "label": "Interior Design",
+      "type": "Creative Concept"
+    },
+    {
+      "id": "p-27",
+      "category": "interior",
+      "slot": "interior-03",
+      "title": "Marble Kitchen",
+      "label": "Interior Design",
+      "type": "Creative Concept"
+    },
+    {
+      "id": "p-28",
+      "category": "interior",
+      "slot": "interior-04",
+      "title": "Minimal Space",
+      "label": "Interior Design",
+      "type": "Creative Concept"
+    },
+    {
+      "id": "p-29",
+      "category": "hotel",
+      "slot": "hotel-01",
+      "title": "Grand Lobby",
+      "label": "Hotels & Hospitality",
+      "type": "Creative Concept"
+    },
+    {
+      "id": "p-30",
+      "category": "hotel",
+      "slot": "hotel-02",
+      "title": "Resort at Dusk",
+      "label": "Hotels & Hospitality",
+      "type": "Creative Concept"
+    },
+    {
+      "id": "p-31",
+      "category": "hotel",
+      "slot": "hotel-03",
+      "title": "Suite Experience",
+      "label": "Hotels & Hospitality",
+      "type": "Creative Concept"
+    },
+    {
+      "id": "p-32",
+      "category": "hotel",
+      "slot": "hotel-04",
+      "title": "Fine Dining",
+      "label": "Hotels & Hospitality",
+      "type": "Creative Concept"
+    },
+    {
+      "id": "p-33",
+      "category": "beauty",
+      "slot": "beauty-01",
+      "title": "Perfume Render",
+      "label": "Perfume & Beauty",
+      "type": "Concept Visualization"
+    },
+    {
+      "id": "p-34",
+      "category": "beauty",
+      "slot": "beauty-02",
+      "title": "Beauty Editorial",
+      "label": "Perfume & Beauty",
+      "type": "Creative Concept"
+    },
+    {
+      "id": "p-35",
+      "category": "beauty",
+      "slot": "beauty-03",
+      "title": "Skincare Luxury",
+      "label": "Perfume & Beauty",
+      "type": "Concept Visualization"
+    },
+    {
+      "id": "p-36",
+      "category": "beauty",
+      "slot": "beauty-04",
+      "title": "Fragrance Campaign",
+      "label": "Perfume & Beauty",
+      "type": "Creative Concept"
+    },
+    {
+      "id": "p-37",
+      "category": "social",
+      "slot": "social-01",
+      "title": "Studio Session",
+      "label": "Social Media & Content",
+      "type": "Creative Concept"
+    },
+    {
+      "id": "p-38",
+      "category": "social",
+      "slot": "social-02",
+      "title": "Creator Portrait",
+      "label": "Social Media & Content",
+      "type": "Creative Concept"
+    },
+    {
+      "id": "p-39",
+      "category": "social",
+      "slot": "social-03",
+      "title": "Podcast Setup",
+      "label": "Social Media & Content",
+      "type": "Creative Concept"
+    },
+    {
+      "id": "p-40",
+      "category": "social",
+      "slot": "social-04",
+      "title": "Content Moment",
+      "label": "Social Media & Content",
+      "type": "Creative Concept"
+    }
+  ],
+  "cta": {
+    "eyebrow": "Start Creating",
+    "headline": "Your Next Project Starts Here.",
+    "body": "Every great campaign begins with a conversation. Tell us your vision and we will bring it to life with cinematic precision.",
+    "buttonLabel": "Let's Work Together"
+  }
+}
