@@ -56,7 +56,7 @@ export default function Footer() {
               className="text-sm leading-relaxed"
               style={{ color: `hsl(var(--metro-white) / 0.45)` }}
             >
-              Strategy. Creativity. Technology.
+              {t('ui.footerTagline')}
             </p>
             <p
               className="text-xs tracking-[0.12em] uppercase"
@@ -72,9 +72,9 @@ export default function Footer() {
               className="text-xs font-semibold tracking-[0.2em] uppercase mb-6"
               style={{ color: `hsl(var(--metro-white) / 0.3)` }}
             >
-              Navigation
+              {t('ui.footerNavigation')}
             </p>
-            <nav aria-label="Footer links" className="flex flex-col gap-3">
+            <nav aria-label={t('ui.footerLinks')} className="flex flex-col gap-3">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -95,7 +95,7 @@ export default function Footer() {
                 className="text-xs font-semibold tracking-[0.2em] uppercase mb-5"
                 style={{ color: `hsl(var(--metro-white) / 0.3)` }}
               >
-                Follow Us
+                {t('ui.followUs')}
               </p>
               <div className="flex items-center gap-4">
                 {socialLinks.map(({ icon: Icon, label, href }) => (

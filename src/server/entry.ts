@@ -22,6 +22,8 @@ export interface SsrRenderResult {
 	head: string;
 	status: number;
 	redirect?: string;
+	lang?: string;
+	dir?: "ltr" | "rtl";
 }
 
 export function registerAdSenseTextRoutes(app: Express, config: AdSenseRuntimeConfig): void {
@@ -54,13 +56,16 @@ export function registerAdSenseTextRoutes(app: Express, config: AdSenseRuntimeCo
 
 export function renderSsrDocument(
 	template: string,
-	result: Pick<SsrRenderResult, "head" | "html">,
+	result: Pick<SsrRenderResult, "head" | "html" | "lang" | "dir">,
 	adSenseConfig: Pick<AdSenseRuntimeConfig, "scriptHtml">,
 ): string {
 	const head = [result.head, adSenseConfig.scriptHtml].filter(Boolean).join("\n");
-	return template
+	const document = template
 		.replace("<!--app-head-->", () => head)
 		.replace("<!--app-html-->", () => result.html);
+	if (!result.lang) return document;
+	// Serve the page's own language and direction on <html> so it is right before any JavaScript runs.
+	return document.replace(/<html\b[^>]*>/i, () => `<html lang="${result.lang}" dir="${result.dir ?? "ltr"}">`);
 }
 
 function normalizeCommerceApiBaseUrlEnv() {

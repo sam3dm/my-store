@@ -224,17 +224,39 @@ export const schemas = {
       "gallery": z.object({
         "eyebrow": z.string(),
         "heading": z.string(),
-        "disclaimer": z.string()
+        "disclaimer": z.string(),
+        "items": z.array(z.object({
+          "id": z.string(),
+          "slot": z.string(),
+          "number": z.string(),
+          "title": z.string(),
+          "service": z.string(),
+          "description": z.string(),
+          "tags": z.array(z.string()),
+          "note": z.string()
+        }))
       }),
       "process": z.object({
         "eyebrow": z.string(),
-        "heading": z.string()
+        "heading": z.string(),
+        "steps": z.array(z.object({
+          "id": z.string(),
+          "step": z.string(),
+          "title": z.string(),
+          "body": z.string()
+        }))
       }),
       "services": z.object({
         "eyebrow": z.string(),
         "heading": z.string(),
-        "body": z.string()
+        "body": z.string(),
+        "items": z.array(z.object({
+          "id": z.string(),
+          "title": z.string(),
+          "description": z.string()
+        }))
       }),
+      "capabilities": z.array(z.string()),
       "cta": z.object({
         "eyebrow": z.string(),
         "heading": z.string(),

@@ -128,4 +128,14 @@ describe("entry SSR rendering", () => {
 		expect(html).not.toContain("pagead2.googlesyndication.com");
 		expect(html).toContain("<main>Rendered app</main>");
 	});
+
+	it("serves the page's language and direction on the <html> element", () => {
+		const template = '<html lang="en"><head><!--app-head--></head><body><!--app-html--></body></html>';
+		const rtl = renderSsrDocument(template, { head: "", html: "<main/>", lang: "ar", dir: "rtl" }, { scriptHtml: "" });
+		expect(rtl).toContain('<html lang="ar" dir="rtl">');
+		const ltr = renderSsrDocument(template, { head: "", html: "<main/>", lang: "ru", dir: "ltr" }, { scriptHtml: "" });
+		expect(ltr).toContain('<html lang="ru" dir="ltr">');
+		const untouched = renderSsrDocument(template, { head: "", html: "<main/>" }, { scriptHtml: "" });
+		expect(untouched).toContain('<html lang="en">');
+	});
 });

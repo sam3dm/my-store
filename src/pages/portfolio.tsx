@@ -2,7 +2,7 @@ import { useRef, useState, useCallback, useEffect } from 'react';
 import { Helmet } from '@dr.pogodin/react-helmet';
 import { motion, useInView, AnimatePresence } from 'motion/react';
 import { ArrowRight, X, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
-import { portfolio } from 'virtual:content';
+import { useLocalizedContent } from '@/lib/i18n/content';
 import { useTranslation } from 'react-i18next';
 import { getPageSeo, getCanonicalUrl, SITE_URL, OG_IMAGE } from '@/lib/seo-meta';
 import { buildHreflangLinks } from '@/lib/hreflang';
@@ -36,6 +36,15 @@ function FadeIn({
   );
 }
 
+type PortfolioItem = {
+  id: string;
+  category: string;
+  slot: string;
+  title: string;
+  label: string;
+  type: string;
+};
+
 // ─── Lightbox ─────────────────────────────────────────────────────────────────
 function Lightbox({
   items,
@@ -44,12 +53,13 @@ function Lightbox({
   onPrev,
   onNext,
 }: {
-  items: typeof portfolio.items;
+  items: PortfolioItem[];
   activeIndex: number;
   onClose: () => void;
   onPrev: () => void;
   onNext: () => void;
 }) {
+  const { t } = useTranslation();
   const item = items[activeIndex];
 
   useEffect(() => {
@@ -78,14 +88,14 @@ function Lightbox({
       onClick={onClose}
       role="dialog"
       aria-modal="true"
-      aria-label={`Viewing: ${item.title}`}
+      aria-label={t('ui.viewing', { title: item.title })}
     >
       {/* Close */}
       <button
         className="absolute top-5 right-5 z-10 p-2 transition-opacity duration-200 hover:opacity-70"
         style={{ color: `hsl(var(--metro-white))` }}
         onClick={onClose}
-        aria-label="Close lightbox"
+        aria-label={t('ui.closeLightbox')}
       >
         <X size={24} />
       </button>
@@ -99,7 +109,7 @@ function Lightbox({
           background: `hsl(var(--metro-black) / 0.6)`,
         }}
         onClick={(e) => { e.stopPropagation(); onPrev(); }}
-        aria-label="Previous image"
+        aria-label={t('ui.previousImage')}
       >
         <ChevronLeft size={22} />
       </button>
@@ -113,7 +123,7 @@ function Lightbox({
           background: `hsl(var(--metro-black) / 0.6)`,
         }}
         onClick={(e) => { e.stopPropagation(); onNext(); }}
-        aria-label="Next image"
+        aria-label={t('ui.nextImage')}
       >
         <ChevronRight size={22} />
       </button>
@@ -252,7 +262,8 @@ function HoverCard({
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function PortfolioPage() {
-  const { i18n } = useTranslation();
+  const portfolio = useLocalizedContent('portfolio');
+  const { t, i18n } = useTranslation();
   const lang = i18n.language || 'en';
   const seo = getPageSeo('portfolio', lang);
   const canonicalUrl = getCanonicalUrl('portfolio', lang);
@@ -283,7 +294,7 @@ export default function PortfolioPage() {
     const item = visibleItems[visibleIdx];
     const fullIdx = portfolio.items.findIndex((i) => i.id === item.id);
     setLightboxIndex(fullIdx);
-  }, [visibleItems]);
+  }, [visibleItems, portfolio.items]);
 
   const closeLightbox = useCallback(() => setLightboxIndex(null), []);
 
@@ -297,7 +308,7 @@ export default function PortfolioPage() {
       const prevItem = visibleItems[prevVis];
       return portfolio.items.findIndex((i) => i.id === prevItem.id);
     });
-  }, [visibleItems]);
+  }, [visibleItems, portfolio.items]);
 
   const nextImage = useCallback(() => {
     setLightboxIndex((fullIdx) => {
@@ -308,7 +319,7 @@ export default function PortfolioPage() {
       const nextItem = visibleItems[nextVis];
       return portfolio.items.findIndex((i) => i.id === nextItem.id);
     });
-  }, [visibleItems]);
+  }, [visibleItems, portfolio.items]);
 
   // Lightbox active index within visible items (for counter display)
   const lightboxVisibleIndex = lightboxIndex === null
@@ -355,7 +366,7 @@ export default function PortfolioPage() {
         <section
           className="relative w-full overflow-hidden flex items-end"
           style={{ minHeight: '62vh', background: `hsl(var(--metro-black))` }}
-          aria-label="Portfolio hero"
+          aria-label={t('aria.portfolioHero')}
         >
           <img
             src="/airo-assets/images/pages/portfolio/cinematic-03"
@@ -429,7 +440,7 @@ export default function PortfolioPage() {
               className="flex gap-2 overflow-x-auto pb-1"
               style={{ scrollbarWidth: 'none' } as React.CSSProperties}
               role="group"
-              aria-label="Filter portfolio by category"
+              aria-label={t('aria.portfolioFilter')}
             >
               {portfolio.categories.map((cat) => {
                 const isActive = activeCategory === cat.id;
@@ -461,7 +472,7 @@ export default function PortfolioPage() {
         <section
           className="py-xxl"
           style={{ background: `hsl(var(--metro-black))` }}
-          aria-label="Portfolio gallery"
+          aria-label={t('aria.portfolioGallery')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
 
@@ -471,8 +482,7 @@ export default function PortfolioPage() {
                 className="text-xs font-semibold tracking-[0.2em] uppercase mb-10"
                 style={{ color: `hsl(var(--metro-white) / 0.3)` }}
               >
-                <span>{visibleItems.length}</span>
-                <span> {visibleItems.length === 1 ? 'Work' : 'Works'}</span>
+                <span>{t('ui.workCount', { count: visibleItems.length })}</span>
                 {activeCategory !== 'all' && (
                   <span style={{ color: `hsl(var(--metro-white) / 0.18)` }}>
                     <span> — </span>
@@ -574,9 +584,9 @@ export default function PortfolioPage() {
                 className="font-semibold uppercase tracking-[0.12em]"
                 style={{ color: `hsl(var(--metro-white) / 0.4)` }}
               >
-                Note:
+                {t('ui.note')}
               </span>
-              {' '}Images labelled "Creative Concept" or "Concept Visualisation" are illustrative representations of Metropolitan's production capabilities and creative direction. They do not represent specific completed client projects. Client work is available for viewing under NDA upon request.
+              {' '}{t('ui.portfolioNote')}
             </p>
           </div>
         </div>
@@ -585,7 +595,7 @@ export default function PortfolioPage() {
         <section
           className="py-xxl relative overflow-hidden"
           style={{ background: `hsl(var(--metro-black))` }}
-          aria-label="Contact call to action"
+          aria-label={t('aria.contactCta')}
         >
           {/* Ghost watermark */}
           <span
@@ -600,7 +610,7 @@ export default function PortfolioPage() {
             }}
             aria-hidden="true"
           >
-            Portfolio
+            {t('nav.portfolio')}
           </span>
 
           <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 flex flex-col items-center text-center">

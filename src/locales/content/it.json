@@ -1,0 +1,1216 @@
+{
+  "home": {
+    "industries": [
+      "Brand di lusso",
+      "Sanità",
+      "Automotive",
+      "Hotel e ospitalità",
+      "Immobiliare",
+      "Sport",
+      "Corporate",
+      "Tecnologia",
+      "Moda",
+      "Food & beverage"
+    ],
+    "differentiators": [
+      {
+        "title": "Eccellenza cinematografica",
+        "body": "Ogni inquadratura è curata con la precisione di un lungometraggio. A ogni storia di brand che raccontiamo portiamo standard produttivi da Hollywood."
+      },
+      {
+        "title": "15–20 anni di esperienza",
+        "body": "Il nostro team multidisciplinare ha una profonda esperienza professionale in produzione creativa, pubblicità, design visivo e sviluppo di contenuti."
+      },
+      {
+        "title": "Studio creativo a servizio completo",
+        "body": "Dalla strategia e dal concept fino alla produzione e alla post-produzione, offriamo soluzioni creative end-to-end sotto un unico tetto a Dubai."
+      },
+      {
+        "title": "Innovazione guidata dalla tecnologia",
+        "body": "Uniamo IA, CGI, VFX e strumenti digitali avanzati per realizzare esperienze impossibili da ignorare."
+      }
+    ]
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "Chi è Metropolitan",
+      "headline": "Costruiti sul mestiere. Guidati dalla visione.",
+      "subheadline": "Il principale studio di produzione creativa di Dubai"
+    },
+    "story": {
+      "eyebrow": "La nostra storia",
+      "headline": "Dove l'ambizione incontra l'arte.",
+      "paragraphs": [
+        {
+          "text": "Metropolitan Digital Marketing è nata da un'unica convinzione: ogni brand merita una produzione creativa di livello mondiale. Nati a Dubai, una città che incarna ambizione, lusso e visione globale, abbiamo voluto costruire uno studio in grado di competere sul palcoscenico internazionale."
+        },
+        {
+          "text": "Negli anni siamo diventati una forza creativa a servizio completo, che unisce un digital marketing strategico a capacità di produzione cinematografica pari a quelle dei migliori studi al mondo. Il nostro team vanta circa 15–20 anni di esperienza professionale in produzione creativa, pubblicità, design visivo e sviluppo di contenuti."
+        },
+        {
+          "text": "Oggi Metropolitan lavora con brand di lusso, organizzazioni sanitarie, aziende automobilistiche, hotel, sviluppatori immobiliari, organizzazioni sportive e imprese di numerosi settori, offrendo soluzioni creative impossibili da ignorare."
+        }
+      ]
+    },
+    "vision": {
+      "eyebrow": "La nostra visione",
+      "headline": "Essere lo studio creativo più rispettato del Medio Oriente e non solo.",
+      "body": "Immaginiamo un mondo in cui ogni brand, di qualunque settore, abbia accesso a una produzione creativa di qualità cinematografica. Stiamo costruendo quel futuro, un progetto straordinario alla volta."
+    },
+    "mission": {
+      "eyebrow": "La nostra missione",
+      "headline": "Trasformare idee ambiziose in esperienze di brand di grande impatto.",
+      "body": "La nostra missione è offrire soluzioni creative integrate che uniscono intelligenza di marketing strategico, narrazione cinematografica, tecnologie visive avanzate e instancabile innovazione creativa, per realizzare lavori che emozionano il pubblico e producono risultati misurabili."
+    },
+    "expertise": {
+      "eyebrow": "La nostra competenza",
+      "headline": "Una forza creativa multidisciplinare.",
+      "intro": "Le nostre capacità coprono l'intero spettro creativo: dalla strategia digitale e dalla gestione dei social media alla produzione cinematografica di livello hollywoodiano, dalla CGI fotorealistica ai VFX all'avanguardia fino alla creazione di contenuti con l'IA.",
+      "disciplines": [
+        {
+          "title": "Digital marketing e social media",
+          "description": "Gestione completa dei social media su Instagram, TikTok, YouTube e Facebook: strategia, creazione di contenuti, community management e analisi delle performance."
+        },
+        {
+          "title": "Produzione cinematografica",
+          "description": "Spot di lusso, pubblicità televisive, film aziendali, film di brand e regia professionale. Ogni inquadratura è curata con la precisione di un lungometraggio."
+        },
+        {
+          "title": "Animazione 3D e CGI",
+          "description": "Animazione 3D fotorealistica, visualizzazione di prodotti e architetture e ambienti CGI cinematografici che sfumano il confine tra realtà e immaginazione."
+        },
+        {
+          "title": "Effetti visivi e post-produzione",
+          "description": "VFX, compositing, motion graphics, montaggio professionale, color grading e finitura cinematografica che portano ogni produzione a una qualità broadcast."
+        },
+        {
+          "title": "Produzione di contenuti con l'IA",
+          "description": "Concept creativi assistiti dall'IA, visual generati dall'IA, animazione IA e produzione pubblicitaria innovativa che pongono i nostri clienti all'avanguardia della tecnologia creativa."
+        },
+        {
+          "title": "Branding e graphic design",
+          "description": "Identità aziendale, design del brand, grafica pubblicitaria, template per i social media e sistemi di comunicazione visiva che definiscono e distinguono."
+        }
+      ]
+    },
+    "medical": {
+      "eyebrow": "Specializzazione nel settore sanitario",
+      "headline": "Contenuti medici. Fatti come si deve.",
+      "paragraphs": [
+        {
+          "text": "La comunicazione sanitaria richiede uno standard che va oltre l'estetica: servono accuratezza, autorevolezza e fiducia. Metropolitan ha sviluppato una competenza specializzata nella creazione di contenuti medici, lavorando in collaborazione diretta con medici qualificati e professionisti sanitari abilitati."
+        },
+        {
+          "text": "Il nostro team di contenuti medici produce materiali clinicamente accurati e di grande impatto visivo per ospedali, cliniche, brand farmaceutici, aziende di dispositivi medici e organizzazioni sanitarie. Ogni contenuto viene rivisto e approvato da professionisti medici qualificati prima della produzione."
+        },
+        {
+          "text": "Dai video di educazione dei pazienti alle animazioni di procedure chirurgiche, dalle campagne dei brand sanitari ai contenuti social condotti dai medici, offriamo una comunicazione medica scientificamente credibile e creativamente eccezionale."
+        }
+      ],
+      "callout": "Tutti i contenuti medici sono prodotti in collaborazione con medici qualificati e professionisti sanitari abilitati."
+    },
+    "process": {
+      "eyebrow": "Il nostro processo creativo",
+      "headline": "Dal concept alla creazione.",
+      "steps": [
+        {
+          "title": "Scoperta e strategia",
+          "description": "Iniziamo immergendoci nel tuo brand, nel tuo pubblico e nei tuoi obiettivi. Ricerca approfondita, analisi della concorrenza e pianificazione strategica sono le fondamenta di ogni progetto."
+        },
+        {
+          "title": "Concept creativo",
+          "description": "Il nostro team creativo sviluppa concept audaci e distintivi, in linea con l'identità del tuo brand e capaci di colpire il pubblico di riferimento. Ti presentiamo diverse direzioni creative tra cui scegliere."
+        },
+        {
+          "title": "Produzione",
+          "description": "Una volta approvato il concept, il nostro team di produzione lo realizza con precisione, sul set cinematografico, in ambiente CGI, in post-produzione o sui canali digitali."
+        },
+        {
+          "title": "Rifinitura e consegna",
+          "description": "Curiamo ogni dettaglio finché il lavoro non raggiunge i nostri standard esigenti. La consegna finale include tutti i file, le linee guida d'uso e un supporto continuo."
+        }
+      ]
+    },
+    "whyUs": {
+      "eyebrow": "Perché Metropolitan",
+      "headline": "Lo standard dell'eccellenza.",
+      "points": [
+        {
+          "title": "Eccellenza cinematografica",
+          "description": "Ogni inquadratura è curata con la precisione di un lungometraggio. A ogni storia di brand che raccontiamo portiamo standard produttivi da Hollywood."
+        },
+        {
+          "title": "15–20 anni di esperienza",
+          "description": "Il nostro team multidisciplinare ha una profonda esperienza professionale in produzione creativa, pubblicità, design visivo e sviluppo di contenuti."
+        },
+        {
+          "title": "Studio creativo a servizio completo",
+          "description": "Dalla strategia e dal concept fino alla produzione e alla post-produzione, offriamo soluzioni creative end-to-end sotto un unico tetto a Dubai."
+        },
+        {
+          "title": "Innovazione guidata dalla tecnologia",
+          "description": "Uniamo IA, CGI, VFX e strumenti digitali avanzati per realizzare esperienze impossibili da ignorare."
+        },
+        {
+          "title": "Competenza nel settore sanitario",
+          "description": "Unica nella regione: la nostra divisione di contenuti medici lavora direttamente con medici qualificati per realizzare una comunicazione sanitaria clinicamente accurata e coinvolgente."
+        },
+        {
+          "title": "Con sede a Dubai, di livello mondiale",
+          "description": "Con la sede principale a Dubai, serviamo clienti negli Emirati, in Medio Oriente e a livello internazionale, portando standard creativi globali in ogni collaborazione."
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "Creiamo insieme",
+      "headline": "Pronto a creare qualcosa di straordinario?",
+      "body": "Raccontaci il tuo progetto. Il nostro team è pronto a trasformare la tua visione in un'esperienza di brand cinematografica che il mondo ricorderà.",
+      "buttonLabel": "Avvia il tuo progetto"
+    }
+  },
+  "services": {
+    "hero": {
+      "eyebrow": "Cosa facciamo",
+      "headline": "Soluzioni creative. Senza limiti.",
+      "subheadline": "19 discipline. Un solo studio. Possibilità infinite.",
+      "body": "Dalle campagne pubblicitarie sui social media all'influencer marketing, dalla produzione cinematografica di livello hollywoodiano alla CGI fotorealistica fino ai contenuti basati sull'IA, Metropolitan offre soluzioni creative integrate che trasformano i brand e coinvolgono il pubblico."
+    },
+    "services": [
+      {
+        "title": "Gestione dei social media",
+        "tagline": "Strategia. Contenuti. Crescita.",
+        "description": "Gestione completa dei social media su Instagram, TikTok, YouTube e Facebook. Ci occupiamo di strategia, pianificazione dei contenuti, pubblicazione, community management, coinvolgimento del pubblico e analisi approfondita delle performance, perché il tuo brand sia presente in modo costante, convincente e su larga scala.",
+        "deliverables": [
+          "Strategia per piattaforma e calendari editoriali",
+          "Instagram, TikTok, YouTube, Facebook",
+          "Community management e coinvolgimento",
+          "Report sulle performance e analisi"
+        ]
+      },
+      {
+        "title": "Creazione di contenuti per i social media",
+        "tagline": "Reel. Short. Campagne.",
+        "description": "Contenuti social ad alto impatto pensati per lo scroll. Il nostro team di produzione realizza Reel cinematografici, YouTube Short, video TikTok, fotografia professionale e kit completi per le campagne: contenuti che fermano lo scorrimento e costruiscono un pubblico che converte.",
+        "deliverables": [
+          "Reel Instagram e video TikTok",
+          "YouTube Short e contenuti long-form",
+          "Fotografia professionale",
+          "Produzione di materiali per le campagne"
+        ]
+      },
+      {
+        "title": "Produzione video cinematografica",
+        "tagline": "Film. Spot. Storie di brand.",
+        "description": "Dagli spot televisivi di lusso ai film di brand aziendali, il nostro team di produzione realizza narrazioni cinematografiche con precisione hollywoodiana. Ci occupiamo di concept, sceneggiatura, regia, direzione della fotografia, gestione della produzione e post-produzione completa.",
+        "deliverables": [
+          "Spot TV e film per brand di lusso",
+          "Film aziendali e documentari",
+          "Regia professionale",
+          "Gestione completa della produzione"
+        ]
+      },
+      {
+        "title": "Animazione 3D e CGI",
+        "tagline": "Fotorealistica. Senza limiti. Straordinaria.",
+        "description": "Creiamo animazione 3D fotorealistica, animazione di personaggi, visualizzazione di prodotti, CGI architettonica e ambienti cinematografici che sfumano il confine tra realtà e immaginazione. Ogni render è realizzato secondo gli standard del broadcast e della pubblicità.",
+        "deliverables": [
+          "Animazione 3D fotorealistica",
+          "Visualizzazione di prodotti e architetture",
+          "Animazione di personaggi e ambienti CGI",
+          "3D per pubblicità e broadcast"
+        ]
+      },
+      {
+        "title": "Effetti visivi e post-produzione",
+        "tagline": "VFX. Compositing. Finitura.",
+        "description": "Il nostro team di post-produzione offre VFX di livello mondiale, compositing, motion graphics, montaggio professionale e color grading cinematografico. Portiamo ogni produzione a una qualità broadcast, da un singolo shot VFX a un'intera pipeline di post-produzione per un lungometraggio.",
+        "deliverables": [
+          "VFX e compositing",
+          "Motion graphics e titoli",
+          "Montaggio professionale e color grading",
+          "Finitura per broadcast e streaming"
+        ]
+      },
+      {
+        "title": "Produzione creativa con l'IA",
+        "tagline": "Assistita dall'IA. Proiettata al futuro.",
+        "description": "Sfruttiamo i più recenti strumenti di IA per realizzare visual, animazioni e concept pubblicitari che spingono oltre i confini della creatività. Ideazione assistita dall'IA, immagini generate dall'IA, animazione IA e flussi di produzione innovativi pongono i nostri clienti all'avanguardia della tecnologia creativa.",
+        "deliverables": [
+          "Concept creativi assistiti dall'IA",
+          "Visual e immagini generati dall'IA",
+          "Produzione di animazioni IA",
+          "Pubblicità innovativa con l'IA"
+        ]
+      },
+      {
+        "title": "Produzione di contenuti medici",
+        "tagline": "Accurati. Autorevoli. Coinvolgenti.",
+        "description": "La comunicazione sanitaria richiede accuratezza clinica insieme a eccellenza creativa. La nostra divisione di contenuti medici lavora in collaborazione diretta con medici qualificati e professionisti sanitari abilitati per produrre video di educazione dei pazienti, animazioni chirurgiche, contenuti social condotti dai medici e campagne di brand sanitari.",
+        "deliverables": [
+          "Video di educazione dei pazienti e video esplicativi",
+          "Animazione medica 3D scientifica",
+          "Interviste ai medici e campagne sanitarie",
+          "Contenuti sottoposti a revisione clinica"
+        ]
+      },
+      {
+        "title": "Produzione di podcast",
+        "tagline": "Multicamera. Professionale. Pronto per il broadcast.",
+        "description": "Produzione di podcast a servizio completo, dall'allestimento dello studio alla consegna finale. Offriamo riprese multicamera, ingegneria del suono professionale, illuminazione di qualità broadcast, montaggio esperto e post-produzione, così che i tuoi podcast abbiano l'immagine e il suono di un contenuto broadcast premium.",
+        "deliverables": [
+          "Riprese in studio multicamera",
+          "Audio e illuminazione professionali",
+          "Montaggio esperto e post-produzione",
+          "Consegna di qualità broadcast"
+        ]
+      },
+      {
+        "title": "Fotografia commerciale",
+        "tagline": "Automotive. Lusso. Editoriale.",
+        "description": "Fotografia commerciale di alto livello per brand automobilistici, prodotti di lusso, hotel, interni, moda e clienti corporate. I nostri fotografi uniscono maestria tecnica e sguardo editoriale per creare immagini che definiscono l'identità del brand e catturano l'attenzione.",
+        "deliverables": [
+          "Fotografia automotive e di prodotti di lusso",
+          "Fotografia di hotel e interni",
+          "Fotografia corporate ed editoriale",
+          "Ritocco completo e consegna"
+        ]
+      },
+      {
+        "title": "Branding e graphic design",
+        "tagline": "Identità. Design. Distinzione.",
+        "description": "Costruiamo identità di brand destinate a durare. Dai sistemi di identità aziendale e dal design dei loghi alla grafica pubblicitaria, ai template per i social media e a framework completi di comunicazione visiva, creiamo il linguaggio visivo che definisce il modo in cui il mondo vede il tuo brand.",
+        "deliverables": [
+          "Identità aziendale e design del logo",
+          "Linee guida e sistemi di brand",
+          "Grafica pubblicitaria e per la stampa",
+          "Template visivi per i social media"
+        ]
+      },
+      {
+        "title": "Progettazione di siti web",
+        "tagline": "Premium. Responsive. Orientati alla conversione.",
+        "description": "Progettiamo e sviluppiamo siti web e landing page premium e responsive, che uniscono eccellenza estetica e prestazioni. Ogni sito è pensato per la conversione, ottimizzato per la ricerca e costruito per rappresentare il tuo brand al massimo livello.",
+        "deliverables": [
+          "Progettazione di siti web premium e responsive",
+          "Progettazione e sviluppo di landing page",
+          "Design UI/UX e prototipazione",
+          "Sviluppo ottimizzato SEO e consegna"
+        ]
+      },
+      {
+        "title": "Digital marketing e pubblicità",
+        "tagline": "Strategia. Media a pagamento. Risultati.",
+        "description": "Campagne di digital marketing basate sui dati che producono risultati misurabili. Definiamo la strategia della campagna, gestiamo la pubblicità social a pagamento, realizziamo programmi di lead generation e forniamo report analitici trasparenti, trasformando l'investimento in marketing in crescita del business.",
+        "deliverables": [
+          "Strategia e pianificazione delle campagne",
+          "Pubblicità a pagamento su social e motori di ricerca",
+          "Programmi di lead generation",
+          "Analisi e report sulle performance"
+        ]
+      },
+      {
+        "title": "Sceneggiatura e direzione creativa",
+        "tagline": "Concept. Sceneggiature. Direzione.",
+        "description": "La creatività efficace nasce da un'idea forte. I nostri direttori creativi e autori sviluppano concept originali, sceneggiature, storyboard e shot list, poi guidano la produzione dalla prima bozza all'ultimo fotogramma, garantendo integrità creativa in ogni fase.",
+        "deliverables": [
+          "Sviluppo di concept creativi",
+          "Scrittura di sceneggiature e dialoghi",
+          "Storyboard e shot list",
+          "Direzione creativa sul set"
+        ]
+      },
+      {
+        "title": "Voice-over e produzione audio",
+        "tagline": "Voce. Suono. Atmosfera.",
+        "description": "Registrazione voice-over professionale, sound design e post-produzione audio per pubblicità, film aziendali, e-learning e contenuti broadcast. Lavoriamo con una selezione curata di doppiatori professionisti in più lingue e accenti.",
+        "deliverables": [
+          "Registrazione voice-over professionale",
+          "Doppiatori multilingue",
+          "Sound design e musica",
+          "Post-produzione audio e missaggio"
+        ]
+      },
+      {
+        "title": "Pubblicità di lusso",
+        "tagline": "Automotive. Profumi. Ospitalità.",
+        "description": "Produzione pubblicitaria specializzata per brand automobilistici, di profumeria, di bellezza, dell'ospitalità e immobiliari di lusso. Conosciamo il linguaggio visivo del lusso — la luce, il ritmo, il silenzio — e lo traduciamo in pubblicità che affermano un posizionamento premium.",
+        "deliverables": [
+          "Pubblicità automotive di lusso",
+          "Campagne di profumeria e bellezza",
+          "Pubblicità per ospitalità e immobiliare",
+          "Posizionamento premium del brand"
+        ]
+      },
+      {
+        "title": "Produzione per content creator",
+        "tagline": "Creator. Influencer. Piattaforme.",
+        "description": "Supporto produttivo professionale per content creator, influencer e personalità digitali su YouTube, Instagram e TikTok. Mettiamo a disposizione studio, direzione della fotografia, montaggio, color grading e post-produzione completa, portando i contenuti dei creator a una qualità broadcast.",
+        "deliverables": [
+          "Produzione per YouTube e long-form",
+          "Contenuti per Instagram e TikTok",
+          "Montaggio e color grading professionali",
+          "Studio e attrezzatura per creator"
+        ]
+      },
+      {
+        "title": "Campagne pubblicitarie sui social media",
+        "tagline": "A pagamento. Mirate. Orientate alla performance.",
+        "description": "Campagne pubblicitarie a pagamento a servizio completo su Instagram, Facebook, TikTok, YouTube, LinkedIn, Snapchat e Google Ads. Sviluppiamo la strategia pubblicitaria, produciamo creatività professionali, gestiamo l'impostazione delle campagne e ne ottimizziamo le performance, trasformando l'investimento pubblicitario in risultati di business misurabili.",
+        "deliverables": [
+          "Strategia pubblicitaria e pianificazione delle campagne",
+          "Ricerca sul pubblico e targeting",
+          "Produzione di video pubblicitari professionali",
+          "Gestione, ottimizzazione e reportistica delle campagne"
+        ]
+      },
+      {
+        "title": "Marketing con influencer e celebrità",
+        "tagline": "Talenti. Collaborazione. Impatto.",
+        "description": "Campagne professionali di influencer marketing e collaborazioni con celebrità, personaggi pubblici e creator digitali. Gestiamo l'intero processo, dall'individuazione dei talenti e dal primo contatto alla direzione creativa, alla produzione professionale e all'analisi delle performance della campagna.",
+        "deliverables": [
+          "Individuazione di influencer e ricerca di talenti",
+          "Contatti, coordinamento e gestione delle collaborazioni",
+          "Contenuti sponsorizzati e produzione di Reel Instagram / TikTok",
+          "Collaborazioni su YouTube e analisi delle performance delle campagne"
+        ]
+      },
+      {
+        "title": "Pubblicità digitale integrata",
+        "tagline": "Multicanale. Unitaria. Potente.",
+        "description": "Sviluppiamo campagne pubblicitarie integrate che combinano pubblicità sui social media, influencer marketing, produzione video cinematografica, pubblicità CGI e 3D, creatività assistita dall'IA, fotografia commerciale e storytelling di brand, assicurando una presenza di campagna unitaria su ogni canale.",
+        "deliverables": [
+          "Strategia di campagna multicanale integrata",
+          "Pubblicità sui social media e influencer marketing",
+          "Video cinematografico, CGI e produzione creativa assistita dall'IA",
+          "Storytelling di brand e realizzazione unitaria della campagna"
+        ]
+      }
+    ],
+    "cta": {
+      "eyebrow": "Creiamo insieme",
+      "headline": "Diamo vita alla tua visione.",
+      "body": "Raccontaci il tuo progetto. Il nostro team è pronto a offrirti una soluzione creativa che superi ogni aspettativa.",
+      "buttonLabel": "Avvia il tuo progetto"
+    }
+  },
+  "industries": {
+    "hero": {
+      "eyebrow": "I settori che serviamo",
+      "headline": "Ogni settore. Una storia unica.",
+      "body": "Uniamo strategia, narrazione cinematografica, tecnologia avanzata ed eccellenza creativa per realizzare esperienze di brand distintive in tutti i settori."
+    },
+    "industries": [
+      {
+        "title": "Sanità e ospedali",
+        "tagline": "Accuratezza. Autorevolezza. Fiducia.",
+        "description": "Le organizzazioni sanitarie richiedono una comunicazione clinicamente accurata, di grande impatto visivo e profondamente affidabile. Produciamo film di brand per ospedali, contenuti di educazione dei pazienti, animazioni di procedure chirurgiche, campagne istituzionali e social media condotti dai medici, sempre sviluppati in collaborazione diretta con professionisti medici qualificati. Ogni contenuto clinico viene sottoposto a una revisione medica qualificata prima della pubblicazione.",
+        "capabilities": [
+          "Film di brand ospedalieri e campagne istituzionali",
+          "Video di educazione dei pazienti e video esplicativi",
+          "Animazione medica 3D scientifica",
+          "Contenuti social condotti dai medici",
+          "Processo di revisione medica qualificata"
+        ]
+      },
+      {
+        "title": "Cliniche mediche e medici",
+        "tagline": "Credibilità. Visibilità. Risultati.",
+        "description": "Cliniche private e medici specialisti hanno bisogno di contenuti che costruiscano autorevolezza e fiducia nei pazienti. Creiamo serie di interviste professionali ai medici, film di brand per le cliniche, video esplicativi sui trattamenti, contenuti di casi prima/dopo e campagne sui social media, tutti prodotti con accuratezza clinica e rivisti da professionisti sanitari qualificati.",
+        "capabilities": [
+          "Film di interviste e profili di medici",
+          "Film di brand e campagne per le cliniche",
+          "Video esplicativi sui trattamenti",
+          "Contenuti social per le cliniche",
+          "Fotografia medica e identità visiva"
+        ]
+      },
+      {
+        "title": "Brand di lusso",
+        "tagline": "Prestigio. Eleganza. Distinzione.",
+        "description": "I brand di lusso richiedono un linguaggio visivo che comunichi esclusività, maestria e desiderio. Produciamo film di brand cinematografici, fotografia di prodotti di lusso, campagne editoriali, contenuti per i social media e visualizzazioni di prodotto in CGI che collocano il tuo brand al vertice della sua categoria.",
+        "capabilities": [
+          "Film cinematografici per brand di lusso",
+          "Fotografia editoriale di prodotto",
+          "Visualizzazione di prodotto in CGI",
+          "Contenuti e campagne per i social media",
+          "Identità di brand e design visivo"
+        ]
+      },
+      {
+        "title": "Automotive",
+        "tagline": "Potenza. Precisione. Prestazioni.",
+        "description": "La pubblicità automotive richiede precisione cinematografica: la luce perfetta, l'angolazione perfetta, il momento perfetto. Produciamo spot automobilistici spettacolari, render CGI di veicoli, sequenze di guida dinamiche, campagne di lancio e contenuti social che catturano l'essenza di ogni veicolo.",
+        "capabilities": [
+          "Spot automotive cinematografici",
+          "Render CGI e visualizzazione di veicoli",
+          "Sequenze di guida dinamiche",
+          "Produzione di campagne di lancio",
+          "Fotografia automotive"
+        ]
+      },
+      {
+        "title": "Immobiliare e sviluppo immobiliare",
+        "tagline": "Visione. Scala. Aspirazione.",
+        "description": "Sviluppatori e brand immobiliari hanno bisogno di contenuti che vendano la visione prima che venga posato un solo mattone. Produciamo CGI architettonica, walkthrough 3D fotorealistici, film immobiliari cinematografici, riprese aeree, campagne di lancio dei progetti e contenuti social che generano richieste e rafforzano il prestigio del brand.",
+        "capabilities": [
+          "CGI architettonica e walkthrough 3D",
+          "Film immobiliari cinematografici",
+          "Riprese aeree e con drone",
+          "Campagne di lancio dei progetti",
+          "Social media e digital marketing"
+        ]
+      },
+      {
+        "title": "Interior design e arredamento",
+        "tagline": "Spazio. Luce. Atmosfera.",
+        "description": "I brand di interior design e arredamento vivono della loro presentazione visiva. Produciamo fotografia di interni cinematografica, visualizzazioni 3D di ambienti, film di brand, contenuti social e render CGI di arredi che mettono in risalto maestria, materiali ed eccellenza degli spazi.",
+        "capabilities": [
+          "Fotografia di interni cinematografica",
+          "Visualizzazione 3D di ambienti e prodotti",
+          "Film di brand e contenuti per showroom",
+          "Campagne sui social media",
+          "Render CGI di arredi"
+        ]
+      },
+      {
+        "title": "Hotel e resort",
+        "tagline": "Esperienza. Lusso. Evasione.",
+        "description": "I brand dell'ospitalità competono sull'esperienza, e l'esperienza comincia dai contenuti. Produciamo film cinematografici per hotel, fotografia di camere e servizi, contenuti food & beverage, campagne social e strategie di digital marketing che riempiono le camere e costruiscono fedeltà al brand.",
+        "capabilities": [
+          "Film cinematografici per hotel e resort",
+          "Fotografia di camere, servizi e F&B",
+          "Contenuti e gestione dei social media",
+          "Campagne di digital marketing",
+          "Identità di brand e design visivo"
+        ]
+      },
+      {
+        "title": "Turismo e viaggi",
+        "tagline": "Destinazione. Scoperta. Desiderio.",
+        "description": "I brand del turismo e dei viaggi hanno bisogno di contenuti che facciano sentire la destinazione prima ancora di arrivarci. Produciamo film cinematografici sulle destinazioni, riprese aeree, fotografia di viaggio, campagne social e strategie di digital marketing che ispirano i viaggi e generano prenotazioni.",
+        "capabilities": [
+          "Film cinematografici sulle destinazioni",
+          "Riprese aeree e con drone",
+          "Fotografia di viaggio",
+          "Campagne sui social media",
+          "Digital marketing e lead generation"
+        ]
+      },
+      {
+        "title": "Sport e fitness",
+        "tagline": "Energia. Intensità. Ispirazione.",
+        "description": "I brand di sport e fitness richiedono contenuti pieni di energia, intensità e impatto emotivo. Produciamo spot sportivi dinamici, film-ritratto di atleti, copertura di eventi, fotografia di palestre e strutture, contenuti social e campagne di brand che motivano il pubblico e costruiscono comunità.",
+        "capabilities": [
+          "Spot sportivi dinamici",
+          "Film-ritratto e documentari su atleti",
+          "Copertura di eventi e highlight",
+          "Fotografia di palestre e strutture",
+          "Contenuti e campagne per i social media"
+        ]
+      },
+      {
+        "title": "Bellezza e cosmetica",
+        "tagline": "Luminosità. Desiderio. Identità.",
+        "description": "I brand di bellezza e cosmetica hanno bisogno di contenuti visivamente impeccabili ed emotivamente coinvolgenti. Produciamo campagne beauty cinematografiche, fotografia di prodotto, tutorial e contenuti how-to, campagne social e film di brand che generano desiderio e fanno crescere le vendite su ogni piattaforma.",
+        "capabilities": [
+          "Campagne beauty cinematografiche",
+          "Fotografia di prodotto e render CGI",
+          "Tutorial e contenuti how-to",
+          "Campagne sui social media",
+          "Produzione con influencer e creator"
+        ]
+      },
+      {
+        "title": "Profumi e fragranze",
+        "tagline": "Sensoriale. Evocativo. Senza tempo.",
+        "description": "La pubblicità delle fragranze è tra le comunicazioni di brand più cinematografiche: deve evocare una sensazione attraverso la sola immagine. Produciamo spot di profumi drammatici, visualizzazioni CGI di flaconi, fotografia editoriale e campagne social che traducono il profumo in desiderio.",
+        "capabilities": [
+          "Spot di profumi drammatici",
+          "Visualizzazione CGI di flaconi e prodotti",
+          "Fotografia editoriale di fragranze",
+          "Campagne sui social media",
+          "Posizionamento del brand di lusso"
+        ]
+      },
+      {
+        "title": "Moda e lifestyle",
+        "tagline": "Stile. Cultura. Aspirazione.",
+        "description": "I brand di moda e lifestyle hanno bisogno di contenuti che catturino la cultura, comunichino l'identità e creino aspirazione. Produciamo film di moda editoriali, fotografia di lookbook, copertura di sfilate ed eventi, campagne social e contenuti di brand che definiscono ed esaltano ogni collezione.",
+        "capabilities": [
+          "Film di moda editoriali",
+          "Fotografia di lookbook e campagne",
+          "Copertura di sfilate ed eventi",
+          "Contenuti e campagne per i social media",
+          "Identità di brand e design visivo"
+        ]
+      },
+      {
+        "title": "Ristoranti e alta cucina",
+        "tagline": "Sapore. Atmosfera. Esperienza.",
+        "description": "I brand della ristorazione e dell'alta cucina competono su atmosfera, cucina ed esperienza, e tutte e tre devono essere comunicate attraverso contenuti eccezionali. Produciamo film cinematografici per ristoranti, fotografia gastronomica, contenuti su chef, campagne social e strategie di digital marketing che riempiono i tavoli e costruiscono un seguito fedele.",
+        "capabilities": [
+          "Film cinematografici per ristoranti e brand",
+          "Fotografia di cibo e bevande",
+          "Contenuti su chef e cucina",
+          "Campagne sui social media",
+          "Digital marketing e prenotazioni"
+        ]
+      },
+      {
+        "title": "Tecnologia e innovazione",
+        "tagline": "Futuro. Chiarezza. Impatto.",
+        "description": "I brand tecnologici hanno bisogno di contenuti che rendano l'innovazione complessa accessibile, entusiasmante ed essenziale. Produciamo film di lancio prodotto, animazioni esplicative, visualizzazioni CGI di prodotto, contenuti assistiti dall'IA, campagne social e strategie di digital marketing che posizionano i brand tecnologici come leader.",
+        "capabilities": [
+          "Film e campagne di lancio prodotto",
+          "Animazioni esplicative e CGI",
+          "Produzione di contenuti assistita dall'IA",
+          "Campagne sui social media",
+          "Digital marketing e lead generation"
+        ]
+      },
+      {
+        "title": "Istruzione",
+        "tagline": "Conoscenza. Aspirazione. Futuro.",
+        "description": "Istituti scolastici e piattaforme di e-learning hanno bisogno di contenuti che ispirino, informino e creino fiducia. Produciamo film di brand istituzionali, fotografia di campus, contenuti di promozione dei corsi, serie di testimonianze degli studenti, campagne social e strategie di digital marketing che aumentano le iscrizioni e costruiscono reputazione.",
+        "capabilities": [
+          "Film di brand istituzionali",
+          "Fotografia di campus e strutture",
+          "Promozione dei corsi e contenuti e-learning",
+          "Campagne sui social media",
+          "Digital marketing e iscrizioni"
+        ]
+      },
+      {
+        "title": "Organizzazioni aziendali",
+        "tagline": "Leadership. Credibilità. Visione.",
+        "description": "Le organizzazioni aziendali hanno bisogno di contenuti che comunichino leadership, rafforzino la fiducia degli stakeholder e definiscano la cultura organizzativa. Produciamo film di brand corporate, contenuti per bilanci annuali, serie di profili dei dirigenti, comunicazione interna, copertura di eventi e campagne social che rafforzano l'identità aziendale.",
+        "capabilities": [
+          "Film di brand corporate",
+          "Serie di profili dei dirigenti",
+          "Contenuti per bilanci annuali e investitori",
+          "Copertura e documentazione di eventi",
+          "Social media e comunicazione"
+        ]
+      },
+      {
+        "title": "Retail ed e-commerce",
+        "tagline": "Prodotto. Desiderio. Conversione.",
+        "description": "I brand del retail e dell'e-commerce hanno bisogno di contenuti che alimentino il desiderio e trasformino chi naviga in acquirente. Produciamo fotografia di prodotto, render CGI, contenuti di campagna, pubblicità sui social, video ad e strategie di digital marketing che aumentano traffico, coinvolgimento e vendite.",
+        "capabilities": [
+          "Fotografia di prodotto e render CGI",
+          "Contenuti di campagna e pubblicitari",
+          "Pubblicità sui social media",
+          "Video ad e Reel",
+          "Digital marketing e strategia e-commerce"
+        ]
+      },
+      {
+        "title": "Arte e intrattenimento",
+        "tagline": "Creatività. Cultura. Spettacolo.",
+        "description": "I brand dell'arte e dell'intrattenimento richiedono contenuti all'altezza dell'ambizione e dell'energia dell'opera stessa. Produciamo film di eventi, documentazione di spettacoli, contenuti sul profilo degli artisti, campagne promozionali, contenuti social e strategie di digital marketing che costruiscono il pubblico e fanno registrare il tutto esaurito.",
+        "capabilities": [
+          "Film di eventi e spettacoli",
+          "Profili di artisti e contenuti documentari",
+          "Campagne promozionali",
+          "Contenuti e campagne per i social media",
+          "Digital marketing e vendita di biglietti"
+        ]
+      }
+    ],
+    "cta": {
+      "eyebrow": "Lavoriamo insieme",
+      "headline": "Il tuo settore. La nostra competenza creativa.",
+      "body": "Qualunque sia il tuo settore, portiamo lo stesso impegno per l'eccellenza creativa, il pensiero strategico e la qualità cinematografica. Raccontaci il tuo progetto.",
+      "buttonLabel": "Contattaci"
+    }
+  },
+  "luxury_brands": {
+    "hero": {
+      "eyebrow": "Specializzazione di settore",
+      "headline": "L'ARTE DEI BRAND ECCEZIONALI.",
+      "intro": "In Metropolitan Digital Marketing diamo vita ai brand di lusso attraverso narrazione cinematografica, design visivo sofisticato ed esperienze digitali curate nei minimi dettagli. Dagli orologi pregiati all'alta gioielleria, dalle fragranze esclusive ai prodotti lifestyle premium, creiamo contenuti pubblicitari che riflettono eleganza, maestria e distinzione."
+    },
+    "gallery": {
+      "eyebrow": "Vetrina di produzione",
+      "heading": "CAPACITÀ CREATIVE",
+      "disclaimer": "I visual seguenti rappresentano i servizi di produzione e le capacità creative che applichiamo alle campagne dei brand di lusso. Tutte le immagini sono riferimenti produttivi concettuali, non lavori consegnati ai clienti.",
+      "items": [
+        {
+          "title": "Precisione in ogni inquadratura",
+          "service": "Fotografia cinematografica di prodotto",
+          "description": "Una cinematografia macro ravvicinatissima rivela l'anima meccanica di un orologio di lusso. Ogni ingranaggio, rubino e superficie è catturato con precisione chirurgica sotto una luce drammatica controllata, comunicando la maestria che sta dietro il brand.",
+          "tags": [
+            "Fotografia macro",
+            "Illuminazione cinematografica",
+            "Direzione di prodotto"
+          ],
+          "note": "Visual di produzione concettuale"
+        },
+        {
+          "title": "Il peso del desiderio",
+          "service": "Fotografia di gioielleria di lusso",
+          "description": "Un solo anello di diamanti su nero assoluto: la composizione elimina ogni distrazione e lascia parlare la pietra. Un'illuminazione precisa scolpisce ogni sfaccettatura e crea la tensione visiva che trasforma l'immagine di un prodotto in oggetto del desiderio.",
+          "tags": [
+            "Alta gioielleria",
+            "Fotografia in studio",
+            "Composizione pubblicitaria"
+          ],
+          "note": "Visual di produzione concettuale"
+        },
+        {
+          "title": "Indossato con intenzione",
+          "service": "Produzione di campagne editoriali",
+          "description": "La pubblicità di gioielleria premium richiede più del semplice product placement: richiede una narrazione. Le nostre campagne editoriali collocano i pezzi pregiati in contesti di vita aspirazionali, collegando il brand all'identità e alle emozioni di chi li indossa.",
+          "tags": [
+            "Fotografia editoriale",
+            "Direzione della campagna",
+            "Styling lifestyle"
+          ],
+          "note": "Visual di produzione concettuale"
+        },
+        {
+          "title": "L'invisibile reso visibile",
+          "service": "Produzione di pubblicità per fragranze",
+          "description": "Il profumo è invisibile, e la sua pubblicità deve compiere l'impossibile. Traduciamo la fragranza in immagine attraverso vetro, luce, riflessi e atmosfera. Ogni flacone diventa una scultura; ogni fotogramma, un invito a percepire.",
+          "tags": [
+            "Fotografia di fragranze",
+            "Vetro e riflessi",
+            "Illuminazione d'atmosfera"
+          ],
+          "note": "Visual di produzione concettuale"
+        },
+        {
+          "title": "Oltre il fisico",
+          "service": "Visualizzazione di prodotto in CGI",
+          "description": "La CGI libera la pubblicità dei prodotti di lusso dai vincoli della fotografia fisica. Costruiamo ambienti digitali fotorealistici in cui orologi, gioielli e accessori possono essere presentati con una perfezione impossibile: riflessi, materiali e composizioni ideali.",
+          "tags": [
+            "Produzione CGI",
+            "Visualizzazione 3D",
+            "Direzione artistica digitale"
+          ],
+          "note": "Visual di produzione CGI concettuale"
+        },
+        {
+          "title": "Sospesi nella luce",
+          "service": "Animazione 3D e produzione motion",
+          "description": "Le composizioni di prodotti sospesi creano un senso di leggerezza ed esclusività che la fotografia statica non può replicare. Il nostro team di animazione 3D realizza rivelazioni dinamiche di prodotto, presentazioni rotanti e contenuti motion d'atmosfera per i canali digitali e social.",
+          "tags": [
+            "Animazione 3D",
+            "Motion design",
+            "Produzione per i social media"
+          ],
+          "note": "Visual di produzione concettuale"
+        },
+        {
+          "title": "Oro in movimento",
+          "service": "VFX e post-produzione",
+          "description": "Sistemi di particelle astratte, simulazioni di liquidi e VFX d'atmosfera trasformano la pubblicità delle fragranze in arte cinematografica. Il nostro team di post-produzione compone elementi fisici e digitali per creare visual pubblicitari impossibili da ottenere sul set.",
+          "tags": [
+            "Compositing VFX",
+            "Sistemi di particelle",
+            "Post-produzione"
+          ],
+          "note": "Visual di produzione CGI concettuale"
+        },
+        {
+          "title": "La storia dietro la pietra",
+          "service": "Storytelling per brand di lusso",
+          "description": "La pubblicità di lusso più potente racconta una storia. I nostri direttori creativi sviluppano campagne guidate dalla narrazione che collegano l'alta gioielleria e gli accessori alle emozioni umane: amore, eredità, identità e aspirazione.",
+          "tags": [
+            "Storytelling di brand",
+            "Direzione creativa",
+            "Strategia di campagna"
+          ],
+          "note": "Visual di produzione concettuale"
+        },
+        {
+          "title": "Il meccanismo come arte",
+          "service": "Animazione 3D fotorealistica",
+          "description": "Il movimento di un orologio meccanico è uno dei soggetti più affascinanti della pubblicità di lusso. Il nostro team di animazione 3D ricostruisce i calibri con precisione ingegneristica, realizzando viste esplose, rivelazioni al rallentatore e presentazioni cinematografiche del meccanismo.",
+          "tags": [
+            "Animazione 3D",
+            "Visualizzazione meccanica",
+            "Rivelazione cinematografica"
+          ],
+          "note": "Visual di animazione 3D concettuale"
+        },
+        {
+          "title": "Il momento firma",
+          "service": "Campagna pubblicitaria di lusso integrata",
+          "description": "Una campagna completa per una fragranza di lusso integra fotografia, CGI, motion, contenuti social e produzione con influencer in un unico linguaggio visivo coerente. Gestiamo l'intera pipeline creativa e produttiva, dalla prima idea alla pubblicazione su ogni piattaforma.",
+          "tags": [
+            "Campagna integrata",
+            "Produzione multipiattaforma",
+            "Gestione dei social media"
+          ],
+          "note": "Visual di produzione concettuale"
+        }
+      ]
+    },
+    "process": {
+      "eyebrow": "Come lavoriamo",
+      "heading": "IL PROCESSO DI PRODUZIONE",
+      "steps": [
+        {
+          "title": "Strategia creativa",
+          "body": "Iniziamo con una comprensione approfondita del posizionamento del tuo brand, del pubblico di riferimento e degli obiettivi della campagna. I nostri direttori creativi sviluppano una strategia visiva in linea con l'identità del brand e capace di differenziarti nella categoria del lusso."
+        },
+        {
+          "title": "Concept e direzione",
+          "body": "Vengono elaborati e sottoposti a approvazione moodboard, storyboard e brief di produzione dettagliati. Ogni scelta visiva — luce, composizione, palette cromatica, movimento — è ponderata prima che venga ripreso un solo fotogramma."
+        },
+        {
+          "title": "Produzione e CGI",
+          "body": "Il nostro team di produzione realizza il concept approvato tra fotografia, videografia, CGI e animazione 3D. Gestiamo internamente ogni elemento tecnico e creativo, garantendo coerenza e qualità in ogni fase."
+        },
+        {
+          "title": "Consegna e campagna",
+          "body": "I materiali finali vengono consegnati in tutti i formati necessari per digitale, social media, stampa e broadcast. Per le campagne integrate gestiamo anche la distribuzione, la programmazione dei social e il reporting delle performance."
+        }
+      ]
+    },
+    "services": {
+      "eyebrow": "Digital marketing",
+      "heading": "SERVIZI DIGITALI PER I BRAND DI LUSSO",
+      "body": "Oltre alla produzione, gestiamo l'intera presenza digitale dei brand di lusso su social media, pubblicità a pagamento, partnership con influencer e strategia dei contenuti. Il nostro team conosce le esigenze specifiche della comunicazione di lusso — discrezione, coerenza, esclusività e aspirazione — e le applica su ogni piattaforma e in ogni punto di contatto.",
+      "items": [
+        {
+          "title": "Gestione dei social media",
+          "description": "Instagram, TikTok, YouTube, LinkedIn: calendari editoriali, community management e analisi."
+        },
+        {
+          "title": "Pubblicità social a pagamento",
+          "description": "Campagne mirate con precisione su Meta, TikTok e Google per il pubblico del lusso."
+        },
+        {
+          "title": "Produzione con influencer e celebrità",
+          "description": "Gestione end-to-end delle partnership con influencer e della produzione di campagne con celebrità."
+        },
+        {
+          "title": "Strategia dei contenuti",
+          "description": "Storytelling di brand long-form, serie editoriali e architettura delle campagne."
+        },
+        {
+          "title": "Identità di brand e design",
+          "description": "Sistemi di identità visiva, design del packaging e linee guida del brand per i prodotti di lusso."
+        },
+        {
+          "title": "Sito web ed esperienza digitale",
+          "description": "Progettazione e sviluppo di siti web premium in linea con gli standard dei brand di lusso."
+        }
+      ]
+    },
+    "capabilities": [
+      "Produzione pubblicitaria di lusso",
+      "Fotografia cinematografica di prodotto",
+      "Pubblicità di prodotto in CGI",
+      "Animazione 3D e motion",
+      "Direzione creativa",
+      "Ideazione di campagne pubblicitarie",
+      "Creazione di contenuti per i social media",
+      "Produzione di campagne con influencer e celebrità",
+      "Storytelling di brand premium",
+      "VFX e post-produzione"
+    ],
+    "cta": {
+      "eyebrow": "Pronti a iniziare",
+      "heading": "AVVIA IL TUO PROGETTO DI LUSSO.",
+      "body": "Raccontaci del tuo brand e degli obiettivi della campagna. Il nostro team creativo ti risponderà con una proposta di produzione su misura.",
+      "primaryButton": "Avvia il tuo progetto",
+      "secondaryButton": "Scopri i servizi",
+      "backLink": "← Torna a tutti i settori"
+    }
+  },
+  "portfolio": {
+    "hero": {
+      "eyebrow": "I nostri lavori",
+      "headline": "Idee che prendono vita.",
+      "subheadline": "Produzione cinematografica. Tecnologia creativa. Esperienze visive straordinarie."
+    },
+    "categories": [
+      {
+        "label": "Tutti i lavori"
+      },
+      {
+        "label": "Produzione cinematografica"
+      },
+      {
+        "label": "Automotive"
+      },
+      {
+        "label": "Medicina e sanità"
+      },
+      {
+        "label": "Animazione 3D e CGI"
+      },
+      {
+        "label": "Creatività con l'IA"
+      },
+      {
+        "label": "Immobiliare"
+      },
+      {
+        "label": "Interior design"
+      },
+      {
+        "label": "Hotel e ospitalità"
+      },
+      {
+        "label": "Profumi e bellezza"
+      },
+      {
+        "label": "Social media"
+      }
+    ],
+    "cta": {
+      "eyebrow": "Iniziamo a creare",
+      "headline": "Il tuo prossimo progetto inizia qui.",
+      "body": "Ogni grande campagna nasce da una conversazione. Raccontaci la tua visione e la realizzeremo con precisione cinematografica.",
+      "buttonLabel": "Lavoriamo insieme"
+    },
+    "items": [
+      {
+        "title": "L'arte della produzione",
+        "label": "Produzione cinematografica",
+        "type": "Concept creativo"
+      },
+      {
+        "title": "Direzione in studio",
+        "label": "Produzione cinematografica",
+        "type": "Concept creativo"
+      },
+      {
+        "title": "Troupe e set",
+        "label": "Produzione cinematografica",
+        "type": "Concept creativo"
+      },
+      {
+        "title": "Ritratto cinematografico",
+        "label": "Produzione cinematografica",
+        "type": "Visualizzazione del concept"
+      },
+      {
+        "title": "Studio scuro",
+        "label": "Pubblicità automotive",
+        "type": "Visualizzazione del concept"
+      },
+      {
+        "title": "Movimento notturno",
+        "label": "Pubblicità automotive",
+        "type": "Visualizzazione del concept"
+      },
+      {
+        "title": "Dettaglio dell'abitacolo",
+        "label": "Pubblicità automotive",
+        "type": "Visualizzazione del concept"
+      },
+      {
+        "title": "Riflessi di pioggia",
+        "label": "Pubblicità automotive",
+        "type": "Visualizzazione del concept"
+      },
+      {
+        "title": "Profilo di un medico",
+        "label": "Medicina e sanità",
+        "type": "Concept creativo"
+      },
+      {
+        "title": "Eccellenza chirurgica",
+        "label": "Medicina e sanità",
+        "type": "Concept creativo"
+      },
+      {
+        "title": "Visualizzazione scientifica",
+        "label": "Medicina e sanità",
+        "type": "Visualizzazione del concept"
+      },
+      {
+        "title": "Intervista a un esperto",
+        "label": "Medicina e sanità",
+        "type": "Concept creativo"
+      },
+      {
+        "title": "Paesaggio urbano digitale",
+        "label": "Animazione 3D e CGI",
+        "type": "Visualizzazione del concept"
+      },
+      {
+        "title": "Render di un prodotto di lusso",
+        "label": "Animazione 3D e CGI",
+        "type": "Visualizzazione del concept"
+      },
+      {
+        "title": "CGI architettonica",
+        "label": "Animazione 3D e CGI",
+        "type": "Visualizzazione del concept"
+      },
+      {
+        "title": "Studio del movimento",
+        "label": "Animazione 3D e CGI",
+        "type": "Visualizzazione del concept"
+      },
+      {
+        "title": "Iceberg di dati",
+        "label": "Produzione creativa con l'IA",
+        "type": "Visualizzazione del concept"
+      },
+      {
+        "title": "Onda neurale",
+        "label": "Produzione creativa con l'IA",
+        "type": "Visualizzazione del concept"
+      },
+      {
+        "title": "Cyberspazio",
+        "label": "Produzione creativa con l'IA",
+        "type": "Visualizzazione del concept"
+      },
+      {
+        "title": "Astrazione blockchain",
+        "label": "Produzione creativa con l'IA",
+        "type": "Visualizzazione del concept"
+      },
+      {
+        "title": "Facciata di una villa",
+        "label": "Immobiliare",
+        "type": "Concept creativo"
+      },
+      {
+        "title": "Attico scuro",
+        "label": "Immobiliare",
+        "type": "Concept creativo"
+      },
+      {
+        "title": "Città dall'alto",
+        "label": "Immobiliare",
+        "type": "Concept creativo"
+      },
+      {
+        "title": "Villa di notte",
+        "label": "Immobiliare",
+        "type": "Concept creativo"
+      },
+      {
+        "title": "Salotto scuro",
+        "label": "Interior design",
+        "type": "Concept creativo"
+      },
+      {
+        "title": "Camera da letto di lusso",
+        "label": "Interior design",
+        "type": "Concept creativo"
+      },
+      {
+        "title": "Cucina in marmo",
+        "label": "Interior design",
+        "type": "Concept creativo"
+      },
+      {
+        "title": "Spazio minimal",
+        "label": "Interior design",
+        "type": "Concept creativo"
+      },
+      {
+        "title": "Grande lobby",
+        "label": "Hotel e ospitalità",
+        "type": "Concept creativo"
+      },
+      {
+        "title": "Resort al tramonto",
+        "label": "Hotel e ospitalità",
+        "type": "Concept creativo"
+      },
+      {
+        "title": "Esperienza in suite",
+        "label": "Hotel e ospitalità",
+        "type": "Concept creativo"
+      },
+      {
+        "title": "Alta cucina",
+        "label": "Hotel e ospitalità",
+        "type": "Concept creativo"
+      },
+      {
+        "title": "Render di un profumo",
+        "label": "Profumi e bellezza",
+        "type": "Visualizzazione del concept"
+      },
+      {
+        "title": "Editoriale beauty",
+        "label": "Profumi e bellezza",
+        "type": "Concept creativo"
+      },
+      {
+        "title": "Skincare di lusso",
+        "label": "Profumi e bellezza",
+        "type": "Visualizzazione del concept"
+      },
+      {
+        "title": "Campagna di una fragranza",
+        "label": "Profumi e bellezza",
+        "type": "Concept creativo"
+      },
+      {
+        "title": "Sessione in studio",
+        "label": "Social media e contenuti",
+        "type": "Concept creativo"
+      },
+      {
+        "title": "Ritratto di un creator",
+        "label": "Social media e contenuti",
+        "type": "Concept creativo"
+      },
+      {
+        "title": "Allestimento podcast",
+        "label": "Social media e contenuti",
+        "type": "Concept creativo"
+      },
+      {
+        "title": "Momento di contenuto",
+        "label": "Social media e contenuti",
+        "type": "Concept creativo"
+      }
+    ]
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "Contattaci",
+      "headline": "Creiamo qualcosa di straordinario.",
+      "subheadline": "Raccontaci la tua visione. La realizzeremo con precisione cinematografica ed eccellenza creativa."
+    },
+    "methods": {
+      "form": {
+        "eyebrow": "Invia un messaggio",
+        "headline": "Iniziamo a parlare",
+        "body": "Compila il modulo qui sotto e il nostro team ti risponderà entro 24 ore."
+      },
+      "whatsapp": {
+        "label": "WhatsApp",
+        "description": "Scrivici direttamente per una risposta rapida"
+      },
+      "phone": {
+        "label": "Chiamata diretta",
+        "description": "Parla direttamente con il nostro team"
+      },
+      "email": {
+        "label": "E-mail",
+        "description": "Inviaci un brief dettagliato"
+      }
+    },
+    "location": {
+      "label": "Sede",
+      "city": "Dubai",
+      "country": "Emirati Arabi Uniti",
+      "detail": "Disponibili per progetti in tutti gli Emirati e a livello internazionale"
+    },
+    "social": {
+      "instagram": {
+        "label": "Instagram"
+      }
+    },
+    "services": [
+      {
+        "label": "Produzione video cinematografica"
+      },
+      {
+        "label": "Gestione dei social media"
+      },
+      {
+        "label": "Animazione 3D e CGI"
+      },
+      {
+        "label": "VFX e post-produzione"
+      },
+      {
+        "label": "Produzione creativa con l'IA"
+      },
+      {
+        "label": "Branding e design dell'identità"
+      },
+      {
+        "label": "Produzione di contenuti medici"
+      },
+      {
+        "label": "Pubblicità di lusso"
+      },
+      {
+        "label": "Fotografia commerciale"
+      },
+      {
+        "label": "Produzione di podcast"
+      },
+      {
+        "label": "Sceneggiatura e storyboard"
+      },
+      {
+        "label": "Voice-over e produzione audio"
+      },
+      {
+        "label": "Progettazione e sviluppo di siti web"
+      },
+      {
+        "label": "Digital marketing e strategia"
+      },
+      {
+        "label": "Gestione di content creator"
+      },
+      {
+        "label": "Campagne pubblicitarie sui social media"
+      },
+      {
+        "label": "Marketing con influencer e celebrità"
+      },
+      {
+        "label": "Pubblicità digitale integrata"
+      },
+      {
+        "label": "Altro / Non in elenco"
+      }
+    ],
+    "budgets": [
+      {
+        "label": "Meno di 5.000 AED"
+      },
+      {
+        "label": "5.000 – 15.000 AED"
+      },
+      {
+        "label": "15.000 – 50.000 AED"
+      },
+      {
+        "label": "50.000 – 150.000 AED"
+      },
+      {
+        "label": "Oltre 150.000 AED"
+      },
+      {
+        "label": "Preferisco non dirlo"
+      }
+    ],
+    "contactMethods": [
+      {
+        "label": "E-mail"
+      },
+      {
+        "label": "WhatsApp"
+      },
+      {
+        "label": "Telefonata"
+      },
+      {
+        "label": "Videochiamata"
+      }
+    ],
+    "privacy": {
+      "text": "Acconsento alla raccolta e al trattamento dei miei dati personali in conformità con l'informativa sulla privacy di Metropolitan Digital Marketing.",
+      "note": "Le tue informazioni sono trattate con la massima riservatezza e non vengono mai condivise con terze parti."
+    },
+    "success": {
+      "headline": "Messaggio ricevuto.",
+      "body": "Grazie per averci contattato. Il nostro team esaminerà il tuo brief e ti risponderà entro 24 ore. Per richieste urgenti, contattaci direttamente su WhatsApp.",
+      "whatsappLabel": "Scrivici su WhatsApp"
+    },
+    "footer": {
+      "copyright": "© METROPOLITAN DIGITAL MARKETING. TUTTI I DIRITTI RISERVATI."
+    }
+  }
+}

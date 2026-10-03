@@ -1,6 +1,7 @@
-import { home } from 'virtual:content';
+import { useLocalizedContent } from '@/lib/i18n/content';
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router';
+import useLocalizedPath from '@/hooks/useLocalizedPath';
 import { Helmet } from '@dr.pogodin/react-helmet';
 import { motion, useInView } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
@@ -36,58 +37,44 @@ function FadeIn({
   );
 }
 
-// ─── Service card data ───────────────────────────────────────────────────────
-const featuredServices = [
-  {
-    number: '01',
-    title: 'Social Media Management',
-    description: 'Complete Instagram, TikTok, YouTube and Facebook management, content strategy and performance reporting.',
-    slot: '/airo-assets/images/pages/home/service-social-media',
-  },
-  {
-    number: '02',
-    title: 'Cinematic Advertising & Video Production',
-    description: 'Luxury commercials, TV advertisements, corporate films, brand films and professional film directing.',
-    slot: '/airo-assets/images/pages/home/service-video-production',
-  },
-  {
-    number: '03',
-    title: '3D Animation & CGI',
-    description: 'Photorealistic 3D animation, product visualisation, architectural visualisation and cinematic CGI environments.',
-    slot: '/airo-assets/images/pages/home/service-3d-cgi',
-  },
-  {
-    number: '04',
-    title: 'Visual Effects & Post-Production',
-    description: 'VFX, compositing, motion graphics, professional editing, colour grading and cinematic finishing.',
-    slot: '/airo-assets/images/pages/home/service-vfx',
-  },
-  {
-    number: '05',
-    title: 'AI Content Production',
-    description: 'AI-assisted creative concepts, AI-generated visuals, AI animation and innovative advertising production.',
-    slot: '/airo-assets/images/pages/home/service-ai-production',
-  },
-  {
-    number: '06',
-    title: 'Branding & Graphic Design',
-    description: 'Corporate identity, brand design, advertising graphics, social media templates and visual communication.',
-    slot: '/airo-assets/images/pages/home/service-branding',
-  },
+// ─── Service card data (text comes from the locale files: home.svcNTitle…) ───
+const featuredServiceSlots = [
+  '/airo-assets/images/pages/home/service-social-media',
+  '/airo-assets/images/pages/home/service-video-production',
+  '/airo-assets/images/pages/home/service-3d-cgi',
+  '/airo-assets/images/pages/home/service-vfx',
+  '/airo-assets/images/pages/home/service-ai-production',
+  '/airo-assets/images/pages/home/service-branding',
 ];
 
-// ─── Portfolio previews ──────────────────────────────────────────────────────
-const portfolioItems = [
-  { category: 'Automotive', title: 'Luxury Vehicle Campaign', slot: '/airo-assets/images/pages/home/portfolio-1' },
-  { category: 'Automotive', title: 'Cinematic Brand Film', slot: '/airo-assets/images/pages/home/portfolio-2' },
-  { category: 'Hospitality', title: 'Luxury Hotel Production', slot: '/airo-assets/images/pages/home/portfolio-3' },
+// ─── Portfolio previews (text comes from home.portfolioNTitle…) ──────────────
+const portfolioSlots = [
+  '/airo-assets/images/pages/home/portfolio-1',
+  '/airo-assets/images/pages/home/portfolio-2',
+  '/airo-assets/images/pages/home/portfolio-3',
 ];
+
+type FeaturedService = { number: string; title: string; description: string; slot: string };
+type PortfolioPreview = { category: string; title: string; slot: string };
 
 // ─── Component ───────────────────────────────────────────────────────────────
 export default function HomePage() {
+  const home = useLocalizedContent('home');
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const { t, i18n } = useTranslation();
+  const localizedPath = useLocalizedPath();
+  const featuredServices: FeaturedService[] = featuredServiceSlots.map((slot, i) => ({
+    number: t(`home.svc${i + 1}Number`),
+    title: t(`home.svc${i + 1}Title`),
+    description: t(`home.svc${i + 1}Description`),
+    slot,
+  }));
+  const portfolioItems: PortfolioPreview[] = portfolioSlots.map((slot, i) => ({
+    category: t(`home.portfolio${i + 1}Category`),
+    title: t(`home.portfolio${i + 1}Title`),
+    slot,
+  }));
   const lang = i18n.language || 'en';
   const seo = getPageSeo('home', lang);
   const canonicalUrl = getCanonicalUrl('home', lang);
@@ -174,7 +161,7 @@ export default function HomePage() {
         <section
           className="relative w-full overflow-hidden"
           style={{ height: '100svh', minHeight: '600px' }}
-          aria-label="Hero"
+          aria-label={t('aria.hero')}
         >
           {/* Video background */}
           <video
@@ -287,7 +274,7 @@ export default function HomePage() {
               className="flex flex-col sm:flex-row items-center gap-3"
             >
               <Link
-                to="/portfolio"
+                to={localizedPath('/portfolio')}
                 className="inline-flex items-center gap-2 px-7 py-3.5 text-xs font-semibold tracking-[0.15em] uppercase transition-all duration-300"
                 style={{
                   border: `1px solid hsl(var(--metro-white) / 0.5)`,
@@ -305,7 +292,7 @@ export default function HomePage() {
                 {t('home.heroCta')}
               </Link>
               <Link
-                to="/services"
+                to={localizedPath('/services')}
                 className="inline-flex items-center gap-2 px-7 py-3.5 text-xs font-semibold tracking-[0.15em] uppercase transition-all duration-300"
                 style={{
                   border: `1px solid hsl(var(--metro-white) / 0.5)`,
@@ -370,7 +357,7 @@ export default function HomePage() {
         <section
           className="py-xxl"
           style={{ background: `hsl(var(--metro-charcoal-deep))` }}
-          aria-label="Company introduction"
+          aria-label={t('aria.companyIntro')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -413,7 +400,7 @@ export default function HomePage() {
                 </FadeIn>
                 <FadeIn delay={0.4}>
                   <Link
-                    to="/about"
+                    to={localizedPath('/about')}
                     className="inline-flex items-center gap-2 text-sm font-medium tracking-[0.1em] uppercase transition-colors duration-300 group"
                     style={{ color: `hsl(var(--metro-white))` }}
                   >
@@ -430,7 +417,7 @@ export default function HomePage() {
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
                     src="/airo-assets/images/pages/home/company-intro"
-                    alt="Metropolitan Digital Marketing creative studio"
+                    alt={t('aria.altCreativeStudio')}
                     className="w-full h-full object-cover"
                     loading="lazy"
                     width={800}
@@ -453,7 +440,7 @@ export default function HomePage() {
         <section
           className="py-xxl"
           style={{ background: `hsl(var(--metro-black))` }}
-          aria-label="Featured services"
+          aria-label={t('aria.featuredServices')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
             <FadeIn>
@@ -477,7 +464,7 @@ export default function HomePage() {
                   </h2>
                 </div>
                 <Link
-                  to="/services"
+                  to={localizedPath('/services')}
                   className="inline-flex items-center gap-2 text-sm font-medium tracking-[0.1em] uppercase transition-colors duration-300 group shrink-0"
                   style={{ color: `hsl(var(--metro-white) / 0.5)` }}
                   onMouseEnter={(e) => {
@@ -507,7 +494,7 @@ export default function HomePage() {
         <section
           className="py-xxl"
           style={{ background: `hsl(var(--metro-charcoal-deep))` }}
-          aria-label="Selected creative work"
+          aria-label={t('aria.selectedWork')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
             <FadeIn>
@@ -531,7 +518,7 @@ export default function HomePage() {
                   </h2>
                 </div>
                 <Link
-                  to="/portfolio"
+                  to={localizedPath('/portfolio')}
                   className="inline-flex items-center gap-2 text-sm font-medium tracking-[0.1em] uppercase transition-colors duration-300 group shrink-0"
                   style={{ color: `hsl(var(--metro-white) / 0.5)` }}
                   onMouseEnter={(e) => {
@@ -561,7 +548,7 @@ export default function HomePage() {
         <section
           className="py-xxl"
           style={{ background: `hsl(var(--metro-black))` }}
-          aria-label="Industries we serve"
+          aria-label={t('aria.industriesServed')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
             <FadeIn>
@@ -613,7 +600,7 @@ export default function HomePage() {
         <section
           className="py-xxl"
           style={{ background: `hsl(var(--metro-charcoal-deep))` }}
-          aria-label="Why choose Metropolitan"
+          aria-label={t('aria.whyChoose')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
             <FadeIn>
@@ -682,14 +669,14 @@ export default function HomePage() {
         <section
           className="relative overflow-hidden"
           style={{ background: `hsl(var(--metro-black))` }}
-          aria-label="Contact call to action"
+          aria-label={t('aria.contactCta')}
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[480px]">
             {/* Image side */}
             <div className="relative hidden lg:block">
               <img
                 src="/airo-assets/images/pages/home/contact-cta"
-                alt="Metropolitan Digital Marketing production team"
+                alt={t('aria.altProductionTeam')}
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
                 width={800}
@@ -764,7 +751,9 @@ export default function HomePage() {
 }
 
 // ─── Service Card ─────────────────────────────────────────────────────────────
-function ServiceCard({ service }: { service: typeof featuredServices[0] }) {
+function ServiceCard({ service }: { service: FeaturedService }) {
+  const { t } = useTranslation();
+  const localizedPath = useLocalizedPath();
   const [hovered, setHovered] = useState(false);
   return (
     <div
@@ -829,7 +818,7 @@ function ServiceCard({ service }: { service: typeof featuredServices[0] }) {
           {service.description}
         </p>
         <Link
-          to="/services"
+          to={localizedPath('/services')}
           className="inline-flex items-center gap-1.5 text-xs font-medium tracking-[0.1em] uppercase transition-colors duration-300 group"
           style={{ color: `hsl(var(--metro-white) / 0.45)` }}
           onMouseEnter={(e) => {
@@ -839,7 +828,7 @@ function ServiceCard({ service }: { service: typeof featuredServices[0] }) {
             (e.currentTarget as HTMLAnchorElement).style.color = `hsl(var(--metro-white) / 0.45)`;
           }}
         >
-          Learn More
+          {t('common.learnMore')}
           <ArrowRight size={11} className="transition-transform duration-300 group-hover:translate-x-0.5" />
         </Link>
       </div>
@@ -848,11 +837,12 @@ function ServiceCard({ service }: { service: typeof featuredServices[0] }) {
 }
 
 // ─── Portfolio Card ───────────────────────────────────────────────────────────
-function PortfolioCard({ item }: { item: typeof portfolioItems[0] }) {
+function PortfolioCard({ item }: { item: PortfolioPreview }) {
+  const localizedPath = useLocalizedPath();
   const [hovered, setHovered] = useState(false);
   return (
     <Link
-      to="/portfolio"
+      to={localizedPath('/portfolio')}
       className="relative block overflow-hidden aspect-[4/3]"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}

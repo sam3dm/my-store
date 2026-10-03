@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@300;400;500&display=swap');
+/* Script-specific fonts for the Arabic, Simplified Chinese and Hindi versions */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;700;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Sans+Devanagari:wght@300;400;500;700;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -121,6 +123,31 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading) !important;
+  }
+
+  /* Per-language typography. Montserrat/Inter cover Latin + Cyrillic; the
+     other scripts fall through to a matching Noto family. */
+  html:lang(ar) {
+    --font-sans: "Noto Sans Arabic", "Inter", sans-serif;
+    --font-heading: "Noto Sans Arabic", "Montserrat", sans-serif;
+  }
+  html:lang(zh-CN) {
+    --font-sans: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "Inter", sans-serif;
+    --font-heading: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", "Montserrat", sans-serif;
+  }
+  html:lang(hi) {
+    --font-sans: "Noto Sans Devanagari", "Inter", sans-serif;
+    --font-heading: "Noto Sans Devanagari", "Montserrat", sans-serif;
+  }
+  /* Arabic and Devanagari glyphs are taller; give headings room so wrapped lines don't collide. */
+  html:lang(ar) h1, html:lang(ar) h2, html:lang(ar) h3,
+  html:lang(hi) h1, html:lang(hi) h2, html:lang(hi) h3 {
+    line-height: 1.3 !important;
+  }
+  /* Letter-spacing breaks the joined letterforms of Arabic and Devanagari. */
+  html:lang(ar) *,
+  html:lang(hi) * {
+    letter-spacing: normal !important;
   }
 }
 

@@ -1,0 +1,1216 @@
+{
+  "home": {
+    "industries": [
+      "Lüks Markalar",
+      "Sağlık",
+      "Otomotiv",
+      "Otel ve Konaklama",
+      "Gayrimenkul",
+      "Spor",
+      "Kurumsal",
+      "Teknoloji",
+      "Moda",
+      "Yeme-İçme"
+    ],
+    "differentiators": [
+      {
+        "title": "Sinematik Mükemmellik",
+        "body": "Her kare, bir uzun metraj filmin hassasiyetiyle hazırlanır. Anlattığımız her marka hikâyesine Hollywood standartlarında prodüksiyon kalitesi katıyoruz."
+      },
+      {
+        "title": "15–20 Yıllık Uzmanlık",
+        "body": "Çok disiplinli ekibimiz; yaratıcı prodüksiyon, reklamcılık, görsel tasarım ve içerik geliştirme alanlarında derin bir profesyonel deneyime sahip."
+      },
+      {
+        "title": "Tam Hizmet Yaratıcı Stüdyo",
+        "body": "Strateji ve konseptten prodüksiyon ve post-prodüksiyona kadar, Dubai'de tek çatı altında uçtan uca yaratıcı çözümler sunuyoruz."
+      },
+      {
+        "title": "Teknoloji Odaklı Yenilik",
+        "body": "Yapay zekâyı, CGI'ı, VFX'i ve gelişmiş dijital araçları bir araya getirerek görmezden gelinemeyecek deneyimler üretiyoruz."
+      }
+    ]
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "Metropolitan Hakkında",
+      "headline": "Zanaat Temelimiz. Vizyon Gücümüz.",
+      "subheadline": "Dubai'nin Önde Gelen Yaratıcı Prodüksiyon Stüdyosu"
+    },
+    "story": {
+      "eyebrow": "Hikâyemiz",
+      "headline": "Hırsın Sanatla Buluştuğu Yer.",
+      "paragraphs": [
+        {
+          "text": "Metropolitan Digital Marketing, tek bir inançla kuruldu: Her marka dünya standartlarında yaratıcı prodüksiyonu hak eder. Hırsı, lüksü ve küresel vizyonu simgeleyen Dubai'de doğan stüdyomuzu, dünya sahnesinde rekabet edebilecek bir yapı olarak kurduk."
+        },
+        {
+          "text": "Yıllar içinde; stratejik dijital pazarlamayı, dünyanın en iyi stüdyolarına rakip sinematik prodüksiyon yetenekleriyle birleştiren tam hizmet bir yaratıcı güce dönüştük. Ekibimiz; yaratıcı prodüksiyon, reklamcılık, görsel tasarım ve içerik geliştirme alanlarında yaklaşık 15–20 yıllık profesyonel deneyime sahip."
+        },
+        {
+          "text": "Bugün Metropolitan; lüks markalara, sağlık kuruluşlarına, otomotiv şirketlerine, otellere, gayrimenkul geliştiricilerine, spor organizasyonlarına ve pek çok sektördeki işletmelere hizmet veriyor. Görmezden gelinemeyecek yaratıcı çözümler sunuyoruz."
+        }
+      ]
+    },
+    "vision": {
+      "eyebrow": "Vizyonumuz",
+      "headline": "Orta Doğu'nun ve ötesinin en saygın yaratıcı stüdyosu olmak.",
+      "body": "Her markanın, sektörü ne olursa olsun, sinematik kalitede yaratıcı prodüksiyona erişebildiği bir dünya hayal ediyoruz. Bu geleceği, her seferinde olağanüstü bir projeyle inşa ediyoruz."
+    },
+    "mission": {
+      "eyebrow": "Misyonumuz",
+      "headline": "Cesur fikirleri güçlü marka deneyimlerine dönüştürmek.",
+      "body": "Misyonumuz; stratejik pazarlama zekâsını sinematik hikâye anlatımı, ileri görsel teknoloji ve durmayan yaratıcı yenilikle birleştiren bütünleşik çözümler sunmak; izleyiciyi etkileyen ve ölçülebilir sonuç getiren işler üretmektir."
+    },
+    "expertise": {
+      "eyebrow": "Uzmanlığımız",
+      "headline": "Çok Disiplinli Bir Yaratıcı Güç.",
+      "intro": "Yeteneklerimiz yaratıcılığın tüm yelpazesini kapsıyor: dijital strateji ve sosyal medya yönetiminden Hollywood standartlarında film prodüksiyonuna, fotogerçekçi CGI'dan son teknoloji VFX'e ve yapay zekâ destekli içerik üretimine kadar.",
+      "disciplines": [
+        {
+          "title": "Dijital Pazarlama ve Sosyal Medya",
+          "description": "Instagram, TikTok, YouTube ve Facebook'ta eksiksiz sosyal medya yönetimi: strateji, içerik üretimi, topluluk yönetimi ve performans analizi."
+        },
+        {
+          "title": "Sinematik Prodüksiyon",
+          "description": "Lüks reklam filmleri, TV reklamları, kurumsal filmler, marka filmleri ve profesyonel film yönetmenliği. Her kare, uzun metraj bir filmin hassasiyetiyle hazırlanır."
+        },
+        {
+          "title": "3D Animasyon ve CGI",
+          "description": "Gerçeklik ile hayal gücü arasındaki sınırı bulanıklaştıran fotogerçekçi 3D animasyon, ürün ve mimari görselleştirme ile sinematik CGI ortamları."
+        },
+        {
+          "title": "Görsel Efektler ve Post-Prodüksiyon",
+          "description": "Her yapımı yayın kalitesine taşıyan VFX, kompozit, hareketli grafik, profesyonel kurgu, renk düzenleme ve sinematik son dokunuşlar."
+        },
+        {
+          "title": "Yapay Zekâ ile İçerik Üretimi",
+          "description": "Müşterilerimizi yaratıcı teknolojinin ön saflarına taşıyan yapay zekâ destekli konseptler, yapay zekâ ile üretilmiş görseller, animasyon ve yenilikçi reklam prodüksiyonu."
+        },
+        {
+          "title": "Markalaşma ve Grafik Tasarım",
+          "description": "Markayı tanımlayan ve farklılaştıran kurumsal kimlik, marka tasarımı, reklam grafikleri, sosyal medya şablonları ve görsel iletişim sistemleri."
+        }
+      ]
+    },
+    "medical": {
+      "eyebrow": "Sağlık Alanında Uzmanlık",
+      "headline": "Tıbbi İçerik Üretimi. Doğru Yapılmış.",
+      "paragraphs": [
+        {
+          "text": "Sağlık iletişimi, estetiğin ötesinde bir standart gerektirir: doğruluk, otorite ve güven. Metropolitan, nitelikli doktorlar ve lisanslı sağlık profesyonelleriyle doğrudan iş birliği yaparak tıbbi içerik üretiminde uzmanlaşmış bir yetkinlik geliştirdi."
+        },
+        {
+          "text": "Tıbbi içerik ekibimiz; hastaneler, klinikler, ilaç markaları, tıbbi cihaz şirketleri ve sağlık kuruluşları için klinik açıdan doğru ve görsel olarak etkileyici içerikler üretir. Her içerik, yapım öncesinde nitelikli tıp profesyonelleri tarafından incelenir ve onaylanır."
+        },
+        {
+          "text": "Hasta eğitim videolarından cerrahi işlem animasyonlarına, sağlık markası kampanyalarından doktorların yer aldığı sosyal medya içeriklerine kadar; bilimsel olarak güvenilir ve yaratıcı olarak olağanüstü tıbbi iletişim sunuyoruz."
+        }
+      ],
+      "callout": "Tüm tıbbi içerikler, nitelikli doktorlar ve lisanslı sağlık profesyonelleriyle iş birliği içinde üretilir."
+    },
+    "process": {
+      "eyebrow": "Yaratıcı Sürecimiz",
+      "headline": "Konseptten Üretime.",
+      "steps": [
+        {
+          "title": "Keşif ve Strateji",
+          "description": "Markanızı, hedef kitlenizi ve hedeflerinizi derinlemesine anlayarak başlıyoruz. Detaylı araştırma, rakip analizi ve stratejik planlama her projenin temelini oluşturur."
+        },
+        {
+          "title": "Yaratıcı Konsept",
+          "description": "Yaratıcı ekibimiz, marka kimliğinizle uyumlu ve hedef kitlenizde karşılık bulan cesur, özgün konseptler geliştirir. Değerlendirmeniz için birden fazla yaratıcı yön sunarız."
+        },
+        {
+          "title": "Prodüksiyon",
+          "description": "Konsept onaylandıktan sonra prodüksiyon ekibimiz işi titizlikle hayata geçirir; ister film setinde, ister CGI ortamında, ister post-prodüksiyonda, isterse dijital kanallarda."
+        },
+        {
+          "title": "İnce Ayar ve Teslimat",
+          "description": "İş, titiz standartlarımıza ulaşana kadar her detayı inceltiriz. Nihai teslimat; tüm dosya paketleri, kullanım kılavuzları ve süregelen destekle birlikte yapılır."
+        }
+      ]
+    },
+    "whyUs": {
+      "eyebrow": "Neden Metropolitan",
+      "headline": "Mükemmelliğin Standardı.",
+      "points": [
+        {
+          "title": "Sinematik Mükemmellik",
+          "description": "Her kare, bir uzun metraj filmin hassasiyetiyle hazırlanır. Anlattığımız her marka hikâyesine Hollywood standartlarında prodüksiyon kalitesi katıyoruz."
+        },
+        {
+          "title": "15–20 Yıllık Uzmanlık",
+          "description": "Çok disiplinli ekibimiz; yaratıcı prodüksiyon, reklamcılık, görsel tasarım ve içerik geliştirme alanlarında derin bir profesyonel deneyime sahip."
+        },
+        {
+          "title": "Tam Hizmet Yaratıcı Stüdyo",
+          "description": "Strateji ve konseptten prodüksiyon ve post-prodüksiyona kadar, Dubai'de tek çatı altında uçtan uca yaratıcı çözümler sunuyoruz."
+        },
+        {
+          "title": "Teknoloji Odaklı Yenilik",
+          "description": "Yapay zekâyı, CGI'ı, VFX'i ve gelişmiş dijital araçları bir araya getirerek görmezden gelinemeyecek deneyimler üretiyoruz."
+        },
+        {
+          "title": "Sağlık Alanında Uzmanlık",
+          "description": "Bölgede eşsiz: Tıbbi içerik birimimiz, klinik açıdan doğru ve etkileyici sağlık iletişimi üretmek için doğrudan nitelikli doktorlarla çalışır."
+        },
+        {
+          "title": "Dubai Merkezli, Dünya Standartlarında",
+          "description": "Merkezi Dubai'de olan ekibimiz BAE'de, Orta Doğu'da ve uluslararası alanda müşterilere hizmet verir; her iş birliğine küresel yaratıcılık standartlarını taşır."
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "Birlikte Üretelim",
+      "headline": "Olağanüstü Bir Şey Yaratmaya Hazır mısınız?",
+      "body": "Projenizi bize anlatın. Ekibimiz, vizyonunuzu dünyanın hatırlayacağı sinematik bir marka deneyimine dönüştürmeye hazır.",
+      "buttonLabel": "Projenizi Başlatın"
+    }
+  },
+  "services": {
+    "hero": {
+      "eyebrow": "Ne Yapıyoruz",
+      "headline": "Yaratıcı Çözümler. Sınırsız.",
+      "subheadline": "19 Disiplin. Tek Stüdyo. Sonsuz Olasılık.",
+      "body": "Sosyal medya reklam kampanyalarından influencer pazarlamasına, Hollywood standartlarında sinematik prodüksiyondan fotogerçekçi CGI'a ve yapay zekâ destekli içeriğe kadar; Metropolitan markaları dönüştüren ve izleyiciyi etkileyen bütünleşik yaratıcı çözümler sunar."
+    },
+    "services": [
+      {
+        "title": "Sosyal Medya Yönetimi",
+        "tagline": "Strateji. İçerik. Büyüme.",
+        "description": "Instagram, TikTok, YouTube ve Facebook'ta eksiksiz sosyal medya yönetimi. Strateji, içerik planlama, yayınlama, topluluk yönetimi, kitle etkileşimi ve ayrıntılı performans analizini biz yürütürüz; böylece markanız tutarlı, etkileyici ve geniş ölçekte görünür olur.",
+        "deliverables": [
+          "Platform stratejisi ve içerik takvimleri",
+          "Instagram, TikTok, YouTube, Facebook",
+          "Topluluk yönetimi ve etkileşim",
+          "Performans raporlaması ve analiz"
+        ]
+      },
+      {
+        "title": "Sosyal Medya İçerik Üretimi",
+        "tagline": "Reels. Shorts. Kampanyalar.",
+        "description": "Kaydırma akışı için tasarlanmış yüksek etkili sosyal içerik. Prodüksiyon ekibimiz sinematik Reels'ler, YouTube Shorts ve TikTok videoları, profesyonel fotoğrafçılık ve kampanya materyallerinin tamamını üretir; kaydırmayı durduran ve dönüşen bir kitle oluşturan içerikler.",
+        "deliverables": [
+          "Instagram Reels ve TikTok videoları",
+          "YouTube Shorts ve uzun formatlı içerik",
+          "Profesyonel fotoğrafçılık",
+          "Kampanya materyali prodüksiyonu"
+        ]
+      },
+      {
+        "title": "Sinematik Video Prodüksiyonu",
+        "tagline": "Filmler. Reklamlar. Marka Hikâyeleri.",
+        "description": "Lüks televizyon reklamlarından kurumsal marka filmlerine kadar prodüksiyon ekibimiz, Hollywood hassasiyetiyle sinematik hikâye anlatımı sunar. Konsept, senaryo, yönetmenlik, görüntü yönetmenliği, prodüksiyon yönetimi ve eksiksiz post-prodüksiyonu üstleniriz.",
+        "deliverables": [
+          "TV reklamları ve lüks marka filmleri",
+          "Kurumsal ve belgesel filmler",
+          "Profesyonel film yönetmenliği",
+          "Eksiksiz prodüksiyon yönetimi"
+        ]
+      },
+      {
+        "title": "3D Animasyon ve CGI",
+        "tagline": "Fotogerçekçi. Sınırsız. Olağanüstü.",
+        "description": "Gerçeklik ile hayal gücü arasındaki sınırı bulanıklaştıran fotogerçekçi 3D animasyon, karakter animasyonu, ürün görselleştirme, mimari CGI ve sinematik ortamlar üretiyoruz. Her render, yayın ve reklam standartlarına göre hazırlanır.",
+        "deliverables": [
+          "Fotogerçekçi 3D animasyon",
+          "Ürün ve mimari görselleştirme",
+          "Karakter animasyonu ve CGI ortamları",
+          "Reklam ve yayın için 3D"
+        ]
+      },
+      {
+        "title": "Görsel Efektler ve Post-Prodüksiyon",
+        "tagline": "VFX. Kompozit. Son Dokunuş.",
+        "description": "Post-prodüksiyon ekibimiz dünya standartlarında VFX, kompozit, hareketli grafik, profesyonel kurgu ve sinematik renk düzenleme sunar. Tek planlık VFX'ten uzun metrajlı filmin tam post-prodüksiyon hattına kadar her yapımı yayın kalitesine taşırız.",
+        "deliverables": [
+          "VFX ve kompozit",
+          "Hareketli grafik ve başlıklar",
+          "Profesyonel kurgu ve renk düzenleme",
+          "Yayın ve akış platformları için son işlem"
+        ]
+      },
+      {
+        "title": "Yapay Zekâ ile Yaratıcı Prodüksiyon",
+        "tagline": "Yapay Zekâ Destekli. Geleceğe Dönük.",
+        "description": "Yaratıcılığın sınırlarını zorlayan görseller, animasyonlar ve reklam konseptleri üretmek için en yeni yapay zekâ araçlarını kullanıyoruz. Yapay zekâ destekli fikir üretimi, yapay zekâ ile üretilmiş görseller, animasyon ve yenilikçi prodüksiyon akışları müşterilerimizi yaratıcı teknolojinin ön saflarına taşır.",
+        "deliverables": [
+          "Yapay zekâ destekli yaratıcı konseptler",
+          "Yapay zekâ ile üretilmiş görseller",
+          "Yapay zekâ animasyon prodüksiyonu",
+          "Yenilikçi yapay zekâ reklamcılığı"
+        ]
+      },
+      {
+        "title": "Tıbbi İçerik Prodüksiyonu",
+        "tagline": "Doğru. Güvenilir. Etkileyici.",
+        "description": "Sağlık iletişimi, yaratıcı mükemmelliğin yanında klinik doğruluk da ister. Tıbbi içerik birimimiz, nitelikli doktorlar ve lisanslı sağlık profesyonelleriyle doğrudan iş birliği yaparak hasta eğitim videoları, cerrahi animasyonlar, doktorların yer aldığı sosyal içerikler ve sağlık markası kampanyaları üretir.",
+        "deliverables": [
+          "Hasta eğitimi ve anlatım videoları",
+          "Bilimsel 3D tıbbi animasyon",
+          "Doktor röportajları ve sağlık kampanyaları",
+          "Klinik açıdan incelenmiş içerik"
+        ]
+      },
+      {
+        "title": "Podcast Prodüksiyonu",
+        "tagline": "Çok Kameralı. Profesyonel. Yayına Hazır.",
+        "description": "Stüdyo kurulumundan nihai teslimata kadar eksiksiz podcast prodüksiyonu. Çok kameralı çekim, profesyonel ses mühendisliği, yayın kalitesinde ışık, uzman kurgu ve post-prodüksiyon sunarız; böylece podcast'iniz premium bir yayın içeriği gibi görünür ve duyulur.",
+        "deliverables": [
+          "Çok kameralı stüdyo çekimi",
+          "Profesyonel ses ve ışık",
+          "Uzman kurgu ve post-prodüksiyon",
+          "Yayın kalitesinde teslimat"
+        ]
+      },
+      {
+        "title": "Ticari Fotoğrafçılık",
+        "tagline": "Otomotiv. Lüks. Editoryal.",
+        "description": "Otomotiv markaları, lüks ürünler, oteller, iç mekânlar, moda ve kurumsal müşteriler için üst düzey ticari fotoğrafçılık. Fotoğrafçılarımız teknik ustalığı editoryal bakışla birleştirerek marka kimliğini tanımlayan ve dikkat çeken görseller üretir.",
+        "deliverables": [
+          "Otomotiv ve lüks ürün fotoğrafçılığı",
+          "Otel ve iç mekân fotoğrafçılığı",
+          "Kurumsal ve editoryal fotoğrafçılık",
+          "Tam rötuş ve teslimat"
+        ]
+      },
+      {
+        "title": "Markalaşma ve Grafik Tasarım",
+        "tagline": "Kimlik. Tasarım. Fark.",
+        "description": "Kalıcı marka kimlikleri inşa ediyoruz. Kurumsal kimlik sistemleri ve logo tasarımından reklam grafiklerine, sosyal medya şablonlarına ve eksiksiz görsel iletişim çerçevelerine kadar, dünyanın markanızı nasıl göreceğini belirleyen görsel dili yaratıyoruz.",
+        "deliverables": [
+          "Kurumsal kimlik ve logo tasarımı",
+          "Marka kılavuzları ve sistemleri",
+          "Reklam ve baskı grafikleri",
+          "Sosyal medya görsel şablonları"
+        ]
+      },
+      {
+        "title": "Web Sitesi Tasarımı",
+        "tagline": "Premium. Duyarlı. Dönüşüm Odaklı.",
+        "description": "Estetik mükemmelliği performansla buluşturan premium, duyarlı web siteleri ve açılış sayfaları tasarlıyor ve geliştiriyoruz. Her site dönüşüm için kurgulanır, aramaya göre optimize edilir ve markanızı en üst düzeyde temsil edecek şekilde inşa edilir.",
+        "deliverables": [
+          "Premium duyarlı web sitesi tasarımı",
+          "Açılış sayfası tasarımı ve geliştirme",
+          "UI/UX tasarımı ve prototipleme",
+          "SEO uyumlu geliştirme ve teslimat"
+        ]
+      },
+      {
+        "title": "Dijital Pazarlama ve Reklamcılık",
+        "tagline": "Strateji. Ücretli Medya. Sonuç.",
+        "description": "Ölçülebilir sonuçlar getiren, veriye dayalı dijital pazarlama kampanyaları. Kampanya stratejisini oluşturur, ücretli sosyal medya reklamlarını yönetir, potansiyel müşteri programlarını yürütür ve şeffaf analiz raporları sunarız; pazarlama harcamasını iş büyümesine dönüştürürüz.",
+        "deliverables": [
+          "Kampanya stratejisi ve planlama",
+          "Ücretli sosyal medya ve arama reklamları",
+          "Potansiyel müşteri kazanım programları",
+          "Analiz ve performans raporlaması"
+        ]
+      },
+      {
+        "title": "Senaryo Yazımı ve Yaratıcı Yönetmenlik",
+        "tagline": "Konseptler. Senaryolar. Yönlendirme.",
+        "description": "Etkileyici yaratıcılık güçlü bir fikirle başlar. Yaratıcı direktörlerimiz ve yazarlarımız özgün konseptler, senaryolar, storyboard'lar ve çekim listeleri geliştirir; ardından prodüksiyonu ilk taslaktan son kareye dek yönlendirerek her aşamada yaratıcı bütünlüğü korur.",
+        "deliverables": [
+          "Yaratıcı konsept geliştirme",
+          "Senaryo ve diyalog yazımı",
+          "Storyboard ve çekim listeleri",
+          "Set üzerinde yaratıcı yönetmenlik"
+        ]
+      },
+      {
+        "title": "Seslendirme ve Ses Prodüksiyonu",
+        "tagline": "Ses. Ses Tasarımı. Atmosfer.",
+        "description": "Reklamlar, kurumsal filmler, e-öğrenme ve yayın içerikleri için profesyonel seslendirme kaydı, ses tasarımı ve ses post-prodüksiyonu. Birçok dil ve aksanda özenle seçilmiş profesyonel ses sanatçılarıyla çalışırız.",
+        "deliverables": [
+          "Profesyonel seslendirme kaydı",
+          "Çok dilli ses sanatçıları",
+          "Ses tasarımı ve müzik",
+          "Ses post-prodüksiyonu ve miksaj"
+        ]
+      },
+      {
+        "title": "Lüks Reklamcılık",
+        "tagline": "Otomotiv. Parfüm. Konaklama.",
+        "description": "Otomotiv, parfüm, güzellik, konaklama ve gayrimenkul markaları için uzmanlaşmış lüks reklam prodüksiyonu. Lüksün görsel dilini — ışığı, temposu, sessizliği — anlıyor ve bunu premium konumlandırma sağlayan reklamlara dönüştürüyoruz.",
+        "deliverables": [
+          "Lüks otomotiv reklamcılığı",
+          "Parfüm ve güzellik kampanyaları",
+          "Konaklama ve gayrimenkul reklamcılığı",
+          "Premium marka konumlandırma"
+        ]
+      },
+      {
+        "title": "İçerik Üreticisi Prodüksiyonu",
+        "tagline": "Üreticiler. Influencer'lar. Platformlar.",
+        "description": "YouTube, Instagram ve TikTok'taki içerik üreticileri, influencer'lar ve dijital kişilikler için profesyonel prodüksiyon desteği. Stüdyo erişimi, görüntü yönetmenliği, kurgu, renk düzenleme ve eksiksiz post-prodüksiyon sağlayarak içerik üreticisi çalışmalarını yayın kalitesine taşıyoruz.",
+        "deliverables": [
+          "YouTube ve uzun formatlı prodüksiyon",
+          "Instagram ve TikTok içeriği",
+          "Profesyonel kurgu ve renk",
+          "İçerik üreticisi stüdyosu ve ekipman"
+        ]
+      },
+      {
+        "title": "Sosyal Medya Reklam Kampanyaları",
+        "tagline": "Ücretli. Hedefli. Performans Odaklı.",
+        "description": "Instagram, Facebook, TikTok, YouTube, LinkedIn, Snapchat ve Google Ads genelinde tam hizmet ücretli reklam kampanyaları. Reklam stratejisini geliştirir, profesyonel kreatifler üretir, kampanya kurulumunu yönetir ve performansı optimize ederiz; reklam harcamasını ölçülebilir iş sonuçlarına çeviririz.",
+        "deliverables": [
+          "Reklam stratejisi ve kampanya planlama",
+          "Kitle araştırması ve hedefleme",
+          "Profesyonel video reklam prodüksiyonu",
+          "Kampanya yönetimi, optimizasyon ve raporlama"
+        ]
+      },
+      {
+        "title": "Influencer ve Ünlü Pazarlaması",
+        "tagline": "Yetenek. İş Birliği. Etki.",
+        "description": "Ünlüler, kamuoyu tanınmış isimler ve dijital içerik üreticileriyle profesyonel influencer pazarlama kampanyaları ve iş birlikleri. Yetenek keşfi ve iletişimden yaratıcı yönetmenliğe, profesyonel prodüksiyondan kampanya performans analizine kadar tüm süreci yönetiriz.",
+        "deliverables": [
+          "Influencer belirleme ve yetenek araştırması",
+          "İletişim, koordinasyon ve iş birliği yönetimi",
+          "Sponsorlu içerik ve Instagram Reels / TikTok prodüksiyonu",
+          "YouTube iş birlikleri ve kampanya performans analizi"
+        ]
+      },
+      {
+        "title": "Bütünleşik Dijital Reklamcılık",
+        "tagline": "Çok Kanallı. Birleşik. Güçlü.",
+        "description": "Sosyal medya reklamcılığını, influencer pazarlamasını, sinematik video prodüksiyonunu, CGI ve 3D reklamcılığı, yapay zekâ destekli yaratıcılığı, ticari fotoğrafçılığı ve marka hikâyeciliğini birleştiren bütünleşik reklam kampanyaları geliştiriyoruz; her kanalda tutarlı bir kampanya varlığı sağlıyoruz.",
+        "deliverables": [
+          "Bütünleşik çok kanallı kampanya stratejisi",
+          "Sosyal medya reklamcılığı ve influencer pazarlaması",
+          "Sinematik video, CGI ve yapay zekâ destekli yaratıcı prodüksiyon",
+          "Marka hikâyeciliği ve birleşik kampanya teslimatı"
+        ]
+      }
+    ],
+    "cta": {
+      "eyebrow": "Birlikte Üretelim",
+      "headline": "Vizyonunuzu Hayata Geçirelim.",
+      "body": "Projenizi bize anlatın. Ekibimiz, tüm beklentilerinizi aşan bir yaratıcı çözüm sunmaya hazır.",
+      "buttonLabel": "Projenizi Başlatın"
+    }
+  },
+  "industries": {
+    "hero": {
+      "eyebrow": "Hizmet Verdiğimiz Sektörler",
+      "headline": "Her Sektör. Benzersiz Bir Hikâye.",
+      "body": "Stratejiyi, sinematik hikâye anlatımını, ileri teknolojiyi ve yaratıcı mükemmelliği birleştirerek sektörler genelinde ayırt edici marka deneyimleri üretiyoruz."
+    },
+    "industries": [
+      {
+        "title": "Sağlık ve Hastaneler",
+        "tagline": "Doğruluk. Otorite. Güven.",
+        "description": "Sağlık kuruluşları klinik açıdan doğru, görsel olarak etkileyici ve derinden güvenilir bir iletişim ister. Hastane marka filmleri, hasta eğitim içerikleri, cerrahi işlem animasyonları, kurumsal kampanyalar ve doktor odaklı sosyal medya içerikleri üretiyoruz; hepsi nitelikli tıp profesyonelleriyle doğrudan iş birliği içinde geliştirilir. Her klinik içerik, yayından önce nitelikli bir tıbbi incelemeden geçer.",
+        "capabilities": [
+          "Hastane marka filmleri ve kurumsal kampanyalar",
+          "Hasta eğitimi ve anlatım videoları",
+          "Bilimsel 3D tıbbi animasyon",
+          "Doktor odaklı sosyal medya içeriği",
+          "Nitelikli tıbbi inceleme süreci"
+        ]
+      },
+      {
+        "title": "Tıbbi Klinikler ve Doktorlar",
+        "tagline": "Güvenilirlik. Erişim. Sonuç.",
+        "description": "Özel klinikler ve uzman doktorlar, otorite kuran ve hasta güvenini artıran içeriklere ihtiyaç duyar. Profesyonel doktor röportaj serileri, klinik marka filmleri, tedavi anlatım videoları, öncesi-sonrası vaka içerikleri ve sosyal medya kampanyaları üretiyoruz; hepsi klinik doğrulukla hazırlanır ve nitelikli sağlık profesyonelleri tarafından incelenir.",
+        "capabilities": [
+          "Doktor röportaj ve profil filmleri",
+          "Klinik marka filmleri ve kampanyaları",
+          "Tedavi anlatım videoları",
+          "Klinikler için sosyal medya içeriği",
+          "Tıbbi fotoğrafçılık ve görsel kimlik"
+        ]
+      },
+      {
+        "title": "Lüks Markalar",
+        "tagline": "Prestij. Zarafet. Ayrıcalık.",
+        "description": "Lüks markalar; ayrıcalığı, ustalığı ve arzuyu anlatan bir görsel dile ihtiyaç duyar. Markanızı kategorisinin zirvesine yerleştiren sinematik marka filmleri, lüks ürün fotoğrafçılığı, editoryal kampanyalar, sosyal medya içerikleri ve CGI ürün görselleştirmeleri üretiyoruz.",
+        "capabilities": [
+          "Sinematik lüks marka filmleri",
+          "Editoryal ürün fotoğrafçılığı",
+          "CGI ürün görselleştirme",
+          "Sosyal medya içeriği ve kampanyaları",
+          "Marka kimliği ve görsel tasarım"
+        ]
+      },
+      {
+        "title": "Otomotiv",
+        "tagline": "Güç. Hassasiyet. Performans.",
+        "description": "Otomotiv reklamcılığı sinematik hassasiyet ister: mükemmel ışık, mükemmel açı, mükemmel an. Her aracın özünü yakalayan çarpıcı otomotiv reklam filmleri, CGI araç render'ları, dinamik sürüş sekansları, lansman kampanyaları ve sosyal medya içerikleri üretiyoruz.",
+        "capabilities": [
+          "Sinematik otomotiv reklam filmleri",
+          "CGI araç render'ları ve görselleştirme",
+          "Dinamik sürüş sekansları",
+          "Lansman kampanyası prodüksiyonu",
+          "Otomotiv fotoğrafçılığı"
+        ]
+      },
+      {
+        "title": "Gayrimenkul ve Proje Geliştirme",
+        "tagline": "Vizyon. Ölçek. Hedef.",
+        "description": "Gayrimenkul geliştiricileri ve mülk markaları, daha tek bir tuğla konmadan vizyonu satan içeriğe ihtiyaç duyar. Mimari CGI, fotogerçekçi 3D gezintiler, sinematik mülk filmleri, havadan görüntüleme, proje lansman kampanyaları ve talepleri artırıp marka prestijini yükselten sosyal medya içerikleri üretiyoruz.",
+        "capabilities": [
+          "Mimari CGI ve 3D gezintiler",
+          "Sinematik mülk filmleri",
+          "Havadan görüntüleme ve dron",
+          "Proje lansman kampanyaları",
+          "Sosyal medya ve dijital pazarlama"
+        ]
+      },
+      {
+        "title": "İç Mimari ve Mobilya",
+        "tagline": "Mekân. Işık. Atmosfer.",
+        "description": "İç mimari ve mobilya markaları görsel sunumlarıyla yaşar. İşçiliği, malzemeyi ve mekânsal mükemmelliği ortaya koyan sinematik iç mekân fotoğrafçılığı, 3D oda görselleştirmeleri, marka filmleri, sosyal medya içerikleri ve CGI mobilya render'ları üretiyoruz.",
+        "capabilities": [
+          "Sinematik iç mekân fotoğrafçılığı",
+          "3D oda ve ürün görselleştirme",
+          "Marka filmleri ve showroom içeriği",
+          "Sosyal medya kampanyaları",
+          "CGI mobilya render'ları"
+        ]
+      },
+      {
+        "title": "Oteller ve Tatil Köyleri",
+        "tagline": "Deneyim. Lüks. Kaçış.",
+        "description": "Konaklama markaları deneyimle rekabet eder ve deneyim içerikle başlar. Odaları dolduran ve marka sadakati oluşturan sinematik otel filmleri, oda ve olanak fotoğrafçılığı, yeme-içme içerikleri, sosyal medya kampanyaları ve dijital pazarlama stratejileri üretiyoruz.",
+        "capabilities": [
+          "Sinematik otel ve tatil köyü filmleri",
+          "Oda, olanak ve yeme-içme fotoğrafçılığı",
+          "Sosyal medya içeriği ve yönetimi",
+          "Dijital pazarlama kampanyaları",
+          "Marka kimliği ve görsel tasarım"
+        ]
+      },
+      {
+        "title": "Turizm ve Seyahat",
+        "tagline": "Destinasyon. Keşif. Arzu.",
+        "description": "Turizm ve seyahat markaları, izleyicinin daha varmadan destinasyonu hissetmesini sağlayan içeriğe ihtiyaç duyar. Yolculukları ilham veren ve rezervasyonları artıran sinematik destinasyon filmleri, havadan görüntüleme, seyahat fotoğrafçılığı, sosyal medya kampanyaları ve dijital pazarlama stratejileri üretiyoruz.",
+        "capabilities": [
+          "Sinematik destinasyon filmleri",
+          "Havadan görüntüleme ve dron",
+          "Seyahat fotoğrafçılığı",
+          "Sosyal medya kampanyaları",
+          "Dijital pazarlama ve potansiyel müşteri kazanımı"
+        ]
+      },
+      {
+        "title": "Spor ve Fitness",
+        "tagline": "Enerji. Yoğunluk. İlham.",
+        "description": "Spor ve fitness markaları enerji, yoğunluk ve duygusal etki taşıyan içerik ister. Kitleleri motive eden ve topluluklar kuran dinamik spor reklam filmleri, sporcu profil filmleri, etkinlik yayınları, spor salonu ve tesis fotoğrafçılığı, sosyal medya içerikleri ve marka kampanyaları üretiyoruz.",
+        "capabilities": [
+          "Dinamik spor reklam filmleri",
+          "Sporcu profili ve belgesel filmleri",
+          "Etkinlik yayını ve öne çıkanlar",
+          "Spor salonu ve tesis fotoğrafçılığı",
+          "Sosyal medya içeriği ve kampanyaları"
+        ]
+      },
+      {
+        "title": "Güzellik ve Kozmetik",
+        "tagline": "Parlaklık. Arzu. Kimlik.",
+        "description": "Güzellik ve kozmetik markaları görsel olarak kusursuz, duygusal olarak etkileyici içeriğe ihtiyaç duyar. Her platformda arzu yaratan ve satışları artıran sinematik güzellik kampanyaları, ürün fotoğrafçılığı, eğitim ve nasıl yapılır içerikleri, sosyal medya kampanyaları ve marka filmleri üretiyoruz.",
+        "capabilities": [
+          "Sinematik güzellik kampanyaları",
+          "Ürün fotoğrafçılığı ve CGI render'ları",
+          "Eğitim ve nasıl yapılır içerikleri",
+          "Sosyal medya kampanyaları",
+          "Influencer ve içerik üreticisi prodüksiyonu"
+        ]
+      },
+      {
+        "title": "Parfüm ve Koku",
+        "tagline": "Duyusal. Çağrıştırıcı. Zamansız.",
+        "description": "Koku reklamcılığı, tüm marka iletişimleri arasında en sinematik olanlardan biridir; yalnızca görüntü aracılığıyla bir his uyandırmalıdır. Kokuyu arzuya çeviren dramatik parfüm reklam filmleri, CGI şişe görselleştirmeleri, editoryal fotoğrafçılık ve sosyal medya kampanyaları üretiyoruz.",
+        "capabilities": [
+          "Dramatik parfüm reklam filmleri",
+          "CGI şişe ve ürün görselleştirme",
+          "Editoryal koku fotoğrafçılığı",
+          "Sosyal medya kampanyaları",
+          "Lüks marka konumlandırma"
+        ]
+      },
+      {
+        "title": "Moda ve Yaşam Tarzı",
+        "tagline": "Stil. Kültür. Hedef.",
+        "description": "Moda ve yaşam tarzı markaları; kültürü yakalayan, kimliği ileten ve hayranlık uyandıran içeriğe ihtiyaç duyar. Her koleksiyonu tanımlayan ve yücelten editoryal moda filmleri, lookbook fotoğrafçılığı, defile ve etkinlik yayınları, sosyal medya kampanyaları ve marka içerikleri üretiyoruz.",
+        "capabilities": [
+          "Editoryal moda filmleri",
+          "Lookbook ve kampanya fotoğrafçılığı",
+          "Defile ve etkinlik yayını",
+          "Sosyal medya içeriği ve kampanyaları",
+          "Marka kimliği ve görsel tasarım"
+        ]
+      },
+      {
+        "title": "Restoranlar ve Fine Dining",
+        "tagline": "Lezzet. Atmosfer. Deneyim.",
+        "description": "Restoran ve fine dining markaları atmosfer, mutfak ve deneyimle rekabet eder; üçü de olağanüstü içerikle aktarılmalıdır. Masaları dolduran ve sadık bir takipçi kitlesi oluşturan sinematik restoran filmleri, yemek fotoğrafçılığı, şef profil içerikleri, sosyal medya kampanyaları ve dijital pazarlama stratejileri üretiyoruz.",
+        "capabilities": [
+          "Sinematik restoran ve marka filmleri",
+          "Yeme-içme fotoğrafçılığı",
+          "Şef profili ve mutfak içeriği",
+          "Sosyal medya kampanyaları",
+          "Dijital pazarlama ve rezervasyon"
+        ]
+      },
+      {
+        "title": "Teknoloji ve İnovasyon",
+        "tagline": "Gelecek. Netlik. Etki.",
+        "description": "Teknoloji markaları, karmaşık yeniliği erişilebilir, heyecan verici ve vazgeçilmez kılan içeriğe ihtiyaç duyar. Teknoloji markalarını öncü olarak konumlandıran ürün lansman filmleri, anlatım animasyonları, CGI ürün görselleştirmeleri, yapay zekâ destekli içerik, sosyal medya kampanyaları ve dijital pazarlama stratejileri üretiyoruz.",
+        "capabilities": [
+          "Ürün lansman filmleri ve kampanyaları",
+          "Anlatım animasyonları ve CGI",
+          "Yapay zekâ destekli içerik prodüksiyonu",
+          "Sosyal medya kampanyaları",
+          "Dijital pazarlama ve potansiyel müşteri kazanımı"
+        ]
+      },
+      {
+        "title": "Eğitim",
+        "tagline": "Bilgi. Hedef. Gelecek.",
+        "description": "Eğitim kurumları ve e-öğrenme platformları; ilham veren, bilgilendiren ve güven oluşturan içeriğe ihtiyaç duyar. Kayıtları artıran ve itibar kazandıran kurumsal marka filmleri, kampüs fotoğrafçılığı, kurs tanıtım içerikleri, öğrenci tanıklık serileri, sosyal medya kampanyaları ve dijital pazarlama stratejileri üretiyoruz.",
+        "capabilities": [
+          "Kurumsal marka filmleri",
+          "Kampüs ve tesis fotoğrafçılığı",
+          "Kurs tanıtımı ve e-öğrenme içeriği",
+          "Sosyal medya kampanyaları",
+          "Dijital pazarlama ve kayıt"
+        ]
+      },
+      {
+        "title": "Kurumsal Kuruluşlar",
+        "tagline": "Liderlik. Güvenilirlik. Vizyon.",
+        "description": "Kurumsal kuruluşlar; liderliği ileten, paydaş güvenini artıran ve kurum kültürünü tanımlayan içeriğe ihtiyaç duyar. Kurumsal kimliği güçlendiren kurumsal marka filmleri, faaliyet raporu içerikleri, yönetici profil serileri, iç iletişim, etkinlik yayını ve sosyal medya kampanyaları üretiyoruz.",
+        "capabilities": [
+          "Kurumsal marka filmleri",
+          "Yönetici profil serileri",
+          "Faaliyet raporu ve yatırımcı içeriği",
+          "Etkinlik yayını ve dokümantasyon",
+          "Sosyal medya ve iletişim"
+        ]
+      },
+      {
+        "title": "Perakende ve E-Ticaret",
+        "tagline": "Ürün. Arzu. Dönüşüm.",
+        "description": "Perakende ve e-ticaret markaları, arzu uyandıran ve gezinenleri alıcıya çeviren içeriğe ihtiyaç duyar. Trafiği, etkileşimi ve satışları artıran ürün fotoğrafçılığı, CGI ürün render'ları, kampanya içerikleri, sosyal medya reklamcılığı, video reklamlar ve dijital pazarlama stratejileri üretiyoruz.",
+        "capabilities": [
+          "Ürün fotoğrafçılığı ve CGI render'ları",
+          "Kampanya ve reklam içeriği",
+          "Sosyal medya reklamcılığı",
+          "Video reklamlar ve Reels",
+          "Dijital pazarlama ve e-ticaret stratejisi"
+        ]
+      },
+      {
+        "title": "Sanat ve Eğlence",
+        "tagline": "Yaratıcılık. Kültür. Gösteri.",
+        "description": "Sanat ve eğlence markaları, işin kendisinin hırsına ve enerjisine denk içeriğe ihtiyaç duyar. İzleyici kitlesi oluşturan ve salonları dolduran etkinlik filmleri, performans dokümantasyonu, sanatçı profil içerikleri, tanıtım kampanyaları, sosyal medya içerikleri ve dijital pazarlama stratejileri üretiyoruz.",
+        "capabilities": [
+          "Etkinlik ve performans filmleri",
+          "Sanatçı profili ve belgesel içerik",
+          "Tanıtım kampanyaları",
+          "Sosyal medya içeriği ve kampanyaları",
+          "Dijital pazarlama ve bilet satışı"
+        ]
+      }
+    ],
+    "cta": {
+      "eyebrow": "Birlikte Çalışalım",
+      "headline": "Sektörünüz. Bizim Yaratıcı Uzmanlığımız.",
+      "body": "Sektörünüz ne olursa olsun, yaratıcı mükemmelliğe, stratejik düşünceye ve sinematik kaliteye aynı bağlılıkla yaklaşırız. Projenizi bize anlatın.",
+      "buttonLabel": "Bize Ulaşın"
+    }
+  },
+  "luxury_brands": {
+    "hero": {
+      "eyebrow": "Sektör Uzmanlığı",
+      "headline": "OLAĞANÜSTÜ MARKALARIN SANATI.",
+      "intro": "Metropolitan Digital Marketing olarak lüks markaları sinematik hikâye anlatımı, sofistike görsel tasarım ve özenle kurgulanmış dijital deneyimlerle hayata geçiriyoruz. Zarif saatlerden ince mücevherlere, özel parfümlerden premium yaşam tarzı ürünlerine kadar; zarafeti, işçiliği ve ayrıcalığı yansıtan reklam içerikleri üretiyoruz."
+    },
+    "gallery": {
+      "eyebrow": "Prodüksiyon Vitrini",
+      "heading": "YARATICI YETENEKLERİMİZ",
+      "disclaimer": "Aşağıdaki görseller, lüks marka kampanyalarında uyguladığımız prodüksiyon hizmetlerini ve yaratıcı yetenekleri temsil eder. Tüm görseller kavramsal prodüksiyon referanslarıdır; müşteri teslimatı değildir.",
+      "items": [
+        {
+          "title": "Her Karede Hassasiyet",
+          "service": "Sinematik Ürün Fotoğrafçılığı",
+          "description": "Ultra yakın makro görüntüleme, lüks bir saatin karmaşık mekanik ruhunu ortaya çıkarır. Her dişli, mücevher ve yüzey, kontrollü dramatik ışık altında cerrahi hassasiyetle yakalanır; markanın ardındaki işçiliği anlatır.",
+          "tags": [
+            "Makro Fotoğrafçılık",
+            "Sinematik Işık",
+            "Ürün Yönetmenliği"
+          ],
+          "note": "Kavramsal prodüksiyon görseli"
+        },
+        {
+          "title": "Arzunun Ağırlığı",
+          "service": "Lüks Mücevher Fotoğrafçılığı",
+          "description": "Saf siyah zemin üzerinde tek bir pırlanta yüzük: kompozisyon dikkat dağıtan her şeyi ayıklar ve taşın konuşmasına izin verir. Hassas ışık her yüzü şekillendirir ve ürün görselini arzu nesnesine dönüştüren görsel gerilimi yaratır.",
+          "tags": [
+            "İnce Mücevher",
+            "Stüdyo Fotoğrafçılığı",
+            "Reklam Kompozisyonu"
+          ],
+          "note": "Kavramsal prodüksiyon görseli"
+        },
+        {
+          "title": "Niyetle Takılan",
+          "service": "Editoryal Kampanya Prodüksiyonu",
+          "description": "Premium mücevher reklamcılığı ürün yerleştirmeden fazlasını gerektirir; anlatı ister. Editoryal kampanyalarımız ince parçaları hayranlık uyandıran yaşam tarzı bağlamlarına yerleştirir ve markayı onu takan kişinin kimliğine ve duygusuna bağlar.",
+          "tags": [
+            "Editoryal Fotoğrafçılık",
+            "Kampanya Yönetmenliği",
+            "Yaşam Tarzı Stilizasyonu"
+          ],
+          "note": "Kavramsal prodüksiyon görseli"
+        },
+        {
+          "title": "Görünmez, Görünür Kılındı",
+          "service": "Parfüm Reklam Prodüksiyonu",
+          "description": "Koku görünmezdir; reklamının imkânsızı başarması gerekir. Kokuyu cam, ışık, yansıma ve atmosfer aracılığıyla görüntüye çeviriyoruz. Her şişe bir heykele, her kare hissetmeye bir davete dönüşür.",
+          "tags": [
+            "Parfüm Fotoğrafçılığı",
+            "Cam ve Yansıma",
+            "Atmosferik Işık"
+          ],
+          "note": "Kavramsal prodüksiyon görseli"
+        },
+        {
+          "title": "Fiziğin Ötesinde",
+          "service": "CGI Ürün Görselleştirme",
+          "description": "CGI, lüks ürün reklamcılığını fiziksel fotoğrafçılığın kısıtlarından kurtarır. Saatlerin, mücevherlerin ve aksesuarların imkânsız bir kusursuzlukla sunulabildiği fotogerçekçi dijital ortamlar kuruyoruz; mükemmel yansımalar, malzemeler ve kompozisyonlarla.",
+          "tags": [
+            "CGI Prodüksiyonu",
+            "3D Görselleştirme",
+            "Dijital Sanat Yönetmenliği"
+          ],
+          "note": "Kavramsal CGI prodüksiyon görseli"
+        },
+        {
+          "title": "Işıkta Süzülen",
+          "service": "3D Animasyon ve Hareket Prodüksiyonu",
+          "description": "Havada süzülen ürün kompozisyonları, statik fotoğrafçılığın taklit edemeyeceği bir ağırlıksızlık ve ayrıcalık hissi yaratır. 3D animasyon ekibimiz dijital ve sosyal kanallar için dinamik ürün tanıtımları, dönen vitrinler ve atmosferik hareket içerikleri üretir.",
+          "tags": [
+            "3D Animasyon",
+            "Hareket Tasarımı",
+            "Sosyal Medya Prodüksiyonu"
+          ],
+          "note": "Kavramsal prodüksiyon görseli"
+        },
+        {
+          "title": "Hareket Halinde Altın",
+          "service": "VFX ve Post-Prodüksiyon",
+          "description": "Soyut parçacık sistemleri, sıvı simülasyonları ve atmosferik VFX, parfüm reklamcılığını sinematik sanata dönüştürür. Post-prodüksiyon ekibimiz fiziksel ve dijital öğeleri birleştirerek sette elde edilemeyecek reklam görselleri yaratır.",
+          "tags": [
+            "VFX Kompozit",
+            "Parçacık Sistemleri",
+            "Post-Prodüksiyon"
+          ],
+          "note": "Kavramsal CGI prodüksiyon görseli"
+        },
+        {
+          "title": "Taşın Ardındaki Hikâye",
+          "service": "Lüks Marka Hikâyeciliği",
+          "description": "En etkili lüks reklam bir hikâye anlatır. Yaratıcı direktörlerimiz, ince mücevherleri ve aksesuarları insani duygulara — aşk, miras, kimlik ve hedefe — bağlayan anlatı odaklı kampanyalar geliştirir.",
+          "tags": [
+            "Marka Hikâyeciliği",
+            "Yaratıcı Yönetmenlik",
+            "Kampanya Stratejisi"
+          ],
+          "note": "Kavramsal prodüksiyon görseli"
+        },
+        {
+          "title": "Sanat Olarak Mekanizma",
+          "service": "Fotogerçekçi 3D Animasyon",
+          "description": "Mekanik bir saatin hareketi, lüks reklamcılığın en çarpıcı konularından biridir. 3D animasyon ekibimiz kalibreleri mühendislik hassasiyetiyle yeniden yaratır; patlatılmış görünümler, ağır çekim açılışlar ve sinematik mekanizma sunumları üretir.",
+          "tags": [
+            "3D Animasyon",
+            "Mekanik Görselleştirme",
+            "Sinematik Açılış"
+          ],
+          "note": "Kavramsal 3D animasyon görseli"
+        },
+        {
+          "title": "İmza An",
+          "service": "Bütünleşik Lüks Reklam Kampanyası",
+          "description": "Eksiksiz bir lüks parfüm kampanyası; fotoğrafçılığı, CGI'ı, hareketi, sosyal medya içeriğini ve influencer prodüksiyonunu tek ve tutarlı bir görsel dilde birleştirir. İlk fikirden her platformdaki yayına kadar tüm yaratıcı ve prodüksiyon sürecini yönetiriz.",
+          "tags": [
+            "Bütünleşik Kampanya",
+            "Çok Platformlu Prodüksiyon",
+            "Sosyal Medya Yönetimi"
+          ],
+          "note": "Kavramsal prodüksiyon görseli"
+        }
+      ]
+    },
+    "process": {
+      "eyebrow": "Nasıl Çalışıyoruz",
+      "heading": "PRODÜKSİYON SÜRECİ",
+      "steps": [
+        {
+          "title": "Yaratıcı Strateji",
+          "body": "Marka konumlandırmanızı, hedef kitlenizi ve kampanya hedeflerinizi derinlemesine anlayarak başlarız. Yaratıcı direktörlerimiz, marka kimliğinizle uyumlu ve sizi lüks kategorisinde farklılaştıran bir görsel strateji geliştirir."
+        },
+        {
+          "title": "Konsept ve Yönetmenlik",
+          "body": "Ayrıntılı moodboard'lar, storyboard'lar ve prodüksiyon brifleri hazırlanır ve onayınıza sunulur. Işık, kompozisyon, renk paleti, hareket — her görsel karar, tek bir kare çekilmeden önce düşünülür."
+        },
+        {
+          "title": "Prodüksiyon ve CGI",
+          "body": "Prodüksiyon ekibimiz onaylanan konsepti fotoğraf, video, CGI ve 3D animasyonla hayata geçirir. Her teknik ve yaratıcı unsuru kendi bünyemizde yöneterek her aşamada tutarlılık ve kalite sağlarız."
+        },
+        {
+          "title": "Teslimat ve Kampanya",
+          "body": "Nihai materyaller dijital, sosyal medya, baskı ve yayın için gereken tüm formatlarda teslim edilir. Bütünleşik kampanyalarda ayrıca kampanya dağıtımını, sosyal medya planlamasını ve performans raporlamasını da yönetiriz."
+        }
+      ]
+    },
+    "services": {
+      "eyebrow": "Dijital Pazarlama",
+      "heading": "LÜKS MARKALAR İÇİN DİJİTAL HİZMETLER",
+      "body": "Prodüksiyonun ötesinde, lüks markaların sosyal medya, ücretli reklamcılık, influencer ortaklıkları ve içerik stratejisi genelindeki dijital varlığını baştan sona yönetiyoruz. Ekibimiz lüks iletişimin kendine özgü gereksinimlerini — ketumluk, tutarlılık, ayrıcalık ve hedef — anlar ve bunları her platforma ve her temas noktasına uygular.",
+      "items": [
+        {
+          "title": "Sosyal medya yönetimi",
+          "description": "Instagram, TikTok, YouTube, LinkedIn — içerik takvimleri, topluluk yönetimi ve analiz."
+        },
+        {
+          "title": "Ücretli sosyal medya reklamcılığı",
+          "description": "Lüks kitleler için Meta, TikTok ve Google'da hassas hedeflemeli kampanyalar."
+        },
+        {
+          "title": "Influencer ve ünlü prodüksiyonu",
+          "description": "Influencer ortaklıklarının ve ünlü kampanya prodüksiyonunun uçtan uca yönetimi."
+        },
+        {
+          "title": "İçerik stratejisi",
+          "description": "Uzun soluklu marka hikâyeciliği, editoryal seriler ve kampanya mimarisi."
+        },
+        {
+          "title": "Marka kimliği ve tasarım",
+          "description": "Lüks ürünler için görsel kimlik sistemleri, ambalaj tasarımı ve marka kılavuzları."
+        },
+        {
+          "title": "Web sitesi ve dijital deneyim",
+          "description": "Lüks marka standartlarıyla uyumlu premium web sitesi tasarımı ve geliştirmesi."
+        }
+      ]
+    },
+    "capabilities": [
+      "Lüks reklam prodüksiyonu",
+      "Sinematik ürün fotoğrafçılığı",
+      "CGI ürün reklamcılığı",
+      "3D animasyon ve hareket",
+      "Yaratıcı yönetmenlik",
+      "Reklam kampanyası tasarımı",
+      "Sosyal medya içerik üretimi",
+      "Influencer ve ünlü kampanya prodüksiyonu",
+      "Premium marka hikâyeciliği",
+      "VFX ve post-prodüksiyon"
+    ],
+    "cta": {
+      "eyebrow": "Başlamaya Hazır",
+      "heading": "LÜKS PROJENİZİ BAŞLATIN.",
+      "body": "Markanızı ve kampanya hedeflerinizi bize anlatın. Yaratıcı ekibimiz size özel bir prodüksiyon teklifiyle dönüş yapacaktır.",
+      "primaryButton": "Projenizi Başlatın",
+      "secondaryButton": "Hizmetleri Keşfedin",
+      "backLink": "← Tüm Sektörlere Dön"
+    }
+  },
+  "portfolio": {
+    "hero": {
+      "eyebrow": "Çalışmalarımız",
+      "headline": "Hayata Geçen Fikirler.",
+      "subheadline": "Sinematik Prodüksiyon. Yaratıcı Teknoloji. Olağanüstü Görsel Deneyimler."
+    },
+    "categories": [
+      {
+        "label": "Tüm Çalışmalar"
+      },
+      {
+        "label": "Sinematik Prodüksiyon"
+      },
+      {
+        "label": "Otomotiv"
+      },
+      {
+        "label": "Tıp ve Sağlık"
+      },
+      {
+        "label": "3D Animasyon ve CGI"
+      },
+      {
+        "label": "Yapay Zekâ Yaratıcılığı"
+      },
+      {
+        "label": "Gayrimenkul"
+      },
+      {
+        "label": "İç Mimari"
+      },
+      {
+        "label": "Otel ve Konaklama"
+      },
+      {
+        "label": "Parfüm ve Güzellik"
+      },
+      {
+        "label": "Sosyal Medya"
+      }
+    ],
+    "cta": {
+      "eyebrow": "Yaratmaya Başlayın",
+      "headline": "Bir Sonraki Projeniz Burada Başlıyor.",
+      "body": "Her büyük kampanya bir sohbetle başlar. Vizyonunuzu bize anlatın, onu sinematik hassasiyetle hayata geçirelim.",
+      "buttonLabel": "Birlikte Çalışalım"
+    },
+    "items": [
+      {
+        "title": "Prodüksiyon Zanaatı",
+        "label": "Sinematik Prodüksiyon",
+        "type": "Yaratıcı Konsept"
+      },
+      {
+        "title": "Stüdyo Yönetmenliği",
+        "label": "Sinematik Prodüksiyon",
+        "type": "Yaratıcı Konsept"
+      },
+      {
+        "title": "Ekip ve Set",
+        "label": "Sinematik Prodüksiyon",
+        "type": "Yaratıcı Konsept"
+      },
+      {
+        "title": "Sinematik Portre",
+        "label": "Sinematik Prodüksiyon",
+        "type": "Konsept Görselleştirme"
+      },
+      {
+        "title": "Karanlık Stüdyo",
+        "label": "Otomotiv Reklamcılığı",
+        "type": "Konsept Görselleştirme"
+      },
+      {
+        "title": "Gece Hareketi",
+        "label": "Otomotiv Reklamcılığı",
+        "type": "Konsept Görselleştirme"
+      },
+      {
+        "title": "İç Mekân Detayı",
+        "label": "Otomotiv Reklamcılığı",
+        "type": "Konsept Görselleştirme"
+      },
+      {
+        "title": "Yağmur Yansımaları",
+        "label": "Otomotiv Reklamcılığı",
+        "type": "Konsept Görselleştirme"
+      },
+      {
+        "title": "Doktor Profili",
+        "label": "Tıp ve Sağlık",
+        "type": "Yaratıcı Konsept"
+      },
+      {
+        "title": "Cerrahi Mükemmellik",
+        "label": "Tıp ve Sağlık",
+        "type": "Yaratıcı Konsept"
+      },
+      {
+        "title": "Bilimsel Görselleştirme",
+        "label": "Tıp ve Sağlık",
+        "type": "Konsept Görselleştirme"
+      },
+      {
+        "title": "Uzman Röportajı",
+        "label": "Tıp ve Sağlık",
+        "type": "Yaratıcı Konsept"
+      },
+      {
+        "title": "Dijital Şehir Manzarası",
+        "label": "3D Animasyon ve CGI",
+        "type": "Konsept Görselleştirme"
+      },
+      {
+        "title": "Lüks Ürün Render'ı",
+        "label": "3D Animasyon ve CGI",
+        "type": "Konsept Görselleştirme"
+      },
+      {
+        "title": "Mimari CGI",
+        "label": "3D Animasyon ve CGI",
+        "type": "Konsept Görselleştirme"
+      },
+      {
+        "title": "Hareket Çalışması",
+        "label": "3D Animasyon ve CGI",
+        "type": "Konsept Görselleştirme"
+      },
+      {
+        "title": "Veri Buzdağı",
+        "label": "Yapay Zekâ ile Yaratıcı Prodüksiyon",
+        "type": "Konsept Görselleştirme"
+      },
+      {
+        "title": "Nöral Dalga",
+        "label": "Yapay Zekâ ile Yaratıcı Prodüksiyon",
+        "type": "Konsept Görselleştirme"
+      },
+      {
+        "title": "Siber Uzay",
+        "label": "Yapay Zekâ ile Yaratıcı Prodüksiyon",
+        "type": "Konsept Görselleştirme"
+      },
+      {
+        "title": "Blokzincir Soyutlaması",
+        "label": "Yapay Zekâ ile Yaratıcı Prodüksiyon",
+        "type": "Konsept Görselleştirme"
+      },
+      {
+        "title": "Konak Cephesi",
+        "label": "Gayrimenkul",
+        "type": "Yaratıcı Konsept"
+      },
+      {
+        "title": "Karanlık Penthouse",
+        "label": "Gayrimenkul",
+        "type": "Yaratıcı Konsept"
+      },
+      {
+        "title": "Havadan Şehir",
+        "label": "Gayrimenkul",
+        "type": "Yaratıcı Konsept"
+      },
+      {
+        "title": "Geceleyin Villa",
+        "label": "Gayrimenkul",
+        "type": "Yaratıcı Konsept"
+      },
+      {
+        "title": "Karanlık Oturma Odası",
+        "label": "İç Mimari",
+        "type": "Yaratıcı Konsept"
+      },
+      {
+        "title": "Lüks Yatak Odası",
+        "label": "İç Mimari",
+        "type": "Yaratıcı Konsept"
+      },
+      {
+        "title": "Mermer Mutfak",
+        "label": "İç Mimari",
+        "type": "Yaratıcı Konsept"
+      },
+      {
+        "title": "Minimal Mekân",
+        "label": "İç Mimari",
+        "type": "Yaratıcı Konsept"
+      },
+      {
+        "title": "Görkemli Lobi",
+        "label": "Otel ve Konaklama",
+        "type": "Yaratıcı Konsept"
+      },
+      {
+        "title": "Alacakaranlıkta Tatil Köyü",
+        "label": "Otel ve Konaklama",
+        "type": "Yaratıcı Konsept"
+      },
+      {
+        "title": "Süit Deneyimi",
+        "label": "Otel ve Konaklama",
+        "type": "Yaratıcı Konsept"
+      },
+      {
+        "title": "Fine Dining",
+        "label": "Otel ve Konaklama",
+        "type": "Yaratıcı Konsept"
+      },
+      {
+        "title": "Parfüm Render'ı",
+        "label": "Parfüm ve Güzellik",
+        "type": "Konsept Görselleştirme"
+      },
+      {
+        "title": "Güzellik Editoryali",
+        "label": "Parfüm ve Güzellik",
+        "type": "Yaratıcı Konsept"
+      },
+      {
+        "title": "Lüks Cilt Bakımı",
+        "label": "Parfüm ve Güzellik",
+        "type": "Konsept Görselleştirme"
+      },
+      {
+        "title": "Parfüm Kampanyası",
+        "label": "Parfüm ve Güzellik",
+        "type": "Yaratıcı Konsept"
+      },
+      {
+        "title": "Stüdyo Seansı",
+        "label": "Sosyal Medya ve İçerik",
+        "type": "Yaratıcı Konsept"
+      },
+      {
+        "title": "İçerik Üreticisi Portresi",
+        "label": "Sosyal Medya ve İçerik",
+        "type": "Yaratıcı Konsept"
+      },
+      {
+        "title": "Podcast Kurulumu",
+        "label": "Sosyal Medya ve İçerik",
+        "type": "Yaratıcı Konsept"
+      },
+      {
+        "title": "İçerik Anı",
+        "label": "Sosyal Medya ve İçerik",
+        "type": "Yaratıcı Konsept"
+      }
+    ]
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "İletişime Geçin",
+      "headline": "Olağanüstü Bir Şey Yaratalım.",
+      "subheadline": "Vizyonunuzu bize anlatın. Onu sinematik hassasiyet ve yaratıcı mükemmellikle hayata geçirelim."
+    },
+    "methods": {
+      "form": {
+        "eyebrow": "Mesaj Gönderin",
+        "headline": "Sohbeti Başlatın",
+        "body": "Aşağıdaki formu doldurun, ekibimiz 24 saat içinde yanıt versin."
+      },
+      "whatsapp": {
+        "label": "WhatsApp",
+        "description": "Hızlı yanıt için bize doğrudan yazın"
+      },
+      "phone": {
+        "label": "Doğrudan Arama",
+        "description": "Ekibimizle doğrudan görüşün"
+      },
+      "email": {
+        "label": "E-posta",
+        "description": "Bize ayrıntılı bir brif gönderin"
+      }
+    },
+    "location": {
+      "label": "Konum",
+      "city": "Dubai",
+      "country": "Birleşik Arap Emirlikleri",
+      "detail": "BAE genelinde ve uluslararası projeler için müsaitiz"
+    },
+    "social": {
+      "instagram": {
+        "label": "Instagram"
+      }
+    },
+    "services": [
+      {
+        "label": "Sinematik Video Prodüksiyonu"
+      },
+      {
+        "label": "Sosyal Medya Yönetimi"
+      },
+      {
+        "label": "3D Animasyon ve CGI"
+      },
+      {
+        "label": "VFX ve Post-Prodüksiyon"
+      },
+      {
+        "label": "Yapay Zekâ ile Yaratıcı Prodüksiyon"
+      },
+      {
+        "label": "Markalaşma ve Kimlik Tasarımı"
+      },
+      {
+        "label": "Tıbbi İçerik Prodüksiyonu"
+      },
+      {
+        "label": "Lüks Reklamcılık"
+      },
+      {
+        "label": "Ticari Fotoğrafçılık"
+      },
+      {
+        "label": "Podcast Prodüksiyonu"
+      },
+      {
+        "label": "Senaryo Yazımı ve Storyboard"
+      },
+      {
+        "label": "Seslendirme ve Ses Prodüksiyonu"
+      },
+      {
+        "label": "Web Sitesi Tasarımı ve Geliştirme"
+      },
+      {
+        "label": "Dijital Pazarlama ve Strateji"
+      },
+      {
+        "label": "İçerik Üreticisi Yönetimi"
+      },
+      {
+        "label": "Sosyal Medya Reklam Kampanyaları"
+      },
+      {
+        "label": "Influencer ve Ünlü Pazarlaması"
+      },
+      {
+        "label": "Bütünleşik Dijital Reklamcılık"
+      },
+      {
+        "label": "Diğer / Listede Yok"
+      }
+    ],
+    "budgets": [
+      {
+        "label": "5.000 AED altı"
+      },
+      {
+        "label": "5.000 – 15.000 AED"
+      },
+      {
+        "label": "15.000 – 50.000 AED"
+      },
+      {
+        "label": "50.000 – 150.000 AED"
+      },
+      {
+        "label": "150.000 AED üzeri"
+      },
+      {
+        "label": "Belirtmek istemiyorum"
+      }
+    ],
+    "contactMethods": [
+      {
+        "label": "E-posta"
+      },
+      {
+        "label": "WhatsApp"
+      },
+      {
+        "label": "Telefon Görüşmesi"
+      },
+      {
+        "label": "Görüntülü Görüşme"
+      }
+    ],
+    "privacy": {
+      "text": "Kişisel verilerimin Metropolitan Digital Marketing'in gizlilik politikası doğrultusunda toplanmasını ve işlenmesini kabul ediyorum.",
+      "note": "Bilgileriniz kesinlikle gizli tutulur ve üçüncü taraflarla asla paylaşılmaz."
+    },
+    "success": {
+      "headline": "Mesajınız Alındı.",
+      "body": "Bize ulaştığınız için teşekkürler. Ekibimiz brifinizi inceleyecek ve 24 saat içinde yanıt verecektir. Acil talepler için lütfen bize doğrudan WhatsApp üzerinden ulaşın.",
+      "whatsappLabel": "WhatsApp'tan bize yazın"
+    },
+    "footer": {
+      "copyright": "© METROPOLITAN DIGITAL MARKETING. TÜM HAKLARI SAKLIDIR."
+    }
+  }
+}

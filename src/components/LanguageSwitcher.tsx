@@ -11,7 +11,7 @@ import { Globe, ChevronDown } from 'lucide-react';
 import { supportedLanguages, type Language } from '../lib/i18n/config';
 
 export default function LanguageSwitcher() {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
   const [open, setOpen] = useState(false);
@@ -60,7 +60,7 @@ export default function LanguageSwitcher() {
         onClick={() => setOpen((v) => !v)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        aria-label={`Language: ${currentLang.nativeName}`}
+        aria-label={t('ui.currentLanguage', { name: currentLang.nativeName })}
         className="flex items-center gap-1.5 px-2.5 py-1.5 transition-all duration-200 focus:outline-none focus-visible:ring-1"
         style={{
           color: `hsl(var(--metro-white) / 0.7)`,
@@ -98,7 +98,7 @@ export default function LanguageSwitcher() {
       {open && (
         <div
           role="listbox"
-          aria-label="Select language"
+          aria-label={t('ui.selectLanguage')}
           className="absolute right-0 mt-1 overflow-hidden"
           style={{
             background: `hsl(var(--metro-black))`,

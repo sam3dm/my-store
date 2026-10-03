@@ -1,5 +1,6 @@
 import { StrictMode, Suspense } from 'react';
 import { renderToString } from 'react-dom/server';
+import { I18nextProvider } from 'react-i18next';
 import { HelmetProvider } from '@dr.pogodin/react-helmet';
 import type { HelmetServerState } from '@dr.pogodin/react-helmet';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -14,12 +15,17 @@ import {
 import RootLayout from './layouts/RootLayout';
 import Spinner from './components/Spinner';
 import { JsonLdSiteUrlProvider } from './lib/json-ld-site-url-context';
+import i18n from './lib/i18n';
+import { defaultLanguage, getLanguage, isLanguageSupported } from './lib/i18n/config';
 import { routes } from './routes';
 
 export interface RenderResult {
   html: string;
   head: string;
   status: number;
+  /** Language of the rendered page and its text direction, for the <html> element. */
+  lang?: string;
+  dir?: 'ltr' | 'rtl';
   redirect?: string;
 }
 
@@ -48,7 +54,26 @@ const routeTree: RouteObject[] = [
 
 const handler = createStaticHandler(routeTree);
 
+/** The language segment of a /:lang/... URL, or the default language when it is missing or unknown. */
+function languageFromUrl(url: string): string {
+  const segment = url.split(/[?#]/)[0].split('/')[1];
+  return segment && isLanguageSupported(segment) ? segment : defaultLanguage;
+}
+
+// Language codes the site used to offer. Old links and search results for them are
+// permanently redirected to the same page in the default language.
+const RETIRED_LANGUAGE = /^\/(?:de|ja|ko|pt|nl|nl-BE)(?=\/|$|\?)/i;
+
 export async function render(url: string, siteOrigin?: string): Promise<RenderResult> {
+  if (RETIRED_LANGUAGE.test(url)) {
+    return {
+      html: '',
+      head: '',
+      status: 301,
+      redirect: url.replace(RETIRED_LANGUAGE, `/${defaultLanguage}`),
+    };
+  }
+
   // createStaticHandler works off a WHATWG Request. We only need the pathname +
   // search; scheme/host don't affect routing. Using a stable sentinel host
   // avoids env-dependent URL parsing.
@@ -79,15 +104,21 @@ export async function render(url: string, siteOrigin?: string): Promise<RenderRe
     },
   });
 
+  // One i18n instance per request so concurrent requests in different languages never mix.
+  const lang = languageFromUrl(url);
+  const requestI18n = i18n.cloneInstance({ lng: lang });
+
   const html = renderToString(
     <StrictMode>
-      <HelmetProvider context={helmetContext}>
-        <QueryClientProvider client={queryClient}>
-          <JsonLdSiteUrlProvider siteUrl={siteOrigin ?? ''}>
-            <StaticRouterProvider router={router} context={context} />
-          </JsonLdSiteUrlProvider>
-        </QueryClientProvider>
-      </HelmetProvider>
+      <I18nextProvider i18n={requestI18n}>
+        <HelmetProvider context={helmetContext}>
+          <QueryClientProvider client={queryClient}>
+            <JsonLdSiteUrlProvider siteUrl={siteOrigin ?? ''}>
+              <StaticRouterProvider router={router} context={context} />
+            </JsonLdSiteUrlProvider>
+          </QueryClientProvider>
+        </HelmetProvider>
+      </I18nextProvider>
     </StrictMode>
   );
 
@@ -103,5 +134,5 @@ export async function render(url: string, siteOrigin?: string): Promise<RenderRe
         .join('\n')
     : '';
 
-  return { html, head, status: context.statusCode ?? 200 };
+  return { html, head, status: context.statusCode ?? 200, lang, dir: getLanguage(lang)?.dir ?? 'ltr' };
 }

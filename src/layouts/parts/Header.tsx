@@ -66,7 +66,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav aria-label="Main navigation" className="hidden lg:flex items-center gap-8">
+          <nav aria-label={t('ui.mainNavigation')} className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => {
               const localHref = localizedPath(link.href);
               const isActive = pathWithoutLang === link.href || (link.href === '/' && pathWithoutLang === '');
@@ -127,7 +127,7 @@ export default function Header() {
               onClick={() => setMenuOpen(!menuOpen)}
               className="lg:hidden flex items-center justify-center w-10 h-10"
               style={{ color: `hsl(var(--metro-white))` }}
-              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-label={menuOpen ? t('ui.closeMenu') : t('ui.openMenu')}
             >
               {menuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
