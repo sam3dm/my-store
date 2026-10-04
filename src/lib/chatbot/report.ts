@@ -11,10 +11,6 @@ export interface ChatLine {
 const NA = 'Not provided';
 const APPROACH = { ai: 'AI-generated visuals', real: 'Real filming / photography', mix: 'A mix of AI and real filming' } as const;
 
-function row(label: string, value: string, width = 22): string {
-  return `| ${label.padEnd(width)}| ${value.replace(/\s+/g, ' ')}`;
-}
-
 export function buildReport(lead: Lead, conversation: ChatLine[], siteLang: string, origin: string, now = new Date()) {
   const d = lead.discovery;
   const services = d?.services.length ? serviceTitles(d.services).join(', ') : NA;
@@ -38,7 +34,7 @@ export function buildReport(lead: Lead, conversation: ChatLine[], siteLang: stri
     ['Creative approach', d?.approach ? APPROACH[d.approach] : NA],
     ['Details', details || NA],
     ['Other notes', d?.notes.length ? d.notes.join(' / ') : NA],
-    ['Visitor question', lead.topic ?? NA],
+    ['Asked about', lead.questions?.length ? lead.questions.map((q) => `"${q}"`).join(' · ') : (lead.topic ?? NA)],
     ['Voice message', voice || 'None'],
     ['Chat language', lead.lang === 'ar' ? 'Arabic' : 'English'],
     ['Website language', siteLang],
@@ -63,16 +59,18 @@ export function buildReport(lead: Lead, conversation: ChatLine[], siteLang: stri
     .map((m) => `${m.from === 'user' ? 'Client' : 'Bot'}: ${m.voice ? '[voice message]' : m.text.replace(/\s+/g, ' ').slice(0, 400)}`)
     .join('\n');
 
-  const line = '─'.repeat(64);
+  const esc = (v: string) => v.replace(/\|/g, '/').replace(/\s+/g, ' ').trim();
   const body = [
-    'METROPOLITAN CHATBOT — CLIENT REPORT',
-    line,
-    ...rows.map(([l, v]) => row(l!, v!)),
-    line,
-    'SUMMARY',
+    '# NEW CLIENT — METROPOLITAN CHATBOT',
+    '',
+    '| Field | Details |',
+    '|---|---|',
+    ...rows.map(([l, v]) => `| **${l}** | ${esc(v!)} |`),
+    '',
+    '## Summary',
     summary,
-    line,
-    'CONVERSATION',
+    '',
+    '## Conversation',
     transcript,
   ].join('\n');
 

@@ -31,6 +31,7 @@ export interface Lead {
   topic?: string;
   voiceUrl?: string;
   discovery?: Discovery;
+  questions?: string[];
   lang?: ChatLang;
 }
 
@@ -46,6 +47,8 @@ export interface ChatState {
   lead: Lead;
   contact?: { mobile?: string; phone?: string };
   reported: boolean;
+  /** What the visitor asked about (kept only for the end-of-conversation report). */
+  questions: string[];
   turn: number;
   lastQuestion?: string;
   voiceUrl?: string;
@@ -67,7 +70,7 @@ export interface TurnResult {
 }
 
 export function initialState(lang: ChatLang): ChatState {
-  return { lang, mode: 'idle', askedName: false, pending: null, asked: {}, discovery: emptyDiscovery(), lead: {}, reported: false, turn: 0 };
+  return { lang, mode: 'idle', askedName: false, pending: null, asked: {}, discovery: emptyDiscovery(), lead: {}, reported: false, questions: [], turn: 0 };
 }
 
 /* ── Wording ─────────────────────────────────────────────────────────────── */
@@ -93,6 +96,7 @@ const S = {
     price:
       'أشكرك على اهتمامك. لا أملك تفاصيل الأسعار، فالتكلفة تختلف بحسب طبيعة كل مشروع ونطاقه، وسيعدّ لك فريقنا عرضاً مناسباً بعد أن يطّلع على احتياجك. ',
     privacy: 'أعتذر، لا أستطيع الحديث عن معلومات شخصية أو عن أشخاص. ',
+    privateData: 'أعتذر، محادثات العملاء وبياناتهم سرّية تماماً. لا أحتفظ بأي محادثة بعد انتهائها، ولا أملك ولا أشارك معلومات أو أرقام أو أسماء أي شخص آخر. يسعدني خدمتك فيما يتعلق بخدمات متروبوليتان ديجيتال ماركتينج وأعمالها.',
     unknown: 'شكراً على سؤالك. لا علم لي بهذه المعلومة، فهي ليست ضمن المعلومات المتوفرة على موقعنا، وسيتواصل معك فريق العمل في أقرب وقت ممكن. ',
     askLeadName: 'هل تتفضّل بكتابة اسمك الكريم؟',
     askMobile: (n: string) => `${n ? `${n}، ` : ''}ليتمكّن فريقنا من التواصل معك في أقرب وقت ممكن، هل تتفضّل بكتابة رقم جوالك (يفضّل أن يكون عليه واتساب)؟`,
@@ -134,6 +138,7 @@ const S = {
     price:
       "Thank you for your interest. I don't have pricing details, as the cost depends on the nature and scope of each project, and our team will prepare a suitable proposal once they understand your needs. ",
     privacy: "I'm sorry, I'm not able to discuss personal information or individuals. ",
+    privateData: "I'm sorry — client conversations and details are strictly confidential. I don't keep any conversation after it ends, and I neither hold nor share the information, numbers or names of anyone else. I'd be glad to help with anything about Metropolitan Digital Marketing's services and work.",
     unknown:
       "Thank you for your question. I'm afraid I don't have that information, as it isn't part of what is published on our website, and our team will be glad to get in touch with you as soon as possible. ",
     askLeadName: 'May I have your name, please?',
@@ -170,6 +175,11 @@ const IDENTITY = ['من انت', 'ما اسمك', 'شو اسمك', 'what is your
 const PRICE = ['charge', 'charges', 'charging', 'expensive', 'cheap', 'affordable', 'تتقاضون', 'رسوم', 'غالي', 'رخيص', 'اسعاركم', 'سعركم', 'تكلفتكم', 'سعر', 'اسعار', 'تكلفه', 'تكاليف', 'كم يكلف', 'كم التكلفه', 'كم السعر', 'بكم', 'ميزانيه', 'عرض سعر', 'price', 'prices', 'pricing', 'cost', 'costs', 'how much', 'quote', 'quotation', 'budget', 'rate', 'fee', 'fees', 'package', 'packages', 'باقات', 'باقه'];
 const PERSONAL = ['مؤسس', 'اسس', 'مالك', 'صاحب الشركه', 'المدير', 'مدير', 'رئيس', 'موظف', 'موظفين', 'راتب', 'عمر', 'ديانه', 'owner', 'founder', 'founded', 'who owns', 'who started', 'ceo', 'manager', 'employee', 'staff', 'salary', 'married', 'age', 'personal', 'home address', 'مين صاحب', 'من يملك'];
 const TEAM = ['talk to the team', 'speak to someone', 'speak to a human', 'human', 'agent', 'representative', 'call me', 'contact me', 'تحدث مع الفريق', 'التحدث مع الفريق', 'اتصلوا بي', 'تواصلوا معي', 'اريد التحدث', 'موظف خدمه', 'بشري', 'ممثل'];
+/** Attempts to get other visitors' conversations, numbers, names or internal data. */
+const PRIVACY_PROBE = [
+  'other customers', 'other clients', 'other visitors', 'other people', 'previous conversation', 'previous conversations', 'previous chat', 'previous chats', 'past conversations', 'past chats', 'chat history', 'conversation history', 'who contacted', 'who talked', 'who chatted', 'who messaged', 'who else', 'phone numbers of', 'numbers of clients', 'client list', 'customer list', 'list of clients', 'client data', 'customer data', 'client details', 'database', 'show me the chat', 'show me conversations', 'share the conversation', 'their phone', 'their email', 'their numbers', 'ignore your instructions', 'ignore previous instructions', 'system prompt', 'your instructions', 'admin', 'password', 'api key',
+  'عملاء اخرين', 'عملاء آخرين', 'زبائن اخرين', 'اشخاص اخرين', 'ناس اخرين', 'محادثات سابقه', 'محادثه سابقه', 'محادثات الناس', 'محادثات العملاء', 'محادثات اخرين', 'سجل المحادثات', 'ارقام العملاء', 'ارقام الزبائن', 'ارقام الناس', 'ارقام هواتف', 'اسماء الذين', 'اسماء من تواصل', 'من تواصل معكم', 'من تكلم معك', 'من حادثك', 'قائمه العملاء', 'بيانات العملاء', 'معلومات العملاء', 'ايميلات العملاء', 'ايميلات الناس', 'قاعده البيانات', 'كلمه السر', 'كلمه المرور', 'تعليماتك', 'تجاهل التعليمات',
+];
 const LIST_SERVICES = ['services', 'service', 'what do you offer', 'what do you do', 'what you do', 'offer', 'خدمات', 'خدماتكم', 'خدماتنا', 'ماذا تقدمون', 'ماذا تقدم', 'شو تقدمون', 'شو الخدمات', 'ماذا تفعلون', 'شو شغلكم', 'ما هي خدماتكم', 'ايش تقدمون'];
 const LIST_INDUSTRIES = ['industries', 'industry', 'sectors', 'sector', 'who do you work with', 'قطاعات', 'القطاعات', 'مجالات', 'من تخدمون', 'لمن تقدمون'];
 const YES = ['نعم', 'ايوه', 'ايه', 'اجل', 'تمام', 'اكيد', 'طبعا', 'بالتاكيد', 'yes', 'yeah', 'sure', 'ok', 'okay', 'please', 'yep', 'of course', 'correct', 'right', 'صحيح', 'هو'];
@@ -233,6 +243,12 @@ function extractName(raw: string, strict = false): string | null {
   if (wordCount(text) <= (strict ? 2 : 3) && /^[\p{L}\s.'-]{2,30}$/u.test(text) && !NAME_STOP.has(normalize(text))) return cleanName(text);
   return null;
 }
+
+function noteQuestion(state: ChatState, text: string) {
+  const t = text.trim().replace(/\s+/g, ' ').slice(0, 140);
+  if (t && !hasDigitsOnly(t) && !state.questions.includes(t)) state.questions = [...state.questions, t].slice(-8);
+}
+const hasDigitsOnly = (t: string) => /^[\d\s+()\-.٠-٩]+$/.test(t);
 
 const pick = <T,>(arr: readonly T[], n: number): T => arr[n % arr.length]!;
 
@@ -381,6 +397,7 @@ function leadFrom(state: ChatState): Lead {
     topic: state.lastQuestion,
     voiceUrl: state.voiceUrl,
     discovery: state.discovery,
+    questions: state.questions,
     lang: state.lang,
   };
 }
@@ -402,7 +419,7 @@ export function finalizeLead(prev: ChatState): { state: ChatState; lead: Lead | 
 export function respond(prev: ChatState, input: string): TurnResult {
   const text = input.trim();
   const script = detectScript(text);
-  const state: ChatState = { ...prev, discovery: { ...prev.discovery, details: { ...prev.discovery.details }, notes: [...prev.discovery.notes] }, asked: { ...prev.asked }, lead: { ...prev.lead }, turn: prev.turn + 1 };
+  const state: ChatState = { ...prev, discovery: { ...prev.discovery, details: { ...prev.discovery.details }, notes: [...prev.discovery.notes] }, asked: { ...prev.asked }, lead: { ...prev.lead }, questions: [...prev.questions], turn: prev.turn + 1 };
 
   if (script === 'other') {
     return { state, reply: { text: S.en.otherLang, extra: [S.ar.otherLang] } };
@@ -413,6 +430,11 @@ export function respond(prev: ChatState, input: string): TurnResult {
   const q = normalize(text);
   const entries = kb(lang).entries;
   const question = isQuestion(text);
+
+  // ── Privacy: never reveal anything about other visitors or internal data ──
+  if (has(q, PRIVACY_PROBE)) {
+    return { state, reply: { text: t.privateData } };
+  }
 
   // ── Confirming a guessed name ("Is your name Sam?") ──────────────────────
   if (state.mode === 'confirmName' && state.nameGuess) {
@@ -584,11 +606,13 @@ export function respond(prev: ChatState, input: string): TurnResult {
 
   // ── Policy: prices and personal questions ────────────────────────────────
   if (has(q, PRICE)) {
+    noteQuestion(state, text);
     state.lastQuestion = text;
     const s = steer(state, lang);
     return { state, reply: { text: t.price + s } };
   }
   if (has(q, PERSONAL)) {
+    noteQuestion(state, text);
     state.lastQuestion = text;
     const s = steer(state, lang);
     return { state, reply: { text: t.privacy + s } };
@@ -618,15 +642,18 @@ export function respond(prev: ChatState, input: string): TurnResult {
 
   // ── Knowledge answers ────────────────────────────────────────────────────
   if (top && !(wantsServices && top.id.startsWith('group'))) {
+    noteQuestion(state, text);
     state.pending = state.pending === 'name' ? 'name' : state.pending;
     const s = steer(state, lang);
     return { state, reply: { text: `${top.answer}${s ? `\n\n${s}` : `\n\n${t.anythingElse}`}`, page: top.page } };
   }
   if (wantsServices) {
+    noteQuestion(state, text);
     const s = steer(state, lang);
     return { state, reply: { text: `${t.listServices}${kb(lang).services.join('\n')}\n\n${t.askAboutService}${s ? `\n\n${s}` : ''}`, page: '/services' } };
   }
   if (wantsIndustries) {
+    noteQuestion(state, text);
     const s = steer(state, lang);
     return { state, reply: { text: `${t.listIndustries}${kb(lang).industries.join('\n')}\n\n${t.askAboutIndustry}${s ? `\n\n${s}` : ''}`, page: '/industries' } };
   }
@@ -642,6 +669,7 @@ export function respond(prev: ChatState, input: string): TurnResult {
   }
 
   // ── Unknown: say so, then take the visitor's details for the team ────────
+  noteQuestion(state, text);
   state.lastQuestion = text;
   state.asked.contact = Math.min(state.asked.contact ?? 0, 1);
   const s = state.reported || state.mode !== 'idle' ? '' : steer(state, lang, true, 'contact', true);
@@ -650,7 +678,7 @@ export function respond(prev: ChatState, input: string): TurnResult {
 
 export function onVoiceSent(prev: ChatState, url: string | null, lang: ChatLang): TurnResult {
   const t = S[lang];
-  const state: ChatState = { ...prev, lang, discovery: { ...prev.discovery }, asked: { ...prev.asked }, lead: { ...prev.lead } };
+  const state: ChatState = { ...prev, lang, discovery: { ...prev.discovery }, asked: { ...prev.asked }, lead: { ...prev.lead }, questions: [...prev.questions] };
   if (!url) return { state, reply: { text: t.voiceFail } };
   state.voiceUrl = url;
   state.lastQuestion = lang === 'ar' ? 'رسالة صوتية من الزائر' : 'Voice message from the visitor';

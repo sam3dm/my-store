@@ -8,6 +8,7 @@ import contact__formName__post from "./api/contact/[formName]/POST";
 import health__get from "./api/health/GET";
 // </api-imports>
 import { registerChatVoiceRoutes } from "./chat-voice";
+import { StatsStore, chatEventHandler, defaultStatsDir, startStatsService, visitCounter } from "./stats";
 import { seoRoutes } from "../lib/seo-routes";
 import {
 	loadAdSenseRuntimeConfig,
@@ -89,6 +90,9 @@ const app = express();
 // the sitemap origin in robots.txt.
 app.set("trust proxy", true);
 
+const stats = new StatsStore(defaultStatsDir());
+// Anonymous visitor counting (page loads only) for the nightly report.
+app.use(visitCounter(stats));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -99,6 +103,8 @@ app.get("/api/health", health__get);
 
 // Chatbot voice messages (kept outside the generated registration block above).
 registerChatVoiceRoutes(app);
+// Write-only: chatbot conversation summaries for the nightly owner report. Nothing can read them back.
+app.post("/api/chat/event", chatEventHandler(stats));
 
 // Error middleware must be registered AFTER the routes it protects; Express
 // only passes errors to middleware defined later in the stack.
@@ -343,6 +349,7 @@ if (import.meta.env.PROD) {
 
 	const shutdown = async (signal: string) => {
 		console.log(`Got ${signal}, shutting down gracefully...`);
+		stats.flush();
 		// Scope the ERR_MODULE_NOT_FOUND suppression to the import() only.
 		// A closeConnection() failure that happens to carry the same code
 		// (unlikely but possible for wrapped errors) must not be silently
@@ -392,6 +399,7 @@ if (import.meta.env.PROD) {
 	const host = process.env.HOST || "0.0.0.0";
 	const server = app.listen(port, host, () => {
 		console.log(`Server listening on http://${host}:${port}`);
+		startStatsService(stats);
 	});
 	server.on("error", (err: NodeJS.ErrnoException) => {
 		console.error("ssr.server.listen-failed", {

@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { Mic, Send, Square, Trash2, X } from 'lucide-react';
 import useLocalizedPath from '../../hooks/useLocalizedPath';
-import { finalizeLead, greetedState, greeting, onVoiceSent, respond, type ChatState, type Lead } from '../../lib/chatbot/engine';
+import { finalizeLead, greetedState, greeting, onVoiceSent, respond, serviceTitles, type ChatState, type Lead } from '../../lib/chatbot/engine';
 import { buildReport } from '../../lib/chatbot/report';
 import { detectScript, type ChatLang } from '../../lib/chatbot/text';
 import { OPEN_CHAT_EVENT } from './openChat';
@@ -108,6 +108,8 @@ export default function ChatWidget() {
   const [recording, setRecording] = useState(false);
   const [seconds, setSeconds] = useState(0);
   const idRef = useRef(1);
+  const sidRef = useRef('');
+  const countedRef = useRef(false);
   const endRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const recorderRef = useRef<MediaRecorder | null>(null);
@@ -119,14 +121,63 @@ export default function ChatWidget() {
   const stateRef = useRef(state);
   stateRef.current = state;
 
+  // Anonymous, aggregate-only snapshot for the owner's daily report (no raw transcript is sent).
+  const snapshot = useCallback(
+    (final: boolean) => {
+      const st = stateRef.current;
+      if (!sidRef.current || !messagesRef.current.some((m) => m.from === 'user')) return;
+      const body = JSON.stringify({
+        sid: sidRef.current,
+        final,
+        lang: st.lang,
+        name: st.name,
+        mobile: st.contact?.mobile ?? st.lead.mobile,
+        phone: st.contact?.phone ?? st.lead.phone,
+        field: st.discovery.field,
+        services: serviceTitles(st.discovery.services),
+        platforms: st.discovery.platforms,
+        location: st.discovery.location,
+        approach: st.discovery.approach,
+        details: st.discovery.details,
+        questions: st.questions,
+        turns: st.turn,
+        voiceUrls: st.voiceUrl ? [st.voiceUrl] : [],
+        hasLead: st.reported,
+      });
+      try {
+        if (final && navigator.sendBeacon) navigator.sendBeacon('/api/chat/event', new Blob([body], { type: 'application/json' }));
+        else void fetch('/api/chat/event', { method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json' }, body }).catch(() => undefined);
+      } catch {
+        /* analytics must never break the chat */
+      }
+    },
+    [],
+  );
+
   // Send whatever has been collected (once) when the panel is closed or the page is left.
   const flush = useCallback(() => {
     const { state: next, lead } = finalizeLead(stateRef.current);
-    if (!lead) return;
-    setState(next);
-    stateRef.current = next;
-    void sendLead(lead, messagesRef.current, siteLang, true).catch(() => undefined);
-  }, [siteLang]);
+    if (lead) {
+      setState(next);
+      stateRef.current = next;
+      void sendLead(lead, messagesRef.current, siteLang, true).catch(() => undefined);
+    }
+    snapshot(true);
+  }, [siteLang, snapshot]);
+
+  /** End the conversation: report it, then erase it completely (messages, state, audio). */
+  const endConversation = useCallback(() => {
+    flush();
+    messagesRef.current.forEach((m) => m.audioUrl && URL.revokeObjectURL(m.audioUrl));
+    messagesRef.current = [];
+    sidRef.current = '';
+    countedRef.current = false;
+    setMessages([]);
+    setState(greetedState(uiLang));
+    stateRef.current = greetedState(uiLang);
+    setInput('');
+    setOpen(false);
+  }, [flush, uiLang]);
 
   useEffect(() => {
     window.addEventListener('pagehide', flush);
@@ -135,37 +186,23 @@ export default function ChatWidget() {
 
   const t = UI[state.lang];
 
-  // Restore a previous conversation for this browser tab.
+  // Conversations are never stored: nothing is kept in the browser or on the server, so every
+  // opening starts a new one. (Clears anything an older version of the widget may have stored.)
   useEffect(() => {
     try {
-      const raw = sessionStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        const saved = JSON.parse(raw) as { messages: Msg[]; state: ChatState };
-        if (saved.messages?.length) {
-          setMessages(saved.messages.map((m) => ({ ...m, audioUrl: undefined })));
-          setState(saved.state);
-          idRef.current = Math.max(...saved.messages.map((m) => m.id)) + 1;
-        }
-      }
-    } catch {
-      /* storage unavailable */
-    }
-  }, []);
-
-  useEffect(() => {
-    if (!messages.length) return;
-    try {
-      sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ messages, state }));
+      sessionStorage.removeItem(STORAGE_KEY);
     } catch {
       /* ignore */
     }
-  }, [messages, state]);
+  }, []);
 
   const pushBot = useCallback((text: string, lang: ChatLang, page?: string) => {
     setMessages((m) => [...m, { id: idRef.current++, from: 'bot', text, lang, page }]);
   }, []);
 
   const startConversation = useCallback(() => {
+    sidRef.current = typeof crypto !== 'undefined' && 'randomUUID' in crypto ? crypto.randomUUID() : `s${Date.now()}${Math.random().toString(16).slice(2)}`;
+    countedRef.current = false;
     const g = greeting(uiLang);
     setState(greetedState(uiLang));
     setMessages([{ id: idRef.current++, from: 'bot', text: g.text, lang: uiLang }]);
@@ -190,10 +227,10 @@ export default function ChatWidget() {
   }, [messages, typing, open, recording]);
 
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && (flush(), setOpen(false));
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && endConversation();
     if (open) window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [open, flush]);
+  }, [open, endConversation]);
 
   const deliver = useCallback(
     async (userText: string) => {
@@ -203,6 +240,11 @@ export default function ChatWidget() {
       const turn = respond(stateRef.current, userText);
       await new Promise((r) => setTimeout(r, 700 + Math.min(userText.length * 8, 800)));
       setState(turn.state);
+      stateRef.current = turn.state;
+      if (!countedRef.current) {
+        countedRef.current = true;
+        setTimeout(() => snapshot(false), 50);
+      }
       const bubbles = [turn.reply.text, ...(turn.reply.extra ?? [])];
       for (let i = 0; i < bubbles.length; i++) {
         if (i > 0) {
@@ -220,7 +262,7 @@ export default function ChatWidget() {
         }
       }
     },
-    [pushBot, siteLang],
+    [pushBot, siteLang, snapshot],
   );
 
   const submit = useCallback(() => {
@@ -309,11 +351,8 @@ export default function ChatWidget() {
 
 
   const reset = () => {
-    try {
-      sessionStorage.removeItem(STORAGE_KEY);
-    } catch {
-      /* ignore */
-    }
+    flush();
+    messagesRef.current.forEach((m) => m.audioUrl && URL.revokeObjectURL(m.audioUrl));
     startConversation();
   };
 
@@ -339,7 +378,7 @@ export default function ChatWidget() {
           <button type="button" onClick={reset} title={t.clear} aria-label={t.clear} className="w-9 h-9 flex items-center justify-center opacity-70 hover:opacity-100">
             <Trash2 size={16} />
           </button>
-          <button type="button" onClick={() => { flush(); setOpen(false); }} aria-label={t.close} className="w-9 h-9 flex items-center justify-center opacity-80 hover:opacity-100">
+          <button type="button" onClick={endConversation} aria-label={t.close} className="w-9 h-9 flex items-center justify-center opacity-80 hover:opacity-100">
             <X size={20} />
           </button>
         </div>
