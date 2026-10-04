@@ -8,7 +8,7 @@
 import { getLocalizedContent } from '../i18n/content';
 import enLocale from '../../locales/en.json';
 import arLocale from '../../locales/ar.json';
-import type { ChatLang } from './text';
+import { hasPhrase, normalize, type ChatLang } from './text';
 
 export interface KbEntry {
   id: string;
@@ -23,13 +23,13 @@ export interface KbEntry {
 const SERVICE_KEYS: Record<string, string[]> = {
   'svc-01': ['social media management', 'manage social media', 'manage my accounts', 'manage pages', 'community management', 'ادارة وسائل التواصل', 'ادارة حسابات', 'ادارة صفحات', 'ادارة السوشيال', 'ادارة المنشورات', 'ادارة الصفحات'],
   'svc-02': ['content creation', 'social media content', 'reels', 'shorts', 'صناعه محتوي', 'انتاج محتوي', 'محتوي السوشيال', 'ريلز'],
-  'svc-03': ['video production', 'cinematic video', 'commercial film', 'tv commercial', 'brand film', 'corporate film', 'انتاج فيديو', 'فيديو سينمائي', 'تصوير فيديو', 'اعلان تلفزيوني', 'فيلم'],
+  'svc-03': ['video production', 'cinematic video', 'cinematic film', 'film', 'films', 'movie', 'commercial film', 'tv commercial', 'brand film', 'corporate film', 'music video', 'video clip', 'فيديو كليب', 'كليبات', 'فيلم سينمائي', 'فلم', 'انتاج فيديو', 'فيديو سينمائي', 'تصوير فيديو', 'اعلان تلفزيوني', 'فيلم'],
   'svc-04': ['3d', 'cgi', 'animation', 'architectural visualization', 'رسوم متحركه', 'ثلاثي الابعاد', 'تحريك', 'تصميم ثلاثي'],
   'svc-05': ['vfx', 'visual effects', 'post production', 'editing', 'color grading', 'motion graphics', 'مؤثرات بصريه', 'مونتاج', 'تصحيح الوان', 'ما بعد الانتاج', 'موشن جرافيك'],
   'svc-06': ['ai creative', 'ai production', 'ai content', 'ai video', 'ai image', 'ذكاء اصطناعي ابداعي', 'محتوي بالذكاء الاصطناعي', 'انتاج بالذكاء الاصطناعي'],
   'svc-07': ['medical content', 'healthcare content', 'doctor video', 'patient education', 'محتوي طبي', 'فيديو طبي', 'محتوي صحي'],
   'svc-08': ['podcast', 'بودكاست', 'بودكاست'],
-  'svc-09': ['commercial photography', 'product photography', 'photography', 'photoshoot', 'تصوير تجاري', 'تصوير منتجات', 'تصوير فوتوغرافي', 'تصوير'],
+  'svc-09': ['commercial photography', 'product photography', 'photography', 'photoshoot', 'تصوير تجاري', 'تصوير منتجات', 'تصوير فوتوغرافي', 'تصوير فوتوغرافي للمنتجات'],
   'svc-10': ['branding', 'brand identity', 'logo', 'graphic design', 'visual identity', 'هويه بصريه', 'شعار', 'تصميم جرافيك', 'تصميم شعار', 'هويه تجاريه'],
   'svc-11': ['website', 'web site', 'website design', 'web design', 'landing page', 'design my website', 'موقع', 'موقعي', 'تصميم مواقع', 'تصميم موقع', 'صفحه هبوط'],
   'svc-12': ['digital marketing', 'online marketing', 'seo', 'lead generation', 'تسويق رقمي', 'تسويق الكتروني', 'تسويق اونلاين', 'حملات تسويقيه'],
@@ -48,26 +48,39 @@ const SERVICE_KEYS: Record<string, string[]> = {
 
 const INDUSTRY_KEYS: Record<string, string[]> = {
   'ind-01': ['hospital', 'hospitals', 'healthcare', 'مستشفي', 'مستشفيات', 'رعايه صحيه'],
-  'ind-02': ['clinic', 'doctor', 'dentist', 'عياده', 'عيادات', 'طبيب', 'دكتور', 'اطباء', 'عيادات طبيه'],
+  'ind-02': ['clinic', 'doctor', 'dentist', 'عياده', 'عيادتي', 'عيادتنا', 'عيادات', 'طبيب', 'دكتور', 'اطباء', 'عيادات طبيه'],
   'ind-03': ['luxury brand', 'luxury', 'علامات فاخره', 'علامه فاخره', 'فخامه'],
   'ind-04': ['automotive', 'car', 'cars', 'vehicle', 'سيارات', 'سياره', 'معارض سيارات'],
-  'ind-05': ['real estate', 'property', 'developer', 'عقار', 'عقارات', 'تطوير عقاري'],
+  'ind-05': ['real estate', 'property', 'developer', 'عقار', 'عقارات', 'شركه عقاريه', 'مطور عقاري', 'عقاري', 'تطوير عقاري'],
   'ind-06': ['interior design', 'furniture', 'تصميم داخلي', 'اثاث', 'ديكور'],
-  'ind-07': ['hotel', 'resort', 'فندق', 'فنادق', 'منتجع', 'منتجعات'],
+  'ind-07': ['hotel', 'resort', 'فندق', 'فندقي', 'فندقنا', 'فنادق', 'منتجع', 'منتجعات'],
   'ind-08': ['tourism', 'travel', 'سياحه', 'سفر'],
   'ind-09': ['sports', 'fitness', 'gym', 'رياضه', 'لياقه', 'نادي'],
   'ind-10': ['beauty', 'cosmetics', 'makeup', 'جمال', 'تجميل', 'مكياج'],
   'ind-11': ['perfume', 'fragrance', 'عطر', 'عطور'],
   'ind-12': ['fashion', 'lifestyle', 'ازياء', 'موضه', 'ملابس'],
-  'ind-13': ['restaurant', 'dining', 'food', 'cafe', 'مطعم', 'مطاعم', 'مأكولات', 'كافيهات'],
+  'ind-13': ['restaurant', 'dining', 'food', 'cafe', 'مطعم', 'مطعمي', 'مطعمنا', 'مطاعم', 'مأكولات', 'كافيهات', 'كافيه'],
   'ind-14': ['technology', 'tech', 'startup', 'تكنولوجيا', 'تقنيه', 'ابتكار'],
   'ind-15': ['education', 'school', 'university', 'تعليم', 'مدرسه', 'جامعه'],
   'ind-16': ['corporate', 'corporation', 'enterprise', 'مؤسسات', 'قطاع الشركات'],
-  'ind-17': ['retail', 'e-commerce', 'ecommerce', 'online store', 'تجزئه', 'تجاره الكترونيه', 'متجر'],
+  'ind-17': ['retail', 'e-commerce', 'ecommerce', 'online store', 'متجري', 'محل تجاري', 'تجزئه', 'تجاره الكترونيه', 'متجر'],
   'ind-18': ['arts', 'entertainment', 'event', 'فنون', 'ترفيه', 'فعاليات'],
 };
 
 const bullets = (items: string[]) => items.map((i) => `• ${i}`).join('\n');
+
+export function matchEntries(entries: KbEntry[], q: string, minScore = 3): { entry: KbEntry; score: number }[] {
+  const out: { entry: KbEntry; score: number }[] = [];
+  for (const entry of entries) {
+    let best = 0;
+    for (const key of entry.keys) {
+      const nk = normalize(key);
+      if (nk && hasPhrase(q, key)) best = Math.max(best, nk.split(' ').length * 3 + Math.min(nk.length, 20) / 20);
+    }
+    if (best >= minScore) out.push({ entry, score: best });
+  }
+  return out.sort((a, b) => b.score - a.score);
+}
 
 export function buildKnowledge(lang: ChatLang): { entries: KbEntry[]; services: string[]; industries: string[] } {
   const services = getLocalizedContent('services', lang).services;
@@ -116,6 +129,22 @@ export function buildKnowledge(lang: ChatLang): { entries: KbEntry[]; services: 
     page: '/services',
   });
 
+  const shootIds = ['svc-03', 'svc-09'];
+  entries.push({
+    id: 'group-shooting',
+    keys: ['filming', 'shooting', 'film', 'videography', 'photography', 'photoshoot', 'video', 'videos', 'photo', 'photos', 'تصوير', 'تصوير فيديو', 'تصوير ميديا', 'فيديو', 'فيديوهات', 'صور', 'ميديا', 'انتاج مرئي'],
+    answer:
+      (ar ? 'نعم، يشمل ذلك:\n' : 'Yes, we cover that:\n') +
+      shootIds
+        .map((id) => {
+          const sv = services.find((x) => x.id === id);
+          return sv ? `• ${sv.title} — ${sv.tagline}` : '';
+        })
+        .join('\n') +
+      (ar ? '\n\nأخبرني ما نوع التصوير الذي تفكّر فيه لأوضّح لك التفاصيل.' : '\n\nTell me what kind of shoot you have in mind and I will explain the details.'),
+    page: '/services',
+  });
+
   const instagram = contact.social.instagram.href;
   const m = contact.methods;
   entries.push(
@@ -134,7 +163,7 @@ export function buildKnowledge(lang: ChatLang): { entries: KbEntry[]; services: 
     },
     {
       id: 'location',
-      keys: ['where are you', 'location', 'address', 'based', 'office', 'dubai', 'uae', 'emirates', 'country', 'وين', 'اين', 'موقعكم', 'عنوان', 'مكتب', 'دبي', 'الامارات', 'مقر', 'فرع'],
+      keys: ['where are you', 'location', 'address', 'based', 'office', 'dubai', 'uae', 'emirates', 'country', 'qatar', 'saudi', 'saudi arabia', 'bahrain', 'oman', 'kuwait', 'egypt', 'abroad', 'outside', 'international', 'internationally', 'worldwide', 'abu dhabi', 'sharjah', 'وين', 'اين', 'موقعكم', 'عنوان', 'مكتب', 'دبي', 'الامارات', 'مقر', 'فرع', 'قطر', 'السعوديه', 'سعودي', 'البحرين', 'عمان', 'الكويت', 'مصر', 'خارج', 'ابوظبي', 'ابو ظبي', 'الشارقه'],
       answer: ar
         ? `مقرّنا في ${contact.location.city}، ${contact.location.country}. ${contact.location.detail}.`
         : `We are based in ${contact.location.city}, ${contact.location.country}. ${contact.location.detail}.`,
@@ -171,12 +200,23 @@ export function buildKnowledge(lang: ChatLang): { entries: KbEntry[]; services: 
       page: '/about',
     },
     {
+      id: 'clients',
+      keys: ['client name', 'client names', 'your clients', 'who are your clients', 'customers', 'past clients', 'اسماء العملاء', 'اسماء عملائكم', 'عملاءكم', 'عملائكم', 'من هم عملاؤكم', 'زبائنكم'],
+      answer: ar
+        ? 'نعتز بثقة عملائنا، وأعمالهم الخاصة سرّية. يمكن الاطلاع على أعمال العملاء عند الطلب وبموجب اتفاقية عدم إفصاح (NDA)، وسيسعد فريقنا بترتيب ذلك لك.'
+        : 'We value the trust of our clients, and their work is confidential. Client work can be viewed on request under a non-disclosure agreement (NDA), and our team would be glad to arrange that for you.',
+      page: '/portfolio',
+    },
+    {
       id: 'portfolio',
-      keys: ['portfolio', 'previous work', 'your work', 'projects', 'examples', 'samples', 'showcase', 'اعمالكم', 'اعمال سابقه', 'مشاريعكم', 'نماذج', 'امثله', 'معرض اعمال'],
-      answer:
-        (ar ? 'نعرض في صفحة الأعمال نماذج في المجالات التالية:\n' : 'Our portfolio page shows work in these areas:\n') +
-        bullets(portfolio.categories.filter((c) => c.id !== 'all').map((c) => c.label)) +
-        `\n\n${locale.ui.portfolioNote}`,
+      keys: ['portfolio', 'previous work', 'your work', 'our work', 'projects', 'examples', 'samples', 'showcase', 'what have you done', 'اعمالكم', 'اعمالنا', 'اعمال سابقه', 'مشاريعكم', 'نماذج', 'امثله', 'معرض اعمال'],
+      answer: ar
+        ? 'نفّذنا مشاريع متنوعة في عدة مجالات، منها إدارة صفحات وسائل التواصل الاجتماعي، وتصوير الفيديو كليبات والإعلانات السينمائية والحديثة، وإنتاج البودكاست، والرسوم ثلاثية الأبعاد والمؤثرات البصرية، والمحتوى المصنوع بالذكاء الاصطناعي. وتضم صفحة الأعمال نماذج في: ' +
+          portfolio.categories.filter((c) => c.id !== 'all').map((c) => c.label).join('، ') +
+          '. يمكن الاطلاع على أعمال العملاء عند الطلب بموجب اتفاقية عدم إفصاح (NDA).'
+        : 'We have delivered a wide range of projects, including social media page management, music videos, cinematic and modern advertising, podcast production, 3D animation and VFX, and AI-generated content. Our portfolio page shows work in: ' +
+          portfolio.categories.filter((c) => c.id !== 'all').map((c) => c.label).join(', ') +
+          '. Client work can be viewed on request under a non-disclosure agreement (NDA).',
       page: '/portfolio',
     },
     {

@@ -3,8 +3,9 @@ import { Link } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { Mic, Send, Square, Trash2, X } from 'lucide-react';
 import useLocalizedPath from '../../hooks/useLocalizedPath';
-import { chipToQuestion, greeting, initialState, onVoiceSent, respond, type ChatState, type Lead } from '../../lib/chatbot/engine';
-import { detectLang, type ChatLang } from '../../lib/chatbot/text';
+import { finalizeLead, greetedState, greeting, onVoiceSent, respond, type ChatState, type Lead } from '../../lib/chatbot/engine';
+import { buildReport } from '../../lib/chatbot/report';
+import { detectScript, type ChatLang } from '../../lib/chatbot/text';
 import { OPEN_CHAT_EVENT } from './openChat';
 
 interface Msg {
@@ -69,44 +70,22 @@ function pickMime(): string | undefined {
   return ['audio/webm;codecs=opus', 'audio/webm', 'audio/mp4', 'audio/ogg;codecs=opus'].find((t) => MediaRecorder.isTypeSupported(t));
 }
 
-async function sendLead(lead: Lead, conversation: Msg[], siteLang: string) {
-  const transcript = conversation
-    .slice(-14)
-    .map((m) => `${m.from === 'user' ? 'Visitor' : 'Bot'}: ${m.audioUrl || m.voiceSeconds ? '[voice message]' : m.text.replace(/\s+/g, ' ').slice(0, 300)}`)
-    .join('\n');
+async function sendLead(lead: Lead, conversation: Msg[], siteLang: string, keepalive = false) {
   const origin = typeof window !== 'undefined' ? window.location.origin : '';
-  const body = [
-    'NEW LEAD FROM METROPOLITAN CHATBOT',
-    '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
-    `Name:                    ${lead.name ?? 'Not provided'}`,
-    `Mobile:                  ${lead.mobile ?? 'Not provided'}`,
-    `Phone:                   ${lead.phone ?? 'Not provided'}`,
-    `Question / topic:        ${lead.topic ?? 'Not specified'}`,
-    lead.voiceUrl ? `Voice message:           ${origin}${lead.voiceUrl}` : '',
-    `Website language:        ${siteLang}`,
-    `Submitted:               ${new Date().toISOString()}`,
-    '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
-    'Conversation:',
-    transcript,
-  ]
-    .filter(Boolean)
-    .join('\n');
+  const report = buildReport(
+    lead,
+    conversation.map((m) => ({ from: m.from, text: m.text, voice: Boolean(m.audioUrl || m.voiceSeconds) })),
+    siteLang,
+    origin,
+  );
   const res = await fetch('/api/contact/contact-us', {
     method: 'POST',
+    keepalive,
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       conversation: {
-        messages_attributes: [{ body }],
-        data: {
-          __gd_contact_form_title: 'METROPOLITAN CHATBOT — NEW LEAD',
-          'Full Name': lead.name ?? 'Not provided',
-          'Mobile Number': lead.mobile ?? 'Not provided',
-          'Phone Number': lead.phone ?? 'Not provided',
-          'Question / Topic': lead.topic ?? 'Not specified',
-          ...(lead.voiceUrl ? { 'Voice Message': `${origin}${lead.voiceUrl}` } : {}),
-          'Website Language': siteLang,
-          Source: 'Chatbot',
-        },
+        messages_attributes: [{ body: report.body }],
+        data: { __gd_contact_form_title: report.title, ...report.data },
       },
       user: { name: lead.name ?? 'Chatbot visitor', mobile: lead.mobile ?? lead.phone },
     }),
@@ -123,8 +102,7 @@ export default function ChatWidget() {
 
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([]);
-  const [state, setState] = useState<ChatState>(() => initialState(uiLang));
-  const [chips, setChips] = useState<string[]>([]);
+  const [state, setState] = useState<ChatState>(() => greetedState(uiLang));
   const [input, setInput] = useState('');
   const [typing, setTyping] = useState(false);
   const [recording, setRecording] = useState(false);
@@ -141,6 +119,20 @@ export default function ChatWidget() {
   const stateRef = useRef(state);
   stateRef.current = state;
 
+  // Send whatever has been collected (once) when the panel is closed or the page is left.
+  const flush = useCallback(() => {
+    const { state: next, lead } = finalizeLead(stateRef.current);
+    if (!lead) return;
+    setState(next);
+    stateRef.current = next;
+    void sendLead(lead, messagesRef.current, siteLang, true).catch(() => undefined);
+  }, [siteLang]);
+
+  useEffect(() => {
+    window.addEventListener('pagehide', flush);
+    return () => window.removeEventListener('pagehide', flush);
+  }, [flush]);
+
   const t = UI[state.lang];
 
   // Restore a previous conversation for this browser tab.
@@ -148,11 +140,10 @@ export default function ChatWidget() {
     try {
       const raw = sessionStorage.getItem(STORAGE_KEY);
       if (raw) {
-        const saved = JSON.parse(raw) as { messages: Msg[]; state: ChatState; chips: string[] };
+        const saved = JSON.parse(raw) as { messages: Msg[]; state: ChatState };
         if (saved.messages?.length) {
           setMessages(saved.messages.map((m) => ({ ...m, audioUrl: undefined })));
           setState(saved.state);
-          setChips(saved.chips ?? []);
           idRef.current = Math.max(...saved.messages.map((m) => m.id)) + 1;
         }
       }
@@ -164,11 +155,11 @@ export default function ChatWidget() {
   useEffect(() => {
     if (!messages.length) return;
     try {
-      sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ messages, state, chips }));
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ messages, state }));
     } catch {
       /* ignore */
     }
-  }, [messages, state, chips]);
+  }, [messages, state]);
 
   const pushBot = useCallback((text: string, lang: ChatLang, page?: string) => {
     setMessages((m) => [...m, { id: idRef.current++, from: 'bot', text, lang, page }]);
@@ -176,10 +167,8 @@ export default function ChatWidget() {
 
   const startConversation = useCallback(() => {
     const g = greeting(uiLang);
-    setState(initialState(uiLang));
-    setState((s) => ({ ...s, askedName: true }));
+    setState(greetedState(uiLang));
     setMessages([{ id: idRef.current++, from: 'bot', text: g.text, lang: uiLang }]);
-    setChips(g.chips ?? []);
   }, [uiLang]);
 
   // Open on request; greet the first time.
@@ -201,23 +190,28 @@ export default function ChatWidget() {
   }, [messages, typing, open, recording]);
 
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && (flush(), setOpen(false));
     if (open) window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [open]);
+  }, [open, flush]);
 
   const deliver = useCallback(
     async (userText: string) => {
-      const lang = detectLang(userText) ?? stateRef.current.lang;
-      setMessages((m) => [...m, { id: idRef.current++, from: 'user', text: userText, lang }]);
-      setChips([]);
+      const lang = detectScript(userText);
+      setMessages((m) => [...m, { id: idRef.current++, from: 'user', text: userText, lang: lang === 'ar' ? 'ar' : 'en' }]);
       setTyping(true);
       const turn = respond(stateRef.current, userText);
-      await new Promise((r) => setTimeout(r, 650 + Math.min(userText.length * 8, 700)));
-      setTyping(false);
+      await new Promise((r) => setTimeout(r, 700 + Math.min(userText.length * 8, 800)));
       setState(turn.state);
-      pushBot(turn.reply.text, turn.state.lang, turn.reply.page);
-      setChips(turn.reply.chips ?? []);
+      const bubbles = [turn.reply.text, ...(turn.reply.extra ?? [])];
+      for (let i = 0; i < bubbles.length; i++) {
+        if (i > 0) {
+          setTyping(true);
+          await new Promise((r) => setTimeout(r, 650));
+        }
+        setTyping(false);
+        pushBot(bubbles[i]!, i === 0 && bubbles.length === 1 ? turn.state.lang : /[\u0600-\u06FF]/.test(bubbles[i]!) ? 'ar' : 'en', i === bubbles.length - 1 ? turn.reply.page : undefined);
+      }
       if (turn.reply.submit) {
         try {
           await sendLead(turn.reply.submit, messagesRef.current, siteLang);
@@ -284,7 +278,6 @@ export default function ChatWidget() {
     const secs = Math.max(1, Math.round(blob.size ? Math.min(MAX_RECORD_SECONDS, secondsRef.current) : 1));
     const localUrl = URL.createObjectURL(blob);
     setMessages((m) => [...m, { id: idRef.current++, from: 'user', text: '', lang, audioUrl: localUrl, voiceSeconds: secs }]);
-    setChips([]);
     setTyping(true);
     let url: string | null = null;
     try {
@@ -299,7 +292,6 @@ export default function ChatWidget() {
     const turn = onVoiceSent(stateRef.current, url, lang);
     setState(turn.state);
     pushBot(turn.reply.text, lang);
-    setChips(turn.reply.chips ?? []);
     if (turn.reply.submit) {
       try {
         await sendLead(turn.reply.submit, messagesRef.current, siteLang);
@@ -313,6 +305,8 @@ export default function ChatWidget() {
   secondsRef.current = seconds;
 
   useEffect(() => () => stopTimer(), []);
+
+
 
   const reset = () => {
     try {
@@ -345,7 +339,7 @@ export default function ChatWidget() {
           <button type="button" onClick={reset} title={t.clear} aria-label={t.clear} className="w-9 h-9 flex items-center justify-center opacity-70 hover:opacity-100">
             <Trash2 size={16} />
           </button>
-          <button type="button" onClick={() => setOpen(false)} aria-label={t.close} className="w-9 h-9 flex items-center justify-center opacity-80 hover:opacity-100">
+          <button type="button" onClick={() => { flush(); setOpen(false); }} aria-label={t.close} className="w-9 h-9 flex items-center justify-center opacity-80 hover:opacity-100">
             <X size={20} />
           </button>
         </div>
@@ -393,23 +387,6 @@ export default function ChatWidget() {
                 <i className="w-1.5 h-1.5 rounded-full bg-white/70 animate-bounce" style={{ animationDelay: '240ms' }} />
               </span>
             </div>
-          </div>
-        )}
-        {!typing && chips.length > 0 && (
-          <div className="flex flex-wrap gap-2 pt-1" dir={state.lang === 'ar' ? 'rtl' : 'ltr'}>
-            {chips.map((c) => (
-              <button
-                key={c}
-                type="button"
-                onClick={() => void deliver(chipToQuestion(c))}
-                className="px-3 py-1.5 text-xs transition-colors"
-                style={{ border: '1px solid rgba(255,255,255,0.35)', color: '#fff', background: 'transparent', borderRadius: 999 }}
-                onMouseEnter={(e) => ((e.currentTarget.style.background = '#fff'), (e.currentTarget.style.color = '#000'))}
-                onMouseLeave={(e) => ((e.currentTarget.style.background = 'transparent'), (e.currentTarget.style.color = '#fff'))}
-              >
-                {c}
-              </button>
-            ))}
           </div>
         )}
         <div ref={endRef} />

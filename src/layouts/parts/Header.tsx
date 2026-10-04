@@ -54,7 +54,7 @@ export default function Header() {
           backdropFilter: scrolled ? 'blur(12px)' : 'none',
         }}
       >
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex items-center justify-between h-20">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 flex items-center justify-between gap-4 h-20">
 
           {/* Logo */}
           <Link to={localizedPath('/')} className="flex items-center shrink-0 min-w-0">
@@ -67,7 +67,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav aria-label={t('ui.mainNavigation')} className="hidden lg:flex items-center gap-6 xl:gap-8">
+          <nav aria-label={t('ui.mainNavigation')} className="hidden xl:flex items-center gap-5 2xl:gap-8 whitespace-nowrap">
             {navLinks.map((link) => {
               const localHref = localizedPath(link.href);
               const isActive = pathWithoutLang === link.href || (link.href === '/' && pathWithoutLang === '');
@@ -75,7 +75,7 @@ export default function Header() {
                 <Link
                   key={link.href}
                   to={localHref}
-                  className="relative text-xs font-medium tracking-[0.15em] uppercase transition-colors duration-300 group"
+                  className="relative whitespace-nowrap text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.15em] uppercase transition-colors duration-300 group"
                   style={{
                     color: isActive
                       ? `hsl(var(--metro-white))`
@@ -100,7 +100,7 @@ export default function Header() {
             <button
               type="button"
               onClick={openChat}
-              className="relative inline-flex items-center gap-2 text-xs font-medium tracking-[0.15em] uppercase transition-colors duration-300"
+              className="relative inline-flex items-center gap-2 whitespace-nowrap text-xs font-medium tracking-[0.1em] 2xl:tracking-[0.15em] uppercase transition-colors duration-300"
               style={{ color: `hsl(var(--metro-white) / 0.55)` }}
               onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.color = `hsl(var(--metro-white))`; }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.color = `hsl(var(--metro-white) / 0.55)`; }}
@@ -116,13 +116,13 @@ export default function Header() {
           {/* CTA + Language Switcher + Hamburger */}
           <div className="flex items-center gap-3">
             {/* Language Switcher — desktop */}
-            <div className="hidden lg:block">
+            <div className="hidden xl:block">
               <LanguageSwitcher />
             </div>
 
             <Link
               to={localizedPath('/contact')}
-              className="hidden lg:inline-flex items-center px-5 py-2.5 text-xs font-semibold tracking-[0.15em] uppercase transition-all duration-300"
+              className="hidden 2xl:inline-flex items-center whitespace-nowrap px-5 py-2.5 text-xs font-semibold tracking-[0.15em] uppercase transition-all duration-300"
               style={{
                 border: `1px solid hsl(var(--metro-white))`,
                 color: `hsl(var(--metro-white))`,
@@ -140,7 +140,7 @@ export default function Header() {
             </Link>
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="lg:hidden flex items-center justify-center w-10 h-10"
+              className="xl:hidden flex items-center justify-center w-10 h-10"
               style={{ color: `hsl(var(--metro-white))` }}
               aria-label={menuOpen ? t('ui.closeMenu') : t('ui.openMenu')}
             >
@@ -152,7 +152,7 @@ export default function Header() {
 
       {/* Mobile Full-Screen Overlay Menu */}
       <div
-        className="fixed inset-0 z-40 flex flex-col lg:hidden transition-all duration-500"
+        className="fixed inset-0 z-40 flex flex-col xl:hidden transition-all duration-500"
         style={{
           background: `hsl(var(--metro-black))`,
           opacity: menuOpen ? 1 : 0,
