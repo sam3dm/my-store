@@ -1,0 +1,41 @@
+# One-click deployment blueprint for Render (https://render.com).
+# Render → New → Blueprint → pick this repository. Secret values (sync: false) are typed once in Render's dashboard;
+# they are never stored in this repository.
+services:
+  - type: web
+    name: metropolitan-digital-marketing
+    runtime: node
+    region: frankfurt
+    plan: starter
+    branch: claude/website-multi-language-translation-gxo1iz
+    autoDeploy: true
+    buildCommand: npm install --legacy-peer-deps && npm run build
+    startCommand: node dist/server.bundle.mjs
+    healthCheckPath: /api/health
+    disk:
+      name: site-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: NODE_ENV
+        value: production
+      - key: STATS_DIR
+        value: /var/data/stats
+      - key: CHAT_VOICE_DIR
+        value: /var/data/voice
+      - key: CHAT_VOICE_DAYS
+        value: "3"
+      - key: INTEGRITY_GUARD
+        value: enforce
+      - key: ALLOWED_HOSTS
+        value: metropolitan-digital-marketing.onrender.com
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: MAIL_TO
+        sync: false
