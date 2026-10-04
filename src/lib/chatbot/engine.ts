@@ -51,6 +51,9 @@ export interface ChatState {
   /** What the visitor asked about (kept only for the end-of-conversation report). */
   questions: string[];
   nameTries?: number;
+  /** A question asked before we knew the name: we ask for the name first, then answer it. */
+  deferred?: string;
+  nameDeferDone?: boolean;
   turn: number;
   lastQuestion?: string;
   voiceUrl?: string;
@@ -106,6 +109,7 @@ const S = {
       'شكراً لك على تواصلك. نحرص في متروبوليتان ديجيتال ماركتينج على حوار راقٍ ومحترم، ويسعدني خدمتك فيما يخص أعمالنا وخدماتنا.',
     lawAnswer:
       'نعم، نعمل بالكامل ضمن قوانين دولة الإمارات العربية المتحدة، ونلتزم بكل ما هو قانوني ومرخّص وأخلاقي في عملنا مع عملائنا.',
+    nameFirst: 'أهلاً وسهلاً بك، تشرّفنا بحضرتك! ممكن نتعرّف على اسمك الكريم لكي أتمكّن من الإجابة عن سؤالك على أفضل وجه؟',
     nameRetry: 'عذراً، لم أتبيّن اسمك. هل تتفضّل بكتابة اسمك الكريم فقط؟',
     noLinks: 'حرصاً على أمانك وأمان الموقع، لا أستطيع فتح الروابط أو نشرها أو إضافتها. يسعدني أن تكتب لي سؤالك مباشرة، وسأجيبك بكل سرور.',
     noCode:
@@ -160,6 +164,7 @@ const S = {
       'Thank you for getting in touch. At Metropolitan Digital Marketing we value a respectful and refined conversation, and I would be glad to help you with our work and services.',
     lawAnswer:
       'Yes — we work entirely within the laws of the United Arab Emirates, and only on what is lawful, licensed and ethical.',
+    nameFirst: "Welcome, it is a pleasure to have you with us! May I know your name first, so that I can answer your question in the best way?",
     nameRetry: "Apologies, I didn't quite catch your name. Could you please type just your name?",
     noLinks: 'For your safety and the safety of the website, I can\'t open, post or add links. Please just type your question and I will gladly answer.',
     noCode:
@@ -208,7 +213,7 @@ const PRIVACY_PROBE = [
   'previous visitors', 'previous visitor', 'previous customers', 'earlier visitors', 'other customers', 'other clients', 'other visitors', 'other people', 'previous conversation', 'previous conversations', 'previous chat', 'previous chats', 'past conversations', 'past chats', 'chat history', 'conversation history', 'who contacted', 'who talked', 'who chatted', 'who messaged', 'who else', 'phone numbers of', 'numbers of clients', 'client list', 'customer list', 'list of clients', 'client data', 'customer data', 'client details', 'database', 'show me the chat', 'show me conversations', 'share the conversation', 'their phone', 'their email', 'their numbers', 'ignore your instructions', 'ignore previous instructions', 'system prompt', 'your instructions', 'admin', 'password', 'api key',
   'عملاء اخرين', 'عملاء آخرين', 'زبائن اخرين', 'اشخاص اخرين', 'ناس اخرين', 'محادثات سابقه', 'محادثه سابقه', 'محادثات الناس', 'محادثات العملاء', 'محادثات اخرين', 'سجل المحادثات', 'ارقام العملاء', 'ارقام الزبائن', 'ارقام الناس', 'ارقام هواتف', 'اسماء الذين', 'اسماء من تواصل', 'من تواصل معكم', 'من تكلم معك', 'من حادثك', 'قائمه العملاء', 'بيانات العملاء', 'معلومات العملاء', 'ايميلات العملاء', 'ايميلات الناس', 'قاعده البيانات', 'كلمه السر', 'كلمه المرور', 'تعليماتك', 'تجاهل التعليمات',
 ];
-const LIST_SERVICES = ['services', 'service', 'what do you offer', 'what do you do', 'what you do', 'offer', 'خدمات', 'خدماتكم', 'خدماتنا', 'ماذا تقدمون', 'ماذا تقدم', 'شو تقدمون', 'شو الخدمات', 'ماذا تفعلون', 'شو شغلكم', 'ما هي خدماتكم', 'ايش تقدمون'];
+const LIST_SERVICES = ['بتقدموا', 'بتقدمو', 'تقدموا', 'شو عندكم', 'ايش عندكم', 'وش عندكم', 'وش تقدمون', 'شو بتعملوا', 'شو تعملوا', 'what do you guys do', 'what can you do', 'services', 'service', 'what do you offer', 'what do you do', 'what you do', 'offer', 'خدمات', 'خدماتكم', 'خدماتنا', 'ماذا تقدمون', 'ماذا تقدم', 'شو تقدمون', 'شو الخدمات', 'ماذا تفعلون', 'شو شغلكم', 'ما هي خدماتكم', 'ايش تقدمون'];
 const LIST_INDUSTRIES = ['industries', 'industry', 'sectors', 'sector', 'who do you work with', 'قطاعات', 'القطاعات', 'مجالات', 'من تخدمون', 'لمن تقدمون'];
 const YES = ['نعم', 'ايوه', 'ايه', 'اجل', 'تمام', 'اكيد', 'طبعا', 'بالتاكيد', 'yes', 'yeah', 'sure', 'ok', 'okay', 'please', 'yep', 'of course', 'correct', 'right', 'صحيح', 'هو'];
 const NO = ['لا', 'كلا', 'لا شكرا', 'لا اريد', 'no', 'nope', 'no thanks', 'not now', 'later', 'ليس الان', 'مو الان', 'مش الان'];
@@ -659,8 +664,21 @@ export function respond(prev: ChatState, input: string): TurnResult {
       state.name = n;
       state.lead.name = n;
       state.pending = null;
+      if (state.deferred) {
+        const d = state.deferred;
+        state.deferred = undefined;
+        const r = respond({ ...state, turn: state.turn - 1 }, d);
+        return { state: r.state, reply: { ...r.reply, text: t.niceToMeet(n) + r.reply.text } };
+      }
       return { state, reply: { text: t.niceToMeet(n) + steer(state, lang, true) } };
     }
+    // A question before the name: welcome them, ask the name first, and answer right after.
+    if ((question || hit) && !state.deferred && !state.nameDeferDone && !has(q, PRICE) && !has(q, PERSONAL)) {
+      state.deferred = text;
+      state.nameDeferDone = true;
+      return { state, reply: { text: t.nameFirst } };
+    }
+    state.deferred = undefined;
   }
 
   // ── Facts the visitor gave us (whatever the question was) ────────────────
@@ -684,7 +702,7 @@ export function respond(prev: ChatState, input: string): TurnResult {
   }
 
   // ── The visitor answered the question we asked ───────────────────────────
-  const INFO = ['law', 'clients', 'contact', 'instagram', 'location', 'about', 'mission', 'vision', 'experience', 'process', 'whyus', 'portfolio', 'languages', 'stages', 'tools'];
+  const INFO = ['law', 'clients', 'contact', 'instagram', 'location', 'about', 'mission', 'vision', 'experience', 'process', 'whyus', 'portfolio', 'languages', 'stages', 'tools', 'timeline'];
   const factAnswer = Boolean(extractFacts(q).location) && wordCount(text) <= 3 && !question;
   const asksInfo = Boolean(top && INFO.includes(top.id)) && !factAnswer;
   const answeringPending = state.pending && state.pending !== 'name' && state.pending !== 'contact' && !question && !asksInfo;

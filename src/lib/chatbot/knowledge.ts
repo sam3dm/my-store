@@ -232,7 +232,7 @@ export function buildKnowledge(lang: ChatLang): { entries: KbEntry[]; services: 
     },
     {
       id: 'about',
-      keys: ['about', 'company', 'who are you', 'tell me about', 'what is metropolitan', 'studio', 'story', 'من انتم', 'عن الشركه', 'عن متروبوليتان', 'نبذه', 'قصتكم', 'ما هي متروبوليتان', 'تعريف'],
+      keys: ['about', 'company', 'what is your company', 'your company', 'what company', 'شركتكم', 'شركتك', 'عن شركتكم', 'ما هي شركتكم', 'ماهي شركتكم', 'who are you', 'tell me about', 'what is metropolitan', 'studio', 'story', 'من انتم', 'عن الشركه', 'عن متروبوليتان', 'نبذه', 'قصتكم', 'ما هي متروبوليتان', 'تعريف'],
       answer: `${locale.home.introBody}\n\n${locale.home.introBody2}`,
       page: '/about',
     },
@@ -254,9 +254,17 @@ export function buildKnowledge(lang: ChatLang): { entries: KbEntry[]; services: 
     },
     {
       id: 'experience',
-      keys: ['experience', 'years', 'how long', 'خبره', 'سنوات', 'منذ متي'],
+      keys: ['experience', 'years', 'how long have you', 'how many years', 'خبره', 'سنوات', 'منذ متي'],
       answer: locale.home.introBody2,
       page: '/about',
+    },
+    {
+      id: 'timeline',
+      keys: ['how long does it take', 'how long will it take', 'delivery time', 'turnaround', 'timeline', 'how many days', 'how soon', 'deadline', 'deadlines', 'when will it be ready', 'كم تستغرق', 'كم يستغرق', 'كم المده', 'مده التنفيذ', 'مده التسليم', 'متي يجهز', 'متي نستلم', 'كم يوم', 'كم اسبوع', 'مواعيد التسليم'],
+      answer: ar
+        ? 'مدة التنفيذ تختلف بحسب نوع المشروع وحجمه (فيلم قصير يختلف عن إدارة صفحات لمدة شهر أو مشهد ثلاثي الأبعاد). بعد مرحلة الدراسة يحدّد لك الفريق جدولاً زمنياً واضحاً، ونلتزم بالمواعيد التزاماً دقيقاً. إن أخبرتني بنوع مشروعك أنقل ذلك للفريق ليتواصل معك بالتفاصيل.'
+        : 'The timeline depends on the type and size of the project — a short film differs from a month of page management or a 3D scene. After the study stage the team gives you a clear schedule, and we keep to deadlines very strictly. If you tell me about your project I will pass it on so the team can contact you with details.',
+      page: '/contact',
     },
     {
       id: 'process',

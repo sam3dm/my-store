@@ -82,8 +82,8 @@ export function wordCount(text: string): number {
 }
 
 const QUESTION_STARTS = [
-  'هل', 'ما', 'ماذا', 'كيف', 'كم', 'متي', 'اين', 'وين', 'لماذا', 'ليش', 'شو', 'ايش', 'مين', 'من', 'عندكم', 'لديكم', 'تقدمون', 'تعملون',
-  'do', 'does', 'can', 'could', 'what', 'how', 'when', 'where', 'why', 'who', 'which', 'is', 'are', 'will', 'would', 'tell me',
+  'هل', 'ما', 'ماهي', 'ماهو', 'ماهم', 'ماذا', 'وش', 'شنو', 'لمن', 'لماذا', 'كيف', 'كم', 'متي', 'اين', 'وين', 'لماذا', 'ليش', 'شو', 'ايش', 'مين', 'من', 'عندكم', 'لديكم', 'تقدمون', 'تعملون',
+  'whats', "what's", 'whos', 'hows', 'do', 'does', 'can', 'could', 'what', 'how', 'when', 'where', 'why', 'who', 'which', 'is', 'are', 'will', 'would', 'tell me',
 ];
 
 /** Is the visitor asking something (as opposed to answering a question)? */

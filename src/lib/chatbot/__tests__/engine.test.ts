@@ -3,8 +3,9 @@ import { finalizeLead, greetedState, initialState, onVoiceSent, respond, type Bo
 import { buildReport } from '../report';
 import { detectLang, detectScript, normalize } from '../text';
 
-function chat(lines: string[], lang: 'ar' | 'en' = 'en') {
-  let s: ChatState = greetedState(lang);
+function chat(lines: string[], lang: 'ar' | 'en' = 'en', realStart = false) {
+  // Most tests exercise answers directly, so the "name first" deferral is switched off unless realStart is set.
+  let s: ChatState = realStart ? greetedState(lang) : { ...greetedState(lang), nameDeferDone: true };
   const replies: BotReply[] = [];
   let submitted: Lead | undefined;
   for (const l of lines) {
@@ -400,5 +401,29 @@ describe('code and injection safety', () => {
     expect(chat(['Please select a service from your list']).out[0]).not.toMatch(/can't work with, run, write or explain code/);
     expect(chat(['Do you build websites?']).out[0]).not.toMatch(/can't work with, run, write or explain code/);
     expect(chat(['هل تقدمون برمجة مواقع؟'], 'ar').out[0]).not.toMatch(/الأكواد/);
+  });
+});
+
+describe('question before the name', () => {
+  it('welcomes, asks the name first, then answers the original question', () => {
+    const { out } = chat(['ماهي شركتكم', 'سامر'], 'ar', true);
+    expect(out[0]).toMatch(/أهلاً وسهلاً بك/);
+    expect(out[0]).toMatch(/اسمك/);
+    expect(out[0]).not.toMatch(/تشرّفنا بك يا ماهي/);
+    expect(out[1]).toMatch(/تشرّفنا بك يا سامر/);
+    expect(out[1].length).toBeGreaterThan(120);
+  });
+  it('does the same in English and never loops', () => {
+    const { out } = chat(['What is your company?', 'Do you do real estate?', 'Omar'], 'en', true);
+    expect(out[0]).toMatch(/your name first/);
+    expect(out[1]).not.toMatch(/your name first/);
+  });
+});
+
+describe('conversation quality', () => {
+  it('answers company, offer and timeline questions', () => {
+    expect(chat(['ماهي شركتكم'], 'ar').out[0]).toMatch(/ميتروبوليتان|متروبوليتان/);
+    expect(chat(['شو بتقدموا'], 'ar').out[0]).toMatch(/خدمات|1\./);
+    expect(chat(['how long does it take?']).out[0]).toMatch(/timeline|schedule/i);
   });
 });
