@@ -6,7 +6,8 @@
     "industries": "Industries",
     "portfolio": "Portfolio",
     "contact": "Contact Us",
-    "startProject": "Start Your Project"
+    "startProject": "Start Your Project",
+    "chat": "Live Chat"
   },
   "home": {
     "heroTagline": "Dubai — Creative Production Studio",
@@ -321,7 +322,8 @@
     "workCount_other": "{{count}} Works",
     "exploreServices": "Explore Services",
     "email": "Email",
-    "luxuryBrands": "Luxury Brands"
+    "luxuryBrands": "Luxury Brands",
+    "chatWithUs": "Chat with our assistant"
   },
   "aria": {
     "hero": "Hero",

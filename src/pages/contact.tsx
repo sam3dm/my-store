@@ -1,3 +1,4 @@
+import { openChat } from '../components/chat/openChat';
 import { useState, type FormEvent, useRef } from 'react';
 import { Link } from 'react-router';
 import { Helmet } from '@dr.pogodin/react-helmet';
@@ -489,12 +490,28 @@ export default function ContactPage() {
               {/* ── FORM COLUMN ─────────────────────────────────────────── */}
               <div>
                 <FadeIn>
+                  <div className="flex items-start justify-between gap-4 mb-4">
                   <p
-                    className="text-xs font-semibold tracking-[0.28em] uppercase mb-4"
+                    className="text-xs font-semibold tracking-[0.28em] uppercase"
                     style={{ color: 'hsl(var(--metro-white) / 0.35)', fontFamily: 'var(--font-heading)' }}
                   >
                     {contact.methods.form.eyebrow}
                   </p>
+                  <button
+                    type="button"
+                    onClick={openChat}
+                    className="shrink-0 inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold tracking-[0.12em] uppercase transition-all duration-300"
+                    style={{ border: '1px solid hsl(var(--metro-white) / 0.5)', color: 'hsl(var(--metro-white))' }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = 'hsl(var(--metro-white))'; (e.currentTarget as HTMLButtonElement).style.color = 'hsl(var(--metro-black))'; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = 'transparent'; (e.currentTarget as HTMLButtonElement).style.color = 'hsl(var(--metro-white))'; }}
+                  >
+                    <span className="relative flex h-2 w-2">
+                      <span className="absolute inline-flex h-full w-full rounded-full opacity-60 animate-ping" style={{ background: '#4ade80' }} />
+                      <span className="relative inline-flex h-2 w-2 rounded-full" style={{ background: '#4ade80' }} />
+                    </span>
+                    {t('nav.chat')}
+                  </button>
+                  </div>
                   <h2
                     className="font-black uppercase leading-tight mb-3"
                     style={{

@@ -1,0 +1,463 @@
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router';
+import { useTranslation } from 'react-i18next';
+import { Mic, Send, Square, Trash2, X } from 'lucide-react';
+import useLocalizedPath from '../../hooks/useLocalizedPath';
+import { chipToQuestion, greeting, initialState, onVoiceSent, respond, type ChatState, type Lead } from '../../lib/chatbot/engine';
+import { detectLang, type ChatLang } from '../../lib/chatbot/text';
+import { OPEN_CHAT_EVENT } from './openChat';
+
+interface Msg {
+  id: number;
+  from: 'bot' | 'user';
+  text: string;
+  lang: ChatLang;
+  audioUrl?: string;
+  voiceSeconds?: number;
+  page?: string;
+}
+
+const STORAGE_KEY = 'mdm-chat-v1';
+const MAX_RECORD_SECONDS = 120;
+
+const UI = {
+  ar: {
+    title: 'متروبوليتان تشات بوت',
+    subtitle: 'المساعد الافتراضي',
+    placeholder: 'اكتب رسالتك هنا…',
+    send: 'إرسال',
+    close: 'إغلاق المحادثة',
+    mic: 'تسجيل رسالة صوتية',
+    cancel: 'إلغاء التسجيل',
+    sendVoice: 'إرسال الرسالة الصوتية',
+    recording: 'جارٍ التسجيل…',
+    micDenied: 'لم أتمكّن من الوصول إلى الميكروفون. يرجى السماح بالوصول من إعدادات المتصفح، أو اكتب رسالتك.',
+    open: 'افتح الصفحة',
+    typing: 'يكتب…',
+    voice: 'رسالة صوتية',
+    sent: 'تم إرسال بياناتك إلى الفريق.',
+    sendFailed: 'تعذّر إرسال بياناتك الآن. يمكنك التواصل معنا مباشرة عبر واتساب: +971 50 822 1108',
+    clear: 'محادثة جديدة',
+  },
+  en: {
+    title: 'Metropolitan Chatbot',
+    subtitle: 'Virtual Assistant',
+    placeholder: 'Type your message…',
+    send: 'Send',
+    close: 'Close chat',
+    mic: 'Record a voice message',
+    cancel: 'Cancel recording',
+    sendVoice: 'Send voice message',
+    recording: 'Recording…',
+    micDenied: "I couldn't access the microphone. Please allow it in your browser settings, or type your message.",
+    open: 'Open page',
+    typing: 'Typing…',
+    voice: 'Voice message',
+    sent: 'Your details have been sent to the team.',
+    sendFailed: 'Your details could not be sent right now. You can reach us directly on WhatsApp: +971 50 822 1108',
+    clear: 'New chat',
+  },
+} as const;
+
+function fmt(sec: number) {
+  const m = Math.floor(sec / 60);
+  return `${m}:${String(Math.floor(sec % 60)).padStart(2, '0')}`;
+}
+
+function pickMime(): string | undefined {
+  if (typeof MediaRecorder === 'undefined') return undefined;
+  return ['audio/webm;codecs=opus', 'audio/webm', 'audio/mp4', 'audio/ogg;codecs=opus'].find((t) => MediaRecorder.isTypeSupported(t));
+}
+
+async function sendLead(lead: Lead, conversation: Msg[], siteLang: string) {
+  const transcript = conversation
+    .slice(-14)
+    .map((m) => `${m.from === 'user' ? 'Visitor' : 'Bot'}: ${m.audioUrl || m.voiceSeconds ? '[voice message]' : m.text.replace(/\s+/g, ' ').slice(0, 300)}`)
+    .join('\n');
+  const origin = typeof window !== 'undefined' ? window.location.origin : '';
+  const body = [
+    'NEW LEAD FROM METROPOLITAN CHATBOT',
+    '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+    `Name:                    ${lead.name ?? 'Not provided'}`,
+    `Mobile:                  ${lead.mobile ?? 'Not provided'}`,
+    `Phone:                   ${lead.phone ?? 'Not provided'}`,
+    `Question / topic:        ${lead.topic ?? 'Not specified'}`,
+    lead.voiceUrl ? `Voice message:           ${origin}${lead.voiceUrl}` : '',
+    `Website language:        ${siteLang}`,
+    `Submitted:               ${new Date().toISOString()}`,
+    '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+    'Conversation:',
+    transcript,
+  ]
+    .filter(Boolean)
+    .join('\n');
+  const res = await fetch('/api/contact/contact-us', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      conversation: {
+        messages_attributes: [{ body }],
+        data: {
+          __gd_contact_form_title: 'METROPOLITAN CHATBOT — NEW LEAD',
+          'Full Name': lead.name ?? 'Not provided',
+          'Mobile Number': lead.mobile ?? 'Not provided',
+          'Phone Number': lead.phone ?? 'Not provided',
+          'Question / Topic': lead.topic ?? 'Not specified',
+          ...(lead.voiceUrl ? { 'Voice Message': `${origin}${lead.voiceUrl}` } : {}),
+          'Website Language': siteLang,
+          Source: 'Chatbot',
+        },
+      },
+      user: { name: lead.name ?? 'Chatbot visitor', mobile: lead.mobile ?? lead.phone },
+    }),
+  });
+  const json = await res.json().catch(() => ({}));
+  if (!res.ok || !json.success) throw new Error(json.error || 'send failed');
+}
+
+export default function ChatWidget() {
+  const { i18n } = useTranslation();
+  const localizedPath = useLocalizedPath();
+  const siteLang = i18n.language;
+  const uiLang: ChatLang = siteLang === 'ar' ? 'ar' : 'en';
+
+  const [open, setOpen] = useState(false);
+  const [messages, setMessages] = useState<Msg[]>([]);
+  const [state, setState] = useState<ChatState>(() => initialState(uiLang));
+  const [chips, setChips] = useState<string[]>([]);
+  const [input, setInput] = useState('');
+  const [typing, setTyping] = useState(false);
+  const [recording, setRecording] = useState(false);
+  const [seconds, setSeconds] = useState(0);
+  const idRef = useRef(1);
+  const endRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
+  const recorderRef = useRef<MediaRecorder | null>(null);
+  const chunksRef = useRef<Blob[]>([]);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const cancelRef = useRef(false);
+  const messagesRef = useRef<Msg[]>([]);
+  messagesRef.current = messages;
+  const stateRef = useRef(state);
+  stateRef.current = state;
+
+  const t = UI[state.lang];
+
+  // Restore a previous conversation for this browser tab.
+  useEffect(() => {
+    try {
+      const raw = sessionStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        const saved = JSON.parse(raw) as { messages: Msg[]; state: ChatState; chips: string[] };
+        if (saved.messages?.length) {
+          setMessages(saved.messages.map((m) => ({ ...m, audioUrl: undefined })));
+          setState(saved.state);
+          setChips(saved.chips ?? []);
+          idRef.current = Math.max(...saved.messages.map((m) => m.id)) + 1;
+        }
+      }
+    } catch {
+      /* storage unavailable */
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!messages.length) return;
+    try {
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ messages, state, chips }));
+    } catch {
+      /* ignore */
+    }
+  }, [messages, state, chips]);
+
+  const pushBot = useCallback((text: string, lang: ChatLang, page?: string) => {
+    setMessages((m) => [...m, { id: idRef.current++, from: 'bot', text, lang, page }]);
+  }, []);
+
+  const startConversation = useCallback(() => {
+    const g = greeting(uiLang);
+    setState(initialState(uiLang));
+    setState((s) => ({ ...s, askedName: true }));
+    setMessages([{ id: idRef.current++, from: 'bot', text: g.text, lang: uiLang }]);
+    setChips(g.chips ?? []);
+  }, [uiLang]);
+
+  // Open on request; greet the first time.
+  useEffect(() => {
+    const onOpen = () => {
+      setOpen(true);
+      if (messagesRef.current.length === 0) startConversation();
+    };
+    window.addEventListener(OPEN_CHAT_EVENT, onOpen);
+    return () => window.removeEventListener(OPEN_CHAT_EVENT, onOpen);
+  }, [startConversation]);
+
+  useEffect(() => {
+    if (open) setTimeout(() => inputRef.current?.focus(), 150);
+  }, [open]);
+
+  useEffect(() => {
+    endRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  }, [messages, typing, open, recording]);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
+    if (open) window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open]);
+
+  const deliver = useCallback(
+    async (userText: string) => {
+      const lang = detectLang(userText) ?? stateRef.current.lang;
+      setMessages((m) => [...m, { id: idRef.current++, from: 'user', text: userText, lang }]);
+      setChips([]);
+      setTyping(true);
+      const turn = respond(stateRef.current, userText);
+      await new Promise((r) => setTimeout(r, 650 + Math.min(userText.length * 8, 700)));
+      setTyping(false);
+      setState(turn.state);
+      pushBot(turn.reply.text, turn.state.lang, turn.reply.page);
+      setChips(turn.reply.chips ?? []);
+      if (turn.reply.submit) {
+        try {
+          await sendLead(turn.reply.submit, messagesRef.current, siteLang);
+        } catch {
+          pushBot(UI[turn.state.lang].sendFailed, turn.state.lang);
+        }
+      }
+    },
+    [pushBot, siteLang],
+  );
+
+  const submit = useCallback(() => {
+    const text = input.trim();
+    if (!text || typing) return;
+    setInput('');
+    void deliver(text);
+  }, [input, typing, deliver]);
+
+  // ── Voice messages ───────────────────────────────────────────────────────
+  const stopTimer = () => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = null;
+  };
+
+  const startRecording = async () => {
+    if (recording || typing) return;
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const mime = pickMime();
+      const rec = new MediaRecorder(stream, mime ? { mimeType: mime } : undefined);
+      chunksRef.current = [];
+      cancelRef.current = false;
+      rec.ondataavailable = (e) => e.data.size && chunksRef.current.push(e.data);
+      rec.onstop = () => {
+        stream.getTracks().forEach((tr) => tr.stop());
+        stopTimer();
+        setRecording(false);
+        if (cancelRef.current) return;
+        const blob = new Blob(chunksRef.current, { type: rec.mimeType || mime || 'audio/webm' });
+        void sendVoice(blob);
+      };
+      recorderRef.current = rec;
+      rec.start();
+      setSeconds(0);
+      setRecording(true);
+      timerRef.current = setInterval(() => {
+        setSeconds((s) => {
+          if (s + 1 >= MAX_RECORD_SECONDS) recorderRef.current?.stop();
+          return s + 1;
+        });
+      }, 1000);
+    } catch {
+      pushBot(UI[stateRef.current.lang].micDenied, stateRef.current.lang);
+    }
+  };
+
+  const stopRecording = (cancel: boolean) => {
+    cancelRef.current = cancel;
+    if (recorderRef.current && recorderRef.current.state !== 'inactive') recorderRef.current.stop();
+  };
+
+  const sendVoice = async (blob: Blob) => {
+    const lang = stateRef.current.lang;
+    const secs = Math.max(1, Math.round(blob.size ? Math.min(MAX_RECORD_SECONDS, secondsRef.current) : 1));
+    const localUrl = URL.createObjectURL(blob);
+    setMessages((m) => [...m, { id: idRef.current++, from: 'user', text: '', lang, audioUrl: localUrl, voiceSeconds: secs }]);
+    setChips([]);
+    setTyping(true);
+    let url: string | null = null;
+    try {
+      const res = await fetch('/api/chat/voice', { method: 'POST', headers: { 'Content-Type': blob.type.split(';')[0] || 'audio/webm' }, body: blob });
+      const json = await res.json();
+      if (res.ok && json.success) url = json.url as string;
+    } catch {
+      url = null;
+    }
+    await new Promise((r) => setTimeout(r, 600));
+    setTyping(false);
+    const turn = onVoiceSent(stateRef.current, url, lang);
+    setState(turn.state);
+    pushBot(turn.reply.text, lang);
+    setChips(turn.reply.chips ?? []);
+    if (turn.reply.submit) {
+      try {
+        await sendLead(turn.reply.submit, messagesRef.current, siteLang);
+      } catch {
+        pushBot(UI[lang].sendFailed, lang);
+      }
+    }
+  };
+
+  const secondsRef = useRef(0);
+  secondsRef.current = seconds;
+
+  useEffect(() => () => stopTimer(), []);
+
+  const reset = () => {
+    try {
+      sessionStorage.removeItem(STORAGE_KEY);
+    } catch {
+      /* ignore */
+    }
+    startConversation();
+  };
+
+  if (!open) return null;
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="false"
+      aria-label={t.title}
+      className="fixed z-[70] flex flex-col overflow-hidden inset-0 sm:inset-auto sm:bottom-6 sm:right-6 sm:w-[400px] sm:h-[640px] sm:max-h-[calc(100vh-3rem)]"
+      style={{ background: '#000', border: '1px solid rgba(255,255,255,0.18)', boxShadow: '0 20px 60px rgba(0,0,0,0.65)', color: '#fff' }}
+    >
+      {/* Header with logo */}
+      <div className="flex items-center justify-between px-4 py-3 shrink-0" style={{ borderBottom: '1px solid rgba(255,255,255,0.12)' }}>
+        <div className="flex flex-col gap-1 min-w-0">
+          <img src="/airo-assets/images/logo/horizontal" alt="Metropolitan Digital Marketing" style={{ height: 34, width: 'auto', maxWidth: 200, objectFit: 'contain' }} />
+          <span className="text-[11px] tracking-[0.12em] uppercase" style={{ color: 'rgba(255,255,255,0.55)' }}>
+            {t.title} · {t.subtitle}
+          </span>
+        </div>
+        <div className="flex items-center gap-1">
+          <button type="button" onClick={reset} title={t.clear} aria-label={t.clear} className="w-9 h-9 flex items-center justify-center opacity-70 hover:opacity-100">
+            <Trash2 size={16} />
+          </button>
+          <button type="button" onClick={() => setOpen(false)} aria-label={t.close} className="w-9 h-9 flex items-center justify-center opacity-80 hover:opacity-100">
+            <X size={20} />
+          </button>
+        </div>
+      </div>
+
+      {/* Messages */}
+      <div className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-3" aria-live="polite">
+        {messages.map((m) => (
+          <div key={m.id} className={`flex ${m.from === 'user' ? 'justify-end' : 'justify-start'}`}>
+            <div
+              dir={m.lang === 'ar' ? 'rtl' : 'ltr'}
+              className="max-w-[86%] px-3.5 py-2.5 text-[14px] leading-relaxed whitespace-pre-wrap break-words"
+              style={
+                m.from === 'user'
+                  ? { background: '#fff', color: '#000', borderRadius: 14 }
+                  : { background: '#161616', color: '#f2f2f2', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 14 }
+              }
+            >
+              {m.audioUrl || m.voiceSeconds ? (
+                <div className="flex flex-col gap-1.5" dir="ltr">
+                  <span className="flex items-center gap-1.5 text-xs font-semibold">
+                    <Mic size={13} /> {UI[m.lang].voice} · {fmt(m.voiceSeconds ?? 0)}
+                  </span>
+                  {m.audioUrl && <audio controls src={m.audioUrl} style={{ height: 34, maxWidth: '100%' }} />}
+                </div>
+              ) : (
+                m.text
+              )}
+              {m.page && (
+                <div className="mt-2">
+                  <Link to={localizedPath(m.page)} onClick={() => undefined} className="text-xs underline underline-offset-2" style={{ color: '#d6d6d6' }}>
+                    {UI[m.lang].open} →
+                  </Link>
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+        {typing && (
+          <div className="flex justify-start">
+            <div className="px-3.5 py-2.5 text-sm" style={{ background: '#161616', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 14, color: 'rgba(255,255,255,0.7)' }} aria-label={t.typing}>
+              <span className="inline-flex gap-1">
+                <i className="w-1.5 h-1.5 rounded-full bg-white/70 animate-bounce" style={{ animationDelay: '0ms' }} />
+                <i className="w-1.5 h-1.5 rounded-full bg-white/70 animate-bounce" style={{ animationDelay: '120ms' }} />
+                <i className="w-1.5 h-1.5 rounded-full bg-white/70 animate-bounce" style={{ animationDelay: '240ms' }} />
+              </span>
+            </div>
+          </div>
+        )}
+        {!typing && chips.length > 0 && (
+          <div className="flex flex-wrap gap-2 pt-1" dir={state.lang === 'ar' ? 'rtl' : 'ltr'}>
+            {chips.map((c) => (
+              <button
+                key={c}
+                type="button"
+                onClick={() => void deliver(chipToQuestion(c))}
+                className="px-3 py-1.5 text-xs transition-colors"
+                style={{ border: '1px solid rgba(255,255,255,0.35)', color: '#fff', background: 'transparent', borderRadius: 999 }}
+                onMouseEnter={(e) => ((e.currentTarget.style.background = '#fff'), (e.currentTarget.style.color = '#000'))}
+                onMouseLeave={(e) => ((e.currentTarget.style.background = 'transparent'), (e.currentTarget.style.color = '#fff'))}
+              >
+                {c}
+              </button>
+            ))}
+          </div>
+        )}
+        <div ref={endRef} />
+      </div>
+
+      {/* Composer */}
+      <div className="shrink-0 p-3" style={{ borderTop: '1px solid rgba(255,255,255,0.12)' }}>
+        {recording ? (
+          <div className="flex items-center gap-3 px-2 py-2" style={{ border: '1px solid rgba(255,255,255,0.25)', borderRadius: 12 }}>
+            <span className="w-2.5 h-2.5 rounded-full animate-pulse" style={{ background: '#ff4d4d' }} />
+            <span className="text-sm flex-1">
+              {t.recording} {fmt(seconds)}
+            </span>
+            <button type="button" onClick={() => stopRecording(true)} aria-label={t.cancel} title={t.cancel} className="w-9 h-9 flex items-center justify-center opacity-80 hover:opacity-100">
+              <Trash2 size={18} />
+            </button>
+            <button type="button" onClick={() => stopRecording(false)} aria-label={t.sendVoice} title={t.sendVoice} className="w-9 h-9 flex items-center justify-center" style={{ background: '#fff', color: '#000', borderRadius: 999 }}>
+              <Square size={14} fill="#000" />
+            </button>
+          </div>
+        ) : (
+          <div className="flex items-end gap-2">
+            <textarea
+              ref={inputRef}
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && !e.shiftKey && !e.nativeEvent.isComposing) {
+                  e.preventDefault();
+                  submit();
+                }
+              }}
+              dir="auto"
+              rows={1}
+              placeholder={t.placeholder}
+              aria-label={t.placeholder}
+              className="flex-1 resize-none px-3 py-2.5 text-[14px] outline-none max-h-28"
+              style={{ background: '#111', color: '#fff', border: '1px solid rgba(255,255,255,0.22)', borderRadius: 12 }}
+            />
+            <button type="button" onClick={startRecording} aria-label={t.mic} title={t.mic} disabled={typing} className="w-10 h-10 flex items-center justify-center shrink-0" style={{ border: '1px solid rgba(255,255,255,0.3)', borderRadius: 999, opacity: typing ? 0.5 : 1 }}>
+              <Mic size={18} />
+            </button>
+            <button type="button" onClick={submit} aria-label={t.send} title={t.send} disabled={!input.trim() || typing} className="w-10 h-10 flex items-center justify-center shrink-0" style={{ background: '#fff', color: '#000', borderRadius: 999, opacity: !input.trim() || typing ? 0.45 : 1 }}>
+              <Send size={17} />
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

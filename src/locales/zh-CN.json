@@ -6,7 +6,8 @@
     "industries": "服务行业",
     "portfolio": "作品集",
     "contact": "联系我们",
-    "startProject": "开启您的项目"
+    "startProject": "开启您的项目",
+    "chat": "在线咨询"
   },
   "home": {
     "heroTagline": "迪拜 — 创意制作工作室",
@@ -113,7 +114,8 @@
     "dubai": "迪拜",
     "exploreServices": "了解服务",
     "email": "电子邮箱",
-    "luxuryBrands": "奢侈品牌"
+    "luxuryBrands": "奢侈品牌",
+    "chatWithUs": "与智能助手聊天"
   },
   "aria": {
     "hero": "首屏",

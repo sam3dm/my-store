@@ -6,7 +6,8 @@
     "industries": "القطاعات",
     "portfolio": "أعمالنا",
     "contact": "تواصل معنا",
-    "startProject": "ابدأ مشروعك"
+    "startProject": "ابدأ مشروعك",
+    "chat": "المحادثة المباشرة"
   },
   "home": {
     "heroTagline": "دبي — استوديو للإنتاج الإبداعي",
@@ -118,7 +119,8 @@
     "dubai": "دبي",
     "exploreServices": "استكشف الخدمات",
     "email": "البريد الإلكتروني",
-    "luxuryBrands": "العلامات الفاخرة"
+    "luxuryBrands": "العلامات الفاخرة",
+    "chatWithUs": "تحدّث مع المساعد الآلي"
   },
   "aria": {
     "hero": "القسم الرئيسي",

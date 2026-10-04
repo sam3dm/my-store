@@ -6,7 +6,8 @@
     "industries": "Отрасли",
     "portfolio": "Портфолио",
     "contact": "Контакты",
-    "startProject": "Начать проект"
+    "startProject": "Начать проект",
+    "chat": "Онлайн-чат"
   },
   "home": {
     "heroTagline": "Дубай — студия креативного продакшна",
@@ -116,7 +117,8 @@
     "workCount_other": "{{count}} работы",
     "exploreServices": "Смотреть услуги",
     "email": "Электронная почта",
-    "luxuryBrands": "Премиальные бренды"
+    "luxuryBrands": "Премиальные бренды",
+    "chatWithUs": "Чат с ассистентом"
   },
   "aria": {
     "hero": "Главный экран",

@@ -6,7 +6,8 @@
     "industries": "Sectores",
     "portfolio": "Portafolio",
     "contact": "Contacto",
-    "startProject": "Inicia tu proyecto"
+    "startProject": "Inicia tu proyecto",
+    "chat": "Chat en vivo"
   },
   "home": {
     "heroTagline": "Dubái — Estudio de producción creativa",
@@ -115,7 +116,8 @@
     "dubai": "Dubái",
     "exploreServices": "Explorar servicios",
     "email": "Correo electrónico",
-    "luxuryBrands": "Marcas de lujo"
+    "luxuryBrands": "Marcas de lujo",
+    "chatWithUs": "Chatea con nuestro asistente"
   },
   "aria": {
     "hero": "Sección principal",

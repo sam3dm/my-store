@@ -7,6 +7,7 @@ import { readFileSync } from "node:fs";
 import contact__formName__post from "./api/contact/[formName]/POST";
 import health__get from "./api/health/GET";
 // </api-imports>
+import { registerChatVoiceRoutes } from "./chat-voice";
 import { seoRoutes } from "../lib/seo-routes";
 import {
 	loadAdSenseRuntimeConfig,
@@ -95,6 +96,9 @@ app.use(express.urlencoded({ extended: true }));
 app.post("/api/contact/:formName", contact__formName__post);
 app.get("/api/health", health__get);
 // </api-registrations>
+
+// Chatbot voice messages (kept outside the generated registration block above).
+registerChatVoiceRoutes(app);
 
 // Error middleware must be registered AFTER the routes it protects; Express
 // only passes errors to middleware defined later in the stack.

@@ -6,7 +6,8 @@
     "industries": "Secteurs",
     "portfolio": "Réalisations",
     "contact": "Contact",
-    "startProject": "Lancez votre projet"
+    "startProject": "Lancez votre projet",
+    "chat": "Chat en direct"
   },
   "home": {
     "heroTagline": "Dubaï — Studio de production créative",
@@ -115,7 +116,8 @@
     "dubai": "Dubaï",
     "exploreServices": "Découvrir les services",
     "email": "E-mail",
-    "luxuryBrands": "Marques de luxe"
+    "luxuryBrands": "Marques de luxe",
+    "chatWithUs": "Discuter avec notre assistant"
   },
   "aria": {
     "hero": "Section principale",

@@ -6,7 +6,8 @@
     "industries": "Sektörler",
     "portfolio": "Portföy",
     "contact": "İletişim",
-    "startProject": "Projenizi Başlatın"
+    "startProject": "Projenizi Başlatın",
+    "chat": "Canlı Sohbet"
   },
   "home": {
     "heroTagline": "Dubai — Yaratıcı Prodüksiyon Stüdyosu",
@@ -114,7 +115,8 @@
     "dubai": "Dubai",
     "exploreServices": "Hizmetleri Keşfedin",
     "email": "E-posta",
-    "luxuryBrands": "Lüks Markalar"
+    "luxuryBrands": "Lüks Markalar",
+    "chatWithUs": "Asistanımızla sohbet edin"
   },
   "aria": {
     "hero": "Ana bölüm",

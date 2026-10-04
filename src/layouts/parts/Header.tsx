@@ -4,6 +4,7 @@ import { Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from '../../components/LanguageSwitcher';
 import useLocalizedPath from '../../hooks/useLocalizedPath';
+import { openChat } from '../../components/chat/openChat';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -66,7 +67,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav aria-label={t('ui.mainNavigation')} className="hidden lg:flex items-center gap-8">
+          <nav aria-label={t('ui.mainNavigation')} className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map((link) => {
               const localHref = localizedPath(link.href);
               const isActive = pathWithoutLang === link.href || (link.href === '/' && pathWithoutLang === '');
@@ -96,6 +97,20 @@ export default function Header() {
                 </Link>
               );
             })}
+            <button
+              type="button"
+              onClick={openChat}
+              className="relative inline-flex items-center gap-2 text-xs font-medium tracking-[0.15em] uppercase transition-colors duration-300"
+              style={{ color: `hsl(var(--metro-white) / 0.55)` }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.color = `hsl(var(--metro-white))`; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.color = `hsl(var(--metro-white) / 0.55)`; }}
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full rounded-full opacity-60 animate-ping" style={{ background: '#4ade80' }} />
+                <span className="relative inline-flex h-2 w-2 rounded-full" style={{ background: '#4ade80' }} />
+              </span>
+              {t('nav.chat')}
+            </button>
           </nav>
 
           {/* CTA + Language Switcher + Hamburger */}
@@ -175,6 +190,14 @@ export default function Header() {
               {t(link.labelKey)}
             </Link>
           ))}
+          <button
+            type="button"
+            onClick={() => { setMenuOpen(false); openChat(); }}
+            className="text-2xl font-bold tracking-[0.2em] uppercase transition-all duration-300"
+            style={{ color: `hsl(var(--metro-white))`, opacity: menuOpen ? 1 : 0, fontFamily: 'var(--font-heading)' }}
+          >
+            {t('nav.chat')}
+          </button>
           <Link
             to={localizedPath('/contact')}
             className="mt-4 inline-flex items-center px-8 py-3 text-sm font-semibold tracking-[0.15em] uppercase transition-all duration-300"

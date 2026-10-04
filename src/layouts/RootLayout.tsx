@@ -3,6 +3,7 @@ import { type ReactElement } from 'react';
 import { ScrollRestoration, useLocation } from 'react-router';
 
 import HomepageSameAsJsonLd from '@/components/HomepageSameAsJsonLd';
+import ChatWidget from '@/components/chat/ChatWidget';
 import Footer from '@/layouts/parts/Footer';
 import Header from '@/layouts/parts/Header';
 import Website from '@/layouts/Website';
@@ -69,6 +70,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <Header />
       {children}
       <Footer />
+      <ChatWidget />
     </Website>
   );
 }

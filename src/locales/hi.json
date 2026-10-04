@@ -6,7 +6,8 @@
     "industries": "उद्योग",
     "portfolio": "पोर्टफ़ोलियो",
     "contact": "संपर्क करें",
-    "startProject": "अपना प्रोजेक्ट शुरू करें"
+    "startProject": "अपना प्रोजेक्ट शुरू करें",
+    "chat": "लाइव चैट"
   },
   "home": {
     "heroTagline": "दुबई — क्रिएटिव प्रोडक्शन स्टूडियो",
@@ -114,7 +115,8 @@
     "dubai": "दुबई",
     "exploreServices": "सेवाएँ देखें",
     "email": "ईमेल",
-    "luxuryBrands": "लग्ज़री ब्रांड्स"
+    "luxuryBrands": "लग्ज़री ब्रांड्स",
+    "chatWithUs": "हमारे असिस्टेंट से चैट करें"
   },
   "aria": {
     "hero": "मुख्य सेक्शन",
