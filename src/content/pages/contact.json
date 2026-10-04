@@ -190,5 +190,11 @@
   },
   "footer": {
     "copyright": "© METROPOLITAN DIGITAL MARKETING. ALL RIGHTS RESERVED."
+  },
+  "hours": {
+    "label": "Working hours",
+    "days": "Monday – Friday",
+    "time": "9:00 AM – 7:00 PM (UAE time)",
+    "closed": "Saturday & Sunday: closed"
   }
 }

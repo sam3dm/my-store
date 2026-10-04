@@ -231,6 +231,14 @@ export function buildKnowledge(lang: ChatLang): { entries: KbEntry[]; services: 
       page: '/contact',
     },
     {
+      id: 'hours',
+      keys: ['working hours', 'work hours', 'opening hours', 'opening times', 'office hours', 'business hours', 'what time do you open', 'what time do you close', 'when do you open', 'when are you open', 'are you open', 'open on saturday', 'open on sunday', 'open on friday', 'on saturday', 'on sunday', 'weekend', 'weekends', 'holiday', 'days off', 'اوقات العمل', 'اوقات الدوام', 'ساعات العمل', 'ساعات الدوام', 'موعد الدوام', 'مواعيد الدوام', 'مواعيد العمل', 'الدوام', 'دوامكم', 'متي تفتحون', 'متي تغلقون', 'متي تعملون', 'وقت العمل', 'ايام العمل', 'اجازه', 'اجازتكم', 'عطله', 'عطلتكم', 'يوم السبت', 'يوم الاحد', 'يوم الجمعه', 'السبت', 'الاحد'],
+      answer: ar
+        ? `ساعات العمل لدينا: ${contact.hours.days}، ${contact.hours.time}. ${contact.hours.closed}.\nيمكنك مراسلتنا في أي وقت، وسيردّ عليك الفريق في أقرب وقت خلال أيام العمل.`
+        : `Our working hours: ${contact.hours.days}, ${contact.hours.time}. ${contact.hours.closed}.\nYou can message us at any time and the team will reply as soon as possible on working days.`,
+      page: '/contact',
+    },
+    {
       id: 'about',
       keys: ['about', 'company', 'what is your company', 'your company', 'what company', 'شركتكم', 'شركتك', 'عن شركتكم', 'ما هي شركتكم', 'ماهي شركتكم', 'who are you', 'tell me about', 'what is metropolitan', 'studio', 'story', 'من انتم', 'عن الشركه', 'عن متروبوليتان', 'نبذه', 'قصتكم', 'ما هي متروبوليتان', 'تعريف'],
       answer: `${locale.home.introBody}\n\n${locale.home.introBody2}`,

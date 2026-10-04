@@ -427,3 +427,13 @@ describe('conversation quality', () => {
     expect(chat(['how long does it take?']).out[0]).toMatch(/timeline|schedule/i);
   });
 });
+
+describe('working hours', () => {
+  it('answers in Arabic and English', () => {
+    const a = chat(['ما هي اوقات العمل'], 'ar').out[0];
+    expect(a).toMatch(/9:00/);
+    expect(a).toMatch(/السبت والأحد: إجازة/);
+    expect(chat(['Are you open on Saturday?']).out[0]).toMatch(/Saturday & Sunday: closed/);
+    expect(chat(['هل تعملون يوم الجمعة؟'], 'ar').out[0]).toMatch(/الاثنين إلى الجمعة/);
+  });
+});

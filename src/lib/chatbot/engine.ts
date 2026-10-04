@@ -704,7 +704,7 @@ export function respond(prev: ChatState, input: string): TurnResult {
   }
 
   // ── The visitor answered the question we asked ───────────────────────────
-  const INFO = ['law', 'clients', 'contact', 'instagram', 'location', 'about', 'mission', 'vision', 'experience', 'process', 'whyus', 'portfolio', 'languages', 'stages', 'tools', 'timeline'];
+  const INFO = ['law', 'clients', 'contact', 'instagram', 'location', 'about', 'mission', 'vision', 'experience', 'process', 'whyus', 'portfolio', 'languages', 'stages', 'tools', 'timeline', 'hours'];
   const factAnswer = Boolean(extractFacts(q).location) && wordCount(text) <= 3 && !question;
   const asksInfo = Boolean(top && INFO.includes(top.id)) && !factAnswer;
   const answeringPending = state.pending && state.pending !== 'name' && state.pending !== 'contact' && !question && !asksInfo;

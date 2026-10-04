@@ -1670,6 +1670,12 @@
     },
     "footer": {
       "copyright": "© METROPOLITAN DIGITAL MARKETING. TUTTI I DIRITTI RISERVATI."
+    },
+    "hours": {
+      "label": "Orari di lavoro",
+      "days": "Dal lunedì al venerdì",
+      "time": "9:00 – 19:00 (ora degli EAU)",
+      "closed": "Sabato e domenica: chiuso"
     }
   }
 }

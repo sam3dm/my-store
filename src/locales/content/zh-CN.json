@@ -1670,6 +1670,12 @@
     },
     "footer": {
       "copyright": "© METROPOLITAN DIGITAL MARKETING 版权所有。"
+    },
+    "hours": {
+      "label": "工作时间",
+      "days": "周一至周五",
+      "time": "上午 9:00 – 晚上 7:00（阿联酋时间）",
+      "closed": "周六和周日：休息"
     }
   }
 }

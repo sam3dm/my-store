@@ -1670,6 +1670,12 @@
     },
     "footer": {
       "copyright": "© METROPOLITAN DIGITAL MARKETING. TÜM HAKLARI SAKLIDIR."
+    },
+    "hours": {
+      "label": "Çalışma saatleri",
+      "days": "Pazartesi – Cuma",
+      "time": "09:00 – 19:00 (BAE saati)",
+      "closed": "Cumartesi ve Pazar: kapalı"
     }
   }
 }

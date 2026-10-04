@@ -36,7 +36,7 @@ export function buildKnowledgeText(): string {
 	const contact = getLocalizedContent("contact", "en");
 	const lines: string[] = [];
 	lines.push("COMPANY: Metropolitan Digital Marketing — a creative production and digital marketing studio based in Dubai, United Arab Emirates, working across the UAE and the Gulf. Website languages: English, Arabic, Russian, Simplified Chinese, Turkish, French, Italian, Spanish, Hindi.");
-	lines.push(`CONTACT: WhatsApp ${contact.methods.whatsapp.number}; phone ${contact.methods.phone.number}; e-mail ${contact.methods.email.address}; Instagram ${contact.social.instagram.href}. Location: ${contact.location.city}, ${contact.location.country}.`);
+	lines.push(`CONTACT: WhatsApp ${contact.methods.whatsapp.number}; phone ${contact.methods.phone.number}; e-mail ${contact.methods.email.address}; Instagram ${contact.social.instagram.href}. Location: ${contact.location.city}, ${contact.location.country}. Working hours: ${contact.hours.days}, ${contact.hours.time}; ${contact.hours.closed}.`);
 	lines.push("\nSERVICES:");
 	for (const s of services) lines.push(`- ${s.title}: ${s.tagline}. ${s.description} Deliverables: ${s.deliverables.join("; ")}.`);
 	lines.push("\nINDUSTRIES SERVED:");

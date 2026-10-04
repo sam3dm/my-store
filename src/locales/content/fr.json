@@ -1670,6 +1670,12 @@
     },
     "footer": {
       "copyright": "© METROPOLITAN DIGITAL MARKETING. TOUS DROITS RÉSERVÉS."
+    },
+    "hours": {
+      "label": "Horaires de travail",
+      "days": "Du lundi au vendredi",
+      "time": "9h00 – 19h00 (heure des EAU)",
+      "closed": "Samedi et dimanche : fermé"
     }
   }
 }

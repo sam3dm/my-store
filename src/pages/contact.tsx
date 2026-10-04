@@ -13,6 +13,7 @@ import {
   Phone,
   Mail,
   MapPin,
+  Clock,
   Instagram,
   ArrowRight,
   CheckCircle2,
@@ -474,6 +475,29 @@ export default function ContactPage() {
                 </div>
               </div>
 
+              <div className="flex items-start gap-4 mt-6">
+                <div
+                  className="shrink-0 flex items-center justify-center"
+                  style={{ width: '40px', height: '40px', border: '1px solid hsl(var(--metro-white) / 0.12)' }}
+                >
+                  <Clock size={16} style={{ color: 'hsl(var(--metro-white) / 0.7)' }} />
+                </div>
+                <div>
+                  <p
+                    className="text-xs font-semibold tracking-[0.16em] uppercase mb-1"
+                    style={{ color: 'hsl(var(--metro-white) / 0.4)', fontFamily: 'var(--font-heading)' }}
+                  >
+                    {contact.hours.label}
+                  </p>
+                  <p className="text-sm font-semibold mb-1" style={{ color: 'hsl(var(--metro-white))' }}>
+                    {contact.hours.days} · {contact.hours.time}
+                  </p>
+                  <p className="text-xs" style={{ color: 'hsl(var(--metro-white) / 0.35)' }}>
+                    {contact.hours.closed}
+                  </p>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
@@ -924,6 +948,17 @@ export default function ContactPage() {
                         </p>
                         <p className="text-xs leading-relaxed" style={{ color: 'hsl(var(--metro-white) / 0.35)' }}>
                           {contact.location.detail}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3 mt-4">
+                      <Clock size={15} style={{ color: 'hsl(var(--metro-white) / 0.5)', flexShrink: 0, marginTop: '2px' }} />
+                      <div>
+                        <p className="text-sm font-semibold mb-1" style={{ color: 'hsl(var(--metro-white))' }}>
+                          {contact.hours.days} · {contact.hours.time}
+                        </p>
+                        <p className="text-xs leading-relaxed" style={{ color: 'hsl(var(--metro-white) / 0.35)' }}>
+                          {contact.hours.closed}
                         </p>
                       </div>
                     </div>

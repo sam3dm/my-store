@@ -115,6 +115,9 @@ export default function HomePage() {
         },
         areaServed: ['AE', 'SA', 'QA', 'KW', 'BH', 'OM'],
         telephone: '+971508221108',
+        openingHoursSpecification: [
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '19:00' },
+        ],
         email: 'info@metropolitandigitalmarketing.com',
         sameAs: [
           'https://www.instagram.com/metropolitandigitalmarketing',

@@ -47,6 +47,12 @@ export const schemas = {
         "country": z.string(),
         "detail": z.string()
       }),
+      "hours": z.object({
+        "label": z.string(),
+        "days": z.string(),
+        "time": z.string(),
+        "closed": z.string()
+      }),
       "social": z.object({
         "instagram": z.object({
           "label": z.string(),
