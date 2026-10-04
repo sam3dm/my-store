@@ -405,6 +405,8 @@ function absorbAnswer(state: ChatState, raw: string, hits: ReturnType<typeof mat
   const q = normalize(raw);
   const f = extractFacts(q);
   const note = raw.trim().slice(0, 220);
+  // A bare "yes" / "no" carries no detail for the report.
+  if (has(q, YES) && wordCount(raw) <= 2) return;
   switch (p) {
     case 'field': {
       const ind = hits.find((h) => h.entry.id.startsWith('ind-'));
