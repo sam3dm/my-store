@@ -159,7 +159,13 @@ export default function HomePage() {
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
-    v.play().catch(() => {});
+    v.muted = true;
+    v.play().catch(() => {
+      // Some phones (iOS Low Power Mode, data saver) refuse autoplay: start the muted loop on the first touch or scroll instead.
+      const start = () => v.play().catch(() => {});
+      window.addEventListener('touchstart', start, { once: true, passive: true });
+      window.addEventListener('scroll', start, { once: true, passive: true });
+    });
   }, []);
 
   return (
@@ -198,6 +204,8 @@ export default function HomePage() {
             muted
             loop
             playsInline
+            preload="auto"
+            disablePictureInPicture
             onCanPlay={() => setVideoLoaded(true)}
             className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
             style={{ opacity: videoLoaded ? 1 : 0 }}

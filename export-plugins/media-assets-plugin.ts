@@ -116,10 +116,46 @@ function sendJson(res: ServerResponse, status: number, body: string): void {
   res.end(body);
 }
 
-function serveLocalFile(res: ServerResponse, filePath: string): void {
-  res.statusCode = 200;
+function serveLocalFile(res: ServerResponse, filePath: string, req?: IncomingMessage): void {
+  const size = statSync(filePath).size;
   res.setHeader('Content-Type', contentTypeFor(filePath));
   res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('Accept-Ranges', 'bytes');
+  // iPhone / iPad Safari only plays <video> when the server answers byte-range requests (206).
+  const range = req?.headers.range;
+  const m = typeof range === 'string' ? /^bytes=(\d*)-(\d*)$/.exec(range.trim()) : null;
+  if (m && size > 0) {
+    let start = m[1] ? Number(m[1]) : NaN;
+    let end = m[2] ? Number(m[2]) : NaN;
+    if (Number.isNaN(start)) {
+      // suffix range: the last N bytes
+      start = Math.max(0, size - (Number.isNaN(end) ? 0 : end));
+      end = size - 1;
+    } else if (Number.isNaN(end) || end >= size) {
+      end = size - 1;
+    }
+    if (start > end || start >= size) {
+      res.statusCode = 416;
+      res.setHeader('Content-Range', `bytes */${size}`);
+      res.end();
+      return;
+    }
+    res.statusCode = 206;
+    res.setHeader('Content-Range', `bytes ${start}-${end}/${size}`);
+    res.setHeader('Content-Length', String(end - start + 1));
+    if (req?.method === 'HEAD') {
+      res.end();
+      return;
+    }
+    createReadStream(filePath, { start, end }).pipe(res);
+    return;
+  }
+  res.statusCode = 200;
+  res.setHeader('Content-Length', String(size));
+  if (req?.method === 'HEAD') {
+    res.end();
+    return;
+  }
   createReadStream(filePath).pipe(res);
 }
 
@@ -148,6 +184,7 @@ function serveUpload(
   res: ServerResponse,
   root: string,
   uploadUrl: string,
+  req?: IncomingMessage,
 ): boolean {
   if (!uploadUrl.startsWith(UPLOAD_PREFIX)) return false;
   const filename = uploadUrl.slice(UPLOAD_PREFIX.length);
@@ -156,7 +193,7 @@ function serveUpload(
     sendJson(res, 404, JSON.stringify({ error: 'file not found' }));
     return true;
   }
-  serveLocalFile(res, filePath);
+  serveLocalFile(res, filePath, req);
   return true;
 }
 
@@ -197,7 +234,7 @@ function serveMediaSlot(
   }
 
   if (targetUrl.startsWith(UPLOAD_PREFIX)) {
-    serveUpload(res, root, targetUrl);
+    serveUpload(res, root, targetUrl, req);
     return true;
   }
 
@@ -241,13 +278,7 @@ export function createMediaAssetsMiddleware(getRoot: () => string): (
         sendJson(res, 404, JSON.stringify({ error: 'file not found' }));
         return;
       }
-      if (req.method === 'HEAD') {
-        res.statusCode = 200;
-        res.setHeader('Content-Type', contentTypeFor(filePath));
-        res.end();
-        return;
-      }
-      serveLocalFile(res, filePath);
+      serveLocalFile(res, filePath, req);
       return;
     }
 
