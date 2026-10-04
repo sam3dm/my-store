@@ -14,6 +14,7 @@ import { URL } from "node:url";
 
 import { formatOverridesPlugin } from "./export-plugins/format-overrides-plugin.ts";
 import { contentPlugin } from "./export-plugins/content-plugin/index.ts";
+import { mediaAssetsPlugin } from "./export-plugins/media-assets-plugin.ts";
 
 function extractHostname(value: string): string {
   try {
@@ -341,7 +342,7 @@ export default defineConfig(({
   isSsrBuild
 }) => ({
   envPrefix: ["VITE_", "SITE_"],
-  plugins: [react(), ssrCjsCompatPlugin(), ssrDevPlugin(), worktreePreviewPlugin(), apiDevPlugin(), formatOverridesPlugin(__dirname), contentPlugin()],
+  plugins: [react(), ssrCjsCompatPlugin(), ssrDevPlugin(), worktreePreviewPlugin(), apiDevPlugin(), formatOverridesPlugin(__dirname), mediaAssetsPlugin(), contentPlugin()],
   resolve: {
     dedupe: ["react", "react-dom", "react-router"],
     alias: {

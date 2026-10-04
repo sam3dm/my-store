@@ -16,6 +16,7 @@ import {
 import { loadIndexNowKey } from "./indexnow-key";
 import { isSystemHost } from "./seo-host";
 import { llmsTxtHandler } from "./llms-txt";
+import { createMediaAssetsMiddleware } from "../../export-plugins/media-assets-plugin";
 
 export interface SsrRenderResult {
 	html: string;
@@ -116,6 +117,10 @@ function escapeXml(s: string): string {
 		({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&apos;" })[c]!,
 	);
 }
+
+// Resolve /airo-assets/images|videos|uploads/* slots (see airo-media.json) to their media files,
+// which Airo's hosting used to do. Without this the site renders with broken images and no video.
+app.use(createMediaAssetsMiddleware(() => process.cwd()));
 
 app.get("/robots.txt", (req, res) => {
 	if (isSystemHost(req)) {
