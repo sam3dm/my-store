@@ -61,23 +61,25 @@ export function smtpSender(env: NodeJS.ProcessEnv = process.env): ReportSender |
 	};
 }
 
-/** SMTP first (when configured), then the Inbox route; fails only when every available channel failed. */
-export function combinedSender(inbox: ReportSender, smtp: ReportSender | null = smtpSender()): ReportSender {
+/**
+ * Delivery channel: with SMTP configured, every report goes straight to the owner's Gmail and nothing is sent
+ * through the GoDaddy Inbox (set MAIL_FALLBACK_INBOX=1 to allow it as a fallback). Without SMTP the Inbox route is used.
+ */
+export function combinedSender(inbox: ReportSender, smtp: ReportSender | null = smtpSender(), env: NodeJS.ProcessEnv = process.env): ReportSender {
 	return async (r) => {
-		let smtpError: unknown = null;
-		if (smtp) {
-			try {
-				await smtp(r);
-				return;
-			} catch (e) {
-				smtpError = e;
-				console.error("[mail] smtp failed:", e instanceof Error ? e.message : e);
-			}
+		if (!smtp) {
+			await inbox(r);
+			return;
 		}
 		try {
-			await inbox(r);
+			await smtp(r);
 		} catch (e) {
-			throw smtpError ?? e;
+			console.error("[mail] smtp failed:", e instanceof Error ? e.message : e);
+			if (env.MAIL_FALLBACK_INBOX === "1") {
+				await inbox(r);
+				return;
+			}
+			throw e;
 		}
 	};
 }

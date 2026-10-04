@@ -10,8 +10,9 @@ import health__get from "./api/health/GET";
 import { registerChatVoiceRoutes } from "./chat-voice";
 import { chatAiHandler } from "./chat-ai";
 import { hostGuard } from "./host-guard";
+import { contactMailHandler } from "./contact-mail";
 import { chatLeadHandler } from "./chat-lead";
-import { combinedSender, smtpConfigured } from "./mailer";
+import { combinedSender, smtpConfigured, smtpSender } from "./mailer";
 import { StatsStore, chatEventHandler, defaultStatsDir, inboxSender, startStatsService, visitCounter } from "./stats";
 import { SecurityMonitor, cspForDocument, securityHeaders, startSecurityAlerts } from "./security";
 import { sanitizeJson } from "./sanitize";
@@ -118,6 +119,10 @@ app.use("/api/contact", (req, _res, next) => {
 	if (req.body && typeof req.body === "object") req.body = sanitizeJson(req.body);
 	next();
 });
+
+// Contact form → owner's Gmail via SMTP when configured (otherwise falls through to the generated route below).
+const smtpOnly = smtpSender();
+app.post("/api/contact/:formName", contactMailHandler(() => smtpOnly));
 
 // <api-registrations>
 app.post("/api/contact/:formName", contact__formName__post);

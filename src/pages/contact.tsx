@@ -165,7 +165,6 @@ export default function ContactPage() {
       '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
       `Submission Date/Time:    ${submittedAt}`,
       `Website Language:        ${selectedLanguage}`,
-      `CC Recipient:            info@metropolitandigitalmarketing.com`,
       `Privacy Consent:         ${privacy}`,
       '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
     ].join('\n');
@@ -192,7 +191,6 @@ export default function ContactPage() {
               'Privacy Consent': privacy,
               'Submission Date/Time': submittedAt,
               'Website Language': selectedLanguage,
-              'CC Recipient': 'info@metropolitandigitalmarketing.com',
             },
           },
           user: { email, name },

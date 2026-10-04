@@ -10,19 +10,21 @@ describe("mail delivery", () => {
 		expect(smtpSender({} as any)).toBeNull();
 		expect(smtpConfigured({ SMTP_USER: "a@b.c", SMTP_PASS: "x" } as any)).toBe(true);
 	});
-	it("uses SMTP first and falls back to the inbox route", async () => {
-		const smtp = vi.fn().mockRejectedValue(new Error("smtp down"));
-		const inbox = vi.fn().mockResolvedValue(undefined);
-		await combinedSender(inbox, smtp)(r);
-		expect(smtp).toHaveBeenCalled();
-		expect(inbox).toHaveBeenCalled();
-		const smtp2 = vi.fn().mockResolvedValue(undefined);
-		const inbox2 = vi.fn();
-		await combinedSender(inbox2, smtp2)(r);
-		expect(inbox2).not.toHaveBeenCalled();
+	it("uses only SMTP when configured: no GoDaddy Inbox unless explicitly allowed", async () => {
+		const smtp = vi.fn().mockResolvedValue(undefined);
+		const inbox = vi.fn();
+		await combinedSender(inbox, smtp, {} as any)(r);
+		expect(inbox).not.toHaveBeenCalled();
+		const bad = vi.fn().mockRejectedValue(new Error("smtp down"));
+		await expect(combinedSender(inbox, bad, {} as any)(r)).rejects.toThrow("smtp down");
+		expect(inbox).not.toHaveBeenCalled();
+		await combinedSender(inbox, bad, { MAIL_FALLBACK_INBOX: "1" } as any)(r);
+		expect(inbox).toHaveBeenCalledTimes(1);
 	});
-	it("fails only when every channel failed", async () => {
-		await expect(combinedSender(vi.fn().mockRejectedValue(new Error("inbox")), vi.fn().mockRejectedValue(new Error("smtp")))(r)).rejects.toThrow("smtp");
+	it("uses the inbox route only when SMTP is not configured", async () => {
+		const inbox = vi.fn().mockResolvedValue(undefined);
+		await combinedSender(inbox, null, {} as any)(r);
+		expect(inbox).toHaveBeenCalled();
 	});
 });
 
