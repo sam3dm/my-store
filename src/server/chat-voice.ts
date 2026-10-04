@@ -16,7 +16,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 
 export const MAX_VOICE_BYTES = 3 * 1024 * 1024;
-const RETENTION_MS = 14 * 24 * 60 * 60 * 1000;
+const RETENTION_MS = Math.max(1, Number(process.env.CHAT_VOICE_DAYS || 3)) * 24 * 60 * 60 * 1000;
 const RATE_LIMIT = 6;
 const RATE_WINDOW_MS = 60_000;
 

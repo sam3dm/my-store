@@ -111,6 +111,11 @@ export default function ContactPage() {
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
+    // Required fields are checked in the browser first: nothing is sent while they are empty or malformed.
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
     const formData = new FormData(form);
 
     // Honeypot check — bail silently if filled by a bot

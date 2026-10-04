@@ -101,8 +101,20 @@ const JAILBREAK = [
   'تجاهل التعليمات', 'اهمل التعليمات', 'الغ التعليمات', 'تخطي التعليمات', 'تجاهل القواعد', 'تجاهل الاوامر', 'تجاهل ما سبق', 'تجاهل كل التعليمات', 'تجاهل التعليمات السابقه', 'انسي التعليمات', 'انسي كل ما سبق', 'تعليماتك', 'القواعد الخاصه بك', 'برومبت النظام', 'موجه النظام', 'وضع المطور', 'تجاوز القيود', 'بدون قيود', 'تصرف كأنك', 'تظاهر انك', 'تظاهر بانك', 'من الان انت',
 ];
 
+/** Instruction-override / system-prompt probes in the other site languages (the AI endpoint can receive any language). */
+const MULTILINGUAL_INJECTION: RegExp[] = [
+  /игнорир\S*\s+(все\s+|предыдущие\s+|прошлые\s+|свои\s+)?(инструкц|правил|указани)/i,
+  /(системн\S*\s+(промпт|подсказк|инструкц)|забудь\s+(все|инструкц))/i,
+  /(忽略|无视|忘记)(之前|以上|所有|你的)?(的)?(指令|指示|规则|提示)|系统提示|系统提示词/,
+  /(önceki|tüm|bütün)\s+(talimat|yönerge)\S*\s+(yoksay|unut|görmezden)|sistem\s+(istemi|komut)/i,
+  /(ignore[rz]?|oublie[rz]?)\s+(toutes?\s+)?(les\s+|vos\s+|tes\s+)?(instructions|consignes|règles)|prompt\s+syst[eè]me/i,
+  /(ignora|dimentica)\s+(tutte\s+)?(le\s+)?(istruzioni|regole)|prompt\s+di\s+sistema/i,
+  /(ignora|olvida)\s+(todas\s+)?(las\s+)?(instrucciones|reglas)|prompt\s+del\s+sistema/i,
+  /(निर्देश|नियम)\S*\s+(को\s+)?(अनदेखा|भूल)|सिस्टम\s+प्रॉम्प्ट/,
+];
+
 /** True when the message is code, a payload, a request to write/run code, or a jailbreak attempt. */
 export function isCodeOrInjection(raw: string, q: string): boolean {
-  if (CODE_SYNTAX.some((re) => re.test(raw))) return true;
+  if (CODE_SYNTAX.some((re) => re.test(raw)) || MULTILINGUAL_INJECTION.some((re) => re.test(raw))) return true;
   return hasAny(q, CODE_REQUEST) || hasAny(q, JAILBREAK);
 }

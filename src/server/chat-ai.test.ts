@@ -89,5 +89,6 @@ describe("chat AI endpoint", () => {
 		expect(p).toMatch(/NEVER: give or discuss prices/);
 		expect(p).toMatch(/Interior Design/);
 		expect(p).not.toMatch(/sk-ant/);
+		expect(p.toLowerCase()).not.toMatch(/gmail|benkhadra/);
 	});
 });

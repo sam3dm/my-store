@@ -9,6 +9,7 @@ import health__get from "./api/health/GET";
 // </api-imports>
 import { registerChatVoiceRoutes } from "./chat-voice";
 import { chatAiHandler } from "./chat-ai";
+import { hostGuard } from "./host-guard";
 import { chatLeadHandler } from "./chat-lead";
 import { combinedSender, smtpConfigured } from "./mailer";
 import { StatsStore, chatEventHandler, defaultStatsDir, inboxSender, startStatsService, visitCounter } from "./stats";
@@ -97,6 +98,8 @@ const app = express();
 app.set("trust proxy", true);
 
 app.disable("x-powered-by");
+// Forged Host headers are replaced by the real domain before any URL is generated.
+app.use(hostGuard());
 // Security: headers, request screening, rate limits and temporary bans (alerts are e-mailed to the owner).
 const securityCtx = { template: "", adsense: false };
 const security = new SecurityMonitor();

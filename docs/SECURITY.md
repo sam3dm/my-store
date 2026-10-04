@@ -29,3 +29,11 @@
 * Keep the GitHub account protected with two-factor authentication, and keep branch protection on `main`.
 * The IP shown in alerts is the one the host's proxy reports. If your host does not forward the visitor's real IP, alerts show the proxy address and automatic blocking stays inactive (by design, to avoid blocking everyone).
 * No system is "unhackable". This setup closes the common routes, detects and reports attempts, and limits damage; keep dependencies updated.
+
+## Final audit additions
+
+- Host header protection (`host-guard.ts`): a forged `Host` / `X-Forwarded-Host` is replaced by the real domain, so canonical links, robots.txt, sitemap and report origins can never point to an attacker's address. Extra legitimate hosts: `ALLOWED_HOSTS=a.com,b.com`.
+- Contact form validates required fields in the browser before anything is sent.
+- AI endpoint: instruction-override probes in all nine site languages are refused server-side as well; the model prompt contains no private addresses.
+- Mail: use a dedicated sending Gmail account (App password gives mailbox access) and forward to the owner with `MAIL_TO`.
+- Voice notes (only kept when speech-to-text produced nothing) are deleted after `CHAT_VOICE_DAYS` (default 3).
