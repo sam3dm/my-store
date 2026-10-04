@@ -208,6 +208,26 @@ export const schemas = {
         "label": z.string(),
         "type": z.string()
       })),
+      "guideUi": z.object({
+        "eyebrow": z.string(),
+        "servicesTitle": z.string(),
+        "stagesTitle": z.string(),
+        "toolsTitle": z.string(),
+        "stageNames": z.array(z.string()),
+        "ctaLabel": z.string(),
+        "selectedWork": z.string()
+      }),
+      "guides": z.array(z.object({
+        "id": z.string(),
+        "headline": z.string(),
+        "intro": z.array(z.string()),
+        "services": z.array(z.object({
+          "title": z.string(),
+          "text": z.string()
+        })),
+        "stages": z.array(z.string()),
+        "tools": z.string()
+      })),
       "cta": z.object({
         "eyebrow": z.string(),
         "headline": z.string(),

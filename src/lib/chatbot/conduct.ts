@@ -67,3 +67,42 @@ export const ACCESS_PROBE = [
   'يوزر', 'اسم المستخدم', 'اسم المستخدم والباسورد', 'باسورد', 'كلمه السر', 'كلمه المرور', 'بيانات الدخول', 'تسجيل الدخول', 'لوحه التحكم', 'لوحه الادمن', 'لوحه الادارة', 'الكود المصدري', 'سيرفر', 'استضافه الموقع', 'اعطني صلاحيه', 'صلاحيات',
   'عدل الموقع', 'عدل على الموقع', 'تعديل الموقع', 'تغيير الموقع', 'غير محتوي الموقع', 'غير المحتوي', 'عدل المحتوي', 'احذف الموقع', 'احذف الصور', 'امسح الصور', 'امسح الموقع', 'ارفع صوره', 'ارفع ملف', 'ارفع فيديو', 'رفع صوره', 'رفع ملف', 'اضف صوره', 'اضافه صوره', 'اضف رابط', 'اضافه رابط', 'انشر هذا', 'انشر الرابط', 'انشر على موقعكم', 'انشر في موقعكم', 'اكتب مقال في موقعكم', 'اختراق', 'اخترق', 'هاكر', 'ثغره', 'تجاوز الحمايه',
 ];
+
+/**
+ * Programming code, shell/SQL payloads, "write me a script" requests and prompt-injection /
+ * role-play jailbreaks. The chat only ever talks about the company's services, so none of this
+ * is answered, executed, repeated or stored.
+ */
+const CODE_SYNTAX: RegExp[] = [
+  /```/,
+  /<\s*\/?\s*(script|iframe|img|svg|html|body|style|link|meta|object|embed|form|input|a)\b[^>]*>/i,
+  /<\?(php|=)?/i,
+  /\bjavascript\s*:/i,
+  /\bon(error|load|click|mouseover)\s*=/i,
+  /\b(function\s*\w*\s*\([^)]*\)\s*\{|\([^)]*\)\s*=>|=>\s*\{)/,
+  /\b(console\.log|document\.(cookie|write|location)|window\.(location|open)|process\.env|require\s*\(|eval\s*\(|atob\s*\(|btoa\s*\(|exec\s*\(|system\s*\(|os\.system|subprocess|__import__|child_process|fetch\s*\()/i,
+  /^\s*(import\s+[\w.{}*, ]+\s+from\s+\S+|import\s+\w+\s*$|from\s+\w+\s+import\s+)/im,
+  /\b(def|class)\s+\w+\s*[:({]/,
+  /\b(select\s+\*\s+from|union\s+select|drop\s+(table|database)|insert\s+into\s+\w+|delete\s+from\s+\w+|update\s+\w+\s+set\s|select\s+[\w.,\s*]+\s+from\s+\w+\s+(where|limit|join|order|group))/i,
+  /('|")\s*(or|and)\s*('|")?\s*\d+\s*('|")?\s*=\s*('|")?\s*\d+/i,
+  /;\s*--|\/\*.*\*\//,
+  /\$\{[^}]*\}|\{\{[^}]*\}\}|%\{[^}]*\}/,
+  /\b(rm\s+-rf|chmod\s+[0-7]{3}|chown\s|curl\s+-|curl\s+http|wget\s+http|\|\s*(ba)?sh\b|nc\s+-e|powershell\b|cmd\.exe|\/etc\/(passwd|shadow)|\/bin\/(ba)?sh|\.\.\/\.\.)/i,
+  /\b[A-Za-z0-9+/]{60,}={0,2}\b/,
+];
+
+const CODE_REQUEST = [
+  'write code', 'write me code', 'write a code', 'write a script', 'write me a script', 'write a program', 'write a function', 'write me a function', 'write a bot', 'generate code', 'generate a script', 'give me code', 'give me a script', 'show me the code', 'code for me', 'script for me', 'program for me', 'run this code', 'run this script', 'run this command', 'execute this', 'execute the command', 'debug this', 'fix this code', 'translate this code', 'convert this code', 'explain this code', 'in python', 'in javascript', 'in java', 'in php', 'in sql', 'in bash', 'in html', 'in css', 'in c++', 'in c#', 'in typescript', 'python script', 'javascript function', 'bash script', 'shell script', 'sql query', 'sql script', 'html code', 'css code', 'php code', 'scrape emails', 'scrape the website', 'web scraper', 'scraper', 'crawler script', 'keylogger', 'malware', 'ransomware', 'payload', 'reverse shell', 'base64 and run', 'terminal command', 'command line', 'regex for', 'api key', 'curl command',
+  'اكتب كود', 'اكتب لي كود', 'اكتب لي سكربت', 'اكتب سكربت', 'اكتب برنامج', 'اكتب لي برنامج', 'اكتب دانه', 'اعطني كود', 'اعطيني كود', 'اعطني سكربت', 'اعطني برنامج', 'ولد كود', 'نفذ هذا الكود', 'شغل هذا الكود', 'شغل الكود', 'نفذ الامر', 'نفذ هذا الامر', 'كود بايثون', 'كود جافا', 'كود جافاسكريبت', 'كود html', 'كود php', 'كود sql', 'سكربت بايثون', 'سكربت اختراق', 'كود اختراق', 'كود خبيث', 'فيروس', 'برنامج تجسس', 'بايثون', 'جافاسكريبت', 'جافا سكريبت', 'جافا سكربت', 'اصلح الكود', 'صحح الكود', 'اشرح الكود', 'ترجم الكود',
+];
+
+const JAILBREAK = [
+  'ignore all previous', 'ignore previous instructions', 'ignore the previous', 'ignore your instructions', 'ignore your rules', 'disregard your instructions', 'disregard previous', 'forget your instructions', 'forget all previous', 'forget your rules', 'system prompt', 'your prompt', 'your instructions', 'your rules', 'reveal your prompt', 'developer mode', 'dan mode', 'do anything now', 'jailbreak', 'prompt injection', 'you are now', 'act as a developer', 'pretend you are', 'pretend to be', 'roleplay as', 'role play as', 'from now on you', 'new instructions', 'override your', 'bypass your', 'without restrictions', 'no restrictions', 'unfiltered', 'as an ai language model',
+  'تجاهل التعليمات', 'تجاهل كل التعليمات', 'تجاهل التعليمات السابقه', 'انسي التعليمات', 'انسي كل ما سبق', 'تعليماتك', 'القواعد الخاصه بك', 'برومبت النظام', 'موجه النظام', 'وضع المطور', 'تجاوز القيود', 'بدون قيود', 'تصرف كأنك', 'تظاهر انك', 'تظاهر بانك', 'من الان انت',
+];
+
+/** True when the message is code, a payload, a request to write/run code, or a jailbreak attempt. */
+export function isCodeOrInjection(raw: string, q: string): boolean {
+  if (CODE_SYNTAX.some((re) => re.test(raw))) return true;
+  return hasAny(q, CODE_REQUEST) || hasAny(q, JAILBREAK);
+}

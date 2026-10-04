@@ -260,6 +260,143 @@ function HoverCard({
   );
 }
 
+
+// ─── Category guide (intro + services + stages) ───────────────────────────────
+type Guide = {
+  id: string;
+  headline: string;
+  intro: string[];
+  services: { title: string; text: string }[];
+  stages: string[];
+  tools: string;
+};
+type GuideUi = {
+  eyebrow: string;
+  servicesTitle: string;
+  stagesTitle: string;
+  toolsTitle: string;
+  stageNames: string[];
+  ctaLabel: string;
+  selectedWork: string;
+};
+
+function CategoryGuide({ guide, ui, label }: { guide: Guide; ui: GuideUi; label: string }) {
+  const muted = `hsl(var(--metro-white) / 0.55)`;
+  const line = `1px solid hsl(var(--metro-white) / 0.1)`;
+  return (
+    <motion.div
+      key={guide.id}
+      initial={{ opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeOut' as const }}
+      className="mb-16"
+      style={{ borderBottom: line, paddingBottom: '4rem' }}
+    >
+      <p
+        className="text-xs font-semibold tracking-[0.28em] uppercase mb-4"
+        style={{ color: `hsl(var(--metro-white) / 0.4)` }}
+      >
+        {ui.eyebrow} — {label}
+      </p>
+      <h2
+        className="font-black uppercase leading-tight mb-8"
+        style={{
+          fontFamily: 'var(--font-heading)',
+          fontSize: 'clamp(1.8rem, 3.8vw, 3.4rem)',
+          color: `hsl(var(--metro-white))`,
+          letterSpacing: '-0.015em',
+          maxWidth: '960px',
+        }}
+      >
+        {guide.headline}
+      </h2>
+      <div className="space-y-5 mb-14" style={{ maxWidth: '860px' }}>
+        {guide.intro.map((para, i) => (
+          <p key={i} className="text-base leading-[1.85]" style={{ color: muted }}>
+            {para}
+          </p>
+        ))}
+      </div>
+
+      <h3
+        className="text-xs font-semibold tracking-[0.25em] uppercase mb-6"
+        style={{ color: `hsl(var(--metro-white) / 0.75)` }}
+      >
+        {ui.servicesTitle}
+      </h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-14">
+        {guide.services.map((svc, i) => (
+          <div
+            key={i}
+            className="p-6"
+            style={{ border: line, background: `hsl(var(--metro-white) / 0.025)` }}
+          >
+            <p
+              className="font-black uppercase text-sm mb-3 leading-snug"
+              style={{ fontFamily: 'var(--font-heading)', color: `hsl(var(--metro-white))` }}
+            >
+              {svc.title}
+            </p>
+            <p className="text-sm leading-relaxed" style={{ color: muted }}>
+              {svc.text}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <h3
+        className="text-xs font-semibold tracking-[0.25em] uppercase mb-6"
+        style={{ color: `hsl(var(--metro-white) / 0.75)` }}
+      >
+        {ui.stagesTitle}
+      </h3>
+      <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+        {guide.stages.map((text, i) => (
+          <li
+            key={i}
+            className="p-6 list-none"
+            style={{ borderTop: `2px solid hsl(var(--metro-white) / 0.28)`, background: `hsl(var(--metro-white) / 0.02)` }}
+          >
+            <p
+              className="text-xs font-semibold tracking-[0.2em] uppercase mb-2"
+              style={{ color: `hsl(var(--metro-white) / 0.4)` }}
+            >
+              {String(i + 1).padStart(2, '0')}
+            </p>
+            <p
+              className="font-black uppercase text-sm mb-2"
+              style={{ fontFamily: 'var(--font-heading)', color: `hsl(var(--metro-white))` }}
+            >
+              {ui.stageNames[i]}
+            </p>
+            <p className="text-sm leading-relaxed" style={{ color: muted }}>
+              {text}
+            </p>
+          </li>
+        ))}
+      </ol>
+
+      <p className="text-xs leading-relaxed mb-8" style={{ color: `hsl(var(--metro-white) / 0.4)`, maxWidth: '860px' }}>
+        <span className="font-semibold uppercase tracking-[0.15em]" style={{ color: `hsl(var(--metro-white) / 0.6)` }}>
+          {ui.toolsTitle}:
+        </span>{' '}
+        {guide.tools}
+      </p>
+
+      <a
+        href={waLink()}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-3 px-8 py-3 text-xs font-semibold tracking-[0.18em] uppercase"
+        style={{ background: `hsl(var(--metro-white))`, color: `hsl(var(--metro-black))` }}
+      >
+        {ui.ctaLabel}
+        <ArrowRight size={14} />
+      </a>
+    </motion.div>
+  );
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function PortfolioPage() {
   const portfolio = useLocalizedContent('portfolio');
@@ -475,6 +612,13 @@ export default function PortfolioPage() {
           aria-label={t('aria.portfolioGallery')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+
+            {/* Category guide — intro, detailed services and production stages */}
+            {activeCategory !== 'all' && (() => {
+              const guide = portfolio.guides.find((g) => g.id === activeCategory);
+              const label = portfolio.categories.find((c) => c.id === activeCategory)?.label ?? '';
+              return guide ? <CategoryGuide guide={guide} ui={portfolio.guideUi} label={label} /> : null;
+            })()}
 
             {/* Result count — driven by visible count */}
             <FadeIn>

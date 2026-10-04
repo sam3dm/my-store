@@ -17,6 +17,9 @@ export interface KbEntry {
   answer: string;
   /** Optional page path (without language prefix) the visitor can open for more detail. */
   page?: string;
+  /** Category entries only: the production stages / tools, served when the visitor asks for them. */
+  stagesAnswer?: string;
+  toolsAnswer?: string;
 }
 
 /** Extra search phrases per service id, on top of the service title. */
@@ -67,6 +70,20 @@ const INDUSTRY_KEYS: Record<string, string[]> = {
   'ind-18': ['arts', 'entertainment', 'event', 'فنون', 'ترفيه', 'فعاليات'],
 };
 
+/** Extra search phrases per portfolio category guide (EN + AR). */
+const CATEGORY_KEYS: Record<string, string[]> = {
+  cinematic: ['cinematic production', 'short film', 'short films', 'long film', 'feature film', 'documentary', 'documentaries', 'tv advertisement', 'tv advertisements', 'tv ad', 'tv ads', 'tv spot', 'television advert', 'commercials', 'advert', 'انتاج سينمائي', 'فيلم قصير', 'افلام قصيره', 'فيلم طويل', 'افلام طويله', 'فيلم وثائقي', 'افلام وثائقيه', 'اعلان تلفزيوني', 'اعلانات تلفزيونيه', 'اعلانات تجاريه', 'فيلم تجاري'],
+  automotive: ['automotive', 'car showroom', 'car film', 'car video', 'car videos', 'dealership', 'car dealer', 'car dealers', 'سيارات', 'افلام سيارات', 'معرض سيارات', 'وكاله سيارات', 'فيديو سيارات'],
+  medical: ['medical', 'healthcare', 'hospital', 'hospitals', 'doctor interview', 'doctor interviews', 'interviews with doctors', 'hospital director', 'department head', 'medical video', 'medical videos', 'scientific video', 'cultural video', 'مستشفي', 'مستشفيات', 'طبي', 'طبيه', 'لقاءات الاطباء', 'مقابلات مع الاطباء', 'مدير المستشفي', 'رئيس القسم', 'رؤساء الاقسام', 'فيديو علمي'],
+  cgi: ['3d animation', '3d', 'cgi', '3ds max', '3d max', '3dmax', 'blender', 'visual effects', 'ثلاثي الابعاد', 'ثري دي', 'رسوم متحركه', 'تحريك ثلاثي', 'تري دي'],
+  ai: ['ai creative', 'ai film', 'ai films', 'ai video', 'ai videos', 'ai ad', 'ai ads', 'ai image', 'ai images', 'ai advert', 'ai commercial', 'ai avatar', 'ai avatars', 'ai dubbing', 'ابداع بالذكاء الاصطناعي', 'فيلم بالذكاء الاصطناعي', 'افلام بالذكاء الاصطناعي', 'اعلان بالذكاء الاصطناعي', 'اعلانات بالذكاء الاصطناعي', 'فيديو بالذكاء الاصطناعي'],
+  realestate: ['real estate', 'realestate', 'property', 'properties', 'developer', 'developers', 'off plan', 'off-plan', 'apartment', 'apartments', 'villa', 'villas', 'broker', 'عقار', 'عقارات', 'عقاري', 'شقه', 'شقق', 'فيلا', 'مطور عقاري', 'علي الخارطه', 'وسيط عقاري'],
+  interior: ['interior design', 'interior designer', 'interior designers', 'interior', 'walkthrough', 'walk through', 'perspective', 'perspectives', '3d perspective', 'autocad', 'fit out', 'fit-out', 'construction company', 'contractor', 'تصميم داخلي', 'مصمم داخلي', 'مصممين داخلي', 'ديكور', 'ووك ثرو', 'ووك ثرو', 'برسبكتيف', 'اوتوكاد', 'تشطيب', 'تشطيبات', 'مقاولات', 'شركه مقاولات', 'شركات المقاولات'],
+  hotel: ['hotel', 'hotels', 'resort', 'resorts', 'restaurant', 'restaurants', 'hospitality', 'cafe', 'فندق', 'فنادق', 'منتجع', 'مطعم', 'مطاعم', 'ضيافه', 'كافيه'],
+  beauty: ['perfume', 'perfumes', 'beauty', 'cosmetic', 'cosmetics', 'fragrance', 'salon', 'عطر', 'عطور', 'جمال', 'تجميل', 'صالون', 'صالونات', 'مستحضرات'],
+  social: ['social media strategy', 'content calendar', 'social media campaign', 'social campaigns', 'page management', 'تقويم محتوي', 'جدول محتوي', 'استراتيجيه التواصل', 'حملات التواصل'],
+};
+
 const bullets = (items: string[]) => items.map((i) => `• ${i}`).join('\n');
 
 export function matchEntries(entries: KbEntry[], q: string, minScore = 3): { entry: KbEntry; score: number }[] {
@@ -92,6 +109,50 @@ export function buildKnowledge(lang: ChatLang): { entries: KbEntry[]; services: 
   const ar = lang === 'ar';
 
   const entries: KbEntry[] = [];
+
+
+  // Portfolio category guides (intro, services, production stages, tools). Placed first so a
+  // specific question about a specialty gets the richer guide before the generic industry text.
+  const guideEntries: KbEntry[] = [];
+  const guideUi = portfolio.guideUi;
+  for (const g of portfolio.guides) {
+    const cat = portfolio.categories.find((c) => c.id === g.id);
+    const enCat = getLocalizedContent('portfolio', 'en').categories.find((c) => c.id === g.id);
+    const label = cat?.label ?? g.id;
+    guideEntries.push({
+      id: `cat-${g.id}`,
+      keys: [label, enCat?.label ?? '', ...(CATEGORY_KEYS[g.id] ?? [])].filter(Boolean),
+      answer:
+        `${label} — ${g.headline}\n\n${g.intro.join('\n\n')}\n\n${guideUi.servicesTitle}:\n` +
+        bullets(g.services.map((x) => `${x.title}: ${x.text}`)) +
+        (ar
+          ? '\n\nيمكنني أيضاً أن أشرح لك مراحل العمل والبرامج التي نستخدمها في هذا المجال، فقط اسألني.'
+          : '\n\nI can also walk you through our production stages and the software we use for this — just ask.'),
+      stagesAnswer: `${label} — ${guideUi.stagesTitle}\n\n` + g.stages.map((t, i) => `${i + 1}. ${guideUi.stageNames[i]} — ${t}`).join('\n'),
+      toolsAnswer: `${label} — ${guideUi.toolsTitle}\n\n${g.tools}`,
+      page: '/portfolio',
+    });
+  }
+  entries.push(...guideEntries);
+
+  entries.push(
+    {
+      id: 'stages',
+      keys: ['production stages', 'work stages', 'stages of work', 'project stages', 'stages', 'مراحل الانتاج', 'مراحل العمل', 'مراحل المشروع', 'مراحل التنفيذ', 'مراحل'],
+      answer: ar
+        ? 'نعمل في كل مشروع وفق مراحل إنتاج معتمدة عالمياً: 1) الدراسة والاستكشاف، 2) الفكرة والسيناريو، 3) التحضير، 4) التنفيذ والتصوير، 5) ما بعد الإنتاج، 6) التسليم والنمو. وتختلف تفاصيل كل مرحلة بحسب التخصص (عقارات، تصميم داخلي، مستشفيات، سينما، 3D…). أخبرني أيّ تخصص يهمّك لأشرح لك مراحله.'
+        : 'Every project follows the internationally recognised production stages: 1) Study & discovery, 2) Concept & script, 3) Preparation, 4) Production, 5) Post-production, 6) Delivery & growth. The details of each stage depend on the specialty (real estate, interior design, hospitals, cinema, 3D…). Tell me which specialty interests you and I will walk you through its stages.',
+      page: '/portfolio',
+    },
+    {
+      id: 'tools',
+      keys: ['software', 'programs', 'what software', 'which software', 'what programs', 'which programs', 'what tools', 'which tools', 'premiere', 'after effects', 'davinci', 'برامج', 'برنامج', 'اي برامج', 'ما البرامج', 'ما هي البرامج', 'ادوات', 'ما الادوات'],
+      answer: ar
+        ? 'نستخدم برامج احترافية عالمية بحسب نوع العمل: AutoCAD للمخططات والرسومات الهندسية، و3ds Max وBlender للنمذجة والإضاءة والرندر ثلاثي الأبعاد، وAdobe Premiere Pro وAfter Effects وDaVinci Resolve للمونتاج والمؤثرات وتصحيح الألوان، إضافة إلى كاميرات سينمائية ودرون وجيمبال في التصوير، والبرامج الهندسية التي يستخدمها استشاريوكم. اسألني عن تخصص معيّن لأذكر لك أدواته.'
+        : 'We use professional, industry-standard tools depending on the job: AutoCAD for plans and engineering drawings, 3ds Max and Blender for 3D modelling, lighting and rendering, Adobe Premiere Pro, After Effects and DaVinci Resolve for editing, effects and colour grading, plus cinema cameras, drones and gimbals for filming — and the engineering programs your consultants already use. Ask me about a specific specialty and I will list its tools.',
+      page: '/portfolio',
+    },
+  );
 
   for (const s of services) {
     const en = getLocalizedContent('services', 'en').services.find((x) => x.id === s.id);

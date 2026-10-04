@@ -44,3 +44,8 @@ The microphone button records up to 2 minutes and uploads to `/api/chat/voice`; 
 * Synonyms for each service / industry and informational answers: `src/lib/chatbot/knowledge.ts`
 * Report layout: `src/lib/chatbot/report.ts`
 * Tests: `src/lib/chatbot/__tests__/engine.test.ts`
+
+## Category guides and code safety (latest update)
+
+- Every portfolio category (cinematic, automotive, medical, 3D/CGI, AI, real estate, interior design, hotels, perfume & beauty, social) has a guide in `src/content/pages/portfolio.json` (`guides`, `guideUi`) translated in `src/locales/content/<lang>.json`. The guide is shown on `/portfolio` when a category button is selected, and the chatbot serves it as `cat-<id>` knowledge entries (overview, then "stages" or "tools" when the visitor asks), plus the generic `stages` and `tools` entries (`knowledge.ts`).
+- Programming code, SQL/shell payloads, "write/run code" requests and prompt-injection / role-play jailbreaks are refused by `isCodeOrInjection` (`conduct.ts`) before any knowledge lookup. Nothing is echoed, stored, executed or sent to the team.

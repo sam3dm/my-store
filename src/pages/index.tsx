@@ -329,28 +329,6 @@ export default function HomePage() {
               </a>
             </motion.div>
           </div>
-
-          {/* Scroll indicator */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.4, duration: 0.8 }}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-            aria-hidden="true"
-          >
-            <span
-              className="text-xs tracking-[0.2em] uppercase"
-              style={{ color: `hsl(var(--metro-white) / 0.3)` }}
-            >
-              {t('home.heroScroll')}
-            </span>
-            <motion.div
-              animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-              className="w-px h-8"
-              style={{ background: `hsl(var(--metro-white) / 0.25)` }}
-            />
-          </motion.div>
         </section>
 
         {/* ── COMPANY INTRODUCTION ─────────────────────────────────────────── */}

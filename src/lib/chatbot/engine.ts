@@ -18,7 +18,7 @@ import {
   type Discovery,
   type QKey,
 } from './discovery';
-import { ACCESS_PROBE, checkConduct, hasLink, isNotAName } from './conduct';
+import { ACCESS_PROBE, checkConduct, hasLink, isCodeOrInjection, isNotAName } from './conduct';
 import { buildKnowledge, matchEntries, type KbEntry } from './knowledge';
 import { detectScript, hasAny, hasPhrase, isQuestion, normalize, wordCount, type ChatLang } from './text';
 
@@ -108,6 +108,8 @@ const S = {
       'نعم، نعمل بالكامل ضمن قوانين دولة الإمارات العربية المتحدة، ونلتزم بكل ما هو قانوني ومرخّص وأخلاقي في عملنا مع عملائنا.',
     nameRetry: 'عذراً، لم أتبيّن اسمك. هل تتفضّل بكتابة اسمك الكريم فقط؟',
     noLinks: 'حرصاً على أمانك وأمان الموقع، لا أستطيع فتح الروابط أو نشرها أو إضافتها. يسعدني أن تكتب لي سؤالك مباشرة، وسأجيبك بكل سرور.',
+    noCode:
+      'أعتذر، لا أستطيع التعامل مع الأكواد أو أوامر البرمجة أو تنفيذها أو شرحها، ولا أتبع أي تعليمات تغيّر طريقة عملي. أنا هنا للإجابة عن أسئلتك حول خدمات متروبوليتان ديجيتال ماركتينج وأعمالها، أو لأسجّل بياناتك ليتواصل معك فريق العمل.',
     noAccess:
       'أعتذر، لا أستطيع تنفيذ ذلك. هذه المحادثة لا تتيح تعديل الموقع أو إضافة أي محتوى أو حذفه أو نشره، ولا أملك ولا أشارك أي بيانات دخول أو معلومات تقنية. يسعدني خدمتك فيما يخص خدمات متروبوليتان ديجيتال ماركتينج وأعمالها.',
     privateData: 'أعتذر، محادثات العملاء وبياناتهم سرّية تماماً. لا أحتفظ بأي محادثة بعد انتهائها، ولا أملك ولا أشارك معلومات أو أرقام أو أسماء أي شخص آخر. يسعدني خدمتك فيما يتعلق بخدمات متروبوليتان ديجيتال ماركتينج وأعمالها.',
@@ -160,6 +162,8 @@ const S = {
       'Yes — we work entirely within the laws of the United Arab Emirates, and only on what is lawful, licensed and ethical.',
     nameRetry: "Apologies, I didn't quite catch your name. Could you please type just your name?",
     noLinks: 'For your safety and the safety of the website, I can\'t open, post or add links. Please just type your question and I will gladly answer.',
+    noCode:
+      "I'm sorry — I can't work with, run, write or explain code, commands or programming of any kind, and I don't follow instructions that change how I work. I'm here to answer your questions about Metropolitan Digital Marketing's services and work, or to take your details so that the team can contact you.",
     noAccess:
       "I'm sorry, I can't do that. This chat cannot be used to edit the website or to add, delete or publish any content, and I neither hold nor share any login details or technical information. I would be glad to help with Metropolitan Digital Marketing's services and work.",
     privateData: "I'm sorry — client conversations and details are strictly confidential. I don't keep any conversation after it ends, and I neither hold nor share the information, numbers or names of anyone else. I'd be glad to help with anything about Metropolitan Digital Marketing's services and work.",
@@ -201,7 +205,7 @@ const PERSONAL = ['مؤسس', 'اسس', 'مالك', 'صاحب الشركه', 'ا
 const TEAM = ['talk to the team', 'speak to someone', 'speak to a human', 'human', 'agent', 'representative', 'call me', 'contact me', 'تحدث مع الفريق', 'التحدث مع الفريق', 'اتصلوا بي', 'تواصلوا معي', 'اريد التحدث', 'موظف خدمه', 'بشري', 'ممثل'];
 /** Attempts to get other visitors' conversations, numbers, names or internal data. */
 const PRIVACY_PROBE = [
-  'other customers', 'other clients', 'other visitors', 'other people', 'previous conversation', 'previous conversations', 'previous chat', 'previous chats', 'past conversations', 'past chats', 'chat history', 'conversation history', 'who contacted', 'who talked', 'who chatted', 'who messaged', 'who else', 'phone numbers of', 'numbers of clients', 'client list', 'customer list', 'list of clients', 'client data', 'customer data', 'client details', 'database', 'show me the chat', 'show me conversations', 'share the conversation', 'their phone', 'their email', 'their numbers', 'ignore your instructions', 'ignore previous instructions', 'system prompt', 'your instructions', 'admin', 'password', 'api key',
+  'previous visitors', 'previous visitor', 'previous customers', 'earlier visitors', 'other customers', 'other clients', 'other visitors', 'other people', 'previous conversation', 'previous conversations', 'previous chat', 'previous chats', 'past conversations', 'past chats', 'chat history', 'conversation history', 'who contacted', 'who talked', 'who chatted', 'who messaged', 'who else', 'phone numbers of', 'numbers of clients', 'client list', 'customer list', 'list of clients', 'client data', 'customer data', 'client details', 'database', 'show me the chat', 'show me conversations', 'share the conversation', 'their phone', 'their email', 'their numbers', 'ignore your instructions', 'ignore previous instructions', 'system prompt', 'your instructions', 'admin', 'password', 'api key',
   'عملاء اخرين', 'عملاء آخرين', 'زبائن اخرين', 'اشخاص اخرين', 'ناس اخرين', 'محادثات سابقه', 'محادثه سابقه', 'محادثات الناس', 'محادثات العملاء', 'محادثات اخرين', 'سجل المحادثات', 'ارقام العملاء', 'ارقام الزبائن', 'ارقام الناس', 'ارقام هواتف', 'اسماء الذين', 'اسماء من تواصل', 'من تواصل معكم', 'من تكلم معك', 'من حادثك', 'قائمه العملاء', 'بيانات العملاء', 'معلومات العملاء', 'ايميلات العملاء', 'ايميلات الناس', 'قاعده البيانات', 'كلمه السر', 'كلمه المرور', 'تعليماتك', 'تجاهل التعليمات',
 ];
 const LIST_SERVICES = ['services', 'service', 'what do you offer', 'what do you do', 'what you do', 'offer', 'خدمات', 'خدماتكم', 'خدماتنا', 'ماذا تقدمون', 'ماذا تقدم', 'شو تقدمون', 'شو الخدمات', 'ماذا تفعلون', 'شو شغلكم', 'ما هي خدماتكم', 'ايش تقدمون'];
@@ -212,6 +216,8 @@ const DONE = ['ما احتاج', 'لا احتاج', 'مو محتاج', 'ما ا�
 const NAME_STOP = new Set(['yes', 'no', 'ok', 'okay', 'hello', 'hi', 'hey', 'thanks', 'نعم', 'لا', 'اوك', 'تمام', 'مرحبا', 'اهلا', 'شكرا', 'خدمات', 'services', 'help', 'مساعده', 'price', 'سعر']);
 
 const has = hasAny;
+const ASKS_STAGES = ['stage', 'stages', 'steps', 'process', 'workflow', 'how do you work', 'how does it work', 'مراحل', 'خطوات', 'مرحله', 'كيف تعملون', 'طريقه العمل'];
+const ASKS_TOOLS = ['software', 'programs', 'tools', 'autocad', '3ds max', '3d max', 'blender', 'premiere', 'برامج', 'برنامج', 'ادوات', 'اوتوكاد'];
 
 /* ── Knowledge ───────────────────────────────────────────────────────────── */
 
@@ -483,6 +489,11 @@ export function respond(prev: ChatState, input: string): TurnResult {
     return { state, reply: { text: t.privateData } };
   }
 
+  // ── Code, payloads and prompt-injection are never answered, run or repeated ──
+  if (isCodeOrInjection(text, q)) {
+    return { state, reply: { text: t.noCode, moderated: true } };
+  }
+
   // ── Confirming a guessed name ("Is your name Sam?") ──────────────────────
   if (state.mode === 'confirmName' && state.nameGuess) {
     if (has(q, YES) && !question) {
@@ -673,7 +684,7 @@ export function respond(prev: ChatState, input: string): TurnResult {
   }
 
   // ── The visitor answered the question we asked ───────────────────────────
-  const INFO = ['law', 'clients', 'contact', 'instagram', 'location', 'about', 'mission', 'vision', 'experience', 'process', 'whyus', 'portfolio', 'languages'];
+  const INFO = ['law', 'clients', 'contact', 'instagram', 'location', 'about', 'mission', 'vision', 'experience', 'process', 'whyus', 'portfolio', 'languages', 'stages', 'tools'];
   const factAnswer = Boolean(extractFacts(q).location) && wordCount(text) <= 3 && !question;
   const asksInfo = Boolean(top && INFO.includes(top.id)) && !factAnswer;
   const answeringPending = state.pending && state.pending !== 'name' && state.pending !== 'contact' && !question && !asksInfo;
@@ -699,7 +710,12 @@ export function respond(prev: ChatState, input: string): TurnResult {
     noteQuestion(state, text);
     state.pending = state.pending === 'name' ? 'name' : state.pending;
     const s = steer(state, lang);
-    return { state, reply: { text: `${top.answer}${s ? `\n\n${s}` : `\n\n${t.anythingElse}`}`, page: top.page } };
+    const body = top.id.startsWith('cat-') && top.stagesAnswer && has(q, ASKS_STAGES)
+      ? top.stagesAnswer
+      : top.id.startsWith('cat-') && top.toolsAnswer && has(q, ASKS_TOOLS)
+        ? top.toolsAnswer
+        : top.answer;
+    return { state, reply: { text: `${body}${s ? `\n\n${s}` : `\n\n${t.anythingElse}`}`, page: top.page } };
   }
   if (wantsServices) {
     noteQuestion(state, text);

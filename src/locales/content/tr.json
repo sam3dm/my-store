@@ -1113,6 +1113,409 @@
         "label": "Sosyal Medya ve İçerik",
         "type": "Yaratıcı Konsept"
       }
+    ],
+    "guideUi": {
+      "eyebrow": "Bu uzmanlık alanı hakkında",
+      "servicesTitle": "Neler sunuyoruz",
+      "stagesTitle": "Nasıl çalışıyoruz — prodüksiyon aşamaları",
+      "toolsTitle": "Araçlar ve yazılımlar",
+      "stageNames": [
+        "Etüt ve keşif",
+        "Konsept ve senaryo",
+        "Hazırlık",
+        "Prodüksiyon",
+        "Post-prodüksiyon",
+        "Teslim ve büyüme"
+      ],
+      "ctaLabel": "Bu projeyi WhatsApp'ta konuşalım",
+      "selectedWork": "Seçilmiş işler"
+    },
+    "guides": [
+      {
+        "headline": "Sinema gibi çekilmiş, satmak için kurgulanmış hikâyeler.",
+        "intro": [
+          "Sinematik prodüksiyon, Metropolitan Digital Marketing'in kalbidir. Dubai'den kısa ve uzun metrajlı filmleri, marka belgesellerini, reklam filmlerini ve TV spotlarını gerçek bir set disipliniyle yazıyor, yönetiyor, çekiyor ve kurguluyoruz: net bir hikâye, eğitimli bir ekip, sinema kameraları ve hem televizyon ekranında hem telefonda dimdik duran bir bitiş kalitesi.",
+          "Her proje sizin girdilerinizle — hikâyeniz, değerleriniz, hedef kitleniz — başlar; televizyonda, sinemada, web sitelerinde ve sosyal platformlarda Arapça, İngilizce ve sitemizdeki her dilde yayınlayabileceğiniz bir filmle biter."
+        ],
+        "services": [
+          {
+            "title": "Kısa ve uzun metrajlı filmler",
+            "text": "Birkaç dakikadan uzun metraja kadar, tek bir ekip tarafından yazılan, çekilen ve kurgulanan anlatı ve marka filmleri."
+          },
+          {
+            "title": "Reklam filmleri",
+            "text": "Dijital ve sosyal platformlar için hızlı, akılda kalıcı reklamlar; aynı çekimden 6, 15 ve 30 saniyelik versiyonlar."
+          },
+          {
+            "title": "TV reklamları",
+            "text": "Kanal şartnamesine göre hazırlanan yayın standardında spotlar: format, ses seviyesi, altyazı ve yasal onay."
+          },
+          {
+            "title": "Kurumsal filmler ve belgeseller",
+            "text": "Güvenilirlik inşa eden şirket hikâyeleri, kurucu röportajları ve kamera arkası belgeselleri."
+          },
+          {
+            "title": "Müzik ritimli marka filmleri",
+            "text": "Lansmanlar, etkinlikler ve kampanyalar için özgün veya lisanslı müzikle ritimli kurgular."
+          }
+        ],
+        "stages": [
+          "Markayı, hedef kitleyi, pazarı ve filmin amacını inceler; mesaj ve bütçe üzerinde anlaşırız.",
+          "Girdilerinizden bir senaryo veya sinopsis yazılır; ardından onayınız için storyboard ve çekim listesi hazırlanır.",
+          "Mekânlar, oyuncular, ekip, ekipman, izinler ve takvim ilk çekim gününden önce hazırlanıp onaylanır.",
+          "Yönetmen, görüntü yönetmeni ve ekiple; sinema kameraları, lensler, gimbal, drone ve profesyonel ışıkla çekim.",
+          "Kurgu, renk düzenleme, ses tasarımı, müzik, görsel efektler ve altyazı; revizyon turları dahil.",
+          "TV, sinema, web ve sosyal medya için nihai masterlar; kısa versiyonlar ve yayın planı."
+        ],
+        "tools": "Sinema kameraları · Adobe Premiere Pro · After Effects · DaVinci Resolve · Pro Tools · drone ve gimbal"
+      },
+      {
+        "headline": "Her kıvrım, her yansıma, hareket hâlinde.",
+        "intro": [
+          "Bir araba, teknik özelliklerinden önce duygusuyla satılır. Boya, çizgiler ve ses izleyiciyi direksiyona geçmeye özendirsin diye araçları çekiyor ve render ediyoruz: showroom filmleri, lansman filmleri, yolda hareketli çekimler, stüdyo tanıtımları ve gerçeği henüz yokken tamamen bilgisayar üretimi araçlar.",
+          "Dubai ve Körfez'de bayiler, markalar, kiralama ve lüks otomobil şirketleri ve koleksiyonerlerle çalışıyor; hem filmi hem aracı alıcıların gözü önünde tutan sosyal içeriği teslim ediyoruz."
+        ],
+        "services": [
+          {
+            "title": "Showroom ve lansman filmleri",
+            "text": "Yeni modeller ve sınırlı seriler için kontrollü ışık, ağır çekim ve detay makro çekimleriyle sinematik tanıtım."
+          },
+          {
+            "title": "Hareketli ve takip çekimleri",
+            "text": "Kamera aracı, drone ve gimbal ile güvenli ve izinli lojistikle yol ve çöl sekansları."
+          },
+          {
+            "title": "3D / CGI araçlar",
+            "text": "Konfigüratörler, konsept tanıtımları ve imkânsız kamera hareketleri için fotogerçekçi dijital araçlar."
+          },
+          {
+            "title": "Bayiler için sosyal içerik",
+            "text": "Stoktaki her araç için düzenli yayınlanan reels, hikâye ve tanıtım videoları."
+          },
+          {
+            "title": "Sayfa yönetimi",
+            "text": "Bayi ve marka sayfalarının yönetimi: takvim, yayın, yanıtlar ve aylık raporlar."
+          }
+        ],
+        "stages": [
+          "Modeli, alıcı profilini, rakipleri ve aracın anlatması gereken hikâyeyi inceleriz.",
+          "Konsept, atmosfer referansları, çekim listesi ve gerekirse seslendirme veya ekran yazıları için metin.",
+          "Mekân veya stüdyo seçimi, izinler, sürücüler, ışık, kamera aracı planı ve çekim takvimi.",
+          "Sinema kameraları, rig'ler, dronelar ve makro lenslerle çekim; CGI araçlar paralel olarak modellenir ve render edilir.",
+          "Kurgu, renk düzenleme, motor sesleriyle ses tasarımı, motion graphics ve finalizasyon.",
+          "Web sitesi, showroom ekranları ve sosyal platformlar için tüm formatlarda teslim ve paylaşım planı."
+        ],
+        "tools": "Sinema kameraları · kamera araçları ve gimbal · drone · 3ds Max · Blender · Adobe Premiere Pro · After Effects"
+      },
+      {
+        "headline": "Güven, özenle ve doğrulukla anlatılır.",
+        "intro": [
+          "Hastalar hastaneyi, kliniği veya doktoru güvenle seçer. Doğru, saygılı ve insani tıbbi ve sağlık içerikleri üretiyoruz: hastaneyi ve bölümlerini tanıtan filmler, doktorlar, bölüm başkanları ve yöneticilerle röportajlar, podcast'ler ve abartmadan bilgilendiren profesyonel tıbbi, bilimsel ve kültürel videolar.",
+          "BAE sağlık otoritelerinin reklam kurallarına uyar, hasta mahremiyetini korur ve yayından önce her iddiayı tıbbi ekibinizle birlikte doğrularız."
+        ],
+        "services": [
+          {
+            "title": "Doktor ve yönetici röportajları",
+            "text": "Doktorlar, bölüm başkanları ve hastane yöneticileriyle çekilen, net ve güvenilir videolara dönüştürülen görüşmeler."
+          },
+          {
+            "title": "Podcast'ler",
+            "text": "Sağlık konularında profesyonel stüdyo düzeniyle kaydedilen, her platforma uyarlanan görüntülü ve sesli podcast bölümleri."
+          },
+          {
+            "title": "Tıbbi, bilimsel ve kültürel videolar",
+            "text": "3D tıbbi animasyonla desteklenen eğitim filmleri, farkındalık kampanyaları ve anlatım videoları."
+          },
+          {
+            "title": "Hastane ve klinik filmleri",
+            "text": "Tesis turları, teknoloji tanıtımları, hasta yolculuğu filmleri ve işe alım videoları."
+          },
+          {
+            "title": "Sayfa yönetimi",
+            "text": "Hastane, klinik ve doktor sayfalarının yönetimi: mevzuata uygun içerik takvimi, yayın, yanıtlar ve aylık raporlar."
+          }
+        ],
+        "stages": [
+          "Kurumu, bölümlerini, hedef kitlesini ve iletişimine uygulanan düzenlemeleri inceleriz.",
+          "Röportaj soruları, senaryolar ve konular tıbbi ekibinizle hazırlanır ve çekimden önce onaylanır.",
+          "Doktorların programlanması, set, ses ve ışığın hazırlanması; onam ve izinlerin alınması.",
+          "Röportajların, işlemlerin ve tesislerin sakin ekiplerle ve yayın kalitesinde sesle çekimi.",
+          "Kurgu, çok dilli altyazı, 3D tıbbi animasyon, grafikler ve mevzuata uygunluk kontrolü.",
+          "Tüm formatlarda teslim ve sayfalarınız için performans raporlu yayın planı."
+        ],
+        "tools": "Röportaj ve podcast ekipmanları · Adobe Premiere Pro · After Effects · 3ds Max · Blender · altyazı araçları"
+      },
+      {
+        "headline": "Hayal edilebilen, render edilebilir.",
+        "intro": [
+          "3D animasyon ve CGI, çekilemeyeni göstermemizi sağlar: inşa edilmeden bir bina, parçalarına ayrılmış bir ürün, var olmayan bir karakter, hiç olmamış bir dünya. Tam bir profesyonel hat içinde modelliyor, doku kaplıyor, aydınlatıyor, animasyon yapıyor ve render ediyoruz; sonucu bir film gibi finalize ediyoruz.",
+          "Sanatçılarımız ürün, mimari, tıbbi görselleştirme, reklam ve eğlence için ilk taslaktan son kareye kanıtlanmış bir iş akışıyla ağırlıklı olarak 3ds Max ve Blender'da çalışır."
+        ],
+        "services": [
+          {
+            "title": "Ürün animasyonu",
+            "text": "Lansmanlar, ambalaj ve online mağazalar için fotogerçekçi ürün filmleri ve patlatılmış görünümler."
+          },
+          {
+            "title": "Mimari görselleştirme",
+            "text": "Bina, iç mekân ve master planların 3D görselleri ve animasyon filmleri."
+          },
+          {
+            "title": "Karakter ve motion graphics",
+            "text": "Karakterler, maskotlar, hareketli logolar ve animasyonlu anlatım videoları."
+          },
+          {
+            "title": "Görsel efektler",
+            "text": "CGI'nin gerçek görüntülerle birleştirilmesi: dekor uzatmaları, simülasyonlar, partiküller ve ekran değişimi."
+          },
+          {
+            "title": "3D tıbbi ve teknik animasyon",
+            "text": "İşlemlerin, makinelerin ve süreçlerin net animasyonlu anlatımı."
+          }
+        ],
+        "stages": [
+          "Referansları, çizimleri, ürün dosyalarını ve animasyonun amacını toplar, stili belirleriz.",
+          "Storyboard, animatik ve teknik plan: kamera hareketleri, süre, çözünürlük ve render bütçesi.",
+          "3ds Max'te modelleme, ardından UV açma, doku kaplama ve malzeme oluşturma; karakter varsa rigging.",
+          "Yüksek çözünürlük ve uzun sekanslar için render farm ile aydınlatma, animasyon ve render.",
+          "Kompozit, efektler, renk düzenleme, ses tasarımı ve müzik; revizyon turları dahil.",
+          "2K, 4K veya özel formatlarda teslim; istenirse proje dosyaları."
+        ],
+        "tools": "3ds Max · Blender · V-Ray · Corona · Substance Painter · After Effects · Adobe Premiere Pro"
+      },
+      {
+        "headline": "Yapay zekâ, insanlar tarafından yönetilir.",
+        "intro": [
+          "Yapay zekâ ile yaratıcılık bir kestirme değil, yeni bir stüdyodur. Deneyimli yönetmenlerin yönettiği en iyi görsel, video, ses ve dil modellerini kullanarak konseptleri, reklamları ve filmleri daha önce karşılanamayan bir hız ve ölçekte üretiyoruz; kalite, marka uyumu ve haklar üzerinde insan gözünü koruyoruz.",
+          "İçeriğin ötesinde, şirketiniz için çalışan yapay zekâ sistemleri kuruyoruz: yapay zekâ ile web siteleri, yapay zekâ ajanları, CRM'li uzman chatbot'lar, WhatsApp otomasyonları ve tam özel sistemler."
+        ],
+        "services": [
+          {
+            "title": "Yapay zekâ filmleri ve reklamları",
+            "text": "Gerçek görüntüleri üretilmiş sahnelerle birleştiren tamamen üretilmiş veya hibrit filmler."
+          },
+          {
+            "title": "Yapay zekâ ürün ve moda görselleri",
+            "text": "Fiziksel çekim olmadan ürünler için kampanya görselleri ve videoları."
+          },
+          {
+            "title": "Yapay zekâ avatarları, ses ve dublaj",
+            "text": "Dijital sunucular ve sitemizin dillerinde çok dilli seslendirme."
+          },
+          {
+            "title": "Yapay zekâ ajanları ve chatbot'lar",
+            "text": "Şirket asistanları, CRM entegrasyonlu uzman chatbot'lar ve WhatsApp otomasyonu."
+          },
+          {
+            "title": "Yapay zekâlı web siteleri ve sistemler",
+            "text": "İşinize göre özelleştirilmiş web siteleri, web uygulamaları ve eksiksiz yapay zekâ ekosistemleri."
+          }
+        ],
+        "stages": [
+          "İşinizi, hedef kitlenizi ve amacınızı inceler; yapay zekânın nerede yardımcı olduğuna, nerede gerçek çekimin daha iyi olduğuna karar veririz.",
+          "Tutarlılık için görsel referanslar ve stil rehberiyle konsept, senaryo ve prompt tasarımı.",
+          "Model ve araç seçimi, karakter, ses ve referans görsellerin hazırlanması, sekansın planlanması.",
+          "Sahne ve varlıkların üretimi; sonuç doğru olana dek yönetmenler seçer, düzeltir ve yineler.",
+          "Yükseltme, kurgu, gerçek görüntülerle kompozit, renk, ses ve hak ile kalite kontrolü.",
+          "Nihai dosyaların teslimi veya çıktı bir sistemse devreye alma ve ekibinizin eğitimi."
+        ],
+        "tools": "Görsel ve video üretim modelleri · ses modelleri · Adobe Premiere Pro · After Effects · otomasyon platformları · özel kod"
+      },
+      {
+        "headline": "İlk ziyaretten önce satılan gayrimenkuller.",
+        "intro": [
+          "Gayrimenkulde ilk izlenim bir ekranda oluşur. Alıcıların ve yatırımcıların dünyanın her yerinden mülkü gezebilmesini sağlayan filmler, 3D görseller ve sosyal içerikler üretiyor; gayrimenkul ve iç mimarlık sayfalarınızı yönetiyoruz ki hikâye video bittikten sonra da sürsün.",
+          "İster kule lansmanı yapan bir geliştirici, ister tek dairesi olan bir komisyoncu, ister projeden satış yapan bir şirket olun, içeriği bir kampanya gibi planlıyoruz: tüm daireyi oda oda çekim, müzik ve hareketle yaratıcı kurgu, inşa aşamasındaki projeler için 3D animasyon, reklam ve sizi uzman olarak konumlandıran podcast'ler."
+        ],
+        "services": [
+          {
+            "title": "Mülkün tamamının çekimi",
+            "text": "Tüm daireyi veya villayı — her oda, balkon, manzara ve detay — stabilize sinema kameraları ve doğal ışıkla çekiyoruz."
+          },
+          {
+            "title": "Yaratıcı kurgu",
+            "text": "Ritim, geçişler, müzik, yazılar ve renk düzenlemeyle profesyonel kurgu: basit bir gezi yerine kısa bir film."
+          },
+          {
+            "title": "Projeden satış için 3D animasyon",
+            "text": "Henüz inşa edilmemiş projeler için 3ds Max'te modellenip animasyonlanan binalar, lobiler ve üniteler."
+          },
+          {
+            "title": "Gayrimenkul ve iç mimarlık sayfa yönetimi",
+            "text": "Instagram, TikTok, Facebook, LinkedIn ve YouTube'da yayın, ilan öne çıkarma, reels, hikâyeler, yanıtlar ve aylık raporlar."
+          },
+          {
+            "title": "Reklam ve podcast",
+            "text": "Meta, Google ve TikTok için ücretli reklam tasarımları; komisyoncular, geliştiriciler ve tasarımcılarla podcast bölümleri."
+          }
+        ],
+        "stages": [
+          "Mülkü, çevreyi, alıcı veya yatırımcı profilini ve satış hedefini inceleriz.",
+          "Girdilerinizden konsept ve senaryo, her oda için çekim listesi ve nihai kurgular için platform planı.",
+          "Mülke erişim, sahneleme önerileri, ışık planı, drone izinleri ve çekim takvimi.",
+          "Her odanın ve dış cephenin çekimi; henüz inşa edilmemiş kısımlar için 3D render ve animasyon.",
+          "Yaratıcı kurgu, renk, müzik, çok dilli yazılar ve reels için dikey versiyonlar.",
+          "Teslim, sayfalarınızda yayın ve görüntülenme ile taleplere dair aylık raporlama."
+        ],
+        "tools": "Sinema kameraları ve gimbal · drone · 3ds Max · AutoCAD · Adobe Premiere Pro · After Effects"
+      },
+      {
+        "headline": "Tasarımın göstermeye değer bir hikâyeye dönüştüğü yer.",
+        "intro": [
+          "İç mimarlık görsel bir zanaattır ve öyle sunulmayı hak eder. Dubai'deki Metropolitan Digital Marketing olarak iç mimarlar, uygulama firmaları ve inşaat şirketleri için içerik üretiyoruz: çizimleri, moodboard'ları ve tamamlanmış mekânları, müşterinin mekânı var olmadan önce hissetmesini ve inşa edildikten sonra hatırlamasını sağlayan görüntülere, filmlere ve 3D dünyalara dönüştürüyoruz.",
+          "İç ve dış mekânların eksiksiz 3D sahnelerini kuruyor, projeleri uygulama sırasında ve teslimden sonra gerçekçi biçimde çekiyor, izleyiciyi oda oda gezdiren animasyon videolar ve walkthrough'lar hazırlıyoruz — ışık, malzeme, mobilya ve atmosfer dahil. Her proje bir film gibi planlanır: etüt, hikâye, çekim planı ve özenli kurgu.",
+          "Ekranın arkasında sektörün profesyonel araç zinciri var: planlar ve mühendislik çizimleri için AutoCAD, modelleme, aydınlatma ve render için 3ds Max ve Blender, nihai film için Adobe Premiere Pro ve diğer kurgu yazılımları ve danışmanlarınızın zaten kullandığı mühendislik programları. Baştan başlamanızı istemek yerine dosyalarınızla çalışıyoruz."
+        ],
+        "services": [
+          {
+            "title": "İç mimarlık içeriği",
+            "text": "Portföyünüzü doğru ışık, açı ve hikâyeyle sunan fotoğraf, kısa film ve sosyal içerik."
+          },
+          {
+            "title": "3D sahne kurulumu",
+            "text": "Planlarınızdan mobilya, malzeme, ışık ve dekor dahil eksiksiz 3D iç mekân modelleri; inşaattan önce onaya hazır."
+          },
+          {
+            "title": "3D perspektifler, iç ve dış",
+            "text": "Sunumlar, ihaleler ve broşürler için odaların, cephelerin ve peyzajın yüksek çözünürlüklü fotogerçekçi görselleri."
+          },
+          {
+            "title": "Animasyon video ve walkthrough",
+            "text": "Gündüz ve gece ışığı, müzik ve yazılarla tasarımın içinde sinematik kamera hareketleri."
+          },
+          {
+            "title": "Projelerin gerçekçi çekimi",
+            "text": "İnşaat ve uygulama firmaları için uygulama sırasında ve teslimden sonra şantiyede çekim: ilerleme filmleri ve final tanıtım videoları."
+          },
+          {
+            "title": "Sayfa yönetimi",
+            "text": "İç mimarlık sayfalarının yönetimi: içerik takvimi, yayın, çok dilli açıklamalar ve aylık raporlar."
+          }
+        ],
+        "stages": [
+          "Planlarınızı, stilinizi, hedef kitlenizi ve projenin taşıması gereken mesajı inceleriz.",
+          "Moodboard'lar, görsel referanslar, girdilerinizden yazılan senaryo ve çekim listesi.",
+          "AutoCAD dosyalarınızdan 3D sahne kurulumu, malzeme ve ışık seçimi, çekim takvimi ve saha izinleri.",
+          "3ds Max veya Blender'da modelleme ve render; sinema kameraları, gimbal ve ışıkla şantiyede çekim.",
+          "Adobe Premiere Pro'da kurgu, renk düzenleme, ses tasarımı, motion graphics ve animasyonlu yazılar.",
+          "Gerekli tüm formatlarda nihai dosyalar, revizyonlar dahil, ve projeyi yayınlama ve tanıtma planı."
+        ],
+        "tools": "AutoCAD · 3ds Max · Blender · V-Ray · Corona · Adobe Premiere Pro · After Effects · DaVinci Resolve · mühendislik ve BIM programları"
+      },
+      {
+        "headline": "Misafir, rezervasyondan önce konaklamayı hissetsin.",
+        "intro": [
+          "Oteller, tatil köyleri ve restoranlar bir deneyim satar. Lobideki ışığı, odanın manzarasını, sofranın lezzetini ve hizmetin ritmini gösteren film ve görsellerle bu deneyimi yakalıyoruz; başka bir ülkedeki misafir rezervasyondan önce konaklamayı hissetsin.",
+          "Dubai ve Körfez'deki oteller, tatil köyleri, restoranlar, kafeler ve etkinlik mekânları için içerik üretiyor ve sayfalarını yönetiyoruz; deneyim yalnızca açılışta değil, her gün gösterilsin."
+        ],
+        "services": [
+          {
+            "title": "Tesis filmleri",
+            "text": "Drone ve gimbal hareketleriyle oda, süit, havuz, spa ve ortak alanların sinematik filmleri."
+          },
+          {
+            "title": "Yiyecek ve içecek içeriği",
+            "text": "Menülerin, şeflerin ve imza yemeklerin iştah açıcı yakın çekim film ve fotoğrafları."
+          },
+          {
+            "title": "Etkinlik ve düğünler",
+            "text": "Etkinlik, lansman ve kutlamaların çekimi ve özet filmleri."
+          },
+          {
+            "title": "360° ve sanal turlar",
+            "text": "Rezervasyon sayfaları ve seyahat acenteleri için sürükleyici turlar."
+          },
+          {
+            "title": "Sayfa yönetimi",
+            "text": "Otel ve restoran sayfalarının yönetimi: takvim, reels, hikâyeler, yanıtlar ve raporlar."
+          }
+        ],
+        "stages": [
+          "Tesisi, misafir profilini, sezonları ve rekabeti inceleriz.",
+          "Misafir yolculuğu etrafında konsept ve senaryo, her alan için çekim listesi ve doluluğa göre çekim planı.",
+          "Otel ekibiyle koordinasyon, oda ve masaların hazırlanması, izinler ve takvim.",
+          "Günün en iyi ışığında sinema kameraları, gimbal, drone ve profesyonel ışıkla çekim.",
+          "Kurgu, renk, müzik, çok dilli yazılar ve web, ekranlar ve sosyal medya için versiyonlar.",
+          "Teslim ve yayın; mevsimsel içerik fikirleri ve aylık raporlar."
+        ],
+        "tools": "Sinema kameraları · gimbal · drone · 360° kameralar · Adobe Premiere Pro · After Effects · Lightroom"
+      },
+      {
+        "headline": "Neredeyse kokusunu alabileceğiniz lüks.",
+        "intro": [
+          "Parfüm ve güzellik his ile satılır. Kokuyu, dokuyu ve parıltıyı görüntü ve filme çeviriyoruz: şişede yavaş makro, hareket hâlinde sıvı ve ışık, yumuşak odakta cilt ve kumaş ve hiçbir stüdyonun gerçekte kuramayacağı CGI ürünler.",
+          "Parfüm evleri, kozmetik markaları, güzellik salonları ve kliniklerle çalışarak kategorinin zarafetinde kampanya filmleri, ürün görselleri ve sosyal içerikler üretiyoruz."
+        ],
+        "services": [
+          {
+            "title": "Makro ve sıvı sinematografisi",
+            "text": "Şişe, damla, toz ve kremlerin yüksek hızlı ve makro çekimi."
+          },
+          {
+            "title": "Kampanya filmleri",
+            "text": "Modeller, stil ve sanat yönetimiyle sinematik marka filmleri."
+          },
+          {
+            "title": "CGI ürün görselleri",
+            "text": "İmkânsız ışık ve hareketle fotogerçekçi 3D şişeler ve ambalajlar."
+          },
+          {
+            "title": "Influencer ve sosyal içerik",
+            "text": "Tutarlı bir marka stilinde üretilen unboxing, eğitim videoları ve reels."
+          },
+          {
+            "title": "Sayfa yönetimi",
+            "text": "Marka ve salon sayfalarının yönetimi: takvim, yayın, yanıtlar ve aylık raporlar."
+          }
+        ],
+        "stages": [
+          "Markayı, koku veya ürün hikâyesini, alıcıyı ve rakipleri inceleriz.",
+          "Konsept, atmosfer ve renk paleti, film senaryosu ve ayrıntılı çekim listesi.",
+          "Sanat yönetimi, aksesuarlar, modeller, stüdyo seti ve ışık tasarımı.",
+          "Makro ve yüksek hızlı kameralarla çekim; CGI paralel olarak kurulur ve render edilir.",
+          "Kurgu, rötuş, renk düzenleme, ses tasarımı ve müzik.",
+          "E-ticaret, satış ekranları ve sosyal platformlar için lansman planıyla teslim."
+        ],
+        "tools": "Makro ve yüksek hızlı kameralar · stüdyo ışığı · 3ds Max · Blender · Adobe Premiere Pro · After Effects · Photoshop"
+      },
+      {
+        "headline": "Her gün dikkat kazanan içerik.",
+        "intro": [
+          "Sosyal medya tutarlılığı ve işçiliği ödüllendirir. Markanızı görünür tutan içeriği planlıyor, üretiyor ve yayınlıyoruz: her platform için tasarlanmış ve hedef kitlenizin dillerinde yazılmış reels, hikâyeler, kısa videolar, fotoğraflar, carousel'ler ve açıklamalar.",
+          "Sayfalarınızı tamamen yönetebilir veya ekibinize destek olabiliriz: içerik takvimi, topluluk yanıtları, ücretli kampanyalar ve neyin işe yaradığını gösteren aylık rapor."
+        ],
+        "services": [
+          {
+            "title": "Reels, kısa video ve hikâyeler",
+            "text": "Akışı canlı tutmak için toplu üretilen dikey, hızlı ve markalı videolar."
+          },
+          {
+            "title": "Tam sayfa yönetimi",
+            "text": "Instagram, TikTok, Facebook, LinkedIn, YouTube ve X'te strateji, içerik takvimi, yayın, yanıtlar ve moderasyon."
+          },
+          {
+            "title": "Ücretli sosyal medya kampanyaları",
+            "text": "Meta, TikTok, Google ve LinkedIn reklamlarının tasarımı, hedeflemesi ve optimizasyonu."
+          },
+          {
+            "title": "Çok dilli içerik",
+            "text": "Arapça, İngilizce, Rusça, Çince ve diğer dillerde açıklamalar ve altyazılar."
+          },
+          {
+            "title": "Analiz ve raporlama",
+            "text": "Erişim, etkileşim, talepler ve önerileri içeren aylık rapor."
+          }
+        ],
+        "stages": [
+          "Sayfalarınızı, rakiplerinizi ve hedef kitlenizi denetler, ölçülebilir hedefler koyarız.",
+          "Strateji, içerik sütunları, ses tonu ve aylık içerik takvimi.",
+          "Çekim günleri, şablonlar, tasarım sistemleri ve onay akışı.",
+          "Video, fotoğraf ve tasarımların planlamaya hazır şekilde toplu üretimi.",
+          "Her paylaşımdan önce kurgu, altyazı, açıklama ve kalite kontrolü.",
+          "Yayın, topluluk yönetimi, reklam optimizasyonu ve aylık raporlar."
+        ],
+        "tools": "Meta Business Suite · TikTok · LinkedIn · YouTube Studio · Adobe Premiere Pro · After Effects · Photoshop · planlama ve analiz araçları"
+      }
     ]
   },
   "contact": {
