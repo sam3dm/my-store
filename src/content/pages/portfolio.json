@@ -377,5 +377,418 @@
     "headline": "Your Next Project Starts Here.",
     "body": "Every great campaign begins with a conversation. Tell us your vision and we will bring it to life with cinematic precision.",
     "buttonLabel": "Let's Work Together"
-  }
+  },
+  "guideUi": {
+    "eyebrow": "About this specialty",
+    "servicesTitle": "What we deliver",
+    "stagesTitle": "How we work — the production stages",
+    "toolsTitle": "Tools & software",
+    "stageNames": [
+      "Study & discovery",
+      "Concept & script",
+      "Preparation",
+      "Production",
+      "Post-production",
+      "Delivery & growth"
+    ],
+    "ctaLabel": "Discuss this project on WhatsApp",
+    "selectedWork": "Selected work"
+  },
+  "guides": [
+    {
+      "id": "cinematic",
+      "headline": "Stories shot like cinema, built to sell.",
+      "intro": [
+        "Cinematic production is the heart of Metropolitan Digital Marketing. From our base in Dubai we write, direct, film and edit short films, long films, brand documentaries, commercials and TV advertisements with the same discipline as a film set: a clear story, a trained crew, cinema cameras and a finish that holds up on a television screen as well as on a phone.",
+        "Every project starts from your own inputs — your story, your values, your audience — and ends as a film that you can run on television, in cinemas, on websites and on social platforms, in Arabic, English and any of the languages of our site."
+      ],
+      "services": [
+        {
+          "title": "Short and long films",
+          "text": "Narrative and brand films from a few minutes to feature length, written, cast, shot and edited by one team."
+        },
+        {
+          "title": "Commercials",
+          "text": "Fast, memorable adverts for digital and social platforms, with cut-downs of 6, 15 and 30 seconds from the same shoot."
+        },
+        {
+          "title": "TV advertisements",
+          "text": "Broadcast-standard spots prepared to channel specifications: format, loudness, subtitles and legal clearance."
+        },
+        {
+          "title": "Corporate and documentary films",
+          "text": "Company stories, founder interviews and behind-the-scenes documentaries that build credibility."
+        },
+        {
+          "title": "Music-style brand films",
+          "text": "Rhythm-driven edits with original or licensed music for launches, events and campaigns."
+        }
+      ],
+      "stages": [
+        "We study the brand, the audience, the market and the goal of the film, and agree the message and the budget.",
+        "A script or treatment is written from your inputs, followed by a storyboard and a shot list for your approval.",
+        "Locations, cast, crew, equipment, permits and schedule are prepared and confirmed before the first shooting day.",
+        "Filming with a director, cinematographer and crew on cinema cameras, lenses, gimbals, drones and professional lighting.",
+        "Editing, colour grading, sound design, music, visual effects and subtitles, with revision rounds included.",
+        "Final masters for TV, cinema, web and social, plus cut-downs and a publishing plan."
+      ],
+      "tools": "Cinema cameras · Adobe Premiere Pro · After Effects · DaVinci Resolve · Pro Tools · drones and gimbals"
+    },
+    {
+      "id": "automotive",
+      "headline": "Every curve, every reflection, in motion.",
+      "intro": [
+        "A car is sold by emotion before it is sold by specification. We film and render vehicles so that the paint, the lines and the sound make the viewer want to sit inside: showroom films, launch films, rolling shots on the road, studio reveals and fully computer-generated cars when the real one does not exist yet.",
+        "We work with dealerships, brands, car-rental and luxury-car companies, and collectors in Dubai and across the Gulf, and we deliver both the film and the social content that keeps the vehicle in front of buyers."
+      ],
+      "services": [
+        {
+          "title": "Showroom and launch films",
+          "text": "Cinematic reveals with controlled lighting, slow motion and detail macros for new models and limited editions."
+        },
+        {
+          "title": "Rolling and tracking shots",
+          "text": "Road and desert sequences shot from camera cars, drones and gimbals with safe, permitted logistics."
+        },
+        {
+          "title": "3D / CGI cars",
+          "text": "Photoreal digital vehicles for configurators, concept reveals and impossible camera moves."
+        },
+        {
+          "title": "Dealership social content",
+          "text": "Reels, stories and walk-around videos for each car in stock, published consistently."
+        },
+        {
+          "title": "Page management",
+          "text": "Management of dealership and brand pages: calendar, publishing, replies and monthly reports."
+        }
+      ],
+      "stages": [
+        "We study the model, the buyer profile, the competitors and the story the vehicle should tell.",
+        "Concept, mood references, shot list and — when needed — a script for the voice-over or on-screen titles.",
+        "Choosing the location or studio, permits, drivers, lighting and camera-car planning, and the filming schedule.",
+        "Filming with cinema cameras, rigs, drones and macro lenses; CGI vehicles are modelled and rendered in parallel.",
+        "Editing, colour grading, sound design with engine audio, motion graphics and finishing.",
+        "Delivery in every format for the website, showroom screens and social platforms, with a posting plan."
+      ],
+      "tools": "Cinema cameras · camera cars and gimbals · drones · 3ds Max · Blender · Adobe Premiere Pro · After Effects"
+    },
+    {
+      "id": "medical",
+      "headline": "Trust, told with care and accuracy.",
+      "intro": [
+        "Patients choose a hospital, a clinic or a doctor on trust. We create medical and healthcare content that is accurate, respectful and human: films that present a hospital and its departments, interviews with doctors, department heads and directors, podcasts, and professional medical, scientific and cultural videos that educate without exaggeration.",
+        "We follow the advertising rules of the health authorities in the UAE, protect patient privacy, and work with your medical team to check every claim before publication."
+      ],
+      "services": [
+        {
+          "title": "Interviews with doctors and directors",
+          "text": "Filmed conversations with physicians, heads of departments and hospital directors, edited into clear and trustworthy videos."
+        },
+        {
+          "title": "Podcasts",
+          "text": "Video and audio podcast episodes on health topics, recorded in a professional studio setup and cut for every platform."
+        },
+        {
+          "title": "Medical, scientific and cultural videos",
+          "text": "Educational films, awareness campaigns and explainer videos supported by 3D medical animation."
+        },
+        {
+          "title": "Hospital and clinic films",
+          "text": "Facility tours, technology showcases, patient-journey films and recruitment videos."
+        },
+        {
+          "title": "Page management",
+          "text": "Management of hospital, clinic and doctor pages: compliant content calendar, publishing, replies and monthly reports."
+        }
+      ],
+      "stages": [
+        "We study the institution, its departments, its audience and the regulations that apply to its communication.",
+        "Interview questions, scripts and topics are prepared with your medical team and approved before filming.",
+        "Scheduling doctors, preparing the set, sound and lighting, and obtaining consent and permissions.",
+        "Filming interviews, procedures and facilities with discreet crews and broadcast-quality sound.",
+        "Editing, subtitles in several languages, 3D medical animation, graphics and compliance review.",
+        "Delivery in all formats and a publishing plan for your pages, with performance reports."
+      ],
+      "tools": "Interview and podcast kits · Adobe Premiere Pro · After Effects · 3ds Max · Blender · subtitling tools"
+    },
+    {
+      "id": "cgi",
+      "headline": "If it can be imagined, it can be rendered.",
+      "intro": [
+        "3D animation and CGI let us show what cannot be filmed: a building before it is built, a product exploded into its parts, a character that does not exist, a world that never was. We model, texture, light, animate and render in a full professional pipeline and finish the result like a film.",
+        "Our artists work mainly in 3ds Max and Blender, with a proven workflow from first sketch to final frame, for products, architecture, medical visualisation, advertising and entertainment."
+      ],
+      "services": [
+        {
+          "title": "Product animation",
+          "text": "Photoreal product films and exploded views for launches, packaging and online stores."
+        },
+        {
+          "title": "Architectural visualisation",
+          "text": "3D stills and animated films of buildings, interiors and master plans."
+        },
+        {
+          "title": "Character and motion graphics",
+          "text": "Characters, mascots, logos in motion and animated explainer videos."
+        },
+        {
+          "title": "Visual effects",
+          "text": "Compositing of CGI into real footage: set extensions, simulations, particles and screen replacement."
+        },
+        {
+          "title": "3D medical and technical animation",
+          "text": "Clear animated explanations of procedures, machines and processes."
+        }
+      ],
+      "stages": [
+        "We collect references, drawings, product files and the goal of the animation, and define the style.",
+        "Storyboard, animatic and technical plan: camera moves, duration, resolution and render budget.",
+        "Modelling in 3ds Max, then UV mapping, texturing and material creation; rigging when characters are involved.",
+        "Lighting, animation and rendering with a render farm for high resolution and long sequences.",
+        "Compositing, effects, colour grading, sound design and music, with revision rounds.",
+        "Delivery in 2K, 4K or custom formats, with project files on request."
+      ],
+      "tools": "3ds Max · Blender · V-Ray · Corona · Substance Painter · After Effects · Adobe Premiere Pro"
+    },
+    {
+      "id": "ai",
+      "headline": "Artificial intelligence, directed by humans.",
+      "intro": [
+        "AI creative is not a shortcut; it is a new studio. We use the best image, video, voice and language models, guided by experienced directors, to produce concepts, adverts and films faster and at a scale that was not affordable before — while keeping a human eye on quality, brand fit and rights.",
+        "Beyond content, we build the AI systems that work for your company: websites built with AI, AI agents, specialised chatbots with CRM, WhatsApp automations and complete custom systems."
+      ],
+      "services": [
+        {
+          "title": "AI films and adverts",
+          "text": "Fully AI-generated or hybrid films that blend real footage with generated scenes."
+        },
+        {
+          "title": "AI product and fashion visuals",
+          "text": "Campaign images and videos for products without a physical shoot."
+        },
+        {
+          "title": "AI avatars, voice and dubbing",
+          "text": "Digital presenters and multilingual voice-over in the languages of our site."
+        },
+        {
+          "title": "AI agents and chatbots",
+          "text": "Company assistants, specialised chatbots with CRM integration and WhatsApp automation."
+        },
+        {
+          "title": "Websites and systems with AI",
+          "text": "Websites, web apps and complete AI ecosystems tailored to your business."
+        }
+      ],
+      "stages": [
+        "We study your business, audience and goal, and decide where AI helps and where real filming is better.",
+        "Concept, script and prompt design, with visual references and a style guide for consistency.",
+        "Selecting models and tools, preparing characters, voices and reference images, and planning the sequence.",
+        "Generation of scenes and assets, with directors selecting, correcting and iterating until the result is right.",
+        "Upscaling, editing, compositing with real footage, colour, sound and a rights and quality check.",
+        "Delivery of final files, or deployment and training for your team when the output is a system."
+      ],
+      "tools": "Image and video generation models · voice models · Adobe Premiere Pro · After Effects · automation platforms · custom code"
+    },
+    {
+      "id": "realestate",
+      "headline": "Properties that sell before the first visit.",
+      "intro": [
+        "In real estate, the first impression happens on a screen. We produce films, 3D visuals and social content that let buyers and investors walk through a property from anywhere in the world, and we manage your real-estate and interior-design pages so that the story continues after the video ends.",
+        "Whether you are a developer launching a tower, a broker with one apartment or a company selling off-plan units, we plan the content as a campaign: filming the whole apartment room by room, creative montage with music and motion, 3D animation for projects still under construction, advertising, and podcasts that position you as the expert."
+      ],
+      "services": [
+        {
+          "title": "Full-property filming",
+          "text": "We film the entire apartment or villa — every room, balcony, view and detail — with stabilised cinema cameras and natural light."
+        },
+        {
+          "title": "Creative montage",
+          "text": "Professional editing with rhythm, transitions, music, titles and colour grading: a short film instead of a simple walkthrough."
+        },
+        {
+          "title": "3D animation for off-plan projects",
+          "text": "Buildings, lobbies and units modelled in 3ds Max and animated for projects not yet built."
+        },
+        {
+          "title": "Real-estate and interior-design page management",
+          "text": "Publishing, listing highlights, reels, stories, replies and monthly reports on Instagram, TikTok, Facebook, LinkedIn and YouTube."
+        },
+        {
+          "title": "Ads and podcasts",
+          "text": "Paid-ad creatives for Meta, Google and TikTok, and podcast episodes with brokers, developers and designers."
+        }
+      ],
+      "stages": [
+        "We study the property, the neighbourhood, the buyer or investor profile and the sales goal.",
+        "Concept and script from your inputs, a shot list for each room, and the platform plan for the final cuts.",
+        "Access to the property, staging advice, lighting plan, drone permits and filming schedule.",
+        "Filming every room and the exterior, plus 3D renders and animation for what is not built yet.",
+        "Creative editing, colour, music, titles in several languages and vertical versions for reels.",
+        "Delivery, publishing on your pages and monthly reporting on views and enquiries."
+      ],
+      "tools": "Cinema cameras and gimbals · drones · 3ds Max · AutoCAD · Adobe Premiere Pro · After Effects"
+    },
+    {
+      "id": "interior",
+      "headline": "Where design becomes a story worth showing.",
+      "intro": [
+        "Interior design is a visual craft, and it deserves to be presented as one. At Metropolitan Digital Marketing in Dubai we create content for interior designers, fit-out contractors and construction firms: we turn drawings, moodboards and finished spaces into images, films and 3D worlds that let a client feel the space before it exists and remember it after it is built.",
+        "We build complete 3D scenes of interiors and exteriors, film projects realistically during execution and after handover, and craft animated videos and walkthroughs that guide the viewer room by room — lighting, materials, furniture and atmosphere included. Every project is planned like a film: a study, a story, a shooting plan and a careful edit.",
+        "Behind the screen is the professional toolchain of the industry: AutoCAD for plans and engineering drawings, 3ds Max and Blender for modelling, lighting and rendering, Adobe Premiere Pro and other editing software for the final film, and the engineering programs your consultants already use. We work from your files instead of asking you to start again."
+      ],
+      "services": [
+        {
+          "title": "Interior design content",
+          "text": "Photography, short films and social content that present your portfolio with the right light, angles and story."
+        },
+        {
+          "title": "3D scene building",
+          "text": "Complete 3D models of interiors from your plans: furniture, materials, lighting and décor, ready for approval before construction."
+        },
+        {
+          "title": "3D perspectives, interior and exterior",
+          "text": "High-resolution photoreal stills of rooms, façades and landscapes for presentations, tenders and brochures."
+        },
+        {
+          "title": "Animated video and walkthrough",
+          "text": "Cinematic camera moves through the design, with day and night lighting, music and titles."
+        },
+        {
+          "title": "Realistic filming of projects",
+          "text": "On-site filming during execution and after handover for construction and fit-out firms: progress films and final reveal videos."
+        },
+        {
+          "title": "Page management",
+          "text": "Management of interior-design pages: content calendar, publishing, multilingual captions and monthly reports."
+        }
+      ],
+      "stages": [
+        "We study your plans, style, audience and the message the project must carry.",
+        "Moodboards, visual references, a script written from your inputs and a shot list.",
+        "3D scene set-up from your AutoCAD files, material and lighting choices, filming schedule and site permissions.",
+        "Modelling and rendering in 3ds Max or Blender, plus on-site filming with cinema cameras, gimbals and lighting.",
+        "Editing in Adobe Premiere Pro, colour grading, sound design, motion graphics and animated titles.",
+        "Final files in every required format, revisions included, and a plan to publish and promote the project."
+      ],
+      "tools": "AutoCAD · 3ds Max · Blender · V-Ray · Corona · Adobe Premiere Pro · After Effects · DaVinci Resolve · engineering and BIM programs"
+    },
+    {
+      "id": "hotel",
+      "headline": "Make guests feel the stay before they book it.",
+      "intro": [
+        "Hotels, resorts and restaurants sell an experience. We capture it in films and images that show the light in the lobby, the view from the room, the taste of the table and the rhythm of the service, so that a guest in another country can feel the stay before booking it.",
+        "We create content for hotels, resorts, restaurants, cafés and event venues in Dubai and across the Gulf, and we manage their pages so that the experience is shown every day, not only at launch."
+      ],
+      "services": [
+        {
+          "title": "Property films",
+          "text": "Cinematic films of rooms, suites, pools, spas and common areas with drone and gimbal movement."
+        },
+        {
+          "title": "Food and beverage content",
+          "text": "Close-up, appetising films and photography of menus, chefs and signature dishes."
+        },
+        {
+          "title": "Events and weddings",
+          "text": "Coverage and highlight films of events, launches and celebrations."
+        },
+        {
+          "title": "360° and virtual tours",
+          "text": "Immersive tours for booking pages and travel agents."
+        },
+        {
+          "title": "Page management",
+          "text": "Management of hotel and restaurant pages: calendar, reels, stories, replies and reports."
+        }
+      ],
+      "stages": [
+        "We study the property, the guest profile, the seasons and the competition.",
+        "Concept and script around the guest journey, a shot list for each space and a shooting plan around occupancy.",
+        "Coordination with the hotel team, styling of rooms and tables, permissions and the schedule.",
+        "Filming with cinema cameras, gimbals, drones and professional lighting, at the best light of the day.",
+        "Editing, colour, music, titles in several languages and versions for web, screens and social.",
+        "Delivery and publishing, with seasonal content ideas and monthly reports."
+      ],
+      "tools": "Cinema cameras · gimbals · drones · 360° cameras · Adobe Premiere Pro · After Effects · Lightroom"
+    },
+    {
+      "id": "beauty",
+      "headline": "Luxury you can almost smell.",
+      "intro": [
+        "Perfume and beauty are sold through sensation. We translate scent, texture and glow into images and film: slow macro on the bottle, liquid and light in motion, skin and fabric in soft focus, and CGI products that no studio could build in real life.",
+        "We work with fragrance houses, cosmetics brands, salons and clinics to create campaign films, product visuals and social content with the elegance of the category."
+      ],
+      "services": [
+        {
+          "title": "Macro and liquid cinematography",
+          "text": "High-speed and macro filming of bottles, droplets, powders and creams."
+        },
+        {
+          "title": "Campaign films",
+          "text": "Cinematic brand films with models, styling and art direction."
+        },
+        {
+          "title": "CGI product visuals",
+          "text": "Photoreal 3D bottles and packaging with impossible light and motion."
+        },
+        {
+          "title": "Influencer and social content",
+          "text": "Unboxing, tutorials and reels, produced in a consistent brand style."
+        },
+        {
+          "title": "Page management",
+          "text": "Management of brand and salon pages: calendar, publishing, replies and monthly reports."
+        }
+      ],
+      "stages": [
+        "We study the brand, the fragrance or product story, the buyer and the competitors.",
+        "Concept, mood and colour palette, script for the film and a detailed shot list.",
+        "Art direction, props, models, studio set and lighting design.",
+        "Filming with macro and high-speed cameras; CGI is built and rendered in parallel.",
+        "Editing, retouching, colour grading, sound design and music.",
+        "Delivery for e-commerce, retail screens and social platforms with a launch plan."
+      ],
+      "tools": "Macro and high-speed cameras · studio lighting · 3ds Max · Blender · Adobe Premiere Pro · After Effects · Photoshop"
+    },
+    {
+      "id": "social",
+      "headline": "Content that earns attention every day.",
+      "intro": [
+        "Social media rewards consistency and craft. We plan, produce and publish the content that keeps your brand present: reels, stories, short videos, photography, carousels and captions, designed for each platform and written in the languages of your audience.",
+        "We can manage your pages completely or support your own team, with a content calendar, community replies, paid campaigns and a monthly report that shows what worked."
+      ],
+      "services": [
+        {
+          "title": "Reels, short video and stories",
+          "text": "Vertical, fast and branded video produced in batches to keep the feed alive."
+        },
+        {
+          "title": "Full page management",
+          "text": "Strategy, content calendar, publishing, replies and moderation on Instagram, TikTok, Facebook, LinkedIn, YouTube and X."
+        },
+        {
+          "title": "Paid social campaigns",
+          "text": "Creative, targeting and optimisation of ads on Meta, TikTok, Google and LinkedIn."
+        },
+        {
+          "title": "Multilingual content",
+          "text": "Captions and subtitles in Arabic, English, Russian, Chinese and other languages."
+        },
+        {
+          "title": "Analytics and reporting",
+          "text": "A monthly report on reach, engagement, enquiries and recommendations."
+        }
+      ],
+      "stages": [
+        "We audit your pages, your competitors and your audience, and set measurable goals.",
+        "Strategy, content pillars, tone of voice and a monthly content calendar.",
+        "Shooting days, templates, design systems and approval workflow.",
+        "Producing the videos, photos and designs in batches, ready for scheduling.",
+        "Editing, subtitles, captions and quality control before every post.",
+        "Publishing, community management, ad optimisation and monthly reports."
+      ],
+      "tools": "Meta Business Suite · TikTok · LinkedIn · YouTube Studio · Adobe Premiere Pro · After Effects · Photoshop · scheduling and analytics tools"
+    }
+  ]
 }

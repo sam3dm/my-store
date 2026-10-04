@@ -30,9 +30,8 @@ export interface SeoRoute {
 }
 
 const LANGS = [
-  'en', 'ar', 'ru', 'fr', 'de',
-  'zh-CN', 'ja', 'hi', 'es', 'nl-BE',
-  'pt', 'it', 'tr', 'ko',
+  'en', 'ar', 'ru', 'zh-CN', 'tr',
+  'fr', 'it', 'es', 'hi',
 ] as const;
 
 const LASTMOD = '2026-09-18';
@@ -58,7 +57,7 @@ function langRoutes(
 export const seoRoutes: SeoRoute[] = [
   // NOTE: The root path "/" is a redirect to /en and is intentionally excluded
   // from the sitemap — search engines should index the canonical /en URL, not
-  // the redirect. All 14 language homepages are listed below.
+  // the redirect. All 9 language homepages are listed below.
 
   // ── Homepages (/:lang) ─────────────────────────────────────────────────────
   ...langRoutes('', 1.0, 'weekly'),

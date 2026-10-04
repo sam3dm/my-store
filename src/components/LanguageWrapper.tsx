@@ -7,7 +7,7 @@
  */
 
 import { useEffect } from 'react';
-import { useParams, Navigate } from 'react-router';
+import { useParams, Navigate, useLocation } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { isLanguageSupported, getLanguage, defaultLanguage } from '../lib/i18n/config';
 
@@ -18,6 +18,7 @@ interface LanguageWrapperProps {
 export default function LanguageWrapper({ children }: LanguageWrapperProps) {
   const { lang } = useParams<{ lang: string }>();
   const { i18n } = useTranslation();
+  const location = useLocation();
 
   useEffect(() => {
     if (lang && isLanguageSupported(lang)) {
@@ -32,7 +33,9 @@ export default function LanguageWrapper({ children }: LanguageWrapperProps) {
   }, [lang, i18n]);
 
   if (lang && !isLanguageSupported(lang)) {
-    return <Navigate to={`/${defaultLanguage}`} replace />;
+    // Retired language codes (e.g. /de/about) land on the same page in the default language.
+    const rest = location.pathname.replace(/^\/[^/]+/, '');
+    return <Navigate to={`/${defaultLanguage}${rest}${location.search}`} replace />;
   }
 
   return <>{children}</>;

@@ -115,6 +115,22 @@
       "label": "Integrated Digital Advertising"
     },
     {
+      "id": "s-20",
+      "label": "AI Websites & Web Applications"
+    },
+    {
+      "id": "s-21",
+      "label": "AI Chatbots & Business Agents"
+    },
+    {
+      "id": "s-22",
+      "label": "CRM & WhatsApp Automation"
+    },
+    {
+      "id": "s-23",
+      "label": "Custom AI Systems for Business"
+    },
+    {
       "id": "s-16",
       "label": "Other / Not Listed"
     }
@@ -165,7 +181,7 @@
   ],
   "privacy": {
     "text": "I agree to the collection and processing of my personal data in accordance with Metropolitan Digital Marketing's privacy policy.",
-    "note": "Your information is kept strictly confidential and never shared with third parties."
+    "note": "Your information is kept strictly confidential and never shared with third parties. The chat assistant may use a secure AI service to compose its replies; chat messages are not stored."
   },
   "success": {
     "headline": "Message Received.",
@@ -174,5 +190,11 @@
   },
   "footer": {
     "copyright": "© METROPOLITAN DIGITAL MARKETING. ALL RIGHTS RESERVED."
+  },
+  "hours": {
+    "label": "Working hours",
+    "days": "Monday – Friday",
+    "time": "9:00 AM – 7:00 PM (UAE time)",
+    "closed": "Saturday & Sunday: closed"
   }
 }

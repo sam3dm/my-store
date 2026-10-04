@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { Helmet } from '@dr.pogodin/react-helmet';
 import { motion, useInView } from 'motion/react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import { about } from 'virtual:content';
+import { useLocalizedContent } from '@/lib/i18n/content';
 import { useTranslation } from 'react-i18next';
 import { getPageSeo, getCanonicalUrl, SITE_URL, OG_IMAGE } from '@/lib/seo-meta';
 import { buildHreflangLinks } from '@/lib/hreflang';
@@ -73,7 +73,8 @@ function SectionHeading({
 }
 
 export default function AboutPage() {
-  const { i18n } = useTranslation();
+  const about = useLocalizedContent('about');
+  const { t, i18n } = useTranslation();
   const lang = i18n.language || 'en';
   const seo = getPageSeo('about', lang);
   const canonicalUrl = getCanonicalUrl('about', lang);
@@ -117,11 +118,11 @@ export default function AboutPage() {
         <section
           className="relative w-full overflow-hidden flex items-end"
           style={{ minHeight: '70vh', background: `hsl(var(--metro-black))` }}
-          aria-label="About hero"
+          aria-label={t('aria.aboutHero')}
         >
           <img
             src="/airo-assets/images/pages/about/hero"
-            alt="Metropolitan Digital Marketing production studio"
+            alt={t('aria.altProductionStudio')}
             className="absolute inset-0 w-full h-full object-cover"
             loading="eager"
             fetchPriority="high"
@@ -182,7 +183,7 @@ export default function AboutPage() {
         <section
           className="py-xxl"
           style={{ background: `hsl(var(--metro-charcoal-deep))` }}
-          aria-label="Our story"
+          aria-label={t('aria.story')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -212,7 +213,7 @@ export default function AboutPage() {
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
                     src="/airo-assets/images/pages/about/story"
-                    alt="Metropolitan Digital Marketing creative team"
+                    alt={t('aria.altCreativeTeam')}
                     className="w-full h-full object-cover"
                     loading="lazy"
                     width={900}
@@ -233,7 +234,7 @@ export default function AboutPage() {
         <section
           className="py-xxl"
           style={{ background: `hsl(var(--metro-black))` }}
-          aria-label="Vision and mission"
+          aria-label={t('aria.visionMission')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: `hsl(var(--metro-border-subtle) / 0.07)` }}>
@@ -295,7 +296,7 @@ export default function AboutPage() {
         <section
           className="py-xxl"
           style={{ background: `hsl(var(--metro-charcoal-deep))` }}
-          aria-label="Our expertise"
+          aria-label={t('aria.expertise')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -304,7 +305,7 @@ export default function AboutPage() {
                 <div className="relative aspect-[4/3] overflow-hidden lg:sticky lg:top-28">
                   <img
                     src="/airo-assets/images/pages/about/expertise"
-                    alt="Metropolitan Digital Marketing production expertise"
+                    alt={t('aria.altProductionExpertise')}
                     className="w-full h-full object-cover"
                     loading="lazy"
                     width={900}
@@ -383,7 +384,7 @@ export default function AboutPage() {
         <section
           className="py-xxl"
           style={{ background: `hsl(var(--metro-black))` }}
-          aria-label="Healthcare specialisation"
+          aria-label={t('aria.healthcare')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -435,7 +436,7 @@ export default function AboutPage() {
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
                     src="/airo-assets/images/pages/about/medical"
-                    alt="Healthcare content creation with qualified medical professionals"
+                    alt={t('aria.altHealthcare')}
                     className="w-full h-full object-cover"
                     loading="lazy"
                     width={900}
@@ -456,7 +457,7 @@ export default function AboutPage() {
         <section
           className="py-xxl"
           style={{ background: `hsl(var(--metro-charcoal-deep))` }}
-          aria-label="Our creative process"
+          aria-label={t('aria.creativeProcess')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -472,7 +473,7 @@ export default function AboutPage() {
                   <div className="relative aspect-[4/3] overflow-hidden mt-10">
                     <img
                       src="/airo-assets/images/pages/about/process"
-                      alt="Metropolitan creative process"
+                      alt={t('aria.altCreativeProcess')}
                       className="w-full h-full object-cover"
                       loading="lazy"
                       width={900}
@@ -535,7 +536,7 @@ export default function AboutPage() {
         <section
           className="py-xxl"
           style={{ background: `hsl(var(--metro-black))` }}
-          aria-label="Why choose Metropolitan"
+          aria-label={t('aria.whyChoose')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
             <FadeIn>
@@ -590,7 +591,7 @@ export default function AboutPage() {
         <section
           className="py-xxl"
           style={{ background: `hsl(var(--metro-charcoal-deep))` }}
-          aria-label="Contact call to action"
+          aria-label={t('aria.contactCta')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10 text-center flex flex-col items-center">
             <FadeIn>

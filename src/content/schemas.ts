@@ -47,6 +47,12 @@ export const schemas = {
         "country": z.string(),
         "detail": z.string()
       }),
+      "hours": z.object({
+        "label": z.string(),
+        "days": z.string(),
+        "time": z.string(),
+        "closed": z.string()
+      }),
       "social": z.object({
         "instagram": z.object({
           "label": z.string(),
@@ -208,6 +214,26 @@ export const schemas = {
         "label": z.string(),
         "type": z.string()
       })),
+      "guideUi": z.object({
+        "eyebrow": z.string(),
+        "servicesTitle": z.string(),
+        "stagesTitle": z.string(),
+        "toolsTitle": z.string(),
+        "stageNames": z.array(z.string()),
+        "ctaLabel": z.string(),
+        "selectedWork": z.string()
+      }),
+      "guides": z.array(z.object({
+        "id": z.string(),
+        "headline": z.string(),
+        "intro": z.array(z.string()),
+        "services": z.array(z.object({
+          "title": z.string(),
+          "text": z.string()
+        })),
+        "stages": z.array(z.string()),
+        "tools": z.string()
+      })),
       "cta": z.object({
         "eyebrow": z.string(),
         "headline": z.string(),
@@ -224,17 +250,39 @@ export const schemas = {
       "gallery": z.object({
         "eyebrow": z.string(),
         "heading": z.string(),
-        "disclaimer": z.string()
+        "disclaimer": z.string(),
+        "items": z.array(z.object({
+          "id": z.string(),
+          "slot": z.string(),
+          "number": z.string(),
+          "title": z.string(),
+          "service": z.string(),
+          "description": z.string(),
+          "tags": z.array(z.string()),
+          "note": z.string()
+        }))
       }),
       "process": z.object({
         "eyebrow": z.string(),
-        "heading": z.string()
+        "heading": z.string(),
+        "steps": z.array(z.object({
+          "id": z.string(),
+          "step": z.string(),
+          "title": z.string(),
+          "body": z.string()
+        }))
       }),
       "services": z.object({
         "eyebrow": z.string(),
         "heading": z.string(),
-        "body": z.string()
+        "body": z.string(),
+        "items": z.array(z.object({
+          "id": z.string(),
+          "title": z.string(),
+          "description": z.string()
+        }))
       }),
+      "capabilities": z.array(z.string()),
       "cta": z.object({
         "eyebrow": z.string(),
         "heading": z.string(),

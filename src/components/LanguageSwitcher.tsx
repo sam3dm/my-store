@@ -10,8 +10,8 @@ import { useNavigate, useLocation } from 'react-router';
 import { Globe, ChevronDown } from 'lucide-react';
 import { supportedLanguages, type Language } from '../lib/i18n/config';
 
-export default function LanguageSwitcher() {
-  const { i18n } = useTranslation();
+export default function LanguageSwitcher({ showLabel = false }: { showLabel?: boolean }) {
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
   const [open, setOpen] = useState(false);
@@ -60,7 +60,7 @@ export default function LanguageSwitcher() {
         onClick={() => setOpen((v) => !v)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        aria-label={`Language: ${currentLang.nativeName}`}
+        aria-label={t('ui.currentLanguage', { name: currentLang.nativeName })}
         className="flex items-center gap-1.5 px-2.5 py-1.5 transition-all duration-200 focus:outline-none focus-visible:ring-1"
         style={{
           color: `hsl(var(--metro-white) / 0.7)`,
@@ -81,9 +81,20 @@ export default function LanguageSwitcher() {
         }}
       >
         <Globe size={13} strokeWidth={1.5} />
-        <span className="hidden sm:inline uppercase tracking-widest" style={{ fontSize: '0.65rem' }}>
-          {currentLang.code.toUpperCase()}
-        </span>
+        {showLabel ? (
+          <>
+            <span className="hidden min-[370px]:inline" style={{ fontSize: '0.7rem' }}>
+              {t('ui.language')}
+            </span>
+            <span className="min-[370px]:hidden uppercase tracking-widest" style={{ fontSize: '0.65rem' }}>
+              {currentLang.code.toUpperCase()}
+            </span>
+          </>
+        ) : (
+          <span className="hidden sm:inline uppercase tracking-widest" style={{ fontSize: '0.65rem' }}>
+            {currentLang.code.toUpperCase()}
+          </span>
+        )}
         <ChevronDown
           size={10}
           strokeWidth={2}
@@ -98,8 +109,8 @@ export default function LanguageSwitcher() {
       {open && (
         <div
           role="listbox"
-          aria-label="Select language"
-          className="absolute right-0 mt-1 overflow-hidden"
+          aria-label={t('ui.selectLanguage')}
+          className="absolute end-0 mt-1 overflow-hidden"
           style={{
             background: `hsl(var(--metro-black))`,
             border: `1px solid hsl(var(--metro-white) / 0.12)`,
@@ -117,7 +128,7 @@ export default function LanguageSwitcher() {
                 role="option"
                 aria-selected={isActive}
                 onClick={() => handleSelect(lang)}
-                className="w-full flex items-center justify-between px-4 py-2.5 text-left transition-all duration-150 focus:outline-none"
+                className="w-full flex items-center justify-between gap-6 px-4 py-3 text-start transition-all duration-150 focus:outline-none"
                 style={{
                   background: isActive ? `hsl(var(--metro-white) / 0.06)` : 'transparent',
                   color: isActive ? `hsl(var(--metro-white))` : `hsl(var(--metro-white) / 0.55)`,

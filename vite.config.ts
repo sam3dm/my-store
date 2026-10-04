@@ -1,7 +1,6 @@
-// This project was exported from Airo. These plugins only exist inside Airo and were
-// removed, but this file still references them: sourceMapperPlugin, devToolsPlugin, fullStoryPlugin, errorInterceptorPlugin, mediaVersionsPlugin, hmrGatePlugin.
-// Delete those references before running or building this project.
-import { defineConfig, type Plugin, type ViteDevServer, mergeConfig as mergeViteConfig } from "vite";
+// Airo-only plugins (sourceMapper, devTools, fullStory, errorInterceptor, mediaVersions, hmrGate)
+// were removed so the project builds outside Airo.
+import { defineConfig, type Plugin, type ViteDevServer } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 import { existsSync, statSync } from "node:fs";
@@ -15,6 +14,7 @@ import { URL } from "node:url";
 
 import { formatOverridesPlugin } from "./export-plugins/format-overrides-plugin.ts";
 import { contentPlugin } from "./export-plugins/content-plugin/index.ts";
+import { mediaAssetsPlugin } from "./export-plugins/media-assets-plugin.ts";
 
 function extractHostname(value: string): string {
   try {
@@ -340,13 +340,9 @@ if (corsOrigins.length === 0) {
 export default defineConfig(({
   mode,
   isSsrBuild
-}) => ((configValue, mergeResolvedConfig) => typeof configValue === "function" ? async (...configArgs) => mergeResolvedConfig(await configValue(...configArgs)) : (async () => mergeResolvedConfig(await configValue))())({
+}) => ({
   envPrefix: ["VITE_", "SITE_"],
-  plugins: [react({
-    babel: {
-      plugins: [sourceMapperPlugin]
-    }
-  }), ssrCjsCompatPlugin(), ssrDevPlugin(), worktreePreviewPlugin(), apiDevPlugin(), formatOverridesPlugin(__dirname), contentPlugin(), ...(mode === "development" ? [devToolsPlugin() as Plugin, fullStoryPlugin(), errorInterceptorPlugin(), mediaVersionsPlugin() as Plugin] : [])],
+  plugins: [react(), ssrCjsCompatPlugin(), ssrDevPlugin(), worktreePreviewPlugin(), apiDevPlugin(), formatOverridesPlugin(__dirname), mediaAssetsPlugin(), contentPlugin()],
   resolve: {
     dedupe: ["react", "react-dom", "react-router"],
     alias: {
@@ -426,6 +422,4 @@ export default defineConfig(({
       }
     }
   }
-}, (resolvedConfig) => mergeViteConfig(resolvedConfig, {
-  plugins: [hmrGatePlugin()]
-})));
+}));

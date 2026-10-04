@@ -1,8 +1,9 @@
 import { useRef, useState, useCallback, useEffect } from 'react';
+import { useSearchParams } from 'react-router';
 import { Helmet } from '@dr.pogodin/react-helmet';
 import { motion, useInView, AnimatePresence } from 'motion/react';
 import { ArrowRight, X, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
-import { portfolio } from 'virtual:content';
+import { useLocalizedContent } from '@/lib/i18n/content';
 import { useTranslation } from 'react-i18next';
 import { getPageSeo, getCanonicalUrl, SITE_URL, OG_IMAGE } from '@/lib/seo-meta';
 import { buildHreflangLinks } from '@/lib/hreflang';
@@ -36,6 +37,15 @@ function FadeIn({
   );
 }
 
+type PortfolioItem = {
+  id: string;
+  category: string;
+  slot: string;
+  title: string;
+  label: string;
+  type: string;
+};
+
 // ─── Lightbox ─────────────────────────────────────────────────────────────────
 function Lightbox({
   items,
@@ -44,12 +54,13 @@ function Lightbox({
   onPrev,
   onNext,
 }: {
-  items: typeof portfolio.items;
+  items: PortfolioItem[];
   activeIndex: number;
   onClose: () => void;
   onPrev: () => void;
   onNext: () => void;
 }) {
+  const { t } = useTranslation();
   const item = items[activeIndex];
 
   useEffect(() => {
@@ -78,14 +89,14 @@ function Lightbox({
       onClick={onClose}
       role="dialog"
       aria-modal="true"
-      aria-label={`Viewing: ${item.title}`}
+      aria-label={t('ui.viewing', { title: item.title })}
     >
       {/* Close */}
       <button
         className="absolute top-5 right-5 z-10 p-2 transition-opacity duration-200 hover:opacity-70"
         style={{ color: `hsl(var(--metro-white))` }}
         onClick={onClose}
-        aria-label="Close lightbox"
+        aria-label={t('ui.closeLightbox')}
       >
         <X size={24} />
       </button>
@@ -99,7 +110,7 @@ function Lightbox({
           background: `hsl(var(--metro-black) / 0.6)`,
         }}
         onClick={(e) => { e.stopPropagation(); onPrev(); }}
-        aria-label="Previous image"
+        aria-label={t('ui.previousImage')}
       >
         <ChevronLeft size={22} />
       </button>
@@ -113,7 +124,7 @@ function Lightbox({
           background: `hsl(var(--metro-black) / 0.6)`,
         }}
         onClick={(e) => { e.stopPropagation(); onNext(); }}
-        aria-label="Next image"
+        aria-label={t('ui.nextImage')}
       >
         <ChevronRight size={22} />
       </button>
@@ -250,9 +261,147 @@ function HoverCard({
   );
 }
 
+
+// ─── Category guide (intro + services + stages) ───────────────────────────────
+type Guide = {
+  id: string;
+  headline: string;
+  intro: string[];
+  services: { title: string; text: string }[];
+  stages: string[];
+  tools: string;
+};
+type GuideUi = {
+  eyebrow: string;
+  servicesTitle: string;
+  stagesTitle: string;
+  toolsTitle: string;
+  stageNames: string[];
+  ctaLabel: string;
+  selectedWork: string;
+};
+
+function CategoryGuide({ guide, ui, label }: { guide: Guide; ui: GuideUi; label: string }) {
+  const muted = `hsl(var(--metro-white) / 0.55)`;
+  const line = `1px solid hsl(var(--metro-white) / 0.1)`;
+  return (
+    <motion.div
+      key={guide.id}
+      initial={{ opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeOut' as const }}
+      className="mb-16"
+      style={{ borderBottom: line, paddingBottom: '4rem' }}
+    >
+      <p
+        className="text-xs font-semibold tracking-[0.28em] uppercase mb-4"
+        style={{ color: `hsl(var(--metro-white) / 0.4)` }}
+      >
+        {ui.eyebrow} — {label}
+      </p>
+      <h2
+        className="font-black uppercase leading-tight mb-8"
+        style={{
+          fontFamily: 'var(--font-heading)',
+          fontSize: 'clamp(1.8rem, 3.8vw, 3.4rem)',
+          color: `hsl(var(--metro-white))`,
+          letterSpacing: '-0.015em',
+          maxWidth: '960px',
+        }}
+      >
+        {guide.headline}
+      </h2>
+      <div className="space-y-5 mb-14" style={{ maxWidth: '860px' }}>
+        {guide.intro.map((para, i) => (
+          <p key={i} className="text-base leading-[1.85]" style={{ color: muted }}>
+            {para}
+          </p>
+        ))}
+      </div>
+
+      <h3
+        className="text-xs font-semibold tracking-[0.25em] uppercase mb-6"
+        style={{ color: `hsl(var(--metro-white) / 0.75)` }}
+      >
+        {ui.servicesTitle}
+      </h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-14">
+        {guide.services.map((svc, i) => (
+          <div
+            key={i}
+            className="p-6"
+            style={{ border: line, background: `hsl(var(--metro-white) / 0.025)` }}
+          >
+            <p
+              className="font-black uppercase text-sm mb-3 leading-snug"
+              style={{ fontFamily: 'var(--font-heading)', color: `hsl(var(--metro-white))` }}
+            >
+              {svc.title}
+            </p>
+            <p className="text-sm leading-relaxed" style={{ color: muted }}>
+              {svc.text}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <h3
+        className="text-xs font-semibold tracking-[0.25em] uppercase mb-6"
+        style={{ color: `hsl(var(--metro-white) / 0.75)` }}
+      >
+        {ui.stagesTitle}
+      </h3>
+      <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+        {guide.stages.map((text, i) => (
+          <li
+            key={i}
+            className="p-6 list-none"
+            style={{ borderTop: `2px solid hsl(var(--metro-white) / 0.28)`, background: `hsl(var(--metro-white) / 0.02)` }}
+          >
+            <p
+              className="text-xs font-semibold tracking-[0.2em] uppercase mb-2"
+              style={{ color: `hsl(var(--metro-white) / 0.4)` }}
+            >
+              {String(i + 1).padStart(2, '0')}
+            </p>
+            <p
+              className="font-black uppercase text-sm mb-2"
+              style={{ fontFamily: 'var(--font-heading)', color: `hsl(var(--metro-white))` }}
+            >
+              {ui.stageNames[i]}
+            </p>
+            <p className="text-sm leading-relaxed" style={{ color: muted }}>
+              {text}
+            </p>
+          </li>
+        ))}
+      </ol>
+
+      <p className="text-xs leading-relaxed mb-8" style={{ color: `hsl(var(--metro-white) / 0.4)`, maxWidth: '860px' }}>
+        <span className="font-semibold uppercase tracking-[0.15em]" style={{ color: `hsl(var(--metro-white) / 0.6)` }}>
+          {ui.toolsTitle}:
+        </span>{' '}
+        {guide.tools}
+      </p>
+
+      <a
+        href={waLink()}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-3 px-8 py-3 text-xs font-semibold tracking-[0.18em] uppercase"
+        style={{ background: `hsl(var(--metro-white))`, color: `hsl(var(--metro-black))` }}
+      >
+        {ui.ctaLabel}
+        <ArrowRight size={14} />
+      </a>
+    </motion.div>
+  );
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function PortfolioPage() {
-  const { i18n } = useTranslation();
+  const portfolio = useLocalizedContent('portfolio');
+  const { t, i18n } = useTranslation();
   const lang = i18n.language || 'en';
   const seo = getPageSeo('portfolio', lang);
   const canonicalUrl = getCanonicalUrl('portfolio', lang);
@@ -269,7 +418,11 @@ export default function PortfolioPage() {
     about: { '@id': `${SITE_URL}/#organization` },
   };
 
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [searchParams] = useSearchParams();
+  const initialCategory = searchParams.get('c') ?? 'all';
+  const [activeCategory, setActiveCategory] = useState(
+    portfolio.categories.some((c) => c.id === initialCategory) ? initialCategory : 'all',
+  );
   // lightboxIndex refers to the index within the FULL items array
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
@@ -283,7 +436,7 @@ export default function PortfolioPage() {
     const item = visibleItems[visibleIdx];
     const fullIdx = portfolio.items.findIndex((i) => i.id === item.id);
     setLightboxIndex(fullIdx);
-  }, [visibleItems]);
+  }, [visibleItems, portfolio.items]);
 
   const closeLightbox = useCallback(() => setLightboxIndex(null), []);
 
@@ -297,7 +450,7 @@ export default function PortfolioPage() {
       const prevItem = visibleItems[prevVis];
       return portfolio.items.findIndex((i) => i.id === prevItem.id);
     });
-  }, [visibleItems]);
+  }, [visibleItems, portfolio.items]);
 
   const nextImage = useCallback(() => {
     setLightboxIndex((fullIdx) => {
@@ -308,7 +461,7 @@ export default function PortfolioPage() {
       const nextItem = visibleItems[nextVis];
       return portfolio.items.findIndex((i) => i.id === nextItem.id);
     });
-  }, [visibleItems]);
+  }, [visibleItems, portfolio.items]);
 
   // Lightbox active index within visible items (for counter display)
   const lightboxVisibleIndex = lightboxIndex === null
@@ -355,7 +508,7 @@ export default function PortfolioPage() {
         <section
           className="relative w-full overflow-hidden flex items-end"
           style={{ minHeight: '62vh', background: `hsl(var(--metro-black))` }}
-          aria-label="Portfolio hero"
+          aria-label={t('aria.portfolioHero')}
         >
           <img
             src="/airo-assets/images/pages/portfolio/cinematic-03"
@@ -429,7 +582,7 @@ export default function PortfolioPage() {
               className="flex gap-2 overflow-x-auto pb-1"
               style={{ scrollbarWidth: 'none' } as React.CSSProperties}
               role="group"
-              aria-label="Filter portfolio by category"
+              aria-label={t('aria.portfolioFilter')}
             >
               {portfolio.categories.map((cat) => {
                 const isActive = activeCategory === cat.id;
@@ -461,9 +614,16 @@ export default function PortfolioPage() {
         <section
           className="py-xxl"
           style={{ background: `hsl(var(--metro-black))` }}
-          aria-label="Portfolio gallery"
+          aria-label={t('aria.portfolioGallery')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+
+            {/* Category guide — intro, detailed services and production stages */}
+            {activeCategory !== 'all' && (() => {
+              const guide = portfolio.guides.find((g) => g.id === activeCategory);
+              const label = portfolio.categories.find((c) => c.id === activeCategory)?.label ?? '';
+              return guide ? <CategoryGuide guide={guide} ui={portfolio.guideUi} label={label} /> : null;
+            })()}
 
             {/* Result count — driven by visible count */}
             <FadeIn>
@@ -471,8 +631,7 @@ export default function PortfolioPage() {
                 className="text-xs font-semibold tracking-[0.2em] uppercase mb-10"
                 style={{ color: `hsl(var(--metro-white) / 0.3)` }}
               >
-                <span>{visibleItems.length}</span>
-                <span> {visibleItems.length === 1 ? 'Work' : 'Works'}</span>
+                <span>{t('ui.workCount', { count: visibleItems.length })}</span>
                 {activeCategory !== 'all' && (
                   <span style={{ color: `hsl(var(--metro-white) / 0.18)` }}>
                     <span> — </span>
@@ -574,9 +733,9 @@ export default function PortfolioPage() {
                 className="font-semibold uppercase tracking-[0.12em]"
                 style={{ color: `hsl(var(--metro-white) / 0.4)` }}
               >
-                Note:
+                {t('ui.note')}
               </span>
-              {' '}Images labelled "Creative Concept" or "Concept Visualisation" are illustrative representations of Metropolitan's production capabilities and creative direction. They do not represent specific completed client projects. Client work is available for viewing under NDA upon request.
+              {' '}{t('ui.portfolioNote')}
             </p>
           </div>
         </div>
@@ -585,7 +744,7 @@ export default function PortfolioPage() {
         <section
           className="py-xxl relative overflow-hidden"
           style={{ background: `hsl(var(--metro-black))` }}
-          aria-label="Contact call to action"
+          aria-label={t('aria.contactCta')}
         >
           {/* Ghost watermark */}
           <span
@@ -600,7 +759,7 @@ export default function PortfolioPage() {
             }}
             aria-hidden="true"
           >
-            Portfolio
+            {t('nav.portfolio')}
           </span>
 
           <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 flex flex-col items-center text-center">

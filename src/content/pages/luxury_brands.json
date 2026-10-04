@@ -7,16 +7,216 @@
   "gallery": {
     "eyebrow": "Production Showcase",
     "heading": "CREATIVE CAPABILITIES",
-    "disclaimer": "The following visuals represent the production services and creative capabilities we apply to luxury brand campaigns. All images are conceptual production references — not client deliverables."
+    "disclaimer": "The following visuals represent the production services and creative capabilities we apply to luxury brand campaigns. All images are conceptual production references — not client deliverables.",
+    "items": [
+      {
+        "id": "lux-g-01",
+        "slot": "/airo-assets/images/pages/luxury-brands/gallery-watch-macro",
+        "number": "01",
+        "title": "Precision in Every Frame",
+        "service": "Cinematic Product Photography",
+        "description": "Ultra-close macro cinematography reveals the intricate mechanical soul of a luxury timepiece. Every gear, jewel and surface is captured with surgical precision under controlled dramatic lighting — communicating craftsmanship before a single word is read.",
+        "tags": [
+          "Macro Photography",
+          "Cinematic Lighting",
+          "Product Direction"
+        ],
+        "note": "Conceptual production visual"
+      },
+      {
+        "id": "lux-g-02",
+        "slot": "/airo-assets/images/pages/luxury-brands/gallery-diamond-ring",
+        "number": "02",
+        "title": "The Weight of Desire",
+        "service": "Luxury Jewellery Photography",
+        "description": "A single diamond ring against pure black — the composition strips away distraction and lets the stone speak. Precision lighting sculpts every facet, creating the visual tension that transforms a product image into a desire object.",
+        "tags": [
+          "Fine Jewellery",
+          "Studio Photography",
+          "Advertising Composition"
+        ],
+        "note": "Conceptual production visual"
+      },
+      {
+        "id": "lux-g-03",
+        "slot": "/airo-assets/images/pages/luxury-brands/gallery-jewellery-necklace",
+        "number": "03",
+        "title": "Worn with Intention",
+        "service": "Editorial Campaign Production",
+        "description": "Premium jewellery advertising requires more than product placement — it demands narrative. Our editorial campaigns position fine pieces within aspirational lifestyle contexts, connecting the brand to the identity and values of its audience.",
+        "tags": [
+          "Editorial Photography",
+          "Campaign Direction",
+          "Lifestyle Styling"
+        ],
+        "note": "Conceptual production visual"
+      },
+      {
+        "id": "lux-g-04",
+        "slot": "/airo-assets/images/pages/luxury-brands/gallery-perfume-bottle",
+        "number": "04",
+        "title": "Invisible Made Visible",
+        "service": "Fragrance Advertising Production",
+        "description": "Fragrance is invisible — its advertising must do the impossible. We translate scent into image through glass, light, reflection and atmosphere. Every bottle becomes a sculpture; every frame, an invitation to experience something beyond the visual.",
+        "tags": [
+          "Fragrance Photography",
+          "Glass & Reflection",
+          "Atmospheric Lighting"
+        ],
+        "note": "Conceptual production visual"
+      },
+      {
+        "id": "lux-g-05",
+        "slot": "/airo-assets/images/pages/luxury-brands/gallery-watch-cgi",
+        "number": "05",
+        "title": "Beyond the Physical",
+        "service": "CGI Product Visualisation",
+        "description": "CGI liberates luxury product advertising from the constraints of physical photography. We build photorealistic digital environments where watches, jewellery and accessories can be presented with impossible perfection — angles, lighting and compositions that no camera can achieve.",
+        "tags": [
+          "CGI Production",
+          "3D Visualisation",
+          "Digital Art Direction"
+        ],
+        "note": "Conceptual CGI production visual"
+      },
+      {
+        "id": "lux-g-06",
+        "slot": "/airo-assets/images/pages/luxury-brands/gallery-diamond-earrings",
+        "number": "06",
+        "title": "Floating in Light",
+        "service": "3D Animation & Motion Production",
+        "description": "Floating product compositions create a sense of weightlessness and exclusivity that static photography cannot replicate. Our 3D animation team builds dynamic product reveals, rotating showcases and atmospheric motion sequences for digital campaigns and social media.",
+        "tags": [
+          "3D Animation",
+          "Motion Design",
+          "Social Media Production"
+        ],
+        "note": "Conceptual production visual"
+      },
+      {
+        "id": "lux-g-07",
+        "slot": "/airo-assets/images/pages/luxury-brands/gallery-perfume-gold-particles",
+        "number": "07",
+        "title": "Gold in Motion",
+        "service": "VFX & Post-Production",
+        "description": "Abstract particle systems, liquid simulations and atmospheric VFX transform fragrance advertising into cinematic art. Our post-production team composites physical and digital elements to create advertising visuals that stop the scroll and hold the gaze.",
+        "tags": [
+          "VFX Compositing",
+          "Particle Systems",
+          "Post-Production"
+        ],
+        "note": "Conceptual CGI production visual"
+      },
+      {
+        "id": "lux-g-08",
+        "slot": "/airo-assets/images/pages/luxury-brands/gallery-jewellery-editorial",
+        "number": "08",
+        "title": "The Story Behind the Stone",
+        "service": "Luxury Brand Storytelling",
+        "description": "The most powerful luxury advertising tells a story. Our creative directors develop narrative-led campaigns that connect fine jewellery and accessories to human emotion — love, legacy, identity and aspiration — creating content that resonates long after the impression.",
+        "tags": [
+          "Brand Storytelling",
+          "Creative Direction",
+          "Campaign Strategy"
+        ],
+        "note": "Conceptual production visual"
+      },
+      {
+        "id": "lux-g-09",
+        "slot": "/airo-assets/images/pages/luxury-brands/gallery-watch-3d-animation",
+        "number": "09",
+        "title": "Mechanism as Art",
+        "service": "Photorealistic 3D Animation",
+        "description": "The movement of a mechanical watch is one of the most compelling subjects in luxury advertising. Our 3D animation team recreates calibres with engineering accuracy, producing exploded views, slow-motion reveals and cinematic sequences that celebrate horological craftsmanship.",
+        "tags": [
+          "3D Animation",
+          "Mechanical Visualisation",
+          "Cinematic Reveal"
+        ],
+        "note": "Conceptual 3D animation visual"
+      },
+      {
+        "id": "lux-g-10",
+        "slot": "/airo-assets/images/pages/luxury-brands/gallery-fragrance-cinematic",
+        "number": "10",
+        "title": "The Signature Moment",
+        "service": "Integrated Luxury Advertising Campaign",
+        "description": "A complete luxury fragrance campaign integrates photography, CGI, motion, social media content and influencer production into a single coherent visual language. We manage the full creative and production pipeline — from concept and scriptwriting to final delivery across every platform.",
+        "tags": [
+          "Integrated Campaign",
+          "Multi-Platform Production",
+          "Social Media Management"
+        ],
+        "note": "Conceptual production visual"
+      }
+    ]
   },
   "process": {
     "eyebrow": "How We Work",
-    "heading": "THE PRODUCTION PROCESS"
+    "heading": "THE PRODUCTION PROCESS",
+    "steps": [
+      {
+        "id": "lux-s-01",
+        "step": "01",
+        "title": "Creative Strategy",
+        "body": "We begin with a deep understanding of your brand positioning, target audience and campaign objectives. Our creative directors develop a visual strategy that aligns with your brand identity and differentiates you within the luxury category."
+      },
+      {
+        "id": "lux-s-02",
+        "step": "02",
+        "title": "Concept & Direction",
+        "body": "Detailed moodboards, storyboards and production briefs are developed and presented for approval. Every visual decision — lighting, composition, colour palette, motion — is considered before a single frame is captured."
+      },
+      {
+        "id": "lux-s-03",
+        "step": "03",
+        "title": "Production & CGI",
+        "body": "Our production team executes the approved concept across photography, videography, CGI and 3D animation. We manage every technical and creative element in-house, ensuring consistency and quality at every stage."
+      },
+      {
+        "id": "lux-s-04",
+        "step": "04",
+        "title": "Delivery & Campaign",
+        "body": "Final assets are delivered in all required formats for digital, social media, print and broadcast. We also manage campaign distribution, social media scheduling and performance reporting for integrated campaigns."
+      }
+    ]
   },
   "services": {
     "eyebrow": "Digital Marketing",
     "heading": "LUXURY BRAND DIGITAL SERVICES",
-    "body": "Beyond production, we manage the complete digital presence of luxury brands across social media, paid advertising, influencer partnerships and content strategy. Our team understands the specific requirements of luxury communication — discretion, consistency, exclusivity and aspiration — and applies them across every platform and touchpoint."
+    "body": "Beyond production, we manage the complete digital presence of luxury brands across social media, paid advertising, influencer partnerships and content strategy. Our team understands the specific requirements of luxury communication — discretion, consistency, exclusivity and aspiration — and applies them across every platform and touchpoint.",
+    "items": [
+      {
+        "id": "lux-v-01",
+        "title": "Social media management",
+        "description": "Instagram, TikTok, YouTube, LinkedIn — content calendars, community management and analytics."
+      },
+      {
+        "id": "lux-v-02",
+        "title": "Paid social advertising",
+        "description": "Precision-targeted campaigns on Meta, TikTok and Google for luxury audiences."
+      },
+      {
+        "id": "lux-v-03",
+        "title": "Influencer & celebrity production",
+        "description": "End-to-end management of influencer partnerships and celebrity campaign production."
+      },
+      {
+        "id": "lux-v-04",
+        "title": "Content strategy",
+        "description": "Long-form brand storytelling, editorial series and campaign architecture."
+      },
+      {
+        "id": "lux-v-05",
+        "title": "Brand identity & design",
+        "description": "Visual identity systems, packaging design and brand guidelines for luxury products."
+      },
+      {
+        "id": "lux-v-06",
+        "title": "Website & digital experience",
+        "description": "Premium website design and development aligned with luxury brand standards."
+      }
+    ]
   },
   "cta": {
     "eyebrow": "Ready to Begin",
@@ -25,5 +225,17 @@
     "primaryButton": "Start Your Project",
     "secondaryButton": "Explore Services",
     "backLink": "← Back to All Industries"
-  }
+  },
+  "capabilities": [
+    "Luxury advertising production",
+    "Cinematic product photography",
+    "CGI product advertising",
+    "3D animation & motion",
+    "Creative direction",
+    "Advertising campaign design",
+    "Social media content creation",
+    "Influencer & celebrity campaign production",
+    "Premium brand storytelling",
+    "VFX & post-production"
+  ]
 }

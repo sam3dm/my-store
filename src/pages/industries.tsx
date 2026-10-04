@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { Helmet } from '@dr.pogodin/react-helmet';
 import { motion, useInView } from 'motion/react';
 import { ArrowRight, ChevronRight } from 'lucide-react';
-import { industries } from 'virtual:content';
+import { useLocalizedContent } from '@/lib/i18n/content';
 import { useTranslation } from 'react-i18next';
 import { getPageSeo, getCanonicalUrl, SITE_URL, OG_IMAGE } from '@/lib/seo-meta';
 import { buildHreflangLinks } from '@/lib/hreflang';
@@ -79,7 +79,8 @@ function HoverCard({ children }: { children: (hovered: boolean) => React.ReactNo
 }
 
 export default function IndustriesPage() {
-  const { i18n } = useTranslation();
+  const industries = useLocalizedContent('industries');
+  const { t, i18n } = useTranslation();
   const lang = i18n.language || 'en';
   const localizedPath = useLocalizedPath();
   const seo = getPageSeo('industries', lang);
@@ -124,7 +125,7 @@ export default function IndustriesPage() {
         <section
           className="relative w-full overflow-hidden flex items-end"
           style={{ minHeight: '65vh', background: `hsl(var(--metro-black))` }}
-          aria-label="Industries hero"
+          aria-label={t('aria.industriesHero')}
         >
           <img
             src="/airo-assets/images/pages/industries/luxury-brands"
@@ -197,11 +198,11 @@ export default function IndustriesPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {(
                 [
-                  { value: '18', label: 'Industries Served' },
-                  { value: '16', label: 'Creative Disciplines' },
-                  { value: '15+', label: 'Years of Expertise' },
-                  { value: 'Dubai', label: 'Headquartered' },
-                ] as const
+                  { value: '18', label: t('ui.statIndustries') },
+                  { value: '16', label: t('ui.statDisciplines') },
+                  { value: '15+', label: t('ui.statYears') },
+                  { value: t('ui.dubai'), label: t('ui.statHeadquartered') },
+                ]
               ).map((stat) => (
                 <div key={stat.label} className="flex flex-col gap-1">
                   <span
@@ -230,7 +231,7 @@ export default function IndustriesPage() {
         <section
           className="py-xxl"
           style={{ background: `hsl(var(--metro-black))` }}
-          aria-label="Industries grid"
+          aria-label={t('aria.industriesGrid')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -339,12 +340,12 @@ export default function IndustriesPage() {
                                   color: `hsl(var(--metro-black))`,
                                 }}
                               >
-                                View Industry
+                                {t('ui.viewIndustry')}
                                 <ArrowRight size={11} className="transition-transform duration-300 group-hover/l:translate-x-0.5" />
                               </Link>
                             )}
                             <Link
-                              to="/services"
+                              to={localizedPath('/services')}
                               className="inline-flex items-center gap-2 px-4 py-2.5 text-xs font-semibold tracking-[0.14em] uppercase transition-all duration-300 group/s"
                               style={{
                                 border: `1px solid hsl(var(--metro-white) / 0.18)`,
@@ -352,7 +353,7 @@ export default function IndustriesPage() {
                                 background: hovered ? `hsl(var(--metro-white) / 0.05)` : 'transparent',
                               }}
                             >
-                              Explore Services
+                              {t('ui.exploreServices')}
                               <ArrowRight size={11} className="transition-transform duration-300 group-hover/s:translate-x-0.5" />
                             </Link>
                             <a
@@ -365,7 +366,7 @@ export default function IndustriesPage() {
                                 color: `hsl(var(--metro-black))`,
                               }}
                             >
-                              Start Your Project
+                              {t('nav.startProject')}
                               <ArrowRight size={11} className="transition-transform duration-300 group-hover/c:translate-x-0.5" />
                             </a>
                           </div>
@@ -383,7 +384,7 @@ export default function IndustriesPage() {
         <section
           className="py-xxl relative overflow-hidden"
           style={{ background: `hsl(var(--metro-charcoal-deep))` }}
-          aria-label="Contact call to action"
+          aria-label={t('aria.contactCta')}
         >
           {/* Decorative ghost text */}
           <span
@@ -398,7 +399,7 @@ export default function IndustriesPage() {
             }}
             aria-hidden="true"
           >
-            Industries
+            {t('nav.industries')}
           </span>
 
           <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10 flex flex-col items-center text-center">

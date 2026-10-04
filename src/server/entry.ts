@@ -7,6 +7,16 @@ import { readFileSync } from "node:fs";
 import contact__formName__post from "./api/contact/[formName]/POST";
 import health__get from "./api/health/GET";
 // </api-imports>
+import { registerChatVoiceRoutes } from "./chat-voice";
+import { chatAiHandler } from "./chat-ai";
+import { hostGuard } from "./host-guard";
+import { contactMailHandler } from "./contact-mail";
+import { chatLeadHandler } from "./chat-lead";
+import { combinedSender, smtpConfigured, smtpSender } from "./mailer";
+import { StatsStore, chatEventHandler, defaultStatsDir, inboxSender, startStatsService, visitCounter } from "./stats";
+import { SecurityMonitor, cspForDocument, securityHeaders, startSecurityAlerts } from "./security";
+import { sanitizeJson } from "./sanitize";
+import { IntegrityGuard, integrityMode, startIntegrityGuard } from "./integrity";
 import { seoRoutes } from "../lib/seo-routes";
 import {
 	loadAdSenseRuntimeConfig,
@@ -16,12 +26,15 @@ import {
 import { loadIndexNowKey } from "./indexnow-key";
 import { isSystemHost } from "./seo-host";
 import { llmsTxtHandler } from "./llms-txt";
+import { createMediaAssetsMiddleware } from "../../export-plugins/media-assets-plugin";
 
 export interface SsrRenderResult {
 	html: string;
 	head: string;
 	status: number;
 	redirect?: string;
+	lang?: string;
+	dir?: "ltr" | "rtl";
 }
 
 export function registerAdSenseTextRoutes(app: Express, config: AdSenseRuntimeConfig): void {
@@ -54,13 +67,16 @@ export function registerAdSenseTextRoutes(app: Express, config: AdSenseRuntimeCo
 
 export function renderSsrDocument(
 	template: string,
-	result: Pick<SsrRenderResult, "head" | "html">,
+	result: Pick<SsrRenderResult, "head" | "html" | "lang" | "dir">,
 	adSenseConfig: Pick<AdSenseRuntimeConfig, "scriptHtml">,
 ): string {
 	const head = [result.head, adSenseConfig.scriptHtml].filter(Boolean).join("\n");
-	return template
+	const document = template
 		.replace("<!--app-head-->", () => head)
 		.replace("<!--app-html-->", () => result.html);
+	if (!result.lang) return document;
+	// Serve the page's own language and direction on <html> so it is right before any JavaScript runs.
+	return document.replace(/<html\b[^>]*>/i, () => `<html lang="${result.lang}" dir="${result.dir ?? "ltr"}">`);
 }
 
 function normalizeCommerceApiBaseUrlEnv() {
@@ -82,19 +98,66 @@ const app = express();
 // the sitemap origin in robots.txt.
 app.set("trust proxy", true);
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.disable("x-powered-by");
+// Forged Host headers are replaced by the real domain before any URL is generated.
+app.use(hostGuard());
+// Security: headers, request screening, rate limits and temporary bans (alerts are e-mailed to the owner).
+const securityCtx = { template: "", adsense: false };
+const security = new SecurityMonitor();
+app.use(securityHeaders(() => securityCtx.template, () => securityCtx.adsense));
+app.use(security.guard());
+
+const stats = new StatsStore(defaultStatsDir());
+// Anonymous visitor counting (page loads only) for the nightly report.
+app.use(visitCounter(stats));
+app.use(express.json({ limit: "64kb" }));
+app.use(express.urlencoded({ extended: true, limit: "32kb", parameterLimit: 60 }));
+
+// Everything a visitor submits is rebuilt as clean data before the (generated) contact handler sees it:
+// no prototype-pollution keys, bounded size, and HTML neutralised so it can't act as markup in the owner's inbox.
+app.use("/api/contact", (req, _res, next) => {
+	if (req.body && typeof req.body === "object") req.body = sanitizeJson(req.body);
+	next();
+});
+
+// Contact form → owner's Gmail via SMTP when configured (otherwise falls through to the generated route below).
+const smtpOnly = smtpSender();
+app.post("/api/contact/:formName", contactMailHandler(() => smtpOnly));
 
 // <api-registrations>
 app.post("/api/contact/:formName", contact__formName__post);
 app.get("/api/health", health__get);
 // </api-registrations>
 
+// Chatbot voice messages (kept outside the generated registration block above).
+registerChatVoiceRoutes(app);
+// Write-only: chatbot conversation summaries for the nightly owner report. Nothing can read them back.
+app.post("/api/chat/event", chatEventHandler(stats));
+// AI answers (key stays on the server; 503 when no key so the browser falls back to the rule-based bot).
+app.post("/api/chat/ai", chatAiHandler());
+// Lead reports from the chatbot → owner's Gmail (SMTP when configured, else the Inbox route).
+app.post("/api/chat/lead", chatLeadHandler(combinedSender(inboxSender())));
+console.log(smtpConfigured() ? "Mail: direct SMTP enabled" : "Mail: Inbox route only (set SMTP_USER / SMTP_PASS for direct Gmail delivery)");
+
+// Unknown API paths answer with a neutral JSON 404 (no framework error page).
+app.use("/api", (_req, res) => {
+	res.status(404).json({ error: "Not found" });
+});
+
 // Error middleware must be registered AFTER the routes it protects; Express
 // only passes errors to middleware defined later in the stack.
 app.use("/api", (err: unknown, req: Request, res: Response, _next: NextFunction) => {
 	// Always respond JSON on /api so clients parsing response.json() don't
 	// receive Express's default HTML error page for non-Error throws.
+	const type = (err as { type?: string } | null)?.type;
+	if (type === "entity.parse.failed") {
+		res.status(400).json({ error: "Invalid request" });
+		return;
+	}
+	if (type === "entity.too.large") {
+		res.status(413).json({ error: "Request too large" });
+		return;
+	}
 	console.error("ssr.api.error", {
 		url: req.url,
 		error: err instanceof Error ? err.stack : String(err),
@@ -111,6 +174,10 @@ function escapeXml(s: string): string {
 		({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&apos;" })[c]!,
 	);
 }
+
+// Resolve /airo-assets/images|videos|uploads/* slots (see airo-media.json) to their media files,
+// which Airo's hosting used to do. Without this the site renders with broken images and no video.
+app.use(createMediaAssetsMiddleware(() => process.cwd()));
 
 app.get("/robots.txt", (req, res) => {
 	if (isSystemHost(req)) {
@@ -160,6 +227,7 @@ if (import.meta.env.PROD) {
 	const __dirname = dirname(fileURLToPath(import.meta.url));
 	const clientDir = join(__dirname, "client");
 	const adSenseRuntimeConfig = loadAdSenseRuntimeConfig(__dirname);
+	securityCtx.adsense = Boolean(adSenseRuntimeConfig.scriptHtml);
 	const indexNowKey = loadIndexNowKey(__dirname);
 
 	registerAdSenseTextRoutes(app, adSenseRuntimeConfig);
@@ -192,6 +260,7 @@ if (import.meta.env.PROD) {
 	let template: string;
 	try {
 		template = readFileSync(join(clientDir, "index.html"), "utf-8");
+		securityCtx.template = template;
 	} catch (err) {
 		console.error("ssr.template.load-failed", {
 			path: join(clientDir, "index.html"),
@@ -311,6 +380,7 @@ if (import.meta.env.PROD) {
 				.status(result.status)
 				.set("Content-Type", "text/html; charset=utf-8")
 				.set("Cache-Control", "no-cache")
+				.set("Content-Security-Policy", cspForDocument(req, out, securityCtx.adsense))
 				.send(out);
 		} catch (err) {
 			// 503 surfaces the failure in CDN/monitoring without caching a broken
@@ -329,6 +399,7 @@ if (import.meta.env.PROD) {
 
 	const shutdown = async (signal: string) => {
 		console.log(`Got ${signal}, shutting down gracefully...`);
+		stats.flush();
 		// Scope the ERR_MODULE_NOT_FOUND suppression to the import() only.
 		// A closeConnection() failure that happens to carry the same code
 		// (unlikely but possible for wrapped errors) must not be silently
@@ -378,7 +449,21 @@ if (import.meta.env.PROD) {
 	const host = process.env.HOST || "0.0.0.0";
 	const server = app.listen(port, host, () => {
 		console.log(`Server listening on http://${host}:${port}`);
+		startStatsService(stats, combinedSender(inboxSender()));
+		startSecurityAlerts(security, combinedSender(inboxSender()));
+		const integrity = integrityMode();
+		console.log(`Integrity guard: ${integrity}`);
+		if (integrity !== "off") {
+			const guard = new IntegrityGuard([clientDir, join(process.cwd(), "public", "assets")], [join(process.cwd(), "airo-media.json"), join(process.cwd(), "public", "airo-media.json")]);
+			console.log(`Integrity guard watching ${guard.size} files`);
+			startIntegrityGuard(guard, combinedSender(inboxSender()), integrity);
+		}
 	});
+	// Slow-request protection (slowloris): requests must arrive promptly.
+	server.headersTimeout = 15_000;
+	server.requestTimeout = 30_000;
+	server.keepAliveTimeout = 5_000;
+	server.maxHeadersCount = 100;
 	server.on("error", (err: NodeJS.ErrnoException) => {
 		console.error("ssr.server.listen-failed", {
 			port,

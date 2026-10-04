@@ -8,36 +8,31 @@ import en from '../../locales/en.json';
 import ar from '../../locales/ar.json';
 import ru from '../../locales/ru.json';
 import fr from '../../locales/fr.json';
-import de from '../../locales/de.json';
 import zhCN from '../../locales/zh-CN.json';
-import ja from '../../locales/ja.json';
 import hi from '../../locales/hi.json';
 import es from '../../locales/es.json';
-import nlBE from '../../locales/nl-BE.json';
-import pt from '../../locales/pt.json';
 import it from '../../locales/it.json';
 import tr from '../../locales/tr.json';
-import ko from '../../locales/ko.json';
 
 const resources = {
   en:    { translation: en },
   ar:    { translation: ar },
   ru:    { translation: ru },
   fr:    { translation: fr },
-  de:    { translation: de },
   'zh-CN': { translation: zhCN },
-  ja:    { translation: ja },
   hi:    { translation: hi },
   es:    { translation: es },
-  'nl-BE': { translation: nlBE },
-  pt:    { translation: pt },
   it:    { translation: it },
   tr:    { translation: tr },
-  ko:    { translation: ko },
 };
 
+// The detector reads the URL, localStorage and navigator, so it only runs in the browser.
+// On the server the language is chosen per request from the URL (see entry-server.tsx).
+if (typeof window !== 'undefined') {
+  i18n.use(LanguageDetector);
+}
+
 i18n
-  .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources,

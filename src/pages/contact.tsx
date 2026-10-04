@@ -1,3 +1,4 @@
+import { openChat } from '../components/chat/openChat';
 import { useState, type FormEvent, useRef } from 'react';
 import { Link } from 'react-router';
 import { Helmet } from '@dr.pogodin/react-helmet';
@@ -12,12 +13,13 @@ import {
   Phone,
   Mail,
   MapPin,
+  Clock,
   Instagram,
   ArrowRight,
   CheckCircle2,
   ChevronDown,
 } from 'lucide-react';
-import { contact } from 'virtual:content';
+import { useLocalizedContent } from '@/lib/i18n/content';
 
 // ─── Fade-in wrapper ──────────────────────────────────────────────────────────
 function FadeIn({
@@ -77,6 +79,7 @@ function labelCss(): React.CSSProperties {
 }
 
 export default function ContactPage() {
+  const contact = useLocalizedContent('contact');
   const { t, i18n } = useTranslation();
   const lang = i18n.language || 'en';
   const seo = getPageSeo('contact', lang);
@@ -108,6 +111,11 @@ export default function ContactPage() {
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
+    // Required fields are checked in the browser first: nothing is sent while they are empty or malformed.
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
     const formData = new FormData(form);
 
     // Honeypot check — bail silently if filled by a bot
@@ -157,7 +165,6 @@ export default function ContactPage() {
       '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
       `Submission Date/Time:    ${submittedAt}`,
       `Website Language:        ${selectedLanguage}`,
-      `CC Recipient:            info@metropolitandigitalmarketing.com`,
       `Privacy Consent:         ${privacy}`,
       '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
     ].join('\n');
@@ -184,7 +191,6 @@ export default function ContactPage() {
               'Privacy Consent': privacy,
               'Submission Date/Time': submittedAt,
               'Website Language': selectedLanguage,
-              'CC Recipient': 'info@metropolitandigitalmarketing.com',
             },
           },
           user: { email, name },
@@ -242,7 +248,7 @@ export default function ContactPage() {
         onMouseLeave={(e) => {
           (e.currentTarget as HTMLAnchorElement).style.background = 'hsl(var(--metro-whatsapp))';
         }}
-        aria-label="Chat on WhatsApp"
+        aria-label={t('aria.chatOnWhatsApp')}
       >
         <MessageCircle size={16} />
         <span className="hidden sm:inline">WhatsApp</span>
@@ -254,7 +260,7 @@ export default function ContactPage() {
         <section
           className="relative w-full overflow-hidden flex items-end"
           style={{ minHeight: '56vh', background: 'hsl(var(--metro-black))' }}
-          aria-label="Contact hero"
+          aria-label={t('aria.contactHero')}
         >
           <img
             src="/airo-assets/images/pages/home/contact-cta"
@@ -472,6 +478,29 @@ export default function ContactPage() {
                 </div>
               </div>
 
+              <div className="flex items-start gap-4 mt-6">
+                <div
+                  className="shrink-0 flex items-center justify-center"
+                  style={{ width: '40px', height: '40px', border: '1px solid hsl(var(--metro-white) / 0.12)' }}
+                >
+                  <Clock size={16} style={{ color: 'hsl(var(--metro-white) / 0.7)' }} />
+                </div>
+                <div>
+                  <p
+                    className="text-xs font-semibold tracking-[0.16em] uppercase mb-1"
+                    style={{ color: 'hsl(var(--metro-white) / 0.4)', fontFamily: 'var(--font-heading)' }}
+                  >
+                    {contact.hours.label}
+                  </p>
+                  <p className="text-sm font-semibold mb-1" style={{ color: 'hsl(var(--metro-white))' }}>
+                    {contact.hours.days} · {contact.hours.time}
+                  </p>
+                  <p className="text-xs" style={{ color: 'hsl(var(--metro-white) / 0.35)' }}>
+                    {contact.hours.closed}
+                  </p>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
@@ -480,7 +509,7 @@ export default function ContactPage() {
         <section
           className="py-xxl"
           style={{ background: 'hsl(var(--metro-black))' }}
-          aria-label="Contact form"
+          aria-label={t('aria.contactForm')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-16 xl:gap-24">
@@ -488,12 +517,28 @@ export default function ContactPage() {
               {/* ── FORM COLUMN ─────────────────────────────────────────── */}
               <div>
                 <FadeIn>
+                  <div className="flex items-start justify-between gap-4 mb-4">
                   <p
-                    className="text-xs font-semibold tracking-[0.28em] uppercase mb-4"
+                    className="text-xs font-semibold tracking-[0.28em] uppercase"
                     style={{ color: 'hsl(var(--metro-white) / 0.35)', fontFamily: 'var(--font-heading)' }}
                   >
                     {contact.methods.form.eyebrow}
                   </p>
+                  <button
+                    type="button"
+                    onClick={openChat}
+                    className="shrink-0 inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold tracking-[0.12em] uppercase transition-all duration-300"
+                    style={{ border: '1px solid hsl(var(--metro-white) / 0.5)', color: 'hsl(var(--metro-white))' }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = 'hsl(var(--metro-white))'; (e.currentTarget as HTMLButtonElement).style.color = 'hsl(var(--metro-black))'; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = 'transparent'; (e.currentTarget as HTMLButtonElement).style.color = 'hsl(var(--metro-white))'; }}
+                  >
+                    <span className="relative flex h-2 w-2">
+                      <span className="absolute inline-flex h-full w-full rounded-full opacity-60 animate-ping" style={{ background: '#4ade80' }} />
+                      <span className="relative inline-flex h-2 w-2 rounded-full" style={{ background: '#4ade80' }} />
+                    </span>
+                    {t('nav.chat')}
+                  </button>
+                  </div>
                   <h2
                     className="font-black uppercase leading-tight mb-3"
                     style={{
@@ -569,7 +614,7 @@ export default function ContactPage() {
                         name="_gotcha"
                         tabIndex={-1}
                         autoComplete="off"
-                        style={{ position: 'absolute', left: '-9999px' }}
+                        style={{ position: 'absolute', width: 1, height: 1, padding: 0, border: 0, overflow: 'hidden', clip: 'rect(0 0 0 0)', opacity: 0, pointerEvents: 'none' }}
                         aria-hidden="true"
                       />
 
@@ -835,7 +880,7 @@ export default function ContactPage() {
                       className="text-xs font-semibold tracking-[0.2em] uppercase mb-5"
                       style={{ color: 'hsl(var(--metro-white) / 0.35)', fontFamily: 'var(--font-heading)' }}
                     >
-                      Quick Contact
+                      {t('ui.quickContact')}
                     </p>
 
                     <a
@@ -861,7 +906,7 @@ export default function ContactPage() {
                     >
                       <Phone size={15} style={{ color: 'hsl(var(--metro-white) / 0.5)', flexShrink: 0 }} />
                       <div>
-                        <p className="text-xs" style={{ color: 'hsl(var(--metro-white) / 0.35)' }}>Phone</p>
+                        <p className="text-xs" style={{ color: 'hsl(var(--metro-white) / 0.35)' }}>{t('ui.phone')}</p>
                         <p className="text-sm font-semibold" style={{ color: 'hsl(var(--metro-white))' }}>
                           {contact.methods.phone.number}
                         </p>
@@ -874,7 +919,7 @@ export default function ContactPage() {
                     >
                       <Mail size={15} style={{ color: 'hsl(var(--metro-white) / 0.5)', flexShrink: 0 }} />
                       <div>
-                        <p className="text-xs" style={{ color: 'hsl(var(--metro-white) / 0.35)' }}>Email</p>
+                        <p className="text-xs" style={{ color: 'hsl(var(--metro-white) / 0.35)' }}>{t('ui.email')}</p>
                         <p className="text-sm font-semibold break-all" style={{ color: 'hsl(var(--metro-white))' }}>
                           {contact.methods.email.address}
                         </p>
@@ -894,7 +939,7 @@ export default function ContactPage() {
                       className="text-xs font-semibold tracking-[0.2em] uppercase mb-4"
                       style={{ color: 'hsl(var(--metro-white) / 0.35)', fontFamily: 'var(--font-heading)' }}
                     >
-                      Based In
+                      {t('ui.basedIn')}
                     </p>
                     <div className="flex items-start gap-3">
                       <MapPin size={15} style={{ color: 'hsl(var(--metro-white) / 0.5)', flexShrink: 0, marginTop: '2px' }} />
@@ -906,6 +951,17 @@ export default function ContactPage() {
                         </p>
                         <p className="text-xs leading-relaxed" style={{ color: 'hsl(var(--metro-white) / 0.35)' }}>
                           {contact.location.detail}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3 mt-4">
+                      <Clock size={15} style={{ color: 'hsl(var(--metro-white) / 0.5)', flexShrink: 0, marginTop: '2px' }} />
+                      <div>
+                        <p className="text-sm font-semibold mb-1" style={{ color: 'hsl(var(--metro-white))' }}>
+                          {contact.hours.days} · {contact.hours.time}
+                        </p>
+                        <p className="text-xs leading-relaxed" style={{ color: 'hsl(var(--metro-white) / 0.35)' }}>
+                          {contact.hours.closed}
                         </p>
                       </div>
                     </div>
@@ -923,7 +979,7 @@ export default function ContactPage() {
                       className="text-xs font-semibold tracking-[0.2em] uppercase mb-4"
                       style={{ color: 'hsl(var(--metro-white) / 0.35)', fontFamily: 'var(--font-heading)' }}
                     >
-                      Follow Us
+                      {t('ui.followUs')}
                     </p>
                     <a
                       href={contact.social.instagram.href}
@@ -951,7 +1007,7 @@ export default function ContactPage() {
             background: 'hsl(var(--metro-charcoal-deep))',
             borderTop: '1px solid hsl(var(--metro-white) / 0.07)',
           }}
-          aria-label="Contact page footer"
+          aria-label={t('aria.contactFooter')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p
@@ -960,7 +1016,7 @@ export default function ContactPage() {
             >
               {contact.footer.copyright}
             </p>
-            <nav aria-label="Footer quick links" className="flex items-center gap-6">
+            <nav aria-label={t('ui.footerQuickLinks')} className="flex items-center gap-6">
               <Link
                 to={localizedPath('/')}
                 className="text-xs transition-opacity duration-200 hover:opacity-70"

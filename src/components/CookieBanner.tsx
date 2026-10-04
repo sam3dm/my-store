@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/components/ui/button';
 
@@ -98,6 +99,7 @@ function initTracking(): void {
  * The SCC script is always loaded; consent only controls what gets collected.
  */
 export default function CookieBanner() {
+  const { t } = useTranslation();
   const [showBanner, setShowBanner] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const isEmbedded: boolean = typeof window !== 'undefined' && window.parent !== window;
@@ -200,21 +202,21 @@ export default function CookieBanner() {
       className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-lg"
       role="alertdialog"
       aria-live="polite"
-      aria-label="Cookie consent banner"
+      aria-label={t('ui.cookieAria')}
       aria-describedby="cookie-banner-description"
       data-airo-non-editable
     >
       <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex-1">
-            <h3 className="text-sm font-semibold text-gray-900 mb-1">Cookie Consent</h3>
+            <h3 className="text-sm font-semibold text-gray-900 mb-1">{t('ui.cookieTitle')}</h3>
             <p id="cookie-banner-description" className="text-sm text-gray-600">
-              We serve cookies. We use tools, such as cookies, to enable essential services and functionality on our site and to collect data on how visitors interact with our site, products and services. By clicking Accept, you agree to our use of these tools for advertising, analytics and support.
+              {t('ui.cookieText')}
             </p>
           </div>
           <div className="flex items-center gap-3 flex-shrink-0">
-            <Button size="sm" variant="secondary" onClick={() => saveConsent(false)} className="whitespace-nowrap">Decline</Button>
-            <Button size="sm" onClick={() => saveConsent(true)} className="whitespace-nowrap" autoFocus>Accept</Button>
+            <Button size="sm" variant="secondary" onClick={() => saveConsent(false)} className="whitespace-nowrap">{t('ui.cookieDecline')}</Button>
+            <Button size="sm" onClick={() => saveConsent(true)} className="whitespace-nowrap" autoFocus>{t('ui.cookieAccept')}</Button>
           </div>
         </div>
       </div>

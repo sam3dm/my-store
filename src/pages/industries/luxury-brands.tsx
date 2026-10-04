@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { SITE_URL, OG_IMAGE, getPageSeo, getCanonicalUrl } from '@/lib/seo-meta';
 import { buildHreflangLinks } from '@/lib/hreflang';
 import useLocalizedPath from '@/hooks/useLocalizedPath';
-import { luxury_brands } from 'virtual:content';
+import { useLocalizedContent } from '@/lib/i18n/content';
 
 // ─── WhatsApp ─────────────────────────────────────────────────────────────────
 const WA_LUXURY =
@@ -16,123 +16,6 @@ const WA_LUXURY =
     'Hello Metropolitan Digital Marketing, I would like to discuss a Luxury Brands project and request information about your cinematic production and advertising services.'
   );
 
-// ─── Gallery data ─────────────────────────────────────────────────────────────
-const galleryItems = [
-  {
-    slot: '/airo-assets/images/pages/luxury-brands/gallery-watch-macro',
-    number: '01',
-    title: 'Precision in Every Frame',
-    service: 'Cinematic Product Photography',
-    description:
-      'Ultra-close macro cinematography reveals the intricate mechanical soul of a luxury timepiece. Every gear, jewel and surface is captured with surgical precision under controlled dramatic lighting — communicating craftsmanship before a single word is read.',
-    tags: ['Macro Photography', 'Cinematic Lighting', 'Product Direction'],
-    note: 'Conceptual production visual',
-  },
-  {
-    slot: '/airo-assets/images/pages/luxury-brands/gallery-diamond-ring',
-    number: '02',
-    title: 'The Weight of Desire',
-    service: 'Luxury Jewellery Photography',
-    description:
-      'A single diamond ring against pure black — the composition strips away distraction and lets the stone speak. Precision lighting sculpts every facet, creating the visual tension that transforms a product image into a desire object.',
-    tags: ['Fine Jewellery', 'Studio Photography', 'Advertising Composition'],
-    note: 'Conceptual production visual',
-  },
-  {
-    slot: '/airo-assets/images/pages/luxury-brands/gallery-jewellery-necklace',
-    number: '03',
-    title: 'Worn with Intention',
-    service: 'Editorial Campaign Production',
-    description:
-      'Premium jewellery advertising requires more than product placement — it demands narrative. Our editorial campaigns position fine pieces within aspirational lifestyle contexts, connecting the brand to the identity and values of its audience.',
-    tags: ['Editorial Photography', 'Campaign Direction', 'Lifestyle Styling'],
-    note: 'Conceptual production visual',
-  },
-  {
-    slot: '/airo-assets/images/pages/luxury-brands/gallery-perfume-bottle',
-    number: '04',
-    title: 'Invisible Made Visible',
-    service: 'Fragrance Advertising Production',
-    description:
-      'Fragrance is invisible — its advertising must do the impossible. We translate scent into image through glass, light, reflection and atmosphere. Every bottle becomes a sculpture; every frame, an invitation to experience something beyond the visual.',
-    tags: ['Fragrance Photography', 'Glass & Reflection', 'Atmospheric Lighting'],
-    note: 'Conceptual production visual',
-  },
-  {
-    slot: '/airo-assets/images/pages/luxury-brands/gallery-watch-cgi',
-    number: '05',
-    title: 'Beyond the Physical',
-    service: 'CGI Product Visualisation',
-    description:
-      'CGI liberates luxury product advertising from the constraints of physical photography. We build photorealistic digital environments where watches, jewellery and accessories can be presented with impossible perfection — angles, lighting and compositions that no camera can achieve.',
-    tags: ['CGI Production', '3D Visualisation', 'Digital Art Direction'],
-    note: 'Conceptual CGI production visual',
-  },
-  {
-    slot: '/airo-assets/images/pages/luxury-brands/gallery-diamond-earrings',
-    number: '06',
-    title: 'Floating in Light',
-    service: '3D Animation & Motion Production',
-    description:
-      'Floating product compositions create a sense of weightlessness and exclusivity that static photography cannot replicate. Our 3D animation team builds dynamic product reveals, rotating showcases and atmospheric motion sequences for digital campaigns and social media.',
-    tags: ['3D Animation', 'Motion Design', 'Social Media Production'],
-    note: 'Conceptual production visual',
-  },
-  {
-    slot: '/airo-assets/images/pages/luxury-brands/gallery-perfume-gold-particles',
-    number: '07',
-    title: 'Gold in Motion',
-    service: 'VFX & Post-Production',
-    description:
-      'Abstract particle systems, liquid simulations and atmospheric VFX transform fragrance advertising into cinematic art. Our post-production team composites physical and digital elements to create advertising visuals that stop the scroll and hold the gaze.',
-    tags: ['VFX Compositing', 'Particle Systems', 'Post-Production'],
-    note: 'Conceptual CGI production visual',
-  },
-  {
-    slot: '/airo-assets/images/pages/luxury-brands/gallery-jewellery-editorial',
-    number: '08',
-    title: 'The Story Behind the Stone',
-    service: 'Luxury Brand Storytelling',
-    description:
-      'The most powerful luxury advertising tells a story. Our creative directors develop narrative-led campaigns that connect fine jewellery and accessories to human emotion — love, legacy, identity and aspiration — creating content that resonates long after the impression.',
-    tags: ['Brand Storytelling', 'Creative Direction', 'Campaign Strategy'],
-    note: 'Conceptual production visual',
-  },
-  {
-    slot: '/airo-assets/images/pages/luxury-brands/gallery-watch-3d-animation',
-    number: '09',
-    title: 'Mechanism as Art',
-    service: 'Photorealistic 3D Animation',
-    description:
-      'The movement of a mechanical watch is one of the most compelling subjects in luxury advertising. Our 3D animation team recreates calibres with engineering accuracy, producing exploded views, slow-motion reveals and cinematic sequences that celebrate horological craftsmanship.',
-    tags: ['3D Animation', 'Mechanical Visualisation', 'Cinematic Reveal'],
-    note: 'Conceptual 3D animation visual',
-  },
-  {
-    slot: '/airo-assets/images/pages/luxury-brands/gallery-fragrance-cinematic',
-    number: '10',
-    title: 'The Signature Moment',
-    service: 'Integrated Luxury Advertising Campaign',
-    description:
-      'A complete luxury fragrance campaign integrates photography, CGI, motion, social media content and influencer production into a single coherent visual language. We manage the full creative and production pipeline — from concept and scriptwriting to final delivery across every platform.',
-    tags: ['Integrated Campaign', 'Multi-Platform Production', 'Social Media Management'],
-    note: 'Conceptual production visual',
-  },
-];
-
-// ─── Capabilities ─────────────────────────────────────────────────────────────
-const capabilities = [
-  'Luxury advertising production',
-  'Cinematic product photography',
-  'CGI product advertising',
-  '3D animation & motion',
-  'Creative direction',
-  'Advertising campaign design',
-  'Social media content creation',
-  'Influencer & celebrity campaign production',
-  'Premium brand storytelling',
-  'VFX & post-production',
-];
 
 // ─── Fade-in wrapper ──────────────────────────────────────────────────────────
 function FadeIn({
@@ -169,7 +52,8 @@ function FadeIn({
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function LuxuryBrandsPage() {
-  const { i18n } = useTranslation();
+  const luxury_brands = useLocalizedContent('luxury_brands');
+  const { t, i18n } = useTranslation();
   const lang = i18n.language || 'en';
   const localizedPath = useLocalizedPath();
 
@@ -216,7 +100,7 @@ export default function LuxuryBrandsPage() {
         <section
           className="relative flex items-end overflow-hidden"
           style={{ minHeight: 'clamp(480px, 60vh, 720px)' }}
-          aria-label="Luxury Brands hero"
+          aria-label={t('aria.luxuryHero')}
         >
           {/* Background image */}
           <img
@@ -242,20 +126,20 @@ export default function LuxuryBrandsPage() {
           <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-10 pb-16 md:pb-20">
             {/* Breadcrumb */}
             <FadeIn delay={0.05}>
-              <nav aria-label="Breadcrumb" className="flex items-center gap-2 mb-8">
+              <nav aria-label={t('aria.breadcrumb')} className="flex items-center gap-2 mb-8">
                 <Link
                   to={localizedPath('/industries')}
                   className="text-xs font-semibold tracking-[0.18em] uppercase transition-opacity duration-200 hover:opacity-100"
                   style={{ color: `hsl(var(--metro-white) / 0.45)` }}
                 >
-                  Industries
+                  {t('nav.industries')}
                 </Link>
                 <ChevronRight size={12} style={{ color: `hsl(var(--metro-white) / 0.25)` }} aria-hidden="true" />
                 <span
                   className="text-xs font-semibold tracking-[0.18em] uppercase"
                   style={{ color: `hsl(var(--metro-white) / 0.75)` }}
                 >
-                  Luxury Brands
+                  {t('ui.luxuryBrands')}
                 </span>
               </nav>
             </FadeIn>
@@ -307,11 +191,11 @@ export default function LuxuryBrandsPage() {
             background: `hsl(var(--metro-black))`,
             borderColor: `hsl(var(--metro-white) / 0.07)`,
           }}
-          aria-label="Our capabilities"
+          aria-label={t('aria.capabilities')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
             <div className="flex flex-wrap gap-x-8 gap-y-3">
-              {capabilities.map((cap, i) => (
+              {luxury_brands.capabilities.map((cap, i) => (
                 <span
                   key={i}
                   className="flex items-center gap-2 text-xs font-semibold tracking-[0.14em] uppercase"
@@ -333,7 +217,7 @@ export default function LuxuryBrandsPage() {
         <section
           className="py-xxl"
           style={{ background: `hsl(var(--metro-black))` }}
-          aria-label="Production gallery"
+          aria-label={t('aria.productionGallery')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
 
@@ -365,7 +249,7 @@ export default function LuxuryBrandsPage() {
 
             {/* Gallery grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: `hsl(var(--metro-white) / 0.06)` }}>
-              {galleryItems.map((item, i) => (
+              {luxury_brands.gallery.items.map((item, i) => (
                 <FadeIn key={item.number} delay={Math.min(i % 2, 1) * 0.08}>
                   <article
                     className="flex flex-col"
@@ -475,7 +359,7 @@ export default function LuxuryBrandsPage() {
             background: `hsl(var(--metro-black))`,
             borderColor: `hsl(var(--metro-white) / 0.07)`,
           }}
-          aria-label="Creative production process"
+          aria-label={t('aria.productionProcess')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
             <FadeIn className="mb-14">
@@ -498,28 +382,7 @@ export default function LuxuryBrandsPage() {
             </FadeIn>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px" style={{ background: `hsl(var(--metro-white) / 0.06)` }}>
-              {[
-                {
-                  step: '01',
-                  title: 'Creative Strategy',
-                  body: 'We begin with a deep understanding of your brand positioning, target audience and campaign objectives. Our creative directors develop a visual strategy that aligns with your brand identity and differentiates you within the luxury category.',
-                },
-                {
-                  step: '02',
-                  title: 'Concept & Direction',
-                  body: 'Detailed moodboards, storyboards and production briefs are developed and presented for approval. Every visual decision — lighting, composition, colour palette, motion — is considered before a single frame is captured.',
-                },
-                {
-                  step: '03',
-                  title: 'Production & CGI',
-                  body: 'Our production team executes the approved concept across photography, videography, CGI and 3D animation. We manage every technical and creative element in-house, ensuring consistency and quality at every stage.',
-                },
-                {
-                  step: '04',
-                  title: 'Delivery & Campaign',
-                  body: 'Final assets are delivered in all required formats for digital, social media, print and broadcast. We also manage campaign distribution, social media scheduling and performance reporting for integrated campaigns.',
-                },
-              ].map((s, i) => (
+              {luxury_brands.process.steps.map((s, i) => (
                 <FadeIn key={s.step} delay={i * 0.08}>
                   <div
                     className="flex flex-col p-8 md:p-10 h-full"
@@ -567,7 +430,7 @@ export default function LuxuryBrandsPage() {
             background: `hsl(var(--metro-black))`,
             borderColor: `hsl(var(--metro-white) / 0.07)`,
           }}
-          aria-label="Digital marketing services for luxury brands"
+          aria-label={t('aria.luxuryServices')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -598,14 +461,7 @@ export default function LuxuryBrandsPage() {
 
               <FadeIn delay={0.1}>
                 <ul className="flex flex-col gap-0 divide-y" style={{ borderColor: `hsl(var(--metro-white) / 0.07)` }}>
-                  {[
-                    ['Social media management', 'Instagram, TikTok, YouTube, LinkedIn — content calendars, community management and analytics.'],
-                    ['Paid social advertising', 'Precision-targeted campaigns on Meta, TikTok and Google for luxury audiences.'],
-                    ['Influencer & celebrity production', 'End-to-end management of influencer partnerships and celebrity campaign production.'],
-                    ['Content strategy', 'Long-form brand storytelling, editorial series and campaign architecture.'],
-                    ['Brand identity & design', 'Visual identity systems, packaging design and brand guidelines for luxury products.'],
-                    ['Website & digital experience', 'Premium website design and development aligned with luxury brand standards.'],
-                  ].map(([title, desc], i) => (
+                  {luxury_brands.services.items.map(({ title, description: desc }, i) => (
                     <li key={i} className="flex items-start gap-4 py-5">
                       <ChevronRight
                         size={13}
@@ -642,7 +498,7 @@ export default function LuxuryBrandsPage() {
             background: `hsl(var(--metro-black))`,
             borderColor: `hsl(var(--metro-white) / 0.07)`,
           }}
-          aria-label="Start your luxury brands project"
+          aria-label={t('aria.luxuryCta')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10 text-center">
             <FadeIn>

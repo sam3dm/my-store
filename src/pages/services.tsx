@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { Helmet } from '@dr.pogodin/react-helmet';
 import { motion, useInView } from 'motion/react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import { services } from 'virtual:content';
+import { useLocalizedContent } from '@/lib/i18n/content';
 import { useTranslation } from 'react-i18next';
 import { getPageSeo, getCanonicalUrl, SITE_URL, OG_IMAGE } from '@/lib/seo-meta';
 import { buildHreflangLinks } from '@/lib/hreflang';
@@ -29,6 +29,10 @@ const serviceImages: Record<string, string> = {
   'svc-17': '/airo-assets/images/pages/services/social-media-advertising',
   'svc-18': '/airo-assets/images/pages/services/influencer-marketing',
   'svc-19': '/airo-assets/images/pages/services/integrated-advertising',
+  'svc-20': '/airo-assets/images/pages/services/ai-websites',
+  'svc-21': '/airo-assets/images/pages/services/ai-chatbots',
+  'svc-22': '/airo-assets/images/pages/services/crm-automation',
+  'svc-23': '/airo-assets/images/pages/services/custom-ai-systems',
 };
 
 // ─── Fade-in wrapper ──────────────────────────────────────────────────────────
@@ -79,7 +83,8 @@ function HoverCard({ children }: { children: (hovered: boolean) => React.ReactNo
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function ServicesPage() {
-  const { i18n } = useTranslation();
+  const services = useLocalizedContent('services');
+  const { t, i18n } = useTranslation();
   const lang = i18n.language || 'en';
   const seo = getPageSeo('services', lang);
   const canonicalUrl = getCanonicalUrl('services', lang);
@@ -123,7 +128,7 @@ export default function ServicesPage() {
         <section
           className="relative w-full overflow-hidden flex items-end"
           style={{ minHeight: '65vh', background: `hsl(var(--metro-black))` }}
-          aria-label="Services hero"
+          aria-label={t('aria.servicesHero')}
         >
           <img
             src="/airo-assets/images/pages/services/video-production"
@@ -205,11 +210,11 @@ export default function ServicesPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {(
                 [
-                  { value: '19', label: 'Creative Disciplines' },
-                  { value: '15+', label: 'Years of Expertise' },
-                  { value: '10+', label: 'Industries Served' },
-                  { value: 'Dubai', label: 'Headquartered' },
-                ] as const
+                  { value: '23', label: t('ui.statDisciplines') },
+                  { value: '15+', label: t('ui.statYears') },
+                  { value: '10+', label: t('ui.statIndustries') },
+                  { value: t('ui.dubai'), label: t('ui.statHeadquartered') },
+                ]
               ).map((stat) => (
                 <div key={stat.label} className="flex flex-col gap-1">
                   <span
@@ -238,7 +243,7 @@ export default function ServicesPage() {
         <section
           className="py-xxl"
           style={{ background: `hsl(var(--metro-black))` }}
-          aria-label="All services"
+          aria-label={t('aria.allServices')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -342,7 +347,7 @@ export default function ServicesPage() {
                                   : 'transparent',
                               }}
                             >
-                              Start Your Project
+                              {t('nav.startProject')}
                               <ArrowRight
                                 size={12}
                                 className="transition-transform duration-300 group-hover/btn:translate-x-1"
@@ -363,7 +368,7 @@ export default function ServicesPage() {
         <section
           className="py-xxl"
           style={{ background: `hsl(var(--metro-charcoal-deep))` }}
-          aria-label="Contact call to action"
+          aria-label={t('aria.contactCta')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10 flex flex-col items-center text-center">
             <FadeIn>

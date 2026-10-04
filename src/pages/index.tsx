@@ -1,6 +1,7 @@
-import { home } from 'virtual:content';
+import { useLocalizedContent } from '@/lib/i18n/content';
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router';
+import useLocalizedPath from '@/hooks/useLocalizedPath';
 import { Helmet } from '@dr.pogodin/react-helmet';
 import { motion, useInView } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
@@ -36,58 +37,68 @@ function FadeIn({
   );
 }
 
-// ─── Service card data ───────────────────────────────────────────────────────
-const featuredServices = [
-  {
-    number: '01',
-    title: 'Social Media Management',
-    description: 'Complete Instagram, TikTok, YouTube and Facebook management, content strategy and performance reporting.',
-    slot: '/airo-assets/images/pages/home/service-social-media',
-  },
-  {
-    number: '02',
-    title: 'Cinematic Advertising & Video Production',
-    description: 'Luxury commercials, TV advertisements, corporate films, brand films and professional film directing.',
-    slot: '/airo-assets/images/pages/home/service-video-production',
-  },
-  {
-    number: '03',
-    title: '3D Animation & CGI',
-    description: 'Photorealistic 3D animation, product visualisation, architectural visualisation and cinematic CGI environments.',
-    slot: '/airo-assets/images/pages/home/service-3d-cgi',
-  },
-  {
-    number: '04',
-    title: 'Visual Effects & Post-Production',
-    description: 'VFX, compositing, motion graphics, professional editing, colour grading and cinematic finishing.',
-    slot: '/airo-assets/images/pages/home/service-vfx',
-  },
-  {
-    number: '05',
-    title: 'AI Content Production',
-    description: 'AI-assisted creative concepts, AI-generated visuals, AI animation and innovative advertising production.',
-    slot: '/airo-assets/images/pages/home/service-ai-production',
-  },
-  {
-    number: '06',
-    title: 'Branding & Graphic Design',
-    description: 'Corporate identity, brand design, advertising graphics, social media templates and visual communication.',
-    slot: '/airo-assets/images/pages/home/service-branding',
-  },
+// ─── Service card data (text comes from the locale files: home.svcNTitle…) ───
+const featuredServiceSlots = [
+  '/airo-assets/images/pages/home/service-social-media',
+  '/airo-assets/images/pages/home/service-video-production',
+  '/airo-assets/images/pages/home/service-3d-cgi',
+  '/airo-assets/images/pages/home/service-vfx',
+  '/airo-assets/images/pages/home/service-ai-production',
+  '/airo-assets/images/pages/home/service-branding',
 ];
 
-// ─── Portfolio previews ──────────────────────────────────────────────────────
-const portfolioItems = [
-  { category: 'Automotive', title: 'Luxury Vehicle Campaign', slot: '/airo-assets/images/pages/home/portfolio-1' },
-  { category: 'Automotive', title: 'Cinematic Brand Film', slot: '/airo-assets/images/pages/home/portfolio-2' },
-  { category: 'Hospitality', title: 'Luxury Hotel Production', slot: '/airo-assets/images/pages/home/portfolio-3' },
+// ─── Portfolio previews (text comes from home.portfolioNTitle…) ──────────────
+// ─── Specialties strip: portfolio categories with their own image (labels come from portfolio content) ───
+const specialtySlots: { id: string; src: string }[] = [
+  { id: 'interior', src: '/airo-assets/images/pages/home/specialty-interior' },
+  { id: 'realestate', src: '/airo-assets/images/pages/home/specialty-realestate' },
+  { id: 'medical', src: '/airo-assets/images/pages/home/specialty-medical' },
+  { id: 'hotel', src: '/airo-assets/images/pages/home/specialty-hotel' },
+  { id: 'automotive', src: '/airo-assets/images/pages/home/specialty-automotive' },
 ];
+
+// Where each industry tag on the home page leads (same order as home.industries).
+const industryLinks: string[] = [
+  '/industries/luxury-brands',
+  '/portfolio?c=medical',
+  '/portfolio?c=automotive',
+  '/portfolio?c=hotel',
+  '/portfolio?c=realestate',
+  '/industries',
+  '/industries',
+  '/industries',
+  '/portfolio?c=beauty',
+  '/portfolio?c=hotel',
+];
+
+const portfolioSlots = [
+  '/airo-assets/images/pages/home/portfolio-1',
+  '/airo-assets/images/pages/home/portfolio-2',
+  '/airo-assets/images/pages/home/portfolio-3',
+];
+
+type FeaturedService = { number: string; title: string; description: string; slot: string };
+type PortfolioPreview = { category: string; title: string; slot: string };
 
 // ─── Component ───────────────────────────────────────────────────────────────
 export default function HomePage() {
+  const home = useLocalizedContent('home');
+  const portfolioContent = useLocalizedContent('portfolio');
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const { t, i18n } = useTranslation();
+  const localizedPath = useLocalizedPath();
+  const featuredServices: FeaturedService[] = featuredServiceSlots.map((slot, i) => ({
+    number: t(`home.svc${i + 1}Number`),
+    title: t(`home.svc${i + 1}Title`),
+    description: t(`home.svc${i + 1}Description`),
+    slot,
+  }));
+  const portfolioItems: PortfolioPreview[] = portfolioSlots.map((slot, i) => ({
+    category: t(`home.portfolio${i + 1}Category`),
+    title: t(`home.portfolio${i + 1}Title`),
+    slot,
+  }));
   const lang = i18n.language || 'en';
   const seo = getPageSeo('home', lang);
   const canonicalUrl = getCanonicalUrl('home', lang);
@@ -118,6 +129,9 @@ export default function HomePage() {
         },
         areaServed: ['AE', 'SA', 'QA', 'KW', 'BH', 'OM'],
         telephone: '+971508221108',
+        openingHoursSpecification: [
+          { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '19:00' },
+        ],
         email: 'info@metropolitandigitalmarketing.com',
         sameAs: [
           'https://www.instagram.com/metropolitandigitalmarketing',
@@ -145,7 +159,13 @@ export default function HomePage() {
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
-    v.play().catch(() => {});
+    v.muted = true;
+    v.play().catch(() => {
+      // Some phones (iOS Low Power Mode, data saver) refuse autoplay: start the muted loop on the first touch or scroll instead.
+      const start = () => v.play().catch(() => {});
+      window.addEventListener('touchstart', start, { once: true, passive: true });
+      window.addEventListener('scroll', start, { once: true, passive: true });
+    });
   }, []);
 
   return (
@@ -174,7 +194,7 @@ export default function HomePage() {
         <section
           className="relative w-full overflow-hidden"
           style={{ height: '100svh', minHeight: '600px' }}
-          aria-label="Hero"
+          aria-label={t('aria.hero')}
         >
           {/* Video background */}
           <video
@@ -184,6 +204,8 @@ export default function HomePage() {
             muted
             loop
             playsInline
+            preload="auto"
+            disablePictureInPicture
             onCanPlay={() => setVideoLoaded(true)}
             className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
             style={{ opacity: videoLoaded ? 1 : 0 }}
@@ -287,7 +309,7 @@ export default function HomePage() {
               className="flex flex-col sm:flex-row items-center gap-3"
             >
               <Link
-                to="/portfolio"
+                to={localizedPath('/portfolio')}
                 className="inline-flex items-center gap-2 px-7 py-3.5 text-xs font-semibold tracking-[0.15em] uppercase transition-all duration-300"
                 style={{
                   border: `1px solid hsl(var(--metro-white) / 0.5)`,
@@ -305,7 +327,7 @@ export default function HomePage() {
                 {t('home.heroCta')}
               </Link>
               <Link
-                to="/services"
+                to={localizedPath('/services')}
                 className="inline-flex items-center gap-2 px-7 py-3.5 text-xs font-semibold tracking-[0.15em] uppercase transition-all duration-300"
                 style={{
                   border: `1px solid hsl(var(--metro-white) / 0.5)`,
@@ -342,35 +364,13 @@ export default function HomePage() {
               </a>
             </motion.div>
           </div>
-
-          {/* Scroll indicator */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.4, duration: 0.8 }}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-            aria-hidden="true"
-          >
-            <span
-              className="text-xs tracking-[0.2em] uppercase"
-              style={{ color: `hsl(var(--metro-white) / 0.3)` }}
-            >
-              {t('home.heroScroll')}
-            </span>
-            <motion.div
-              animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
-              className="w-px h-8"
-              style={{ background: `hsl(var(--metro-white) / 0.25)` }}
-            />
-          </motion.div>
         </section>
 
         {/* ── COMPANY INTRODUCTION ─────────────────────────────────────────── */}
         <section
           className="py-xxl"
           style={{ background: `hsl(var(--metro-charcoal-deep))` }}
-          aria-label="Company introduction"
+          aria-label={t('aria.companyIntro')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -413,7 +413,7 @@ export default function HomePage() {
                 </FadeIn>
                 <FadeIn delay={0.4}>
                   <Link
-                    to="/about"
+                    to={localizedPath('/about')}
                     className="inline-flex items-center gap-2 text-sm font-medium tracking-[0.1em] uppercase transition-colors duration-300 group"
                     style={{ color: `hsl(var(--metro-white))` }}
                   >
@@ -430,7 +430,7 @@ export default function HomePage() {
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
                     src="/airo-assets/images/pages/home/company-intro"
-                    alt="Metropolitan Digital Marketing creative studio"
+                    alt={t('aria.altCreativeStudio')}
                     className="w-full h-full object-cover"
                     loading="lazy"
                     width={800}
@@ -453,7 +453,7 @@ export default function HomePage() {
         <section
           className="py-xxl"
           style={{ background: `hsl(var(--metro-black))` }}
-          aria-label="Featured services"
+          aria-label={t('aria.featuredServices')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
             <FadeIn>
@@ -477,7 +477,7 @@ export default function HomePage() {
                   </h2>
                 </div>
                 <Link
-                  to="/services"
+                  to={localizedPath('/services')}
                   className="inline-flex items-center gap-2 text-sm font-medium tracking-[0.1em] uppercase transition-colors duration-300 group shrink-0"
                   style={{ color: `hsl(var(--metro-white) / 0.5)` }}
                   onMouseEnter={(e) => {
@@ -507,7 +507,7 @@ export default function HomePage() {
         <section
           className="py-xxl"
           style={{ background: `hsl(var(--metro-charcoal-deep))` }}
-          aria-label="Selected creative work"
+          aria-label={t('aria.selectedWork')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
             <FadeIn>
@@ -531,7 +531,7 @@ export default function HomePage() {
                   </h2>
                 </div>
                 <Link
-                  to="/portfolio"
+                  to={localizedPath('/portfolio')}
                   className="inline-flex items-center gap-2 text-sm font-medium tracking-[0.1em] uppercase transition-colors duration-300 group shrink-0"
                   style={{ color: `hsl(var(--metro-white) / 0.5)` }}
                   onMouseEnter={(e) => {
@@ -561,7 +561,7 @@ export default function HomePage() {
         <section
           className="py-xxl"
           style={{ background: `hsl(var(--metro-black))` }}
-          aria-label="Industries we serve"
+          aria-label={t('aria.industriesServed')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
             <FadeIn>
@@ -586,25 +586,89 @@ export default function HomePage() {
             <div className="flex flex-wrap gap-3">
               {home.industries.map((industry, i) => (
                 <FadeIn key={industry} delay={i * 0.04}>
-                  <span
-                    className="inline-flex items-center px-5 py-2.5 text-xs font-medium tracking-[0.15em] uppercase transition-all duration-300 cursor-default"
+                  <Link
+                    to={localizedPath(industryLinks[i] ?? '/industries')}
+                    className="inline-flex items-center px-5 py-2.5 text-xs font-medium tracking-[0.15em] uppercase transition-all duration-300 cursor-pointer"
                     style={{
                       border: `1px solid hsl(var(--metro-border-subtle) / 0.15)`,
                       color: `hsl(var(--metro-white) / 0.55)`,
                     }}
                     onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLSpanElement).style.borderColor = `hsl(var(--metro-white) / 0.4)`;
-                      (e.currentTarget as HTMLSpanElement).style.color = `hsl(var(--metro-white))`;
+                      (e.currentTarget as HTMLAnchorElement).style.borderColor = `hsl(var(--metro-white) / 0.4)`;
+                      (e.currentTarget as HTMLAnchorElement).style.color = `hsl(var(--metro-white))`;
                     }}
                     onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLSpanElement).style.borderColor = `hsl(var(--metro-border-subtle) / 0.15)`;
-                      (e.currentTarget as HTMLSpanElement).style.color = `hsl(var(--metro-white) / 0.55)`;
+                      (e.currentTarget as HTMLAnchorElement).style.borderColor = `hsl(var(--metro-border-subtle) / 0.15)`;
+                      (e.currentTarget as HTMLAnchorElement).style.color = `hsl(var(--metro-white) / 0.55)`;
                     }}
                   >
                     {industry}
-                  </span>
+                  </Link>
                 </FadeIn>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── SPECIALTIES ──────────────────────────────────────────────────── */}
+        <section
+          className="py-xxl"
+          style={{ background: `hsl(var(--metro-charcoal-deep))` }}
+          aria-label={portfolioContent.hero.headline}
+        >
+          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+            <FadeIn>
+              <p
+                className="text-xs font-semibold tracking-[0.25em] uppercase mb-4"
+                style={{ color: `hsl(var(--metro-white) / 0.35)` }}
+              >
+                {portfolioContent.hero.eyebrow}
+              </p>
+              <h2
+                className="font-black uppercase leading-tight mb-12"
+                style={{
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: 'clamp(1.8rem, 3vw, 3rem)',
+                  color: `hsl(var(--metro-white))`,
+                }}
+              >
+                {portfolioContent.hero.headline}
+              </h2>
+            </FadeIn>
+            <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
+              {specialtySlots.map((sp, i) => {
+                const label = portfolioContent.categories.find((c) => c.id === sp.id)?.label ?? sp.id;
+                return (
+                  <FadeIn key={sp.id} delay={i * 0.06}>
+                    <Link
+                      to={`${localizedPath('/portfolio')}?c=${sp.id}`}
+                      className="group relative block overflow-hidden"
+                      style={{ aspectRatio: '4/5', background: `hsl(var(--metro-black))` }}
+                    >
+                      <img
+                        src={sp.src}
+                        alt=""
+                        aria-hidden="true"
+                        loading="lazy"
+                        width={800}
+                        height={1000}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div
+                        className="absolute inset-0"
+                        style={{ background: `linear-gradient(to top, hsl(var(--metro-black) / 0.85), transparent 55%)` }}
+                        aria-hidden="true"
+                      />
+                      <span
+                        className="absolute bottom-0 left-0 right-0 p-4 font-black uppercase text-xs md:text-sm leading-tight"
+                        style={{ fontFamily: 'var(--font-heading)', color: `hsl(var(--metro-white))` }}
+                      >
+                        {label}
+                      </span>
+                    </Link>
+                  </FadeIn>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -613,7 +677,7 @@ export default function HomePage() {
         <section
           className="py-xxl"
           style={{ background: `hsl(var(--metro-charcoal-deep))` }}
-          aria-label="Why choose Metropolitan"
+          aria-label={t('aria.whyChoose')}
         >
           <div className="max-w-[1400px] mx-auto px-6 md:px-10">
             <FadeIn>
@@ -682,14 +746,14 @@ export default function HomePage() {
         <section
           className="relative overflow-hidden"
           style={{ background: `hsl(var(--metro-black))` }}
-          aria-label="Contact call to action"
+          aria-label={t('aria.contactCta')}
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[480px]">
             {/* Image side */}
             <div className="relative hidden lg:block">
               <img
                 src="/airo-assets/images/pages/home/contact-cta"
-                alt="Metropolitan Digital Marketing production team"
+                alt={t('aria.altProductionTeam')}
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
                 width={800}
@@ -764,7 +828,9 @@ export default function HomePage() {
 }
 
 // ─── Service Card ─────────────────────────────────────────────────────────────
-function ServiceCard({ service }: { service: typeof featuredServices[0] }) {
+function ServiceCard({ service }: { service: FeaturedService }) {
+  const { t } = useTranslation();
+  const localizedPath = useLocalizedPath();
   const [hovered, setHovered] = useState(false);
   return (
     <div
@@ -829,7 +895,7 @@ function ServiceCard({ service }: { service: typeof featuredServices[0] }) {
           {service.description}
         </p>
         <Link
-          to="/services"
+          to={localizedPath('/services')}
           className="inline-flex items-center gap-1.5 text-xs font-medium tracking-[0.1em] uppercase transition-colors duration-300 group"
           style={{ color: `hsl(var(--metro-white) / 0.45)` }}
           onMouseEnter={(e) => {
@@ -839,7 +905,7 @@ function ServiceCard({ service }: { service: typeof featuredServices[0] }) {
             (e.currentTarget as HTMLAnchorElement).style.color = `hsl(var(--metro-white) / 0.45)`;
           }}
         >
-          Learn More
+          {t('common.learnMore')}
           <ArrowRight size={11} className="transition-transform duration-300 group-hover:translate-x-0.5" />
         </Link>
       </div>
@@ -848,11 +914,12 @@ function ServiceCard({ service }: { service: typeof featuredServices[0] }) {
 }
 
 // ─── Portfolio Card ───────────────────────────────────────────────────────────
-function PortfolioCard({ item }: { item: typeof portfolioItems[0] }) {
+function PortfolioCard({ item }: { item: PortfolioPreview }) {
+  const localizedPath = useLocalizedPath();
   const [hovered, setHovered] = useState(false);
   return (
     <Link
-      to="/portfolio"
+      to={localizedPath('/portfolio')}
       className="relative block overflow-hidden aspect-[4/3]"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}

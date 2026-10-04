@@ -164,20 +164,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/1715539187",
+    "currentUrl": "/airo-assets/uploads/mdm-home-hero-fallback.jpg",
     "searchQuery": "dark cinematic film production camera professional cinematography studio",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/2272136010",
-      "https://img1.wsimg.com/isteam/getty/2276901861"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T15:04:04.343Z",
-    "lastUpdated": "2026-09-17T15:04:04.343Z",
-    "gettyId": "1715539187",
-    "alternativeGettyIds": [
-      "2272136010",
-      "2276901861"
-    ]
+    "lastUpdated": "2026-09-17T15:04:04.343Z"
   },
   "pages/home/service-ai-production": {
     "requestedSize": {
@@ -189,18 +181,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/2277434364",
+    "currentUrl": "/airo-assets/uploads/mdm-home-service-ai-production.jpg",
     "searchQuery": "artificial intelligence digital technology dark futuristic creative production",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/2286855037"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T15:04:04.970Z",
-    "lastUpdated": "2026-09-17T15:04:04.970Z",
-    "gettyId": "2277434364",
-    "alternativeGettyIds": [
-      "2286855037"
-    ]
+    "lastUpdated": "2026-09-17T15:04:04.970Z"
   },
   "pages/home/company-intro": {
     "requestedSize": {
@@ -212,20 +198,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/2239299480",
+    "currentUrl": "/airo-assets/uploads/mdm-home-company-intro.jpg",
     "searchQuery": "professional creative agency dark studio editing cinematic production",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/2186859168",
-      "https://img1.wsimg.com/isteam/getty/1012246042"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T15:04:06.567Z",
-    "lastUpdated": "2026-09-17T15:04:06.567Z",
-    "gettyId": "2239299480",
-    "alternativeGettyIds": [
-      "2186859168",
-      "1012246042"
-    ]
+    "lastUpdated": "2026-09-17T15:04:06.567Z"
   },
   "pages/home/service-3d-cgi": {
     "requestedSize": {
@@ -237,18 +215,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/1153899947",
+    "currentUrl": "/airo-assets/uploads/mdm-home-service-3d-cgi.jpg",
     "searchQuery": "3D CGI render environment dark futuristic digital animation",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/2228306362"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T15:04:07.831Z",
-    "lastUpdated": "2026-09-17T15:04:07.831Z",
-    "gettyId": "1153899947",
-    "alternativeGettyIds": [
-      "2228306362"
-    ]
+    "lastUpdated": "2026-09-17T15:04:07.831Z"
   },
   "pages/home/service-branding": {
     "requestedSize": {
@@ -260,29 +232,21 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/2292398345",
+    "currentUrl": "/airo-assets/uploads/mdm-home-service-branding.jpg",
     "searchQuery": "luxury brand design creative direction dark editorial photography",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/1398596019"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T15:04:08.883Z",
-    "lastUpdated": "2026-09-17T15:04:08.883Z",
-    "gettyId": "2292398345",
-    "alternativeGettyIds": [
-      "1398596019"
-    ]
+    "lastUpdated": "2026-09-17T15:04:08.883Z"
   },
   "pages/home/hero-video": {
     "mediaType": "video",
-    "currentUrl": "https://blobby.wsimg.com/getty/videos/1132467989",
-    "thumbnailUrl": "https://media.gettyimages.com/id/1132467989/video/behind-the-scenes-silhouette-camera-and-camera-operator.jpg?b=1&s=192x192&k=20&c=8mvo4_vb_gKo-GeBRXnoYkgnEXJGmF_zBIbtIVHgMv4=",
+    "currentUrl": "/airo-assets/uploads/hero-video.mp4",
     "searchQuery": "cinematic film camera professional cinematography dark studio production",
     "alternatives": [],
-    "userModified": false,
+    "userModified": true,
     "createdAt": "2026-09-17T15:04:10.487Z",
-    "lastUpdated": "2026-09-17T15:04:10.487Z",
-    "gettyId": "1132467989"
+    "lastUpdated": "2026-09-17T15:04:10.487Z"
   },
   "pages/home/service-social-media": {
     "requestedSize": {
@@ -294,18 +258,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/1485893991",
+    "currentUrl": "/airo-assets/uploads/mdm-home-service-social-media.jpg",
     "searchQuery": "social media content creation professional dark studio smartphone",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/2255970619"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T15:04:10.771Z",
-    "lastUpdated": "2026-09-17T15:04:10.771Z",
-    "gettyId": "1485893991",
-    "alternativeGettyIds": [
-      "2255970619"
-    ]
+    "lastUpdated": "2026-09-17T15:04:10.771Z"
   },
   "pages/home/service-video-production": {
     "requestedSize": {
@@ -317,18 +275,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/2289483530",
+    "currentUrl": "/airo-assets/uploads/mdm-home-service-video-production.jpg",
     "searchQuery": "cinematic video production film camera dark professional studio lighting",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/2206331269"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T15:04:13.414Z",
-    "lastUpdated": "2026-09-17T15:04:13.414Z",
-    "gettyId": "2289483530",
-    "alternativeGettyIds": [
-      "2206331269"
-    ]
+    "lastUpdated": "2026-09-17T15:04:13.414Z"
   },
   "pages/home/portfolio-3": {
     "requestedSize": {
@@ -340,18 +292,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/1455318889",
+    "currentUrl": "/airo-assets/uploads/mdm-home-portfolio-3.jpg",
     "searchQuery": "luxury hotel hospitality dark cinematic interior photography",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/1480170743"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T15:04:14.467Z",
-    "lastUpdated": "2026-09-17T15:04:14.467Z",
-    "gettyId": "1455318889",
-    "alternativeGettyIds": [
-      "1480170743"
-    ]
+    "lastUpdated": "2026-09-17T15:04:14.467Z"
   },
   "pages/home/portfolio-1": {
     "requestedSize": {
@@ -363,18 +309,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/2229570789",
+    "currentUrl": "/airo-assets/uploads/mdm-home-portfolio-1.jpg",
     "searchQuery": "luxury commercial advertising cinematic dark dramatic photography",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/1440627430"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T15:04:16.193Z",
-    "lastUpdated": "2026-09-17T15:04:16.193Z",
-    "gettyId": "2229570789",
-    "alternativeGettyIds": [
-      "1440627430"
-    ]
+    "lastUpdated": "2026-09-17T15:04:16.193Z"
   },
   "pages/home/portfolio-2": {
     "requestedSize": {
@@ -386,18 +326,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/908021140",
+    "currentUrl": "/airo-assets/uploads/mdm-home-portfolio-2.jpg",
     "searchQuery": "automotive luxury car dark cinematic photography dramatic lighting",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/2265015996"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T15:04:16.463Z",
-    "lastUpdated": "2026-09-17T15:04:16.463Z",
-    "gettyId": "908021140",
-    "alternativeGettyIds": [
-      "2265015996"
-    ]
+    "lastUpdated": "2026-09-17T15:04:16.463Z"
   },
   "pages/home/contact-cta": {
     "requestedSize": {
@@ -409,18 +343,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/1349975359",
+    "currentUrl": "/airo-assets/uploads/mdm-home-contact-cta.jpg",
     "searchQuery": "creative director dark studio professional cinematic production team",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/2210357845"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T15:04:16.939Z",
-    "lastUpdated": "2026-09-17T15:04:16.939Z",
-    "gettyId": "1349975359",
-    "alternativeGettyIds": [
-      "2210357845"
-    ]
+    "lastUpdated": "2026-09-17T15:04:16.939Z"
   },
   "pages/home/service-vfx": {
     "requestedSize": {
@@ -432,18 +360,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/1369156549",
+    "currentUrl": "/airo-assets/uploads/mdm-home-service-vfx.jpg",
     "searchQuery": "visual effects post production editing dark professional workstation",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/1937031192"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T15:04:18.322Z",
-    "lastUpdated": "2026-09-17T15:04:18.322Z",
-    "gettyId": "1369156549",
-    "alternativeGettyIds": [
-      "1937031192"
-    ]
+    "lastUpdated": "2026-09-17T15:04:18.322Z"
   },
   "logo/favicon": {
     "mediaType": "logo",
@@ -472,24 +394,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/2205091219",
+    "currentUrl": "/airo-assets/uploads/mdm-about-medical.jpg",
     "searchQuery": "medical professional doctor healthcare content creation studio",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/2248008668",
-      "https://img1.wsimg.com/isteam/getty/2225284548",
-      "https://img1.wsimg.com/isteam/getty/635956712",
-      "https://img1.wsimg.com/isteam/getty/2239785832"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T15:52:18.619Z",
-    "lastUpdated": "2026-09-17T15:52:18.619Z",
-    "gettyId": "2205091219",
-    "alternativeGettyIds": [
-      "2248008668",
-      "2225284548",
-      "635956712",
-      "2239785832"
-    ]
+    "lastUpdated": "2026-09-17T15:52:18.619Z"
   },
   "pages/about/hero": {
     "requestedSize": {
@@ -501,24 +411,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/2105995601",
+    "currentUrl": "/airo-assets/uploads/mdm-about-hero.jpg",
     "searchQuery": "cinematic film production dark studio professional cinematography",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/2105853585",
-      "https://img1.wsimg.com/isteam/getty/2173562661",
-      "https://img1.wsimg.com/isteam/getty/1203610729",
-      "https://img1.wsimg.com/isteam/getty/1219220319"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T15:52:19.728Z",
-    "lastUpdated": "2026-09-17T15:52:19.728Z",
-    "gettyId": "2105995601",
-    "alternativeGettyIds": [
-      "2105853585",
-      "2173562661",
-      "1203610729",
-      "1219220319"
-    ]
+    "lastUpdated": "2026-09-17T15:52:19.728Z"
   },
   "pages/about/process": {
     "requestedSize": {
@@ -530,24 +428,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/2108872175",
+    "currentUrl": "/airo-assets/uploads/mdm-about-process.jpg",
     "searchQuery": "creative agency team working dark modern office professional",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/1354009766",
-      "https://img1.wsimg.com/isteam/getty/1130691390",
-      "https://img1.wsimg.com/isteam/getty/1145317045",
-      "https://img1.wsimg.com/isteam/getty/1388311832"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T15:52:20.688Z",
-    "lastUpdated": "2026-09-17T15:52:20.688Z",
-    "gettyId": "2108872175",
-    "alternativeGettyIds": [
-      "1354009766",
-      "1130691390",
-      "1145317045",
-      "1388311832"
-    ]
+    "lastUpdated": "2026-09-17T15:52:20.688Z"
   },
   "pages/about/story": {
     "requestedSize": {
@@ -559,24 +445,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/2260083719",
+    "currentUrl": "/airo-assets/uploads/mdm-about-story.jpg",
     "searchQuery": "creative director dark studio professional team collaboration",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/2260083714",
-      "https://img1.wsimg.com/isteam/getty/1150899226",
-      "https://img1.wsimg.com/isteam/getty/2263278305",
-      "https://img1.wsimg.com/isteam/getty/2190360216"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T15:52:22.743Z",
-    "lastUpdated": "2026-09-17T15:52:22.743Z",
-    "gettyId": "2260083719",
-    "alternativeGettyIds": [
-      "2260083714",
-      "1150899226",
-      "2263278305",
-      "2190360216"
-    ]
+    "lastUpdated": "2026-09-17T15:52:22.743Z"
   },
   "pages/about/expertise": {
     "requestedSize": {
@@ -588,24 +462,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/2278116769",
+    "currentUrl": "/airo-assets/uploads/mdm-about-expertise.jpg",
     "searchQuery": "professional video production camera equipment dark cinematic",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/2273319818",
-      "https://img1.wsimg.com/isteam/getty/1410016049",
-      "https://img1.wsimg.com/isteam/getty/1282341816",
-      "https://img1.wsimg.com/isteam/getty/2285132075"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T15:52:24.239Z",
-    "lastUpdated": "2026-09-17T15:52:24.239Z",
-    "gettyId": "2278116769",
-    "alternativeGettyIds": [
-      "2273319818",
-      "1410016049",
-      "1282341816",
-      "2285132075"
-    ]
+    "lastUpdated": "2026-09-17T15:52:24.239Z"
   },
   "pages/services/commercial-photography": {
     "requestedSize": {
@@ -717,20 +579,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/1418512444",
+    "currentUrl": "/airo-assets/uploads/mdm-services-medical-content.jpg",
     "searchQuery": "medical doctor healthcare professional filming studio interview",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/852225428",
-      "https://img1.wsimg.com/isteam/getty/1490665488"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T15:56:54.309Z",
-    "lastUpdated": "2026-09-17T15:56:54.309Z",
-    "gettyId": "1418512444",
-    "alternativeGettyIds": [
-      "852225428",
-      "1490665488"
-    ]
+    "lastUpdated": "2026-09-17T15:56:54.309Z"
   },
   "pages/services/3d-animation-cgi": {
     "requestedSize": {
@@ -792,20 +646,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/1369827352",
+    "currentUrl": "/airo-assets/uploads/mdm-services-branding-design.jpg",
     "searchQuery": "brand identity graphic design creative dark editorial luxury",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/2161293274",
-      "https://img1.wsimg.com/isteam/getty/2290803826"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T15:56:59.266Z",
-    "lastUpdated": "2026-09-17T15:56:59.266Z",
-    "gettyId": "1369827352",
-    "alternativeGettyIds": [
-      "2161293274",
-      "2290803826"
-    ]
+    "lastUpdated": "2026-09-17T15:56:59.266Z"
   },
   "pages/services/video-production": {
     "requestedSize": {
@@ -817,20 +663,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/1135569876",
+    "currentUrl": "/airo-assets/uploads/mdm-services-video-production.jpg",
     "searchQuery": "cinematic film production camera crew dark professional set",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/2105995601",
-      "https://img1.wsimg.com/isteam/getty/1391625060"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T15:57:01.150Z",
-    "lastUpdated": "2026-09-17T15:57:01.150Z",
-    "gettyId": "1135569876",
-    "alternativeGettyIds": [
-      "2105995601",
-      "1391625060"
-    ]
+    "lastUpdated": "2026-09-17T15:57:01.150Z"
   },
   "pages/services/ai-production": {
     "requestedSize": {
@@ -842,20 +680,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/2263139529",
+    "currentUrl": "/airo-assets/uploads/mdm-services-ai-production.jpg",
     "searchQuery": "artificial intelligence digital technology creative production dark abstract",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/1141225062",
-      "https://img1.wsimg.com/isteam/getty/2002631951"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T15:57:02.225Z",
-    "lastUpdated": "2026-09-17T15:57:02.225Z",
-    "gettyId": "2263139529",
-    "alternativeGettyIds": [
-      "1141225062",
-      "2002631951"
-    ]
+    "lastUpdated": "2026-09-17T15:57:02.225Z"
   },
   "pages/services/vfx-post-production": {
     "requestedSize": {
@@ -942,20 +772,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/2215839848",
+    "currentUrl": "/airo-assets/uploads/mdm-services-luxury-advertising.jpg",
     "searchQuery": "luxury advertising automotive perfume dark cinematic dramatic",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/1334517206",
-      "https://img1.wsimg.com/isteam/getty/2149954181"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T15:57:08.479Z",
-    "lastUpdated": "2026-09-17T15:57:08.479Z",
-    "gettyId": "2215839848",
-    "alternativeGettyIds": [
-      "1334517206",
-      "2149954181"
-    ]
+    "lastUpdated": "2026-09-17T15:57:08.479Z"
   },
   "pages/services/content-creator": {
     "requestedSize": {
@@ -1217,20 +1039,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/1500602423",
+    "currentUrl": "/airo-assets/uploads/mdm-industries-beauty-cosmetics.jpg",
     "searchQuery": "beauty cosmetics luxury dark cinematic product editorial",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/1714693582",
-      "https://img1.wsimg.com/isteam/getty/1500604813"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T16:03:12.851Z",
-    "lastUpdated": "2026-09-17T16:03:12.851Z",
-    "gettyId": "1500602423",
-    "alternativeGettyIds": [
-      "1714693582",
-      "1500604813"
-    ]
+    "lastUpdated": "2026-09-17T16:03:12.851Z"
   },
   "pages/industries/retail-ecommerce": {
     "requestedSize": {
@@ -1267,20 +1081,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/2249880221",
+    "currentUrl": "/airo-assets/uploads/mdm-industries-hotels-resorts.jpg",
     "searchQuery": "luxury hotel resort dark cinematic elegant interior",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/2202646605",
-      "https://img1.wsimg.com/isteam/getty/1455318889"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T16:03:14.941Z",
-    "lastUpdated": "2026-09-17T16:03:14.941Z",
-    "gettyId": "2249880221",
-    "alternativeGettyIds": [
-      "2202646605",
-      "1455318889"
-    ]
+    "lastUpdated": "2026-09-17T16:03:14.941Z"
   },
   "pages/industries/automotive": {
     "requestedSize": {
@@ -1292,20 +1098,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/2265015996",
+    "currentUrl": "/airo-assets/uploads/mdm-industries-automotive.jpg",
     "searchQuery": "luxury automotive car dark cinematic dramatic studio",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/2148110386",
-      "https://img1.wsimg.com/isteam/getty/970105988"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T16:03:16.265Z",
-    "lastUpdated": "2026-09-17T16:03:16.265Z",
-    "gettyId": "2265015996",
-    "alternativeGettyIds": [
-      "2148110386",
-      "970105988"
-    ]
+    "lastUpdated": "2026-09-17T16:03:16.265Z"
   },
   "pages/industries/medical-clinics": {
     "requestedSize": {
@@ -2694,20 +2492,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/137838640",
+    "currentUrl": "/airo-assets/uploads/mdm-luxury-brands-gallery-diamond-ring.jpg",
     "searchQuery": "diamond ring artistic lighting black background luxury jewellery",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/157305462",
-      "https://img1.wsimg.com/isteam/getty/1935152882"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T19:49:06.645Z",
-    "lastUpdated": "2026-09-17T19:49:06.645Z",
-    "gettyId": "137838640",
-    "alternativeGettyIds": [
-      "157305462",
-      "1935152882"
-    ]
+    "lastUpdated": "2026-09-17T19:49:06.645Z"
   },
   "pages/luxury-brands/gallery-perfume-bottle": {
     "requestedSize": {
@@ -2719,20 +2509,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/2288540930",
+    "currentUrl": "/airo-assets/uploads/mdm-luxury-brands-gallery-perfume-bottle.jpg",
     "searchQuery": "luxury perfume bottle elegant glass reflections dark cinematic",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/2247578921",
-      "https://img1.wsimg.com/isteam/getty/2221617055"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T19:49:09.021Z",
-    "lastUpdated": "2026-09-17T19:49:09.021Z",
-    "gettyId": "2288540930",
-    "alternativeGettyIds": [
-      "2247578921",
-      "2221617055"
-    ]
+    "lastUpdated": "2026-09-17T19:49:09.021Z"
   },
   "pages/luxury-brands/gallery-watch-3d-animation": {
     "requestedSize": {
@@ -2819,20 +2601,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/652925014",
+    "currentUrl": "/airo-assets/uploads/mdm-luxury-brands-gallery-jewellery-editorial.jpg",
     "searchQuery": "fine jewellery editorial advertising scene luxury dark dramatic",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/2046740355",
-      "https://img1.wsimg.com/isteam/getty/968313070"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T19:49:18.784Z",
-    "lastUpdated": "2026-09-17T19:49:18.784Z",
-    "gettyId": "652925014",
-    "alternativeGettyIds": [
-      "2046740355",
-      "968313070"
-    ]
+    "lastUpdated": "2026-09-17T19:49:18.784Z"
   },
   "pages/luxury-brands/gallery-diamond-earrings": {
     "requestedSize": {
@@ -2944,20 +2718,12 @@
     "graphicalStyles": "photography",
     "minimumSize": "large",
     "mediaType": "image",
-    "currentUrl": "https://img1.wsimg.com/isteam/getty/2240814250",
+    "currentUrl": "/airo-assets/uploads/mdm-luxury-brands-hero.jpg",
     "searchQuery": "luxury brand dark cinematic elegant premium product advertising",
-    "alternatives": [
-      "https://img1.wsimg.com/isteam/getty/2265451413",
-      "https://img1.wsimg.com/isteam/getty/2285467471"
-    ],
-    "userModified": false,
+    "alternatives": [],
+    "userModified": true,
     "createdAt": "2026-09-17T19:49:37.141Z",
-    "lastUpdated": "2026-09-17T19:49:37.141Z",
-    "gettyId": "2240814250",
-    "alternativeGettyIds": [
-      "2265451413",
-      "2285467471"
-    ]
+    "lastUpdated": "2026-09-17T19:49:37.141Z"
   },
   "imported/image-1789675016806": {
     "mediaType": "image",
@@ -2971,5 +2737,32 @@
     "createdAt": "2026-09-17T19:56:56.810Z",
     "lastUpdated": "2026-09-17T19:56:56.810Z",
     "caption": "child dancing neon purple background"
+  },
+  "pages/services/ai-websites": {
+    "currentUrl": "/airo-assets/uploads/mdm-services-ai-websites.jpg"
+  },
+  "pages/services/ai-chatbots": {
+    "currentUrl": "/airo-assets/uploads/mdm-services-ai-chatbots.jpg"
+  },
+  "pages/services/crm-automation": {
+    "currentUrl": "/airo-assets/uploads/mdm-services-crm-automation.jpg"
+  },
+  "pages/services/custom-ai-systems": {
+    "currentUrl": "/airo-assets/uploads/mdm-services-custom-ai-systems.jpg"
+  },
+  "pages/home/specialty-interior": {
+    "currentUrl": "/airo-assets/uploads/mdm-home-specialty-interior.jpg"
+  },
+  "pages/home/specialty-realestate": {
+    "currentUrl": "/airo-assets/uploads/mdm-home-specialty-realestate.jpg"
+  },
+  "pages/home/specialty-medical": {
+    "currentUrl": "/airo-assets/uploads/mdm-home-specialty-medical.jpg"
+  },
+  "pages/home/specialty-hotel": {
+    "currentUrl": "/airo-assets/uploads/mdm-home-specialty-hotel.jpg"
+  },
+  "pages/home/specialty-automotive": {
+    "currentUrl": "/airo-assets/uploads/mdm-home-specialty-automotive.jpg"
   }
 }

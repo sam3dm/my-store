@@ -8,7 +8,6 @@
  * - One tag per language version, using the BCP-47 hreflang value.
  * - x-default points to the English version (primary market).
  * - zh-CN maps to hreflang="zh-Hans" (Simplified Chinese BCP-47).
- * - nl-BE maps to hreflang="nl-BE" (Belgian Dutch — kept as-is, valid BCP-47).
  * - All hrefs use the live domain from SITE_URL.
  */
 
@@ -19,17 +18,12 @@ const HREFLANG_MAP: Record<string, string> = {
   en:      'en',
   ar:      'ar',
   ru:      'ru',
-  fr:      'fr',
-  de:      'de',
   'zh-CN': 'zh-Hans',
-  ja:      'ja',
-  hi:      'hi',
-  es:      'es',
-  'nl-BE': 'nl-BE',
-  pt:      'pt',
-  it:      'it',
   tr:      'tr',
-  ko:      'ko',
+  fr:      'fr',
+  it:      'it',
+  es:      'es',
+  hi:      'hi',
 };
 
 export const ALL_LANGS = Object.keys(HREFLANG_MAP) as Array<keyof typeof HREFLANG_MAP>;
