@@ -328,6 +328,36 @@ export default function ChatWidget() {
     timerRef.current = null;
   };
 
+  const [speechLang, setSpeechLang] = useState<'ar-AE' | 'en-US'>('en-US');
+  const startRecog = (lang: 'ar-AE' | 'en-US') => {
+    setSpeechLang(lang);
+    try {
+      recogRef.current?.abort?.();
+    } catch {
+      /* ignore */
+    }
+    recogDoneRef.current = Promise.resolve();
+    try {
+      const SR = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+      if (!SR) return;
+      const recog = new SR();
+      recog.lang = lang;
+      recog.continuous = true;
+      recog.interimResults = false;
+      recog.onresult = (e: any) => {
+        for (let i = e.resultIndex; i < e.results.length; i++) if (e.results[i].isFinal) transcriptRef.current += ` ${e.results[i][0].transcript}`;
+      };
+      recogDoneRef.current = new Promise<void>((resolve) => {
+        recog.onend = () => resolve();
+        recog.onerror = () => resolve();
+      });
+      recogRef.current = recog;
+      recog.start();
+    } catch {
+      recogRef.current = null;
+    }
+  };
+
   const startRecording = async () => {
     if (recording || typing) return;
     try {
@@ -356,31 +386,11 @@ export default function ChatWidget() {
         });
       };
       recorderRef.current = rec;
-      // Live speech recognition (browser feature; Arabic or English following the conversation language).
+      // Live speech recognition (browser feature). The spoken language can be switched while recording.
       transcriptRef.current = '';
-      recogDoneRef.current = Promise.resolve();
-      try {
-        const SR = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-        if (SR) {
-          const recog = new SR();
-          const lastUser = [...messagesRef.current].reverse().find((m) => m.from === 'user' && m.text);
-          const arabic = lastUser ? /[\u0600-\u06FF]/.test(lastUser.text) : siteLang === 'ar';
-          recog.lang = arabic ? 'ar-AE' : 'en-US';
-          recog.continuous = true;
-          recog.interimResults = false;
-          recog.onresult = (e: any) => {
-            for (let i = e.resultIndex; i < e.results.length; i++) if (e.results[i].isFinal) transcriptRef.current += ` ${e.results[i][0].transcript}`;
-          };
-          recogDoneRef.current = new Promise<void>((resolve) => {
-            recog.onend = () => resolve();
-            recog.onerror = () => resolve();
-          });
-          recogRef.current = recog;
-          recog.start();
-        }
-      } catch {
-        recogRef.current = null;
-      }
+      const lastUser = [...messagesRef.current].reverse().find((m) => m.from === 'user' && m.text);
+      const preferArabic = lastUser ? /[\u0600-\u06FF]/.test(lastUser.text) : siteLang === 'ar' || (navigator.languages ?? []).some((l) => l.toLowerCase().startsWith('ar'));
+      startRecog(preferArabic ? 'ar-AE' : 'en-US');
       rec.start();
       setSeconds(0);
       setRecording(true);
@@ -524,6 +534,16 @@ export default function ChatWidget() {
             <span className="text-sm flex-1">
               {t.recording} {fmt(seconds)}
             </span>
+            <button
+              type="button"
+              onClick={() => startRecog(speechLang === 'ar-AE' ? 'en-US' : 'ar-AE')}
+              aria-label="Speech language"
+              title="Speech language"
+              className="px-2 h-7 text-xs"
+              style={{ border: '1px solid rgba(255,255,255,0.35)', borderRadius: 999 }}
+            >
+              {speechLang === 'ar-AE' ? 'عربي' : 'EN'}
+            </button>
             <button type="button" onClick={() => stopRecording(true)} aria-label={t.cancel} title={t.cancel} className="w-9 h-9 flex items-center justify-center opacity-80 hover:opacity-100">
               <Trash2 size={18} />
             </button>
