@@ -172,7 +172,7 @@
     "hero": {
       "eyebrow": "Ce que nous faisons",
       "headline": "Des solutions créatives. Sans limites.",
-      "subheadline": "19 disciplines. Un seul studio. Des possibilités infinies.",
+      "subheadline": "23 disciplines. Un seul studio. Des possibilités infinies.",
       "body": "Des campagnes publicitaires sur les réseaux sociaux au marketing d'influence, de la production cinématographique de niveau hollywoodien au CGI photoréaliste et aux contenus propulsés par l'IA, Metropolitan propose des solutions créatives intégrées qui transforment les marques et touchent les audiences."
     },
     "services": [
@@ -383,6 +383,50 @@
           "Publicité sur les réseaux sociaux et marketing d'influence",
           "Vidéo cinématographique, CGI et production créative assistée par IA",
           "Narration de marque et déploiement unifié de la campagne"
+        ]
+      },
+      {
+        "title": "Sites web et applications web propulsés par l'IA",
+        "tagline": "Intelligent. Évolutif. Conçu pour vous.",
+        "description": "Nous concevons et développons des sites web, applications web et portails clients haut de gamme intégrant l'IA : recherche intelligente, contenu personnalisé, capture automatique de prospects et prise de rendez-vous. Chaque projet est entièrement sur mesure, rapide, sécurisé et pensé pour grandir avec votre activité.",
+        "deliverables": [
+          "Développement de sites et d'applications web sur mesure",
+          "Fonctions IA : recherche intelligente, recommandations, personnalisation",
+          "Systèmes de réservation, de paiement et portails clients",
+          "Hébergement, sécurité et assistance continue"
+        ]
+      },
+      {
+        "title": "Chatbots IA et agents pour entreprises",
+        "tagline": "Toujours disponible. Formé sur votre activité.",
+        "description": "Nous créons des chatbots IA spécialisés et des agents autonomes formés sur les services, les tarifs et le savoir de votre entreprise. Ils répondent aux clients, qualifient les prospects, prennent des rendez-vous et passent le relais à votre équipe — 24 h/24, en plusieurs langues, sur votre site, WhatsApp et les réseaux sociaux.",
+        "deliverables": [
+          "Chatbot entraîné spécifiquement pour votre activité",
+          "Agents IA pour la vente, le support et les réservations",
+          "Conversations multilingues (arabe, anglais et plus)",
+          "Canaux : site web, WhatsApp, Instagram et Facebook"
+        ]
+      },
+      {
+        "title": "Intégration CRM et automatisation WhatsApp",
+        "tagline": "Connecté. Automatisé. Mesurable.",
+        "description": "Nous relions vos comptes de réseaux sociaux, les formulaires de votre site et WhatsApp à un CRM afin que chaque demande soit enregistrée, suivie et relancée automatiquement. Réponses automatiques, notation des prospects, rappels et pipelines de vente font gagner des heures à votre équipe et garantissent qu'aucun client n'est oublié.",
+        "deliverables": [
+          "Mise en place et intégration de CRM",
+          "Automatisation de WhatsApp Business",
+          "Intégration des réseaux sociaux et capture de prospects",
+          "Relances, rappels et rapports automatiques"
+        ]
+      },
+      {
+        "title": "Systèmes IA sur mesure pour entreprises",
+        "tagline": "Votre entreprise. Entièrement automatisée.",
+        "description": "Nous concevons des systèmes d'IA complets et sur mesure qui relient vos réseaux sociaux, votre site, votre CRM, vos chatbots et vos outils internes au sein d'un même écosystème intelligent. De la conception et l'architecture jusqu'au développement et au lancement, nous bâtissons les logiciels personnalisés qui permettent à votre entreprise de fonctionner plus intelligemment, plus vite et à grande échelle.",
+        "deliverables": [
+          "Logiciels et applications web d'entreprise sur mesure",
+          "Intégration des réseaux sociaux, du CRM et des systèmes de l'entreprise",
+          "Agents IA et automatisation des processus",
+          "Stratégie, développement, formation et support"
         ]
       }
     ],
@@ -1161,6 +1205,18 @@
       },
       {
         "label": "Publicité digitale intégrée"
+      },
+      {
+        "label": "Sites web et applications web avec IA"
+      },
+      {
+        "label": "Chatbots IA et agents pour entreprises"
+      },
+      {
+        "label": "CRM et automatisation WhatsApp"
+      },
+      {
+        "label": "Systèmes IA sur mesure pour entreprises"
       },
       {
         "label": "Autre / Non listé"

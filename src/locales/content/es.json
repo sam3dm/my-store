@@ -172,7 +172,7 @@
     "hero": {
       "eyebrow": "Qué hacemos",
       "headline": "Soluciones creativas. Sin límites.",
-      "subheadline": "19 disciplinas. Un solo estudio. Posibilidades infinitas.",
+      "subheadline": "23 disciplinas. Un solo estudio. Posibilidades infinitas.",
       "body": "Desde campañas publicitarias en redes sociales y marketing de influencers hasta producción cinematográfica de nivel hollywoodiense, CGI fotorrealista y contenido impulsado por IA, Metropolitan ofrece soluciones creativas integradas que transforman marcas y conmueven a las audiencias."
     },
     "services": [
@@ -383,6 +383,50 @@
           "Publicidad en redes sociales y marketing de influencers",
           "Vídeo cinematográfico, CGI y producción creativa asistida por IA",
           "Narrativa de marca y entrega unificada de la campaña"
+        ]
+      },
+      {
+        "title": "Sitios web y aplicaciones web con inteligencia artificial",
+        "tagline": "Inteligentes. Escalables. Hechos para ti.",
+        "description": "Diseñamos y desarrollamos sitios web, aplicaciones web y portales de clientes de alto nivel con IA integrada: desde la búsqueda inteligente y el contenido personalizado hasta la captación automática de clientes potenciales y las reservas. Cada proyecto es totalmente a medida, rápido, seguro y pensado para crecer con tu negocio.",
+        "deliverables": [
+          "Desarrollo de sitios y aplicaciones web a medida",
+          "Funciones de IA: búsqueda inteligente, recomendaciones, personalización",
+          "Sistemas de reservas, pagos y portales de clientes",
+          "Alojamiento, seguridad y soporte continuo"
+        ]
+      },
+      {
+        "title": "Chatbots de IA y agentes para empresas",
+        "tagline": "Siempre activos. Entrenados con tu negocio.",
+        "description": "Creamos chatbots de IA especializados y agentes autónomos entrenados con los servicios, los precios y el conocimiento de tu empresa. Responden a los clientes, califican a los clientes potenciales, agendan citas y pasan la conversación a tu equipo, las 24 horas, en varios idiomas, en tu sitio web, WhatsApp y redes sociales.",
+        "deliverables": [
+          "Chatbot entrenado específicamente para tu negocio",
+          "Agentes de IA para ventas, soporte y reservas",
+          "Conversaciones multilingües (árabe, inglés y más)",
+          "Canales: sitio web, WhatsApp, Instagram y Facebook"
+        ]
+      },
+      {
+        "title": "Integración de CRM y automatización de WhatsApp",
+        "tagline": "Conectado. Automatizado. Medible.",
+        "description": "Conectamos tus cuentas de redes sociales, los formularios de tu web y WhatsApp a un CRM para que cada consulta se registre, se siga y se atienda automáticamente. Las respuestas automáticas, la puntuación de clientes potenciales, los recordatorios y los embudos de venta ahorran horas a tu equipo y garantizan que ningún cliente se pierda.",
+        "deliverables": [
+          "Configuración e integración de CRM",
+          "Automatización de WhatsApp Business",
+          "Integración de redes sociales y captación de clientes potenciales",
+          "Seguimientos, recordatorios e informes automáticos"
+        ]
+      },
+      {
+        "title": "Sistemas de IA a medida para empresas",
+        "tagline": "Tu empresa. Totalmente automatizada.",
+        "description": "Diseñamos sistemas de IA completos y a medida que conectan tus redes sociales, tu sitio web, tu CRM, tus chatbots y tus herramientas internas en un único ecosistema inteligente. Desde el concepto y la arquitectura hasta el desarrollo y el lanzamiento, creamos el software personalizado que permite a tu negocio funcionar de forma más inteligente, más rápida y a gran escala.",
+        "deliverables": [
+          "Software y aplicaciones web empresariales a medida",
+          "Integración de redes sociales, CRM y sistemas de la empresa",
+          "Agentes de IA y automatización de flujos de trabajo",
+          "Estrategia, desarrollo, formación y soporte"
         ]
       }
     ],
@@ -1161,6 +1205,18 @@
       },
       {
         "label": "Publicidad digital integrada"
+      },
+      {
+        "label": "Sitios y aplicaciones web con IA"
+      },
+      {
+        "label": "Chatbots de IA y agentes para empresas"
+      },
+      {
+        "label": "CRM y automatización de WhatsApp"
+      },
+      {
+        "label": "Sistemas de IA a medida para empresas"
       },
       {
         "label": "Otro / No incluido"

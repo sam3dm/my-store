@@ -2737,5 +2737,73 @@
     "createdAt": "2026-09-17T19:56:56.810Z",
     "lastUpdated": "2026-09-17T19:56:56.810Z",
     "caption": "child dancing neon purple background"
+  },
+  "pages/services/ai-websites": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "/airo-assets/uploads/mdm-about-process.jpg",
+    "searchQuery": "ai websites",
+    "alternatives": [],
+    "userModified": true,
+    "createdAt": "2026-09-17T15:57:02.225Z",
+    "lastUpdated": "2026-09-17T15:57:02.225Z"
+  },
+  "pages/services/ai-chatbots": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "/airo-assets/uploads/mdm-services-ai-production.jpg",
+    "searchQuery": "ai chatbots",
+    "alternatives": [],
+    "userModified": true,
+    "createdAt": "2026-09-17T15:57:02.225Z",
+    "lastUpdated": "2026-09-17T15:57:02.225Z"
+  },
+  "pages/services/crm-automation": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "/airo-assets/uploads/mdm-home-contact-cta.jpg",
+    "searchQuery": "crm automation",
+    "alternatives": [],
+    "userModified": true,
+    "createdAt": "2026-09-17T15:57:02.225Z",
+    "lastUpdated": "2026-09-17T15:57:02.225Z"
+  },
+  "pages/services/custom-ai-systems": {
+    "requestedSize": {
+      "width": 800,
+      "height": 500,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "graphicalStyles": "photography",
+    "minimumSize": "large",
+    "mediaType": "image",
+    "currentUrl": "/airo-assets/uploads/mdm-home-service-ai-production.jpg",
+    "searchQuery": "custom ai systems",
+    "alternatives": [],
+    "userModified": true,
+    "createdAt": "2026-09-17T15:57:02.225Z",
+    "lastUpdated": "2026-09-17T15:57:02.225Z"
   }
 }

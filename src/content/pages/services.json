@@ -2,7 +2,7 @@
   "hero": {
     "eyebrow": "What We Do",
     "headline": "Creative Solutions. Without Limits.",
-    "subheadline": "19 Disciplines. One Studio. Infinite Possibilities.",
+    "subheadline": "23 Disciplines. One Studio. Infinite Possibilities.",
     "body": "From social media advertising campaigns to influencer marketing, Hollywood-grade cinematic production, photorealistic CGI and AI-powered content — Metropolitan delivers integrated creative solutions that transform brands and move audiences."
   },
   "services": [
@@ -251,6 +251,58 @@
         "Social media advertising & influencer marketing",
         "Cinematic video, CGI & AI-assisted creative production",
         "Brand storytelling & unified campaign delivery"
+      ]
+    },
+    {
+      "id": "svc-20",
+      "number": "20",
+      "title": "AI-Powered Websites & Web Applications",
+      "tagline": "Intelligent. Scalable. Built Around You.",
+      "description": "We design and engineer premium websites, web applications and customer portals with AI built in — from smart search and personalised content to automated lead capture and booking. Every build is fully custom, fast, secure and designed to grow with your business.",
+      "deliverables": [
+        "Custom website & web application development",
+        "AI features: smart search, recommendations, personalisation",
+        "Booking, payment & customer-portal systems",
+        "Hosting, security & ongoing support"
+      ]
+    },
+    {
+      "id": "svc-21",
+      "number": "21",
+      "title": "AI Chatbots & Business Agents",
+      "tagline": "Always On. Trained on Your Business.",
+      "description": "We build specialised AI chatbots and autonomous agents trained on your company's services, pricing and knowledge. They answer customers, qualify leads, book appointments and hand over to your team — 24/7, in multiple languages, on your website, WhatsApp and social media.",
+      "deliverables": [
+        "Custom-trained chatbot for your business",
+        "AI agents for sales, support & bookings",
+        "Multilingual conversations (Arabic, English & more)",
+        "Website, WhatsApp, Instagram & Facebook channels"
+      ]
+    },
+    {
+      "id": "svc-22",
+      "number": "22",
+      "title": "CRM Integration & WhatsApp Automation",
+      "tagline": "Connected. Automated. Measurable.",
+      "description": "We connect your social media accounts, website forms and WhatsApp to a CRM so every enquiry is captured, tracked and followed up automatically. Automated replies, lead scoring, reminders and sales pipelines save your team hours and make sure no customer is ever missed.",
+      "deliverables": [
+        "CRM setup & integration",
+        "WhatsApp Business automation",
+        "Social media & lead-capture integration",
+        "Automated follow-ups, reminders & reporting"
+      ]
+    },
+    {
+      "id": "svc-23",
+      "number": "23",
+      "title": "Custom AI Systems for Business",
+      "tagline": "Your Company. Fully Automated.",
+      "description": "We design complete, bespoke AI systems that connect your social platforms, website, CRM, chatbots and internal tools into one intelligent ecosystem. From concept and architecture to development and launch, we build the custom software that lets your business run smarter, faster and at scale.",
+      "deliverables": [
+        "Custom business software & web apps",
+        "Integration of social media, CRM & company systems",
+        "AI agents & workflow automation",
+        "Strategy, development, training & support"
       ]
     }
   ],

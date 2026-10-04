@@ -29,6 +29,10 @@ const serviceImages: Record<string, string> = {
   'svc-17': '/airo-assets/images/pages/services/social-media-advertising',
   'svc-18': '/airo-assets/images/pages/services/influencer-marketing',
   'svc-19': '/airo-assets/images/pages/services/integrated-advertising',
+  'svc-20': '/airo-assets/images/pages/services/ai-websites',
+  'svc-21': '/airo-assets/images/pages/services/ai-chatbots',
+  'svc-22': '/airo-assets/images/pages/services/crm-automation',
+  'svc-23': '/airo-assets/images/pages/services/custom-ai-systems',
 };
 
 // ─── Fade-in wrapper ──────────────────────────────────────────────────────────
@@ -206,7 +210,7 @@ export default function ServicesPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {(
                 [
-                  { value: '19', label: t('ui.statDisciplines') },
+                  { value: '23', label: t('ui.statDisciplines') },
                   { value: '15+', label: t('ui.statYears') },
                   { value: '10+', label: t('ui.statIndustries') },
                   { value: t('ui.dubai'), label: t('ui.statHeadquartered') },

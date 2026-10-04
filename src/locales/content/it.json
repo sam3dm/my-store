@@ -172,7 +172,7 @@
     "hero": {
       "eyebrow": "Cosa facciamo",
       "headline": "Soluzioni creative. Senza limiti.",
-      "subheadline": "19 discipline. Un solo studio. Possibilità infinite.",
+      "subheadline": "23 discipline. Un solo studio. Possibilità infinite.",
       "body": "Dalle campagne pubblicitarie sui social media all'influencer marketing, dalla produzione cinematografica di livello hollywoodiano alla CGI fotorealistica fino ai contenuti basati sull'IA, Metropolitan offre soluzioni creative integrate che trasformano i brand e coinvolgono il pubblico."
     },
     "services": [
@@ -383,6 +383,50 @@
           "Pubblicità sui social media e influencer marketing",
           "Video cinematografico, CGI e produzione creativa assistita dall'IA",
           "Storytelling di brand e realizzazione unitaria della campagna"
+        ]
+      },
+      {
+        "title": "Siti web e applicazioni web con intelligenza artificiale",
+        "tagline": "Intelligente. Scalabile. Pensato per te.",
+        "description": "Progettiamo e sviluppiamo siti web, applicazioni web e portali clienti di alto livello con l'IA integrata: dalla ricerca intelligente e dai contenuti personalizzati all'acquisizione automatica di contatti e alle prenotazioni. Ogni progetto è completamente su misura, veloce, sicuro e pensato per crescere insieme alla tua attività.",
+        "deliverables": [
+          "Sviluppo di siti e applicazioni web su misura",
+          "Funzioni IA: ricerca intelligente, raccomandazioni, personalizzazione",
+          "Sistemi di prenotazione, pagamento e portali clienti",
+          "Hosting, sicurezza e assistenza continua"
+        ]
+      },
+      {
+        "title": "Chatbot IA e agenti per le aziende",
+        "tagline": "Sempre attivo. Addestrato sulla tua attività.",
+        "description": "Realizziamo chatbot IA specializzati e agenti autonomi addestrati sui servizi, sui prezzi e sulle conoscenze della tua azienda. Rispondono ai clienti, qualificano i potenziali clienti, fissano appuntamenti e passano la conversazione al tuo team — 24 ore su 24, in più lingue, sul tuo sito, su WhatsApp e sui social media.",
+        "deliverables": [
+          "Chatbot addestrato specificamente sulla tua attività",
+          "Agenti IA per vendite, assistenza e prenotazioni",
+          "Conversazioni multilingue (arabo, inglese e altre)",
+          "Canali: sito web, WhatsApp, Instagram e Facebook"
+        ]
+      },
+      {
+        "title": "Integrazione CRM e automazione WhatsApp",
+        "tagline": "Connesso. Automatizzato. Misurabile.",
+        "description": "Colleghiamo i tuoi account social, i moduli del sito e WhatsApp a un CRM, in modo che ogni richiesta venga registrata, monitorata e seguita automaticamente. Risposte automatiche, punteggio dei lead, promemoria e pipeline di vendita fanno risparmiare ore al tuo team e garantiscono che nessun cliente venga perso.",
+        "deliverables": [
+          "Configurazione e integrazione del CRM",
+          "Automazione di WhatsApp Business",
+          "Integrazione dei social media e acquisizione di lead",
+          "Follow-up, promemoria e report automatici"
+        ]
+      },
+      {
+        "title": "Sistemi IA su misura per le aziende",
+        "tagline": "La tua azienda. Completamente automatizzata.",
+        "description": "Progettiamo sistemi di IA completi e su misura che collegano i tuoi social, il sito, il CRM, i chatbot e gli strumenti interni in un unico ecosistema intelligente. Dall'idea e dall'architettura allo sviluppo e al lancio, creiamo il software personalizzato che permette alla tua azienda di lavorare in modo più intelligente, più veloce e su larga scala.",
+        "deliverables": [
+          "Software e applicazioni web aziendali su misura",
+          "Integrazione di social media, CRM e sistemi aziendali",
+          "Agenti IA e automazione dei flussi di lavoro",
+          "Strategia, sviluppo, formazione e supporto"
         ]
       }
     ],
@@ -1161,6 +1205,18 @@
       },
       {
         "label": "Pubblicità digitale integrata"
+      },
+      {
+        "label": "Siti e applicazioni web con IA"
+      },
+      {
+        "label": "Chatbot IA e agenti per le aziende"
+      },
+      {
+        "label": "CRM e automazione WhatsApp"
+      },
+      {
+        "label": "Sistemi IA su misura per le aziende"
       },
       {
         "label": "Altro / Non in elenco"

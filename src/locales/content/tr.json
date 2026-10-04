@@ -172,7 +172,7 @@
     "hero": {
       "eyebrow": "Ne Yapıyoruz",
       "headline": "Yaratıcı Çözümler. Sınırsız.",
-      "subheadline": "19 Disiplin. Tek Stüdyo. Sonsuz Olasılık.",
+      "subheadline": "23 Disiplin. Tek Stüdyo. Sonsuz Olasılık.",
       "body": "Sosyal medya reklam kampanyalarından influencer pazarlamasına, Hollywood standartlarında sinematik prodüksiyondan fotogerçekçi CGI'a ve yapay zekâ destekli içeriğe kadar; Metropolitan markaları dönüştüren ve izleyiciyi etkileyen bütünleşik yaratıcı çözümler sunar."
     },
     "services": [
@@ -383,6 +383,50 @@
           "Sosyal medya reklamcılığı ve influencer pazarlaması",
           "Sinematik video, CGI ve yapay zekâ destekli yaratıcı prodüksiyon",
           "Marka hikâyeciliği ve birleşik kampanya teslimatı"
+        ]
+      },
+      {
+        "title": "Yapay Zekâ Destekli Web Siteleri ve Web Uygulamaları",
+        "tagline": "Akıllı. Ölçeklenebilir. Size Özel.",
+        "description": "Akıllı arama ve kişiselleştirilmiş içerikten otomatik müşteri adayı toplama ve randevuya kadar yapay zekâ entegre edilmiş premium web siteleri, web uygulamaları ve müşteri portalları tasarlıyor ve geliştiriyoruz. Her proje tamamen size özel, hızlı, güvenli ve işinizle birlikte büyüyecek şekilde kurgulanır.",
+        "deliverables": [
+          "Özel web sitesi ve web uygulaması geliştirme",
+          "Yapay zekâ özellikleri: akıllı arama, öneri, kişiselleştirme",
+          "Randevu, ödeme ve müşteri portalı sistemleri",
+          "Barındırma, güvenlik ve sürekli destek"
+        ]
+      },
+      {
+        "title": "Yapay Zekâ Chatbotları ve İş Ajanları",
+        "tagline": "Her Zaman Açık. İşinizi Tanıyan.",
+        "description": "Şirketinizin hizmetleri, fiyatları ve bilgi birikimiyle eğitilmiş uzman yapay zekâ chatbotları ve otonom ajanlar geliştiriyoruz. Müşterilere yanıt verir, potansiyel müşterileri değerlendirir, randevu alır ve konuşmayı ekibinize devrederler — 7/24, birden fazla dilde; web sitenizde, WhatsApp'ta ve sosyal medyada.",
+        "deliverables": [
+          "İşinize özel eğitilmiş chatbot",
+          "Satış, destek ve rezervasyon için yapay zekâ ajanları",
+          "Çok dilli konuşmalar (Arapça, İngilizce ve daha fazlası)",
+          "Web sitesi, WhatsApp, Instagram ve Facebook kanalları"
+        ]
+      },
+      {
+        "title": "CRM Entegrasyonu ve WhatsApp Otomasyonu",
+        "tagline": "Bağlantılı. Otomatik. Ölçülebilir.",
+        "description": "Sosyal medya hesaplarınızı, web sitesi formlarınızı ve WhatsApp'ı bir CRM'e bağlıyoruz; böylece her talep otomatik olarak kaydedilir, izlenir ve takip edilir. Otomatik yanıtlar, potansiyel müşteri puanlama, hatırlatmalar ve satış hunileri ekibinize saatler kazandırır ve hiçbir müşterinin gözden kaçmamasını sağlar.",
+        "deliverables": [
+          "CRM kurulumu ve entegrasyonu",
+          "WhatsApp Business otomasyonu",
+          "Sosyal medya ve müşteri adayı toplama entegrasyonu",
+          "Otomatik takip, hatırlatma ve raporlama"
+        ]
+      },
+      {
+        "title": "İşletmeler İçin Özel Yapay Zekâ Sistemleri",
+        "tagline": "Şirketiniz. Tamamen Otomatik.",
+        "description": "Sosyal medya platformlarınızı, web sitenizi, CRM'inizi, chatbotlarınızı ve dahili araçlarınızı tek bir akıllı ekosistemde birleştiren, size özel eksiksiz yapay zekâ sistemleri tasarlıyoruz. Konsept ve mimariden geliştirme ve yayına kadar, işinizin daha akıllı, daha hızlı ve ölçeklenebilir çalışmasını sağlayan özel yazılımları inşa ediyoruz.",
+        "deliverables": [
+          "Özel iş yazılımları ve web uygulamaları",
+          "Sosyal medya, CRM ve şirket sistemlerinin entegrasyonu",
+          "Yapay zekâ ajanları ve iş akışı otomasyonu",
+          "Strateji, geliştirme, eğitim ve destek"
         ]
       }
     ],
@@ -1161,6 +1205,18 @@
       },
       {
         "label": "Bütünleşik Dijital Reklamcılık"
+      },
+      {
+        "label": "Yapay Zekâ Destekli Web Siteleri ve Uygulamalar"
+      },
+      {
+        "label": "Yapay Zekâ Chatbotları ve İş Ajanları"
+      },
+      {
+        "label": "CRM ve WhatsApp Otomasyonu"
+      },
+      {
+        "label": "İşletmeler İçin Özel Yapay Zekâ Sistemleri"
       },
       {
         "label": "Diğer / Listede Yok"

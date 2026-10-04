@@ -143,3 +143,14 @@ Labels from your site in brackets.
 
 ## VIDEO – Home hero (8–10 s loop, 16:9, 1080p)
 > Abstract cinematic loop: slow dolly through dark void as golden dust particles and teal light streaks drift, light beams sweep across a polished black surface revealing glimpses of a cinema lens, a luxury watch and a skyline silhouette, smooth camera motion, seamless loop, no text, no people faces, 24fps, dark cinematic luxury grade.
+
+---
+## NEW SERVICES (4) – 4:3, 2K — currently using temporary placeholder images
+Name the files exactly: `pages-services-ai-websites.jpg`, `pages-services-ai-chatbots.jpg`, `pages-services-crm-automation.jpg`, `pages-services-custom-ai-systems.jpg`
+
+| Slot | Prompt |
+|---|---|
+| pages/services/ai-websites | Dark luxury developer workspace: ultrawide curved monitor showing an abstract modern website layout and code (blurred, no readable text), glowing gold and teal UI shapes, keyboard, warm desk lamp, haze |
+| pages/services/ai-chatbots | Floating glass chat bubbles in a dark void connected by thin gold light lines to a softly glowing abstract AI orb, subtle Arabic/English message shapes without legible text, cinematic depth of field |
+| pages/services/crm-automation | Phone with a glowing messaging app and abstract data pipeline lines flowing from social media icons (blurred, no logos) into a glowing dashboard, dark background, gold and green accent light |
+| pages/services/custom-ai-systems | Abstract AI ecosystem: a central glowing golden neural core connected to floating screens, phone, laptop and server nodes by light threads, dark futuristic room, volumetric haze |

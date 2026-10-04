@@ -112,39 +112,39 @@ export const seoMeta: Record<PageKey, Record<LangCode, PageSeoMeta>> = {
   services: {
     en: {
       title: 'Creative Services Dubai | Metropolitan Digital',
-      description: '19 creative disciplines: social media advertising, cinematic video production, 3D animation, CGI, VFX, AI content, influencer marketing & more. Dubai\'s full-service studio.',
+      description: '23 creative disciplines: social media advertising, cinematic video production, 3D animation, CGI, VFX, AI content, influencer marketing & more. Dubai\'s full-service studio.',
     },
     ar: {
       title: 'خدمات إبداعية في دبي | ميتروبوليتان',
-      description: '19 تخصصاً إبداعياً: إعلانات السوشال ميديا، إنتاج فيديو سينمائي، تصميم ثلاثي الأبعاد، CGI، مؤثرات بصرية، محتوى الذكاء الاصطناعي والتسويق عبر المؤثرين في دبي.',
+      description: '23 تخصصاً إبداعياً: إعلانات السوشال ميديا، إنتاج فيديو سينمائي، تصميم ثلاثي الأبعاد، CGI، مؤثرات بصرية، محتوى الذكاء الاصطناعي والتسويق عبر المؤثرين في دبي.',
     },
     ru: {
       title: 'Креативные услуги Дубай | Metropolitan Digital',
-      description: '19 творческих направлений: реклама в соцсетях, кинематографическое видео, 3D-анимация, CGI, VFX, AI-контент, маркетинг влияния и многое другое в Дубае.',
+      description: '23 творческих направлений: реклама в соцсетях, кинематографическое видео, 3D-анимация, CGI, VFX, AI-контент, маркетинг влияния и многое другое в Дубае.',
     },
     fr: {
       title: 'Services Créatifs Dubaï | Metropolitan Digital',
-      description: '19 disciplines créatives : publicité sur réseaux sociaux, production vidéo cinématographique, animation 3D, CGI, VFX, contenu IA et marketing d\'influence à Dubaï.',
+      description: '23 disciplines créatives : publicité sur réseaux sociaux, production vidéo cinématographique, animation 3D, CGI, VFX, contenu IA et marketing d\'influence à Dubaï.',
     },
     'zh-CN': {
       title: '迪拜创意服务 | Metropolitan Digital',
-      description: '19项创意服务：社交媒体广告、电影级视频制作、3D动画、CGI、视觉特效、AI内容创作、网红营销等。迪拜全方位创意制作工作室。',
+      description: '23项创意服务：社交媒体广告、电影级视频制作、3D动画、CGI、视觉特效、AI内容创作、网红营销等。迪拜全方位创意制作工作室。',
     },
     hi: {
       title: 'दुबई क्रिएटिव सर्विसेज | Metropolitan Digital',
-      description: '19 क्रिएटिव डिसिप्लिन: सोशल मीडिया विज्ञापन, सिनेमाई वीडियो प्रोडक्शन, 3D एनिमेशन, CGI, VFX, AI कंटेंट, इन्फ्लुएंसर मार्केटिंग और बहुत कुछ। दुबई का फुल-सर्विस स्टूडियो।',
+      description: '23 क्रिएटिव डिसिप्लिन: सोशल मीडिया विज्ञापन, सिनेमाई वीडियो प्रोडक्शन, 3D एनिमेशन, CGI, VFX, AI कंटेंट, इन्फ्लुएंसर मार्केटिंग और बहुत कुछ। दुबई का फुल-सर्विस स्टूडियो।',
     },
     es: {
       title: 'Servicios Creativos Dubái | Metropolitan Digital',
-      description: '19 disciplinas creativas: publicidad en redes sociales, producción de video cinematográfico, animación 3D, CGI, VFX, contenido IA y marketing de influencers en Dubái.',
+      description: '23 disciplinas creativas: publicidad en redes sociales, producción de video cinematográfico, animación 3D, CGI, VFX, contenido IA y marketing de influencers en Dubái.',
     },
     it: {
       title: 'Servizi Creativi Dubai | Metropolitan Digital',
-      description: '19 discipline creative: pubblicità sui social media, produzione video cinematografica, animazione 3D, CGI, VFX, contenuti IA e influencer marketing a Dubai.',
+      description: '23 discipline creative: pubblicità sui social media, produzione video cinematografica, animazione 3D, CGI, VFX, contenuti IA e influencer marketing a Dubai.',
     },
     tr: {
       title: 'Dubai Yaratıcı Hizmetler | Metropolitan Digital',
-      description: '19 yaratıcı disiplin: sosyal medya reklamcılığı, sinematik video prodüksiyon, 3D animasyon, CGI, VFX, yapay zeka içeriği ve influencer pazarlama. Dubai\'nin tam hizmet stüdyosu.',
+      description: '23 yaratıcı disiplin: sosyal medya reklamcılığı, sinematik video prodüksiyon, 3D animasyon, CGI, VFX, yapay zeka içeriği ve influencer pazarlama. Dubai\'nin tam hizmet stüdyosu.',
     },
   },
 
