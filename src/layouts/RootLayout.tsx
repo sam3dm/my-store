@@ -3,6 +3,7 @@ import { type ReactElement } from 'react';
 import { ScrollRestoration, useLocation } from 'react-router';
 
 import HomepageSameAsJsonLd from '@/components/HomepageSameAsJsonLd';
+import SeoKeywords from '@/components/SeoKeywords';
 import ChatWidget from '@/components/chat/ChatWidget';
 import Footer from '@/layouts/parts/Footer';
 import Header from '@/layouts/parts/Header';
@@ -66,6 +67,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         />
       </Helmet>
       <HomepageSameAsJsonLd />
+      <SeoKeywords />
       <ScrollRestoration />
       <Header />
       {children}

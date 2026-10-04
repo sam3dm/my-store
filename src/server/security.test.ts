@@ -179,3 +179,34 @@ describe("headers and uploads", () => {
 		expect(sniffAudio(Buffer.from("<?php system($_GET['c']); ?>"))).toBeNull();
 	});
 });
+
+describe("nothing can be published, uploaded or changed by the public", () => {
+	const post = (path: string, headers: Record<string, string> = {}) =>
+		fakeReq({ method: "POST", path, url: path, originalUrl: path, headers: { "user-agent": UA, "x-forwarded-for": "44.0.0.1", ...headers } });
+
+	it("refuses file uploads anywhere (multipart) and records the attempt", () => {
+		const mon = new SecurityMonitor();
+		const r = run(mon, post("/api/chat/voice", { "content-type": "multipart/form-data; boundary=x" }));
+		expect(r.status).toBe(415);
+		expect(mon.takePending()[0]!.reasons).toHaveProperty("upload-attempt");
+	});
+
+	it("refuses writes to any endpoint that isn't one of the three public ones", () => {
+		for (const p of ["/api/upload", "/api/posts", "/api/admin/login", "/api/contact", "/api/contact/a/b", "/", "/en/about", "/api/chat/stats", "/airo-assets/uploads/x.png"]) {
+			const mon = new SecurityMonitor();
+			const r = run(mon, post(p));
+			expect(r.status, p).toBe(404);
+			expect(r.passed, p).toBe(false);
+			expect(mon.takePending()[0]!.reasons, p).toHaveProperty("write-attempt");
+		}
+	});
+
+	it("still lets the legitimate forms and chat through", () => {
+		const mon = new SecurityMonitor();
+		for (const p of ["/api/contact/contact-us", "/api/chat/event", "/api/chat/voice"]) expect(run(mon, post(p)).passed, p).toBe(true);
+	});
+
+	it("rejects PUT / PATCH / DELETE outright", () => {
+		for (const method of ["PUT", "PATCH", "DELETE"]) expect(run(new SecurityMonitor(), fakeReq({ method })).status).toBe(405);
+	});
+});

@@ -14,6 +14,12 @@
 | Dependencies | `npm audit` for production packages: **0 vulnerabilities** (fixed `body-parser` and `qs` DoS issues). Re-run `npm audit --omit=dev` regularly. |
 | Secrets | None in the repository. The owner's personal e-mail exists only in server configuration (`src/lib/contact-form.config.json`, read by the server) and is never sent to browsers. |
 
+## Nobody can publish, upload or change anything
+* The site is **read-only for the public**. Writes are accepted on only three endpoints (contact form, chatbot summary, voice message). A POST anywhere else, any file upload (multipart), and PUT / PATCH / DELETE / WebDAV are refused, recorded and e-mailed with the sender's IP; repeat offenders are blocked.
+* There is no admin panel, no login, no content-management endpoint and no username / password in the site – there is nothing to log in to. The chatbot refuses every request for credentials, source code, server access, or to edit / add / delete / publish content or open links, and never repeats a link.
+* **Integrity guard**: on a production server (`NODE_ENV=production`, or `INTEGRITY_GUARD=enforce`) every served file is fingerprinted at start-up and re-checked every minute. A modified or deleted file is **restored**, an unknown file (picture, script, web shell) is **deleted**, and an alert e-mail is sent. `INTEGRITY_GUARD=monitor` only reports; `off` disables. Because updates are deployments (which restart the server and take a new snapshot) a normal update is never undone.
+* Voice recordings are the only uploads. They are downloaded as attachments in a sandbox (never shown inside the site), cannot be listed, expire after 14 days, and can be switched off completely with `CHAT_VOICE=off`.
+
 ## Tests
 `src/server/security.test.ts`, `sanitize.test.ts`, `stats.test.ts` (and the live attack run described in the hand-over) cover: 18 attack URL families, bans, rate limits, alert contents/throttling, CSP, audio sniffing, sanitising, privacy.
 

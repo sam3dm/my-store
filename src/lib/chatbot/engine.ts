@@ -18,7 +18,7 @@ import {
   type Discovery,
   type QKey,
 } from './discovery';
-import { checkConduct, isNotAName } from './conduct';
+import { ACCESS_PROBE, checkConduct, hasLink, isNotAName } from './conduct';
 import { buildKnowledge, matchEntries, type KbEntry } from './knowledge';
 import { detectScript, hasAny, hasPhrase, isQuestion, normalize, wordCount, type ChatLang } from './text';
 
@@ -107,6 +107,9 @@ const S = {
     lawAnswer:
       'نعم، نعمل بالكامل ضمن قوانين دولة الإمارات العربية المتحدة، ونلتزم بكل ما هو قانوني ومرخّص وأخلاقي في عملنا مع عملائنا.',
     nameRetry: 'عذراً، لم أتبيّن اسمك. هل تتفضّل بكتابة اسمك الكريم فقط؟',
+    noLinks: 'حرصاً على أمانك وأمان الموقع، لا أستطيع فتح الروابط أو نشرها أو إضافتها. يسعدني أن تكتب لي سؤالك مباشرة، وسأجيبك بكل سرور.',
+    noAccess:
+      'أعتذر، لا أستطيع تنفيذ ذلك. هذه المحادثة لا تتيح تعديل الموقع أو إضافة أي محتوى أو حذفه أو نشره، ولا أملك ولا أشارك أي بيانات دخول أو معلومات تقنية. يسعدني خدمتك فيما يخص خدمات متروبوليتان ديجيتال ماركتينج وأعمالها.',
     privateData: 'أعتذر، محادثات العملاء وبياناتهم سرّية تماماً. لا أحتفظ بأي محادثة بعد انتهائها، ولا أملك ولا أشارك معلومات أو أرقام أو أسماء أي شخص آخر. يسعدني خدمتك فيما يتعلق بخدمات متروبوليتان ديجيتال ماركتينج وأعمالها.',
     unknown: 'شكراً على سؤالك. لا علم لي بهذه المعلومة، فهي ليست ضمن المعلومات المتوفرة على موقعنا، وسيتواصل معك فريق العمل في أقرب وقت ممكن. ',
     askLeadName: 'هل تتفضّل بكتابة اسمك الكريم؟',
@@ -156,6 +159,9 @@ const S = {
     lawAnswer:
       'Yes — we work entirely within the laws of the United Arab Emirates, and only on what is lawful, licensed and ethical.',
     nameRetry: "Apologies, I didn't quite catch your name. Could you please type just your name?",
+    noLinks: 'For your safety and the safety of the website, I can\'t open, post or add links. Please just type your question and I will gladly answer.',
+    noAccess:
+      "I'm sorry, I can't do that. This chat cannot be used to edit the website or to add, delete or publish any content, and I neither hold nor share any login details or technical information. I would be glad to help with Metropolitan Digital Marketing's services and work.",
     privateData: "I'm sorry — client conversations and details are strictly confidential. I don't keep any conversation after it ends, and I neither hold nor share the information, numbers or names of anyone else. I'd be glad to help with anything about Metropolitan Digital Marketing's services and work.",
     unknown:
       "Thank you for your question. I'm afraid I don't have that information, as it isn't part of what is published on our website, and our team will be glad to get in touch with you as soon as possible. ",
@@ -456,6 +462,14 @@ export function respond(prev: ChatState, input: string): TurnResult {
   const q = normalize(text);
   const entries = kb(lang).entries;
   const question = isQuestion(text);
+
+  // ── Nothing can be published, uploaded or changed through the chat; no links are opened or kept ──
+  if (hasLink(text)) {
+    return { state, reply: { text: t.noLinks, moderated: true } };
+  }
+  if (has(q, ACCESS_PROBE)) {
+    return { state, reply: { text: t.noAccess, moderated: true } };
+  }
 
   // ── Conduct: refuse unlawful / indecent requests, never answer or repeat rudeness ──
   const conduct = checkConduct(q);

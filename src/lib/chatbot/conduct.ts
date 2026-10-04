@@ -52,3 +52,18 @@ export const NOT_A_NAME = [
 export function isNotAName(q: string): boolean {
   return hasAny(q, NOT_A_NAME) || checkConduct(q) !== null;
 }
+
+/** A web address in a message (e-mail addresses are not links). */
+export function hasLink(raw: string): boolean {
+  const t = raw.replace(/\S+@\S+\.\S+/g, ' ');
+  return /(https?:\/\/|ftp:\/\/|www\.|\b(t\.me|wa\.me|bit\.ly|tinyurl\.com|goo\.gl|discord\.gg)\/|\b[a-z0-9][a-z0-9-]{1,60}\.(com|net|org|io|ae|co|me|ru|cn|xyz|info|biz|shop|app|link|top|site|online|store|club|vip|tk|ml|ga|cf|gq)\b)/i.test(t);
+}
+
+/** Requests for credentials, technical access, or to change / publish / delete anything on the site. */
+export const ACCESS_PROBE = [
+  'username', 'user name', 'login details', 'log in details', 'login', 'credentials', 'cpanel', 'ftp', 'ssh', 'github', 'repository', 'source code', 'secret key', 'access token', 'backend', 'dashboard', 'admin panel', 'control panel', 'hosting account', 'server access', 'give me access', 'root access', 'sudo',
+  'edit the website', 'edit the site', 'change the website', 'change the site', 'modify the website', 'modify the site', 'edit your website', 'delete the website', 'delete the site', 'delete images', 'delete the images', 'remove the images', 'change the content', 'change your content', 'edit content', 'update the website', 'update your site',
+  'upload image', 'upload an image', 'upload a photo', 'upload a video', 'upload a file', 'add an image', 'add image', 'add a photo', 'add a link', 'add this link', 'post this link', 'post this on', 'publish this', 'publish my', 'publish on your site', 'publish on your website', 'post on your website', 'post on your site', 'put this on your site', 'put this on your website', 'write an article on your', 'hack', 'hacker', 'hacking', 'bypass', 'exploit', 'vulnerability', 'sql injection', 'xss', 'ddos', 'brute force',
+  'يوزر', 'اسم المستخدم', 'اسم المستخدم والباسورد', 'باسورد', 'كلمه السر', 'كلمه المرور', 'بيانات الدخول', 'تسجيل الدخول', 'لوحه التحكم', 'لوحه الادمن', 'لوحه الادارة', 'الكود المصدري', 'سيرفر', 'استضافه الموقع', 'اعطني صلاحيه', 'صلاحيات',
+  'عدل الموقع', 'عدل على الموقع', 'تعديل الموقع', 'تغيير الموقع', 'غير محتوي الموقع', 'غير المحتوي', 'عدل المحتوي', 'احذف الموقع', 'احذف الصور', 'امسح الصور', 'امسح الموقع', 'ارفع صوره', 'ارفع ملف', 'ارفع فيديو', 'رفع صوره', 'رفع ملف', 'اضف صوره', 'اضافه صوره', 'اضف رابط', 'اضافه رابط', 'انشر هذا', 'انشر الرابط', 'انشر على موقعكم', 'انشر في موقعكم', 'اكتب مقال في موقعكم', 'اختراق', 'اخترق', 'هاكر', 'ثغره', 'تجاوز الحمايه',
+];

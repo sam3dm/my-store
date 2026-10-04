@@ -11,6 +11,7 @@ import { registerChatVoiceRoutes } from "./chat-voice";
 import { StatsStore, chatEventHandler, defaultStatsDir, inboxSender, startStatsService, visitCounter } from "./stats";
 import { SecurityMonitor, cspForDocument, securityHeaders, startSecurityAlerts } from "./security";
 import { sanitizeJson } from "./sanitize";
+import { IntegrityGuard, integrityMode, startIntegrityGuard } from "./integrity";
 import { seoRoutes } from "../lib/seo-routes";
 import {
 	loadAdSenseRuntimeConfig,
@@ -434,6 +435,13 @@ if (import.meta.env.PROD) {
 		console.log(`Server listening on http://${host}:${port}`);
 		startStatsService(stats);
 		startSecurityAlerts(security, inboxSender());
+		const integrity = integrityMode();
+		console.log(`Integrity guard: ${integrity}`);
+		if (integrity !== "off") {
+			const guard = new IntegrityGuard([clientDir, join(process.cwd(), "public", "assets")], [join(process.cwd(), "airo-media.json"), join(process.cwd(), "public", "airo-media.json")]);
+			console.log(`Integrity guard watching ${guard.size} files`);
+			startIntegrityGuard(guard, inboxSender(), integrity);
+		}
 	});
 	// Slow-request protection (slowloris): requests must arrive promptly.
 	server.headersTimeout = 15_000;

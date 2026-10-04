@@ -159,7 +159,10 @@ export async function downloadVoice(req: Request, res: Response): Promise<void> 
 				"Content-Length": String(data.length),
 				"Cache-Control": "private, max-age=3600",
 				"X-Content-Type-Options": "nosniff",
-				"Content-Disposition": `inline; filename="voice-message.${m[1]}"`,
+				"Content-Disposition": `attachment; filename="voice-message.${m[1]}"`,
+				"Content-Security-Policy": "default-src 'none'; sandbox",
+				"X-Robots-Tag": "noindex, nofollow",
+				"Cross-Origin-Resource-Policy": "same-origin",
 			})
 			.send(data);
 	} catch {
@@ -168,6 +171,7 @@ export async function downloadVoice(req: Request, res: Response): Promise<void> 
 }
 
 export function registerChatVoiceRoutes(app: Express): void {
+	if (process.env.CHAT_VOICE === "off") return; // owner switch: no uploads at all
 	app.post(
 		"/api/chat/voice",
 		express.raw({ type: () => true, limit: MAX_VOICE_BYTES }),

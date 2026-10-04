@@ -126,6 +126,9 @@ export function inspectRequest(method: string, rawUrl: string, userAgent: string
 	return null;
 }
 
+/** The only places the public may send data to. Everything else is read-only for visitors. */
+export const WRITE_ALLOWED = [/^\/api\/contact\/[A-Za-z0-9_-]{1,40}$/, /^\/api\/chat\/event$/, /^\/api\/chat\/voice$/];
+
 /* ── Monitor (incidents, strikes, bans, rate limits) ──────────────────────── */
 
 export interface Incident {
@@ -248,6 +251,20 @@ export class SecurityMonitor {
 				// Uninformative answer: scanners learn nothing about what exists.
 				res.status(verdict.startsWith("method-") ? 405 : 404).type("text/plain").send(verdict.startsWith("method-") ? "Method Not Allowed" : "Not Found");
 				return;
+			}
+			// Visitors can't publish, upload or change anything: writes are only accepted on the three endpoints above.
+			const ctype = String(req.headers["content-type"] ?? "").toLowerCase();
+			if (req.method === "POST") {
+				if (ctype.includes("multipart/")) {
+					this.record(c, "upload-attempt", meta);
+					res.status(415).json({ error: "Not accepted" });
+					return;
+				}
+				if (!WRITE_ALLOWED.some((re) => re.test(req.path))) {
+					this.record(c, "write-attempt", meta);
+					res.status(404).json({ error: "Not found" });
+					return;
+				}
 			}
 			if (!c.identifiable) return next();
 
