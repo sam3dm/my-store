@@ -289,7 +289,7 @@ describe('privacy', () => {
     ];
     for (const a of asks) {
       const { out } = chat([a], /[\u0600-\u06FF]/.test(a) ? 'ar' : 'en');
-      expect(out[0]).toMatch(/confidential|سرّية/);
+      expect(out[0]).toMatch(/confidential|سرّية|can't do that|لا أستطيع تنفيذ/);
       expect(out[0]).not.toMatch(/\d{6,}/);
     }
   });

@@ -72,6 +72,25 @@ function pickMime(): string | undefined {
   return ['audio/webm;codecs=opus', 'audio/webm', 'audio/mp4', 'audio/ogg;codecs=opus'].find((t) => MediaRecorder.isTypeSupported(t));
 }
 
+/** Ask the server-side AI endpoint; null on any problem (no key, limit, filter, network) so the rules take over. */
+async function askAi(messages: { role: 'user' | 'assistant'; content: string }[]): Promise<string | null> {
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 22000);
+    const res = await fetch('/api/chat/ai', {
+      method: 'POST',
+      signal: ctrl.signal,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages }),
+    }).finally(() => clearTimeout(timer));
+    if (!res.ok) return null;
+    const data = (await res.json()) as { ok?: boolean; text?: string };
+    return data.ok && typeof data.text === 'string' && data.text ? data.text : null;
+  } catch {
+    return null;
+  }
+}
+
 async function sendLead(lead: Lead, conversation: Msg[], siteLang: string, keepalive = false) {
   const origin = typeof window !== 'undefined' ? window.location.origin : '';
   const report = buildReport(
@@ -247,8 +266,24 @@ export default function ChatWidget() {
       const userId = idRef.current++;
       setMessages((m) => [...m, { id: userId, from: 'user', text: userText, lang: lang === 'ar' ? 'ar' : 'en' }]);
       setTyping(true);
-      const turn = respond(stateRef.current, userText);
-      await new Promise((r) => setTimeout(r, 700 + Math.min(userText.length * 8, 800)));
+      const before = stateRef.current;
+      let turn = respond(before, userText);
+      if (turn.reply.ai) {
+        // The rules did not understand: ask the AI (answers only from the website's content). Any failure keeps the rule-based reply.
+        const history = messagesRef.current
+          .filter((m) => !m.hidden && m.text)
+          .slice(-9)
+          .map((m) => ({ role: m.from === 'user' ? ('user' as const) : ('assistant' as const), content: m.text }));
+        history.push({ role: 'user', content: userText.slice(0, 800) });
+        const ai = await askAi(history);
+        if (ai) {
+          turn = {
+            state: { ...turn.state, pending: before.pending, mode: before.mode, asked: { ...before.asked }, lastQuestion: turn.state.lastQuestion },
+            reply: { text: ai },
+          };
+        }
+      }
+      await new Promise((r) => setTimeout(r, 400 + Math.min(userText.length * 6, 600)));
       setState(turn.state);
       stateRef.current = turn.state;
       if (turn.reply.moderated) {

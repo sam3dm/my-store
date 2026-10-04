@@ -1,4 +1,5 @@
 import { useRef, useState, useCallback, useEffect } from 'react';
+import { useSearchParams } from 'react-router';
 import { Helmet } from '@dr.pogodin/react-helmet';
 import { motion, useInView, AnimatePresence } from 'motion/react';
 import { ArrowRight, X, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -417,7 +418,11 @@ export default function PortfolioPage() {
     about: { '@id': `${SITE_URL}/#organization` },
   };
 
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [searchParams] = useSearchParams();
+  const initialCategory = searchParams.get('c') ?? 'all';
+  const [activeCategory, setActiveCategory] = useState(
+    portfolio.categories.some((c) => c.id === initialCategory) ? initialCategory : 'all',
+  );
   // lightboxIndex refers to the index within the FULL items array
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 

@@ -127,7 +127,7 @@ export function inspectRequest(method: string, rawUrl: string, userAgent: string
 }
 
 /** The only places the public may send data to. Everything else is read-only for visitors. */
-export const WRITE_ALLOWED = [/^\/api\/contact\/[A-Za-z0-9_-]{1,40}$/, /^\/api\/chat\/event$/, /^\/api\/chat\/voice$/];
+export const WRITE_ALLOWED = [/^\/api\/contact\/[A-Za-z0-9_-]{1,40}$/, /^\/api\/chat\/event$/, /^\/api\/chat\/ai$/, /^\/api\/chat\/voice$/];
 
 /* ── Monitor (incidents, strikes, bans, rate limits) ──────────────────────── */
 

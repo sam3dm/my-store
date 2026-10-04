@@ -1661,7 +1661,7 @@
     ],
     "privacy": {
       "text": "J'accepte que mes données personnelles soient collectées et traitées conformément à la politique de confidentialité de Metropolitan Digital Marketing.",
-      "note": "Vos informations restent strictement confidentielles et ne sont jamais partagées avec des tiers."
+      "note": "Vos informations restent strictement confidentielles et ne sont jamais partagées avec des tiers. L'assistant de chat peut utiliser un service d'IA sécurisé pour rédiger ses réponses ; les messages du chat ne sont pas conservés."
     },
     "success": {
       "headline": "Message reçu.",
