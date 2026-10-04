@@ -69,6 +69,8 @@ export interface BotReply {
   submit?: Lead;
   /** The visitor's message was declined (inappropriate); it must not be stored or reported. */
   moderated?: boolean;
+  /** The rules did not understand this message: the browser may ask the AI endpoint before falling back to this reply. */
+  ai?: boolean;
 }
 
 export interface TurnResult {
@@ -761,7 +763,7 @@ export function respond(prev: ChatState, input: string): TurnResult {
   state.lastQuestion = text;
   state.asked.contact = Math.min(state.asked.contact ?? 0, 1);
   const s = state.reported || state.mode !== 'idle' ? '' : steer(state, lang, true, 'contact', true);
-  return { state, reply: { text: t.unknown + (s || t.anythingElse) } };
+  return { state, reply: { text: t.unknown + (s || t.anythingElse), ai: true } };
 }
 
 export function onVoiceSent(prev: ChatState, url: string | null, lang: ChatLang): TurnResult {

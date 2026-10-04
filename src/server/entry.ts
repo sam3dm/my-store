@@ -8,6 +8,7 @@ import contact__formName__post from "./api/contact/[formName]/POST";
 import health__get from "./api/health/GET";
 // </api-imports>
 import { registerChatVoiceRoutes } from "./chat-voice";
+import { chatAiHandler } from "./chat-ai";
 import { StatsStore, chatEventHandler, defaultStatsDir, inboxSender, startStatsService, visitCounter } from "./stats";
 import { SecurityMonitor, cspForDocument, securityHeaders, startSecurityAlerts } from "./security";
 import { sanitizeJson } from "./sanitize";
@@ -122,6 +123,8 @@ app.get("/api/health", health__get);
 registerChatVoiceRoutes(app);
 // Write-only: chatbot conversation summaries for the nightly owner report. Nothing can read them back.
 app.post("/api/chat/event", chatEventHandler(stats));
+// AI answers (key stays on the server; 503 when no key so the browser falls back to the rule-based bot).
+app.post("/api/chat/ai", chatAiHandler());
 
 // Unknown API paths answer with a neutral JSON 404 (no framework error page).
 app.use("/api", (_req, res) => {

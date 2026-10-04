@@ -49,3 +49,9 @@ The microphone button records up to 2 minutes and uploads to `/api/chat/voice`; 
 
 - Every portfolio category (cinematic, automotive, medical, 3D/CGI, AI, real estate, interior design, hotels, perfume & beauty, social) has a guide in `src/content/pages/portfolio.json` (`guides`, `guideUi`) translated in `src/locales/content/<lang>.json`. The guide is shown on `/portfolio` when a category button is selected, and the chatbot serves it as `cat-<id>` knowledge entries (overview, then "stages" or "tools" when the visitor asks), plus the generic `stages` and `tools` entries (`knowledge.ts`).
 - Programming code, SQL/shell payloads, "write/run code" requests and prompt-injection / role-play jailbreaks are refused by `isCodeOrInjection` (`conduct.ts`) before any knowledge lookup. Nothing is echoed, stored, executed or sent to the team.
+
+## AI conversation layer
+
+- `src/server/chat-ai.ts` (`POST /api/chat/ai`): when the rule-based engine does not understand a message (`reply.ai`), the widget sends the recent history here and a Claude model answers only from the website content (`buildKnowledgeText`). No tools, no storage; links, foreign e-mails, markup and code in the reply are discarded; `[[UNKNOWN]]` or any failure falls back to the rule-based reply (which collects the visitor's details).
+- Server environment: `ANTHROPIC_API_KEY` (required to enable; without it the endpoint answers 503), optional `CHAT_AI_MODEL` (default `claude-haiku-4-5-20251001`), `CHAT_AI_PER_VISITOR` (25 per 10 min), `CHAT_AI_PER_VISITOR_DAILY` (80), `CHAT_AI_DAILY_CAP` (1500 messages per day for the whole site).
+- The key is never in the repository or the browser. Set a monthly spend limit in the Anthropic console.

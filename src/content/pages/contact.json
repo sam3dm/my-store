@@ -181,7 +181,7 @@
   ],
   "privacy": {
     "text": "I agree to the collection and processing of my personal data in accordance with Metropolitan Digital Marketing's privacy policy.",
-    "note": "Your information is kept strictly confidential and never shared with third parties."
+    "note": "Your information is kept strictly confidential and never shared with third parties. The chat assistant may use a secure AI service to compose its replies; chat messages are not stored."
   },
   "success": {
     "headline": "Message Received.",
