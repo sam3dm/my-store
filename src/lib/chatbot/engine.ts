@@ -18,6 +18,7 @@ import {
   type Discovery,
   type QKey,
 } from './discovery';
+import { checkConduct, isNotAName } from './conduct';
 import { buildKnowledge, matchEntries, type KbEntry } from './knowledge';
 import { detectScript, hasAny, hasPhrase, isQuestion, normalize, wordCount, type ChatLang } from './text';
 
@@ -49,6 +50,7 @@ export interface ChatState {
   reported: boolean;
   /** What the visitor asked about (kept only for the end-of-conversation report). */
   questions: string[];
+  nameTries?: number;
   turn: number;
   lastQuestion?: string;
   voiceUrl?: string;
@@ -62,6 +64,8 @@ export interface BotReply {
   page?: string;
   /** Set when the report is complete and should be sent to the team. */
   submit?: Lead;
+  /** The visitor's message was declined (inappropriate); it must not be stored or reported. */
+  moderated?: boolean;
 }
 
 export interface TurnResult {
@@ -96,16 +100,23 @@ const S = {
     price:
       'أشكرك على اهتمامك. لا أملك تفاصيل الأسعار، فالتكلفة تختلف بحسب طبيعة كل مشروع ونطاقه، وسيعدّ لك فريقنا عرضاً مناسباً بعد أن يطّلع على احتياجك. ',
     privacy: 'أعتذر، لا أستطيع الحديث عن معلومات شخصية أو عن أشخاص. ',
+    unlawful:
+      'نشكرك على سؤالك، ونعتذر منك: هذه الأعمال ليست من اختصاصنا ونحن لا نعمل بها إطلاقاً. نحن نلتزم بقوانين دولة الإمارات العربية المتحدة، ونعمل ضمن ما هو قانوني ومرخّص ومنسجم مع القيم والأخلاق المهنية. مع كل الاحترام والتقدير لحضرتك، هل لديك سؤال آخر عن خدماتنا أو أعمالنا؟',
+    courtesy:
+      'شكراً لك على تواصلك. نحرص في متروبوليتان ديجيتال ماركتينج على حوار راقٍ ومحترم، ويسعدني خدمتك فيما يخص أعمالنا وخدماتنا.',
+    lawAnswer:
+      'نعم، نعمل بالكامل ضمن قوانين دولة الإمارات العربية المتحدة، ونلتزم بكل ما هو قانوني ومرخّص وأخلاقي في عملنا مع عملائنا.',
+    nameRetry: 'عذراً، لم أتبيّن اسمك. هل تتفضّل بكتابة اسمك الكريم فقط؟',
     privateData: 'أعتذر، محادثات العملاء وبياناتهم سرّية تماماً. لا أحتفظ بأي محادثة بعد انتهائها، ولا أملك ولا أشارك معلومات أو أرقام أو أسماء أي شخص آخر. يسعدني خدمتك فيما يتعلق بخدمات متروبوليتان ديجيتال ماركتينج وأعمالها.',
     unknown: 'شكراً على سؤالك. لا علم لي بهذه المعلومة، فهي ليست ضمن المعلومات المتوفرة على موقعنا، وسيتواصل معك فريق العمل في أقرب وقت ممكن. ',
     askLeadName: 'هل تتفضّل بكتابة اسمك الكريم؟',
     askMobile: (n: string) => `${n ? `${n}، ` : ''}ليتمكّن فريقنا من التواصل معك في أقرب وقت ممكن، هل تتفضّل بكتابة رقم جوالك (يفضّل أن يكون عليه واتساب)؟`,
     askMobileShort: 'هل تتفضّل بكتابة رقم جوالك (يفضّل أن يكون عليه واتساب)؟',
     askNameFirst: 'هل تتفضّل بكتابة اسمك الكريم أولاً؟',
-    askPhone: 'وهل لديك رقم هاتف آخر للتواصل؟ إن لم يكن فاكتب «لا يوجد».',
+    askPhone: 'وللتأكد من وصولنا إليك، هل لديك رقم هاتف ثانٍ للتواصل (هاتف أرضي أو رقم آخر)؟ إن لم يكن فاكتب «لا يوجد».',
     badMobile: 'يبدو أن الرقم غير مكتمل، هل تتفضّل بكتابته مع رمز الدولة؟ مثال: 971501234567+',
     didntCatchMobile: 'لم أجد رقماً في رسالتك. هل تتفضّل بكتابة رقم جوالك؟ وإن فضّلت عدم ترك رقمك الآن فلا بأس إطلاقاً.',
-    done: (n: string) => `شكراً جزيلاً${n ? ` يا ${n}` : ''}، تم تسجيل بياناتك وتفاصيل طلبك بنجاح، وسيتواصل معك فريق متروبوليتان ديجيتال ماركتينج في أقرب وقت ممكن. `,
+    done: (n: string) => `عزيزي${n ? ` ${n}` : ''}، شكراً جزيلاً لك على تواصلك بنا، وتشرّفنا بمعرفتك. تم تسجيل بياناتك وتفاصيل طلبك، وسيتواصل معك فريق متروبوليتان ديجيتال ماركتينج في أقرب وقت ممكن، ونأمل أن نخدمك في الأيام القادمة. وإن كان لديك أي استفسار فلا تتردد بالتواصل معنا على واتساب +971 50 822 1108 أو عبر هذه المحادثة. `,
     declineContact: 'لا بأس إطلاقاً. متى رغبت يمكنك التواصل معنا مباشرة عبر واتساب أو صفحة «تواصل معنا». ',
     anythingElse: 'وإن كان لديك أي سؤال آخر عن شركتنا أو أعمالنا أو خدماتنا فأنا في خدمتك.',
     voiceGot: 'وصلتني رسالتك الصوتية، شكراً لك. أنا مساعد كتابي ولا أستطيع سماع الرسائل الصوتية، لكنني سأحوّلها إلى فريقنا ليستمعوا إليها ويردّوا عليك. ',
@@ -138,6 +149,13 @@ const S = {
     price:
       "Thank you for your interest. I don't have pricing details, as the cost depends on the nature and scope of each project, and our team will prepare a suitable proposal once they understand your needs. ",
     privacy: "I'm sorry, I'm not able to discuss personal information or individuals. ",
+    unlawful:
+      "Thank you for your question, and we apologise: this kind of work is not our field and we do not do it at all. We operate within the laws of the United Arab Emirates and only on what is lawful, licensed and in line with professional ethics. With all due respect, do you have another question about our services or our work?",
+    courtesy:
+      'Thank you for getting in touch. At Metropolitan Digital Marketing we value a respectful and refined conversation, and I would be glad to help you with our work and services.',
+    lawAnswer:
+      'Yes — we work entirely within the laws of the United Arab Emirates, and only on what is lawful, licensed and ethical.',
+    nameRetry: "Apologies, I didn't quite catch your name. Could you please type just your name?",
     privateData: "I'm sorry — client conversations and details are strictly confidential. I don't keep any conversation after it ends, and I neither hold nor share the information, numbers or names of anyone else. I'd be glad to help with anything about Metropolitan Digital Marketing's services and work.",
     unknown:
       "Thank you for your question. I'm afraid I don't have that information, as it isn't part of what is published on our website, and our team will be glad to get in touch with you as soon as possible. ",
@@ -145,10 +163,10 @@ const S = {
     askMobile: (n: string) => `${n ? `${n}, ` : ''}so that our team can get in touch with you as soon as possible, may I have your mobile number (preferably with WhatsApp)?`,
     askMobileShort: 'may I have your mobile number (preferably with WhatsApp)?',
     askNameFirst: 'may I have your name, please?',
-    askPhone: 'And do you have another phone number we can reach you on? If not, just type "none".',
+    askPhone: 'And so that we are sure to reach you, do you have a second phone number (a landline or another number)? If not, just type "none".',
     badMobile: 'That number looks incomplete — could you please type it with the country code? For example: +971501234567',
     didntCatchMobile: "I couldn't find a number in your message. Could you type your mobile number? If you'd rather not leave it now, that's perfectly fine.",
-    done: (n: string) => `Thank you very much${n ? `, ${n}` : ''} — your details and request have been recorded, and the Metropolitan Digital Marketing team will contact you as soon as possible. `,
+    done: (n: string) => `Dear${n ? ` ${n}` : ' friend'}, thank you very much for getting in touch — it was a pleasure to get to know you. Your details and request have been recorded, the Metropolitan Digital Marketing team will contact you as soon as possible, and we hope to serve you in the days to come. If you have any inquiry, please don't hesitate to reach us on WhatsApp at +971 50 822 1108 or through this chat. `,
     declineContact: 'Not a problem at all. Whenever you wish, you can reach us directly on WhatsApp or via the Contact page. ',
     anythingElse: 'If you have any other question about our company, our work or our services, I am at your service.',
     voiceGot:
@@ -227,7 +245,15 @@ function cleanName(n: string) {
 function explicitName(raw: string): string | null {
   const text = raw.trim().replace(/[.!؟?،,]+$/g, '');
   const m = text.match(/^(?:اسمي|انا اسمي|أنا اسمي|my name is|call me|name'?s)\s+([\p{L}][\p{L}\s]{1,30})$/iu);
-  return m && wordCount(m[1]!) <= 3 ? cleanName(m[1]!) : null;
+  return m && wordCount(m[1]!) <= 3 && plausibleName(m[1]!) ? cleanName(m[1]!) : null;
+}
+
+/** A real person's name: not a business word, not rude, not something the bot knows as a topic. */
+function plausibleName(name: string): boolean {
+  const q = normalize(name);
+  if (!q || isNotAName(q)) return false;
+  if (matchEntries(kb('en').entries, q).length || matchEntries(kb('ar').entries, q).length) return false;
+  return name.split(/\s+/).every((w) => w.replace(/[^\p{L}]/gu, '').length >= 2);
 }
 
 function extractName(raw: string, strict = false): string | null {
@@ -238,9 +264,9 @@ function extractName(raw: string, strict = false): string | null {
   ];
   for (const p of patterns) {
     const m = text.match(p);
-    if (m && wordCount(m[1]!) <= 3) return cleanName(m[1]!);
+    if (m && wordCount(m[1]!) <= 3 && plausibleName(m[1]!)) return cleanName(m[1]!);
   }
-  if (wordCount(text) <= (strict ? 2 : 3) && /^[\p{L}\s.'-]{2,30}$/u.test(text) && !NAME_STOP.has(normalize(text))) return cleanName(text);
+  if (wordCount(text) <= (strict ? 2 : 3) && /^[\p{L}\s.'-]{2,30}$/u.test(text) && !NAME_STOP.has(normalize(text)) && plausibleName(text)) return cleanName(text);
   return null;
 }
 
@@ -431,6 +457,13 @@ export function respond(prev: ChatState, input: string): TurnResult {
   const entries = kb(lang).entries;
   const question = isQuestion(text);
 
+  // ── Conduct: refuse unlawful / indecent requests, never answer or repeat rudeness ──
+  const conduct = checkConduct(q);
+  if (conduct) {
+    const again = state.mode === 'leadMobile' ? ` ${t.askMobileShort.replace(/^./, (c) => c.toUpperCase())}` : state.mode === 'leadPhone' ? ` ${t.askPhone}` : state.mode === 'leadName' ? ` ${t.askLeadName}` : '';
+    return { state, reply: { text: (conduct === 'unlawful' ? t.unlawful : t.courtesy) + (conduct === 'profanity' ? again : ''), moderated: true } };
+  }
+
   // ── Privacy: never reveal anything about other visitors or internal data ──
   if (has(q, PRIVACY_PROBE)) {
     return { state, reply: { text: t.privateData } };
@@ -470,6 +503,13 @@ export function respond(prev: ChatState, input: string): TurnResult {
       state.pending = null;
       state.asked.contact = 9;
       return { state, reply: { text: t.declineContact + t.anythingElse } };
+    }
+    if (!question && !hasDigits(text) && wordCount(text) <= 4) {
+      // Answered something that isn't a name: ask once more, then carry on without a name.
+      state.nameTries = (state.nameTries ?? 0) + 1;
+      if (state.nameTries < 2) return { state, reply: { text: t.nameRetry } };
+      state.mode = 'leadMobile';
+      return { state, reply: { text: t.askMobileShort.replace(/^./, (c) => c.toUpperCase()) } };
     }
     state.mode = 'idle';
   } else if (state.mode === 'leadMobile' || state.mode === 'leadPhone') {
@@ -619,7 +659,7 @@ export function respond(prev: ChatState, input: string): TurnResult {
   }
 
   // ── The visitor answered the question we asked ───────────────────────────
-  const INFO = ['clients', 'contact', 'instagram', 'location', 'about', 'vision', 'experience', 'process', 'whyus', 'portfolio', 'languages'];
+  const INFO = ['law', 'clients', 'contact', 'instagram', 'location', 'about', 'vision', 'experience', 'process', 'whyus', 'portfolio', 'languages'];
   const factAnswer = Boolean(extractFacts(q).location) && wordCount(text) <= 3 && !question;
   const asksInfo = Boolean(top && INFO.includes(top.id)) && !factAnswer;
   const answeringPending = state.pending && state.pending !== 'name' && state.pending !== 'contact' && !question && !asksInfo;

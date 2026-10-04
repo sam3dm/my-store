@@ -200,6 +200,13 @@ export function buildKnowledge(lang: ChatLang): { entries: KbEntry[]; services: 
       page: '/about',
     },
     {
+      id: 'law',
+      keys: ['uae law', 'uae laws', 'laws of the uae', 'under uae law', 'within the law', 'قوانين الامارات', 'قوانين دوله الامارات', 'قانون الامارات', 'ضمن القانون', 'ضمن قوانين', 'حسب القانون', 'laws', 'is it legal', 'legal', 'legally', 'licensed', 'license', 'licence', 'regulations', 'compliance', 'comply', 'ethics', 'ethical', 'lawful', 'قانون', 'قوانين', 'قانوني', 'قانونيه', 'مرخص', 'مرخصين', 'ترخيص', 'رخصه', 'اخلاقي', 'اخلاقيه', 'اخلاقيات', 'التزام', 'تلتزمون'],
+      answer: ar
+        ? 'نعم، نعمل بالكامل ضمن قوانين دولة الإمارات العربية المتحدة، ونلتزم بكل ما هو قانوني ومرخّص وأخلاقي في عملنا مع عملائنا.'
+        : 'Yes — we work entirely within the laws of the United Arab Emirates, and only on what is lawful, licensed and ethical.',
+    },
+    {
       id: 'clients',
       keys: ['client name', 'client names', 'your clients', 'who are your clients', 'customers', 'past clients', 'اسماء العملاء', 'اسماء عملائكم', 'عملاءكم', 'عملائكم', 'من هم عملاؤكم', 'زبائنكم'],
       answer: ar

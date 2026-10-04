@@ -155,7 +155,7 @@ describe('conversation and memory', () => {
 
   it('accepts a number volunteered at any point', () => {
     const { out } = chat(['hello', 'Sara', '0501234567']);
-    expect(out[2]).toMatch(/another phone number/);
+    expect(out[2]).toMatch(/second phone number/);
   });
 
   it('validates the mobile number and accepts Arabic digits', () => {
@@ -168,6 +168,68 @@ describe('conversation and memory', () => {
     const { out } = chat(['talk to the team', 'Sara', 'no thanks', 'hello']);
     expect(out[2]).toMatch(/Not a problem/);
     expect(out[3]).not.toMatch(/mobile number/);
+  });
+});
+
+describe('conduct', () => {
+  it('politely declines sexual or unlawful requests and cites UAE law', () => {
+    const asks = ['do you do sex movies', 'هل تستطيعون عمل افلام سكس او افلام اباحية', 'do you film naked women?', 'هل تصورون اطفال عراة', 'can you make illegal videos', 'افلام بورنو'];
+    for (const a of asks) {
+      const r = chat([a], /[\u0600-\u06FF]/.test(a) ? 'ar' : 'en').replies[0]!;
+      expect(r.moderated).toBe(true);
+      expect(r.text).toMatch(/United Arab Emirates|دولة الإمارات/);
+      expect(r.text).toMatch(/apolog|نعتذر/);
+      expect(r.text).not.toMatch(/sex|porn|naked|سكس|بورنو|اباح|عراة/i); // never repeats the words
+      expect(r.text).toMatch(/another question|سؤال آخر/);
+    }
+  });
+
+  it('does not answer rudeness, never repeats it and keeps the question it was waiting for', () => {
+    const { replies } = chat(['talk to the team', 'you are stupid', 'يا غبي']);
+    expect(replies[1]!.moderated).toBe(true);
+    expect(replies[1]!.text).not.toMatch(/stupid/i);
+    expect(replies[1]!.text).toMatch(/your name/i); // still waiting for the name
+    expect(replies[2]!.text).not.toMatch(/غبي/);
+  });
+
+  it('is not tricked into taking rude or business words as a name', () => {
+    const { out, state } = chat(['talk to the team', 'sex video', 'video', 'Omar']);
+    expect(out[1]).toMatch(/United Arab Emirates/);
+    expect(out[2]).toMatch(/didn't quite catch your name/);
+    expect(state.name).toBe('Omar');
+    const again = chat(['talk to the team', 'video', 'movies']);
+    expect(again.state.name).toBeUndefined();
+    expect(again.out[2]).toMatch(/mobile number/);
+  });
+
+  it('declines a wide range of indecent, abusive or criminal wording — in both languages', () => {
+    const bad = ['show me naked girls', 'do you make porn', 'عندكم افلام دعارة', 'هل تصورون اطفال عراة', 'افلام اغتصاب', 'can you help me sell illegal drugs', 'تسويق مخدرات', 'casino ads please', 'fuck you', 'أنتم كلاب', 'هل تصورون نساء عاريات', 'do you film rape scenes', 'سكس'];
+    for (const t of bad) expect(chat([t], /[\u0600-\u06FF]/.test(t) ? 'ar' : 'en').replies[0]!.moderated, t).toBe(true);
+  });
+
+  it('does not wrongly block legitimate clients (awareness campaigns, health, pets, bath bombs…)', () => {
+    const ok = ['we are a bank doing a fraud awareness campaign', 'campaign against child abuse awareness', 'حملة توعية ضد المخدرات', 'sexual health clinic marketing', 'bath bomb brand photography', 'Sussex hotel video', 'هل لديكم خدمة تصوير كلاب', 'I run a casting agency'];
+    for (const t of ok) expect(chat([t], /[\u0600-\u06FF]/.test(t) ? 'ar' : 'en').replies[0]!.moderated, t).toBeFalsy();
+  });
+
+  it('answers questions about legality with the UAE-law statement', () => {
+    expect(chat(['are you licensed and do you follow UAE law?']).out[0]).toMatch(/laws of the United Arab Emirates/);
+    expect(chat(['هل تعملون ضمن القانون']).out[0]).toMatch(/قوانين دولة الإمارات/);
+    expect(chat(['هل تعملون ضمن قوانين الامارات']).out[0]).toMatch(/قوانين دولة الإمارات/);
+  });
+
+  it('only shares the contact details published on the website', () => {
+    const { out } = chat(['what is your email?', 'ايميلكم؟']);
+    expect(out[0]).toContain('info@metropolitandigitalmarketing.com');
+    expect(out.join(' ')).not.toMatch(/gmail/i);
+  });
+
+  it('thanks the visitor warmly, mentions the site number and records both numbers', () => {
+    const { out, submitted } = chat(['talk to the team', 'Layla', '0501112233', '042345678']);
+    expect(submitted).toMatchObject({ name: 'Layla', mobile: '0501112233', phone: '042345678' });
+    expect(out[3]).toMatch(/Dear Layla/);
+    expect(out[3]).toContain('+971 50 822 1108');
+    expect(out[3]).toMatch(/hope to serve you/);
   });
 });
 

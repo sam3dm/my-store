@@ -11,6 +11,14 @@ A bilingual (Arabic / English) assistant opened from **Live Chat** in the top me
 * Never quotes prices and never discusses people. Anything not on the site → "I don't have that information" and an offer to pass the visitor's details to the team.
 * Client names are confidential (NDA wording from the site).
 
+## Conduct
+* **Indecent or unlawful requests** (sexual or adult content, nudity, children, rape, drugs, gambling, terrorism…) get one fixed, polite refusal: thanks for the question, we apologise, this work is not our field, **we operate within the laws of the United Arab Emirates**, and "do you have another question?". The offending words are never repeated, and the message is kept out of every report (it appears as "[message declined by the assistant]").
+* **Insults and bad language** are not answered on their own terms: the bot thanks the visitor and steers back to the business in a refined tone.
+* Awareness-campaign and medical wording ("fraud awareness", "campaign against child abuse", "sexual health clinic") is allowed for legitimate clients.
+* **Names:** a word is accepted as a name only if it is not a business word (video, films, services…), not rude, and not something the bot recognises as a topic. After two failed attempts the conversation continues without a name.
+* The bot only gives contact details published on the website (info@… e-mail, +971 50 822 1108). It does not know any other address, so it cannot reveal one.
+* Lists live in `src/lib/chatbot/conduct.ts`.
+
 ## Privacy (important)
 * **A conversation exists only while the chat window is open**, in that visitor's own browser memory. Closing the chat (or the "new chat" button) erases it completely; reloading the page starts a fresh one. Nothing is stored in the browser (no cookies / local / session storage) and the server never stores or receives the transcript.
 * Visitors can never see anyone else's chat: there is no shared history and **no endpoint that reads chats or statistics back**.

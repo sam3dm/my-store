@@ -16,6 +16,8 @@ interface Msg {
   audioUrl?: string;
   voiceSeconds?: number;
   page?: string;
+  /** Declined by the assistant (inappropriate): kept out of every report. */
+  hidden?: boolean;
 }
 
 const STORAGE_KEY = 'mdm-chat-v1';
@@ -74,7 +76,7 @@ async function sendLead(lead: Lead, conversation: Msg[], siteLang: string, keepa
   const origin = typeof window !== 'undefined' ? window.location.origin : '';
   const report = buildReport(
     lead,
-    conversation.map((m) => ({ from: m.from, text: m.text, voice: Boolean(m.audioUrl || m.voiceSeconds) })),
+    conversation.map((m) => ({ from: m.from, text: m.hidden ? '[message declined by the assistant]' : m.text, voice: Boolean(m.audioUrl || m.voiceSeconds) })),
     siteLang,
     origin,
   );
@@ -208,6 +210,13 @@ export default function ChatWidget() {
     setMessages([{ id: idRef.current++, from: 'bot', text: g.text, lang: uiLang }]);
   }, [uiLang]);
 
+  // If the site language is switched before the visitor has written anything, greet in the new language.
+  useEffect(() => {
+    const ms = messagesRef.current;
+    if (ms.length === 1 && ms[0]!.from === 'bot') startConversation();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [uiLang]);
+
   // Open on request; greet the first time.
   useEffect(() => {
     const onOpen = () => {
@@ -235,12 +244,17 @@ export default function ChatWidget() {
   const deliver = useCallback(
     async (userText: string) => {
       const lang = detectScript(userText);
-      setMessages((m) => [...m, { id: idRef.current++, from: 'user', text: userText, lang: lang === 'ar' ? 'ar' : 'en' }]);
+      const userId = idRef.current++;
+      setMessages((m) => [...m, { id: userId, from: 'user', text: userText, lang: lang === 'ar' ? 'ar' : 'en' }]);
       setTyping(true);
       const turn = respond(stateRef.current, userText);
       await new Promise((r) => setTimeout(r, 700 + Math.min(userText.length * 8, 800)));
       setState(turn.state);
       stateRef.current = turn.state;
+      if (turn.reply.moderated) {
+        messagesRef.current = messagesRef.current.map((m) => (m.id === userId ? { ...m, hidden: true } : m));
+        setMessages((m) => m.map((x) => (x.id === userId ? { ...x, hidden: true } : x)));
+      }
       if (!countedRef.current) {
         countedRef.current = true;
         setTimeout(() => snapshot(false), 50);
