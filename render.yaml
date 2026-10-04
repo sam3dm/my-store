@@ -9,7 +9,7 @@ services:
     plan: starter
     branch: claude/website-multi-language-translation-gxo1iz
     autoDeploy: true
-    buildCommand: npm install --legacy-peer-deps && npm run build
+    buildCommand: npm install --legacy-peer-deps --include=dev && npm run build
     startCommand: node dist/server.bundle.mjs
     healthCheckPath: /api/health
     disk:
