@@ -48,6 +48,15 @@ const featuredServiceSlots = [
 ];
 
 // ─── Portfolio previews (text comes from home.portfolioNTitle…) ──────────────
+// ─── Specialties strip: portfolio categories with their own image (labels come from portfolio content) ───
+const specialtySlots: { id: string; src: string }[] = [
+  { id: 'interior', src: '/airo-assets/images/pages/home/specialty-interior' },
+  { id: 'realestate', src: '/airo-assets/images/pages/home/specialty-realestate' },
+  { id: 'medical', src: '/airo-assets/images/pages/home/specialty-medical' },
+  { id: 'hotel', src: '/airo-assets/images/pages/home/specialty-hotel' },
+  { id: 'automotive', src: '/airo-assets/images/pages/home/specialty-automotive' },
+];
+
 const portfolioSlots = [
   '/airo-assets/images/pages/home/portfolio-1',
   '/airo-assets/images/pages/home/portfolio-2',
@@ -60,6 +69,7 @@ type PortfolioPreview = { category: string; title: string; slot: string };
 // ─── Component ───────────────────────────────────────────────────────────────
 export default function HomePage() {
   const home = useLocalizedContent('home');
+  const portfolioContent = useLocalizedContent('portfolio');
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const { t, i18n } = useTranslation();
@@ -570,6 +580,69 @@ export default function HomePage() {
                   </span>
                 </FadeIn>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── SPECIALTIES ──────────────────────────────────────────────────── */}
+        <section
+          className="py-xxl"
+          style={{ background: `hsl(var(--metro-charcoal-deep))` }}
+          aria-label={portfolioContent.hero.headline}
+        >
+          <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+            <FadeIn>
+              <p
+                className="text-xs font-semibold tracking-[0.25em] uppercase mb-4"
+                style={{ color: `hsl(var(--metro-white) / 0.35)` }}
+              >
+                {portfolioContent.hero.eyebrow}
+              </p>
+              <h2
+                className="font-black uppercase leading-tight mb-12"
+                style={{
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: 'clamp(1.8rem, 3vw, 3rem)',
+                  color: `hsl(var(--metro-white))`,
+                }}
+              >
+                {portfolioContent.hero.headline}
+              </h2>
+            </FadeIn>
+            <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
+              {specialtySlots.map((sp, i) => {
+                const label = portfolioContent.categories.find((c) => c.id === sp.id)?.label ?? sp.id;
+                return (
+                  <FadeIn key={sp.id} delay={i * 0.06}>
+                    <Link
+                      to={`${localizedPath('/portfolio')}?c=${sp.id}`}
+                      className="group relative block overflow-hidden"
+                      style={{ aspectRatio: '4/5', background: `hsl(var(--metro-black))` }}
+                    >
+                      <img
+                        src={sp.src}
+                        alt=""
+                        aria-hidden="true"
+                        loading="lazy"
+                        width={800}
+                        height={1000}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div
+                        className="absolute inset-0"
+                        style={{ background: `linear-gradient(to top, hsl(var(--metro-black) / 0.85), transparent 55%)` }}
+                        aria-hidden="true"
+                      />
+                      <span
+                        className="absolute bottom-0 left-0 right-0 p-4 font-black uppercase text-xs md:text-sm leading-tight"
+                        style={{ fontFamily: 'var(--font-heading)', color: `hsl(var(--metro-white))` }}
+                      >
+                        {label}
+                      </span>
+                    </Link>
+                  </FadeIn>
+                );
+              })}
             </div>
           </div>
         </section>

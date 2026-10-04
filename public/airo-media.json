@@ -2805,5 +2805,20 @@
     "userModified": true,
     "createdAt": "2026-09-17T15:57:02.225Z",
     "lastUpdated": "2026-09-17T15:57:02.225Z"
+  },
+  "pages/home/specialty-interior": {
+    "currentUrl": "/airo-assets/uploads/mdm-about-expertise.jpg"
+  },
+  "pages/home/specialty-realestate": {
+    "currentUrl": "/airo-assets/uploads/mdm-about-story.jpg"
+  },
+  "pages/home/specialty-medical": {
+    "currentUrl": "/airo-assets/uploads/mdm-about-medical.jpg"
+  },
+  "pages/home/specialty-hotel": {
+    "currentUrl": "/airo-assets/uploads/mdm-industries-hotels-resorts.jpg"
+  },
+  "pages/home/specialty-automotive": {
+    "currentUrl": "/airo-assets/uploads/mdm-industries-automotive.jpg"
   }
 }
