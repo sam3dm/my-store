@@ -9,6 +9,8 @@ import health__get from "./api/health/GET";
 // </api-imports>
 import { registerChatVoiceRoutes } from "./chat-voice";
 import { chatAiHandler } from "./chat-ai";
+import { chatLeadHandler } from "./chat-lead";
+import { combinedSender, smtpConfigured } from "./mailer";
 import { StatsStore, chatEventHandler, defaultStatsDir, inboxSender, startStatsService, visitCounter } from "./stats";
 import { SecurityMonitor, cspForDocument, securityHeaders, startSecurityAlerts } from "./security";
 import { sanitizeJson } from "./sanitize";
@@ -125,6 +127,9 @@ registerChatVoiceRoutes(app);
 app.post("/api/chat/event", chatEventHandler(stats));
 // AI answers (key stays on the server; 503 when no key so the browser falls back to the rule-based bot).
 app.post("/api/chat/ai", chatAiHandler());
+// Lead reports from the chatbot → owner's Gmail (SMTP when configured, else the Inbox route).
+app.post("/api/chat/lead", chatLeadHandler(combinedSender(inboxSender())));
+console.log(smtpConfigured() ? "Mail: direct SMTP enabled" : "Mail: Inbox route only (set SMTP_USER / SMTP_PASS for direct Gmail delivery)");
 
 // Unknown API paths answer with a neutral JSON 404 (no framework error page).
 app.use("/api", (_req, res) => {
@@ -436,14 +441,14 @@ if (import.meta.env.PROD) {
 	const host = process.env.HOST || "0.0.0.0";
 	const server = app.listen(port, host, () => {
 		console.log(`Server listening on http://${host}:${port}`);
-		startStatsService(stats);
-		startSecurityAlerts(security, inboxSender());
+		startStatsService(stats, combinedSender(inboxSender()));
+		startSecurityAlerts(security, combinedSender(inboxSender()));
 		const integrity = integrityMode();
 		console.log(`Integrity guard: ${integrity}`);
 		if (integrity !== "off") {
 			const guard = new IntegrityGuard([clientDir, join(process.cwd(), "public", "assets")], [join(process.cwd(), "airo-media.json"), join(process.cwd(), "public", "airo-media.json")]);
 			console.log(`Integrity guard watching ${guard.size} files`);
-			startIntegrityGuard(guard, inboxSender(), integrity);
+			startIntegrityGuard(guard, combinedSender(inboxSender()), integrity);
 		}
 	});
 	// Slow-request protection (slowloris): requests must arrive promptly.

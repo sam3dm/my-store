@@ -99,17 +99,11 @@ async function sendLead(lead: Lead, conversation: Msg[], siteLang: string, keepa
     siteLang,
     origin,
   );
-  const res = await fetch('/api/contact/contact-us', {
+  const res = await fetch('/api/chat/lead', {
     method: 'POST',
     keepalive,
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      conversation: {
-        messages_attributes: [{ body: report.body }],
-        data: { __gd_contact_form_title: report.title, ...report.data },
-      },
-      user: { name: lead.name ?? 'Chatbot visitor', mobile: lead.mobile ?? lead.phone },
-    }),
+    body: JSON.stringify({ title: report.title, body: report.body }),
   });
   const json = await res.json().catch(() => ({}));
   if (!res.ok || !json.success) throw new Error(json.error || 'send failed');
@@ -135,6 +129,9 @@ export default function ChatWidget() {
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const recorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
+  const recogRef = useRef<any>(null);
+  const transcriptRef = useRef('');
+  const recogDoneRef = useRef<Promise<void>>(Promise.resolve());
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const cancelRef = useRef(false);
   const messagesRef = useRef<Msg[]>([]);
@@ -344,11 +341,46 @@ export default function ChatWidget() {
         stream.getTracks().forEach((tr) => tr.stop());
         stopTimer();
         setRecording(false);
+        try {
+          recogRef.current?.stop();
+        } catch {
+          /* already stopped */
+        }
         if (cancelRef.current) return;
         const blob = new Blob(chunksRef.current, { type: rec.mimeType || mime || 'audio/webm' });
-        void sendVoice(blob);
+        // Speech → text: the spoken words are answered like a typed message. Without a transcript the voice note goes to the team.
+        void Promise.race([recogDoneRef.current, new Promise<void>((r) => setTimeout(r, 1800))]).then(() => {
+          const spoken = transcriptRef.current.replace(/\s+/g, ' ').trim();
+          if (spoken) void deliver(spoken.slice(0, 800));
+          else void sendVoice(blob);
+        });
       };
       recorderRef.current = rec;
+      // Live speech recognition (browser feature; Arabic or English following the conversation language).
+      transcriptRef.current = '';
+      recogDoneRef.current = Promise.resolve();
+      try {
+        const SR = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+        if (SR) {
+          const recog = new SR();
+          const lastUser = [...messagesRef.current].reverse().find((m) => m.from === 'user' && m.text);
+          const arabic = lastUser ? /[\u0600-\u06FF]/.test(lastUser.text) : siteLang === 'ar';
+          recog.lang = arabic ? 'ar-AE' : 'en-US';
+          recog.continuous = true;
+          recog.interimResults = false;
+          recog.onresult = (e: any) => {
+            for (let i = e.resultIndex; i < e.results.length; i++) if (e.results[i].isFinal) transcriptRef.current += ` ${e.results[i][0].transcript}`;
+          };
+          recogDoneRef.current = new Promise<void>((resolve) => {
+            recog.onend = () => resolve();
+            recog.onerror = () => resolve();
+          });
+          recogRef.current = recog;
+          recog.start();
+        }
+      } catch {
+        recogRef.current = null;
+      }
       rec.start();
       setSeconds(0);
       setRecording(true);
