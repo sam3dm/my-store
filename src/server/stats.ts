@@ -14,6 +14,7 @@ import { createHash, randomBytes } from "node:crypto";
 import { existsSync, mkdirSync, readFileSync, readdirSync, unlinkSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import { cleanName, defang, neutralize } from "./sanitize";
 
 export const REPORT_TZ = "Asia/Dubai";
 export const REPORT_HOUR = 23;
@@ -72,7 +73,7 @@ const BOT_RE = /bot|crawl|spider|slurp|preview|monitor|lighthouse|pingdom|uptime
 
 const clip = (s: unknown, n: number): string | undefined => {
 	if (typeof s !== "string") return undefined;
-	const t = s.replace(/\s+/g, " ").trim().slice(0, n);
+	const t = neutralize(s).replace(/\s+/g, " ").trim().slice(0, n);
 	return t || undefined;
 };
 const clipList = (v: unknown, n: number, each: number): string[] =>
@@ -84,7 +85,7 @@ export class StatsStore {
 	private salt = "";
 
 	constructor(readonly dir: string) {
-		mkdirSync(dir, { recursive: true });
+		mkdirSync(dir, { recursive: true, mode: 0o700 });
 		const saltFile = join(dir, ".salt");
 		try {
 			this.salt = readFileSync(saltFile, "utf-8").trim();
@@ -168,7 +169,7 @@ export class StatsStore {
 		d.chats[sid] = {
 			sid,
 			lang: raw.lang === "ar" ? "ar" : "en",
-			name: clip(raw.name, 60),
+			name: cleanName(raw.name),
 			mobile: phoneOk(raw.mobile),
 			phone: phoneOk(raw.phone),
 			field: clip(raw.field, 80),
@@ -267,6 +268,7 @@ export function visitCounter(store: StatsStore, now: () => Date = () => new Date
 /* ── Chat summary endpoint (write-only) ───────────────────────────────────── */
 
 const eventBuckets = new Map<string, { n: number; reset: number }>();
+const sidsByIp = new Map<string, { day: string; sids: Set<string> }>();
 export function chatEventHandler(store: StatsStore, now: () => Date = () => new Date()) {
 	return (req: Request, res: Response) => {
 		const ip = clientIp(req);
@@ -277,6 +279,17 @@ export function chatEventHandler(store: StatsStore, now: () => Date = () => new 
 			res.status(429).json({ ok: false });
 			return;
 		}
+		const day = dubaiParts(now()).date;
+		const sid = (req.body as { sid?: unknown } | undefined)?.sid;
+		if (typeof sid === "string") {
+			let rec = sidsByIp.get(ip);
+			if (!rec || rec.day !== day) sidsByIp.set(ip, (rec = { day, sids: new Set() }));
+			if (!rec.sids.has(sid) && rec.sids.size >= 25) {
+				res.status(429).json({ ok: false }); // one address cannot create endless fake conversations
+				return;
+			}
+			rec.sids.add(sid);
+		}
 		const ok = req.body && typeof req.body === "object" ? store.recordChat(dubaiParts(now()).date, req.body as Record<string, unknown>, `${req.protocol}://${req.hostname}`) : false;
 		res.status(ok ? 202 : 400).json({ ok });
 	};
@@ -284,7 +297,7 @@ export function chatEventHandler(store: StatsStore, now: () => Date = () => new 
 
 /* ── Report ───────────────────────────────────────────────────────────────── */
 
-const cell = (v: string | undefined | null, empty = "—") => (v && v.trim() ? v.replace(/\|/g, "/").replace(/\s+/g, " ").trim() : empty);
+const cell = (v: string | undefined | null, empty = "—") => (v && v.trim() ? defang(v).replace(/\|/g, "/").replace(/\s+/g, " ").trim() : empty);
 const APPROACH: Record<string, string> = { ai: "AI visuals", real: "Real filming", mix: "AI + real filming" };
 
 function table(headers: string[], rows: string[][]): string {
@@ -297,6 +310,7 @@ export function formatDateLong(date: string): string {
 
 export function buildDailyReport(day: DayStats, generatedAt: Date): { title: string; body: string } {
 	const chats = Object.values(day.chats).sort((a, b) => a.updatedAt - b.updatedAt);
+	const MAX_ROWS = 150;
 	const leads = chats.filter((c) => c.mobile || c.phone);
 	const anon = chats.filter((c) => !(c.mobile || c.phone));
 	const voice = chats.flatMap((c) => c.voiceUrls.map((u) => ({ who: c.name ?? "Visitor", mobile: c.mobile, url: `${c.origin ?? ""}${u}` })));
@@ -331,7 +345,7 @@ export function buildDailyReport(day: DayStats, generatedAt: Date): { title: str
 		lines.push(
 			table(
 				["#", "Name", "Mobile", "Phone", "Business field", "Interested in", "Platforms", "Location", "Approach", "Asked about", "Lang"],
-				leads.map((c, i) => [
+				leads.slice(0, MAX_ROWS).map((c, i) => [
 					String(i + 1),
 					cell(c.name),
 					cell(c.mobile),
@@ -347,13 +361,14 @@ export function buildDailyReport(day: DayStats, generatedAt: Date): { title: str
 			),
 		);
 	} else lines.push("No one left their contact details today.");
+	if (leads.length > MAX_ROWS) lines.push(`…and ${leads.length - MAX_ROWS} more (list truncated).`);
 
 	lines.push("", "## Other chatbot conversations (no contact details — anonymous)");
 	if (anon.length) {
 		lines.push(
 			table(
 				["#", "Lang", "Business field", "Interested in", "Location", "Asked about", "Messages"],
-				anon.map((c, i) => [String(i + 1), c.lang.toUpperCase(), cell(c.field), interestOf(c), cell(c.location), askedOf(c), String(c.turns)]),
+				anon.slice(0, MAX_ROWS).map((c, i) => [String(i + 1), c.lang.toUpperCase(), cell(c.field), interestOf(c), cell(c.location), askedOf(c), String(c.turns)]),
 			),
 		);
 	} else lines.push("None.");

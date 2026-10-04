@@ -38,6 +38,44 @@ const TYPE_BY_EXT: Record<string, string> = {
 	wav: "audio/wav",
 };
 
+/** The file's real type from its first bytes — the Content-Type header alone is not trusted. */
+export function sniffAudio(b: Buffer): "webm" | "ogg" | "m4a" | "mp3" | "wav" | null {
+	if (b.length < 12) return null;
+	if (b[0] === 0x1a && b[1] === 0x45 && b[2] === 0xdf && b[3] === 0xa3) return "webm";
+	if (b.toString("latin1", 0, 4) === "OggS") return "ogg";
+	if (b.toString("latin1", 4, 8) === "ftyp") return "m4a";
+	if (b.toString("latin1", 0, 4) === "RIFF" && b.toString("latin1", 8, 12) === "WAVE") return "wav";
+	if (b.toString("latin1", 0, 3) === "ID3" || (b[0] === 0xff && (b[1]! & 0xe0) === 0xe0)) return "mp3";
+	return null;
+}
+
+const MAX_FILES = 600;
+const MAX_TOTAL_BYTES = 400 * 1024 * 1024;
+const DAILY_PER_IP = 20;
+const daily = new Map<string, { day: string; n: number }>();
+
+async function quotaOk(dir: string): Promise<boolean> {
+	try {
+		const files = await readdir(dir);
+		if (files.length >= MAX_FILES) return false;
+		let total = 0;
+		for (const f of files) total += (await stat(join(dir, f))).size;
+		return total < MAX_TOTAL_BYTES;
+	} catch {
+		return true;
+	}
+}
+
+function dailyOk(ip: string): boolean {
+	const day = new Date().toISOString().slice(0, 10);
+	const d = daily.get(ip);
+	if (!d || d.day !== day) {
+		daily.set(ip, { day, n: 1 });
+		return true;
+	}
+	return ++d.n <= DAILY_PER_IP;
+}
+
 const buckets = new Map<string, { count: number; resetAt: number }>();
 
 function limited(ip: string): boolean {
@@ -83,14 +121,22 @@ export async function uploadVoice(req: Request, res: Response): Promise<void> {
 		return;
 	}
 	const baseType = String(req.headers["content-type"] ?? "").split(";")[0]?.trim().toLowerCase();
-	const ext = EXT_BY_TYPE[baseType];
 	const body = req.body as unknown;
+	const ext = Buffer.isBuffer(body) && EXT_BY_TYPE[baseType] ? sniffAudio(body) : null;
 	if (!ext || !Buffer.isBuffer(body) || body.length < 200) {
 		res.status(400).json({ success: false, error: "A short audio recording is required" });
 		return;
 	}
+	if (!dailyOk(visitorIp(req))) {
+		res.status(429).json({ success: false, error: "Too many recordings today" });
+		return;
+	}
 	const dir = voiceDir();
-	await mkdir(dir, { recursive: true });
+	await mkdir(dir, { recursive: true, mode: 0o700 });
+	if (!(await quotaOk(dir))) {
+		res.status(507).json({ success: false, error: "Voice storage is full" });
+		return;
+	}
 	const id = `${randomUUID()}.${ext}`;
 	await writeFile(join(dir, id), body, { mode: 0o600 });
 	void pruneOld(dir);

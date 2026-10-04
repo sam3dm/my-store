@@ -443,7 +443,7 @@ export function finalizeLead(prev: ChatState): { state: ChatState; lead: Lead | 
 /* ── Main turn ───────────────────────────────────────────────────────────── */
 
 export function respond(prev: ChatState, input: string): TurnResult {
-  const text = input.trim();
+  const text = input.trim().slice(0, 800); // bounded work per message
   const script = detectScript(text);
   const state: ChatState = { ...prev, discovery: { ...prev.discovery, details: { ...prev.discovery.details }, notes: [...prev.discovery.notes] }, asked: { ...prev.asked }, lead: { ...prev.lead }, questions: [...prev.questions], turn: prev.turn + 1 };
 
@@ -659,7 +659,7 @@ export function respond(prev: ChatState, input: string): TurnResult {
   }
 
   // ── The visitor answered the question we asked ───────────────────────────
-  const INFO = ['law', 'clients', 'contact', 'instagram', 'location', 'about', 'vision', 'experience', 'process', 'whyus', 'portfolio', 'languages'];
+  const INFO = ['law', 'clients', 'contact', 'instagram', 'location', 'about', 'mission', 'vision', 'experience', 'process', 'whyus', 'portfolio', 'languages'];
   const factAnswer = Boolean(extractFacts(q).location) && wordCount(text) <= 3 && !question;
   const asksInfo = Boolean(top && INFO.includes(top.id)) && !factAnswer;
   const answeringPending = state.pending && state.pending !== 'name' && state.pending !== 'contact' && !question && !asksInfo;

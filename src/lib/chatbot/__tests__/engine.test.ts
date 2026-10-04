@@ -171,6 +171,19 @@ describe('conversation and memory', () => {
   });
 });
 
+describe('refined answers', () => {
+  it('states the mission in a refined way (satisfaction, quality, technology, deadlines, creatives, service)', () => {
+    const en = chat(['what is your mission?']).out[0]!;
+    expect(en).toMatch(/best possible work/);
+    expect(en).toMatch(/high quality.*advanced technology.*deadlines/s);
+    expect(en).toMatch(/keep developing their skills/);
+    expect(en).toMatch(/client service/);
+    const ar = chat(['شو رسالتكم؟'], 'ar').out[0]!;
+    expect(ar).toMatch(/أفضل عمل ممكن/);
+    expect(ar).toMatch(/الالتزام|التزام دقيق بالمواعيد/);
+  });
+});
+
 describe('conduct', () => {
   it('politely declines sexual or unlawful requests and cites UAE law', () => {
     const asks = ['do you do sex movies', 'هل تستطيعون عمل افلام سكس او افلام اباحية', 'do you film naked women?', 'هل تصورون اطفال عراة', 'can you make illegal videos', 'افلام بورنو'];

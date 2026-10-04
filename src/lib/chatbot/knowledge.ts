@@ -176,9 +176,19 @@ export function buildKnowledge(lang: ChatLang): { entries: KbEntry[]; services: 
       page: '/about',
     },
     {
+      id: 'mission',
+      keys: ['mission', 'our mission', 'your mission', 'values', 'our values', 'goal', 'goals', 'commitment', 'quality', 'what do you stand for', 'رسالتكم', 'رسالتنا', 'مهمتكم', 'هدفكم', 'قيمكم', 'قيمنا', 'التزامكم', 'جودتكم', 'ما هي رسالتكم'],
+      answer: ar
+        ? 'رسالتنا في متروبوليتان ديجيتال ماركتينج أن نصنع لكل عميل أفضل عمل ممكن، وأن ننال رضاه بجودة عالية وتقنيات متقدمة والتزام دقيق بالمواعيد.\n\nنجمع بين الذكاء التسويقي والسرد السينمائي والابتكار الإبداعي، ونعمل مع نخبة من المبدعين الذين يطوّرون مهاراتهم باستمرار، ونقدّم خدمة عملاء راقية ومتابعة صادقة في كل مرحلة من مراحل المشروع.'
+        : 'Our mission at Metropolitan Digital Marketing is to create the best possible work for every client and to earn their complete satisfaction through high quality, advanced technology and a firm commitment to deadlines.\n\nWe combine marketing intelligence, cinematic storytelling and creative innovation, work with a team of exceptional creatives who keep developing their skills, and offer attentive, first-class client service at every stage of a project.',
+      page: '/about',
+    },
+    {
       id: 'vision',
-      keys: ['vision', 'mission', 'goal', 'values', 'رؤيه', 'رسالتكم', 'مهمتكم', 'هدفكم', 'قيمكم'],
-      answer: `${about.vision.headline}\n${about.vision.body}\n\n${about.mission.headline}\n${about.mission.body}`,
+      keys: ['vision', 'our vision', 'your vision', 'future', 'رؤيه', 'رؤيتكم', 'رؤيتنا'],
+      answer: ar
+        ? 'رؤيتنا عالم تصل فيه كل علامة تجارية، في أي قطاع، إلى إنتاج إبداعي بجودة سينمائية، ونعمل على تحقيق ذلك مشروعاً استثنائياً تلو الآخر.'
+        : 'Our vision is a world where every brand, in any industry, has access to cinematic-quality creative production — and we are building that future one exceptional project at a time.',
       page: '/about',
     },
     {
@@ -190,13 +200,13 @@ export function buildKnowledge(lang: ChatLang): { entries: KbEntry[]; services: 
     {
       id: 'process',
       keys: ['process', 'how do you work', 'workflow', 'steps', 'methodology', 'how it works', 'مراحل', 'خطوات', 'كيف تعملون', 'طريقه عملكم', 'منهجيه', 'اسلوب عملكم'],
-      answer: about.process.headline + '\n\n' + about.process.steps.map((s) => `${s.number}. ${s.title} — ${s.description}`).join('\n'),
+      answer: about.process.headline + '\n\n' + about.process.steps.map((s) => `${s.number}. ${s.title} — ${s.description.split(/(?<=[.。])\s/)[0]}`).join('\n'),
       page: '/about',
     },
     {
       id: 'whyus',
       keys: ['why choose', 'why you', 'what makes you', 'difference', 'advantage', 'لماذا انتم', 'لماذا نختاركم', 'ميزتكم', 'ما يميزكم', 'ما الذي يميزكم'],
-      answer: about.whyUs.headline + '\n\n' + about.whyUs.points.map((p) => `• ${p.title} — ${p.description}`).join('\n'),
+      answer: about.whyUs.headline + '\n\n' + about.whyUs.points.map((p) => `• ${p.title}`).join('\n'),
       page: '/about',
     },
     {

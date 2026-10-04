@@ -279,9 +279,13 @@ export default function ChatWidget() {
     [pushBot, siteLang, snapshot],
   );
 
+  const lastSendRef = useRef(0);
   const submit = useCallback(() => {
     const text = input.trim();
     if (!text || typing) return;
+    const now = Date.now();
+    if (now - lastSendRef.current < 700 || messagesRef.current.length > 240) return; // flood guard
+    lastSendRef.current = now;
     setInput('');
     void deliver(text);
   }, [input, typing, deliver]);
@@ -474,6 +478,7 @@ export default function ChatWidget() {
               }}
               dir="auto"
               rows={1}
+              maxLength={800}
               placeholder={t.placeholder}
               aria-label={t.placeholder}
               className="flex-1 resize-none px-3 py-2.5 text-[14px] outline-none max-h-28"

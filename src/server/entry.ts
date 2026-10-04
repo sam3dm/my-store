@@ -8,7 +8,9 @@ import contact__formName__post from "./api/contact/[formName]/POST";
 import health__get from "./api/health/GET";
 // </api-imports>
 import { registerChatVoiceRoutes } from "./chat-voice";
-import { StatsStore, chatEventHandler, defaultStatsDir, startStatsService, visitCounter } from "./stats";
+import { StatsStore, chatEventHandler, defaultStatsDir, inboxSender, startStatsService, visitCounter } from "./stats";
+import { SecurityMonitor, cspForDocument, securityHeaders, startSecurityAlerts } from "./security";
+import { sanitizeJson } from "./sanitize";
 import { seoRoutes } from "../lib/seo-routes";
 import {
 	loadAdSenseRuntimeConfig,
@@ -90,11 +92,25 @@ const app = express();
 // the sitemap origin in robots.txt.
 app.set("trust proxy", true);
 
+app.disable("x-powered-by");
+// Security: headers, request screening, rate limits and temporary bans (alerts are e-mailed to the owner).
+const securityCtx = { template: "", adsense: false };
+const security = new SecurityMonitor();
+app.use(securityHeaders(() => securityCtx.template, () => securityCtx.adsense));
+app.use(security.guard());
+
 const stats = new StatsStore(defaultStatsDir());
 // Anonymous visitor counting (page loads only) for the nightly report.
 app.use(visitCounter(stats));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ limit: "64kb" }));
+app.use(express.urlencoded({ extended: true, limit: "32kb", parameterLimit: 60 }));
+
+// Everything a visitor submits is rebuilt as clean data before the (generated) contact handler sees it:
+// no prototype-pollution keys, bounded size, and HTML neutralised so it can't act as markup in the owner's inbox.
+app.use("/api/contact", (req, _res, next) => {
+	if (req.body && typeof req.body === "object") req.body = sanitizeJson(req.body);
+	next();
+});
 
 // <api-registrations>
 app.post("/api/contact/:formName", contact__formName__post);
@@ -106,11 +122,25 @@ registerChatVoiceRoutes(app);
 // Write-only: chatbot conversation summaries for the nightly owner report. Nothing can read them back.
 app.post("/api/chat/event", chatEventHandler(stats));
 
+// Unknown API paths answer with a neutral JSON 404 (no framework error page).
+app.use("/api", (_req, res) => {
+	res.status(404).json({ error: "Not found" });
+});
+
 // Error middleware must be registered AFTER the routes it protects; Express
 // only passes errors to middleware defined later in the stack.
 app.use("/api", (err: unknown, req: Request, res: Response, _next: NextFunction) => {
 	// Always respond JSON on /api so clients parsing response.json() don't
 	// receive Express's default HTML error page for non-Error throws.
+	const type = (err as { type?: string } | null)?.type;
+	if (type === "entity.parse.failed") {
+		res.status(400).json({ error: "Invalid request" });
+		return;
+	}
+	if (type === "entity.too.large") {
+		res.status(413).json({ error: "Request too large" });
+		return;
+	}
 	console.error("ssr.api.error", {
 		url: req.url,
 		error: err instanceof Error ? err.stack : String(err),
@@ -180,6 +210,7 @@ if (import.meta.env.PROD) {
 	const __dirname = dirname(fileURLToPath(import.meta.url));
 	const clientDir = join(__dirname, "client");
 	const adSenseRuntimeConfig = loadAdSenseRuntimeConfig(__dirname);
+	securityCtx.adsense = Boolean(adSenseRuntimeConfig.scriptHtml);
 	const indexNowKey = loadIndexNowKey(__dirname);
 
 	registerAdSenseTextRoutes(app, adSenseRuntimeConfig);
@@ -212,6 +243,7 @@ if (import.meta.env.PROD) {
 	let template: string;
 	try {
 		template = readFileSync(join(clientDir, "index.html"), "utf-8");
+		securityCtx.template = template;
 	} catch (err) {
 		console.error("ssr.template.load-failed", {
 			path: join(clientDir, "index.html"),
@@ -331,6 +363,7 @@ if (import.meta.env.PROD) {
 				.status(result.status)
 				.set("Content-Type", "text/html; charset=utf-8")
 				.set("Cache-Control", "no-cache")
+				.set("Content-Security-Policy", cspForDocument(req, out, securityCtx.adsense))
 				.send(out);
 		} catch (err) {
 			// 503 surfaces the failure in CDN/monitoring without caching a broken
@@ -400,7 +433,13 @@ if (import.meta.env.PROD) {
 	const server = app.listen(port, host, () => {
 		console.log(`Server listening on http://${host}:${port}`);
 		startStatsService(stats);
+		startSecurityAlerts(security, inboxSender());
 	});
+	// Slow-request protection (slowloris): requests must arrive promptly.
+	server.headersTimeout = 15_000;
+	server.requestTimeout = 30_000;
+	server.keepAliveTimeout = 5_000;
+	server.maxHeadersCount = 100;
 	server.on("error", (err: NodeJS.ErrnoException) => {
 		console.error("ssr.server.listen-failed", {
 			port,
