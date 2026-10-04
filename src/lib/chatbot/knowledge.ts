@@ -27,7 +27,7 @@ const SERVICE_KEYS: Record<string, string[]> = {
   'svc-01': ['social media management', 'manage social media', 'manage my accounts', 'manage pages', 'community management', 'ادارة وسائل التواصل', 'ادارة حسابات', 'ادارة صفحات', 'ادارة السوشيال', 'ادارة المنشورات', 'ادارة الصفحات'],
   'svc-02': ['content creation', 'social media content', 'reels', 'shorts', 'صناعه محتوي', 'انتاج محتوي', 'محتوي السوشيال', 'ريلز'],
   'svc-03': ['video production', 'cinematic video', 'cinematic film', 'film', 'films', 'movie', 'commercial film', 'tv commercial', 'brand film', 'corporate film', 'music video', 'video clip', 'فيديو كليب', 'كليبات', 'فيلم سينمائي', 'فلم', 'انتاج فيديو', 'فيديو سينمائي', 'تصوير فيديو', 'اعلان تلفزيوني', 'فيلم'],
-  'svc-04': ['3d', 'cgi', 'animation', 'architectural visualization', 'رسوم متحركه', 'ثلاثي الابعاد', 'تحريك', 'تصميم ثلاثي'],
+  'svc-04': ['3d', 'cgi', 'animation', 'architectural visualization', 'رسوم متحركه', 'انيميشن', 'أنيميشن', 'ثلاثي الابعاد', 'تحريك', 'تصميم ثلاثي'],
   'svc-05': ['vfx', 'visual effects', 'post production', 'editing', 'color grading', 'motion graphics', 'مؤثرات بصريه', 'مونتاج', 'تصحيح الوان', 'ما بعد الانتاج', 'موشن جرافيك'],
   'svc-06': ['ai creative', 'ai production', 'ai content', 'ai video', 'ai image', 'ذكاء اصطناعي ابداعي', 'محتوي بالذكاء الاصطناعي', 'انتاج بالذكاء الاصطناعي'],
   'svc-07': ['medical content', 'healthcare content', 'doctor video', 'patient education', 'محتوي طبي', 'فيديو طبي', 'محتوي صحي'],

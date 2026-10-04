@@ -57,6 +57,20 @@ const specialtySlots: { id: string; src: string }[] = [
   { id: 'automotive', src: '/airo-assets/images/pages/home/specialty-automotive' },
 ];
 
+// Where each industry tag on the home page leads (same order as home.industries).
+const industryLinks: string[] = [
+  '/industries/luxury-brands',
+  '/portfolio?c=medical',
+  '/portfolio?c=automotive',
+  '/portfolio?c=hotel',
+  '/portfolio?c=realestate',
+  '/industries',
+  '/industries',
+  '/industries',
+  '/portfolio?c=beauty',
+  '/portfolio?c=hotel',
+];
+
 const portfolioSlots = [
   '/airo-assets/images/pages/home/portfolio-1',
   '/airo-assets/images/pages/home/portfolio-2',
@@ -564,23 +578,24 @@ export default function HomePage() {
             <div className="flex flex-wrap gap-3">
               {home.industries.map((industry, i) => (
                 <FadeIn key={industry} delay={i * 0.04}>
-                  <span
-                    className="inline-flex items-center px-5 py-2.5 text-xs font-medium tracking-[0.15em] uppercase transition-all duration-300 cursor-default"
+                  <Link
+                    to={localizedPath(industryLinks[i] ?? '/industries')}
+                    className="inline-flex items-center px-5 py-2.5 text-xs font-medium tracking-[0.15em] uppercase transition-all duration-300 cursor-pointer"
                     style={{
                       border: `1px solid hsl(var(--metro-border-subtle) / 0.15)`,
                       color: `hsl(var(--metro-white) / 0.55)`,
                     }}
                     onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLSpanElement).style.borderColor = `hsl(var(--metro-white) / 0.4)`;
-                      (e.currentTarget as HTMLSpanElement).style.color = `hsl(var(--metro-white))`;
+                      (e.currentTarget as HTMLAnchorElement).style.borderColor = `hsl(var(--metro-white) / 0.4)`;
+                      (e.currentTarget as HTMLAnchorElement).style.color = `hsl(var(--metro-white))`;
                     }}
                     onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLSpanElement).style.borderColor = `hsl(var(--metro-border-subtle) / 0.15)`;
-                      (e.currentTarget as HTMLSpanElement).style.color = `hsl(var(--metro-white) / 0.55)`;
+                      (e.currentTarget as HTMLAnchorElement).style.borderColor = `hsl(var(--metro-border-subtle) / 0.15)`;
+                      (e.currentTarget as HTMLAnchorElement).style.color = `hsl(var(--metro-white) / 0.55)`;
                     }}
                   >
                     {industry}
-                  </span>
+                  </Link>
                 </FadeIn>
               ))}
             </div>

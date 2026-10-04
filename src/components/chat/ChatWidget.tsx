@@ -458,7 +458,7 @@ export default function ChatWidget() {
       role="dialog"
       aria-modal="false"
       aria-label={t.title}
-      className="fixed z-[70] flex flex-col overflow-hidden inset-0 sm:inset-auto sm:bottom-6 sm:right-6 sm:w-[400px] sm:h-[640px] sm:max-h-[calc(100vh-3rem)]"
+      className="fixed z-[70] flex flex-col overflow-hidden w-full max-w-full inset-0 sm:inset-auto sm:bottom-6 sm:right-6 sm:w-[400px] sm:h-[640px] sm:max-h-[calc(100vh-3rem)]"
       style={{ background: '#000', border: '1px solid rgba(255,255,255,0.18)', boxShadow: '0 20px 60px rgba(0,0,0,0.65)', color: '#fff' }}
     >
       {/* Header with logo */}
@@ -480,7 +480,7 @@ export default function ChatWidget() {
       </div>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-3" aria-live="polite">
+      <div className="flex-1 overflow-y-auto overflow-x-hidden px-4 py-4 flex flex-col gap-3" aria-live="polite">
         {messages.map((m) => (
           <div key={m.id} className={`flex ${m.from === 'user' ? 'justify-end' : 'justify-start'}`}>
             <div
@@ -568,7 +568,7 @@ export default function ChatWidget() {
               maxLength={800}
               placeholder={t.placeholder}
               aria-label={t.placeholder}
-              className="flex-1 resize-none px-3 py-2.5 text-[14px] outline-none max-h-28"
+              className="flex-1 min-w-0 w-full resize-none px-3 py-2.5 text-[16px] outline-none max-h-28"
               style={{ background: '#111', color: '#fff', border: '1px solid rgba(255,255,255,0.22)', borderRadius: 12 }}
             />
             <button type="button" onClick={startRecording} aria-label={t.mic} title={t.mic} disabled={typing} className="w-10 h-10 flex items-center justify-center shrink-0" style={{ border: '1px solid rgba(255,255,255,0.3)', borderRadius: 999, opacity: typing ? 0.5 : 1 }}>

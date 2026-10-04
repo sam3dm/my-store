@@ -62,7 +62,7 @@ export default function Header() {
               src="/airo-assets/images/logo/horizontal"
               alt="Metropolitan Digital Marketing"
               className="block h-auto w-auto object-contain self-center"
-              style={{ maxHeight: '52px', maxWidth: '240px' }}
+              style={{ maxHeight: '52px', maxWidth: 'min(240px, 46vw)' }}
             />
           </Link>
 
@@ -119,6 +119,10 @@ export default function Header() {
             <div className="hidden xl:block">
               <LanguageSwitcher />
             </div>
+            {/* Language switcher — phones and tablets: always visible beside the menu button */}
+            <div className="xl:hidden">
+              <LanguageSwitcher showLabel />
+            </div>
 
             <Link
               to={localizedPath('/contact')}
@@ -161,19 +165,6 @@ export default function Header() {
         }}
       >
         <div className="flex flex-col justify-center items-center h-full gap-8 px-8">
-          {/* Logo in mobile menu */}
-          <img
-            src="/airo-assets/images/logo/horizontal"
-            alt="Metropolitan Digital Marketing"
-            className="block h-auto w-auto object-contain mb-2"
-            style={{ maxHeight: '48px', maxWidth: '220px', opacity: menuOpen ? 1 : 0, transition: 'opacity 0.4s ease' }}
-          />
-
-          {/* Language switcher — mobile */}
-          <div style={{ opacity: menuOpen ? 1 : 0, transition: 'opacity 0.3s ease' }}>
-            <LanguageSwitcher />
-          </div>
-
           {navLinks.map((link, i) => (
             <Link
               key={link.href}

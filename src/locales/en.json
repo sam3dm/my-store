@@ -322,7 +322,8 @@
     "exploreServices": "Explore Services",
     "email": "Email",
     "luxuryBrands": "Luxury Brands",
-    "chatWithUs": "Chat with our assistant"
+    "chatWithUs": "Chat with our assistant",
+    "language": "Language"
   },
   "aria": {
     "hero": "Hero",
