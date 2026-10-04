@@ -2739,86 +2739,30 @@
     "caption": "child dancing neon purple background"
   },
   "pages/services/ai-websites": {
-    "requestedSize": {
-      "width": 800,
-      "height": 500,
-      "fit": "cover"
-    },
-    "orientations": "horizontal",
-    "graphicalStyles": "photography",
-    "minimumSize": "large",
-    "mediaType": "image",
-    "currentUrl": "/airo-assets/uploads/mdm-about-process.jpg",
-    "searchQuery": "ai websites",
-    "alternatives": [],
-    "userModified": true,
-    "createdAt": "2026-09-17T15:57:02.225Z",
-    "lastUpdated": "2026-09-17T15:57:02.225Z"
+    "currentUrl": "/airo-assets/uploads/mdm-services-ai-websites.jpg"
   },
   "pages/services/ai-chatbots": {
-    "requestedSize": {
-      "width": 800,
-      "height": 500,
-      "fit": "cover"
-    },
-    "orientations": "horizontal",
-    "graphicalStyles": "photography",
-    "minimumSize": "large",
-    "mediaType": "image",
-    "currentUrl": "/airo-assets/uploads/mdm-services-ai-production.jpg",
-    "searchQuery": "ai chatbots",
-    "alternatives": [],
-    "userModified": true,
-    "createdAt": "2026-09-17T15:57:02.225Z",
-    "lastUpdated": "2026-09-17T15:57:02.225Z"
+    "currentUrl": "/airo-assets/uploads/mdm-services-ai-chatbots.jpg"
   },
   "pages/services/crm-automation": {
-    "requestedSize": {
-      "width": 800,
-      "height": 500,
-      "fit": "cover"
-    },
-    "orientations": "horizontal",
-    "graphicalStyles": "photography",
-    "minimumSize": "large",
-    "mediaType": "image",
-    "currentUrl": "/airo-assets/uploads/mdm-home-contact-cta.jpg",
-    "searchQuery": "crm automation",
-    "alternatives": [],
-    "userModified": true,
-    "createdAt": "2026-09-17T15:57:02.225Z",
-    "lastUpdated": "2026-09-17T15:57:02.225Z"
+    "currentUrl": "/airo-assets/uploads/mdm-services-crm-automation.jpg"
   },
   "pages/services/custom-ai-systems": {
-    "requestedSize": {
-      "width": 800,
-      "height": 500,
-      "fit": "cover"
-    },
-    "orientations": "horizontal",
-    "graphicalStyles": "photography",
-    "minimumSize": "large",
-    "mediaType": "image",
-    "currentUrl": "/airo-assets/uploads/mdm-home-service-ai-production.jpg",
-    "searchQuery": "custom ai systems",
-    "alternatives": [],
-    "userModified": true,
-    "createdAt": "2026-09-17T15:57:02.225Z",
-    "lastUpdated": "2026-09-17T15:57:02.225Z"
+    "currentUrl": "/airo-assets/uploads/mdm-services-custom-ai-systems.jpg"
   },
   "pages/home/specialty-interior": {
-    "currentUrl": "/airo-assets/uploads/mdm-about-expertise.jpg"
+    "currentUrl": "/airo-assets/uploads/mdm-home-specialty-interior.jpg"
   },
   "pages/home/specialty-realestate": {
-    "currentUrl": "/airo-assets/uploads/mdm-about-story.jpg"
+    "currentUrl": "/airo-assets/uploads/mdm-home-specialty-realestate.jpg"
   },
   "pages/home/specialty-medical": {
-    "currentUrl": "/airo-assets/uploads/mdm-about-medical.jpg"
+    "currentUrl": "/airo-assets/uploads/mdm-home-specialty-medical.jpg"
   },
   "pages/home/specialty-hotel": {
-    "currentUrl": "/airo-assets/uploads/mdm-industries-hotels-resorts.jpg"
+    "currentUrl": "/airo-assets/uploads/mdm-home-specialty-hotel.jpg"
   },
   "pages/home/specialty-automotive": {
-    "currentUrl": "/airo-assets/uploads/mdm-industries-automotive.jpg"
+    "currentUrl": "/airo-assets/uploads/mdm-home-specialty-automotive.jpg"
   }
 }
