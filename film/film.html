@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Brain Dubai — launch film</title>
+<style>
+@font-face{font-family:"Archivo";src:url(fonts/archivo.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%}
+@font-face{font-family:"Geist";src:url(fonts/geist.woff2) format("woff2");font-weight:100 900}
+:root{--navy:#192249;--ink:#080b1c;--paper:#f4efe6;--gold:#f2b24a}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#000;width:1440px;height:1440px;overflow:hidden}
+#app{position:absolute;left:0;top:0;width:1440px;height:1440px;overflow:hidden;background:var(--navy);font-family:"Geist",sans-serif}
+#cam{position:absolute;left:0;top:0;width:1440px;height:1440px;transform-origin:0 0}
+#world,#glassLayer,.scene{position:absolute;left:0;top:0;width:1440px;height:1440px}
+.abs{position:absolute}
+.letter{position:absolute;font-family:"Archivo";font-weight:800;color:var(--paper);line-height:1;white-space:pre;transform-origin:0 0}
+#measure{position:absolute;left:-9999px;top:0;visibility:hidden;font-family:"Archivo";font-weight:800;white-space:pre;line-height:1}
+.glass{position:absolute;overflow:visible}
+.glass .clip{position:absolute;overflow:hidden}
+.glass .rim{position:absolute;pointer-events:none}
+#cursor{position:absolute;left:0;top:0;width:44px;height:44px;transform-origin:6px 4px;pointer-events:none}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="cam">
+    <div id="world">
+      <!-- OPEN -->
+      <div class="scene" id="sOpen"></div>
+      <!-- PHOTO / GLASS -->
+      <div class="scene" id="sPhoto">
+        <img id="imgDay" class="abs" src="assets/day.jpg" style="left:0;top:0;width:1440px;height:1440px">
+        <img id="imgGold" class="abs" src="assets/golden.jpg" style="left:0;top:0;width:1440px;height:1440px">
+        <div class="abs" style="left:0;top:0;width:1440px;height:1440px;background:linear-gradient(180deg,rgba(8,11,28,0) 55%,rgba(8,11,28,.55) 100%)"></div>
+      </div>
+      <!-- STAGE -->
+      <div class="scene" id="sStage"></div>
+      <!-- WALL -->
+      <div class="scene" id="sWall"></div>
+    </div>
+    <div id="glassLayer"></div>
+    <div id="overlay" class="scene" style="pointer-events:none"></div>
+    <svg id="cursor" viewBox="0 0 44 44"><path d="M6 4 L6 33 L13.5 26.5 L18.5 38 L24 35.6 L19 24.2 L29 24 Z" fill="#0a0c18" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/></svg>
+  </div>
+</div>
+<div id="measure"></div>
+<svg width="0" height="0" style="position:absolute" id="defs">
+  <defs>
+    <filter id="goo" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="11" result="b"/>
+      <feColorMatrix in="b" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 26 -11" result="t"/>
+      <feComposite in="SourceGraphic" in2="t" operator="atop"/>
+    </filter>
+  </defs>
+</svg>
+
+<script>
+/* ================= math ================= */
+const W = 1440, B = 0.5;                       // 120 BPM
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const lerp=(a,b,t)=>a+(b-a)*t;
+const prog=(t,a,b)=>clamp((t-a)/(b-a));
+const eIO=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const eOut=x=>1-Math.pow(1-x,3);
+/* closed-form damped spring step response; 0 -> 1 starting at t0 */
+function spring(t,t0,f=2.4,z=.58){
+  const x=t-t0; if(x<=0) return 0;
+  const w=2*Math.PI*f;
+  if(z<1){const wd=w*Math.sqrt(1-z*z);return 1-Math.exp(-z*w*x)*(Math.cos(wd*x)+(z*w/wd)*Math.sin(wd*x));}
+  return 1-Math.exp(-w*x)*(1+w*x);
+}
+/* a value with many targets = sum of one spring per change */
+function springSeq(t,v0,steps){ // steps:[[t0,target,f,z],...]
+  let v=v0,prev=v0;
+  for(const [t0,tg,f,z] of steps){v+=(tg-prev)*spring(t,t0,f,z);prev=tg;}
+  return v;
+}
+const px=n=>n.toFixed(2)+'px';
+const el=(tag,css,parent,html)=>{const e=document.createElement(tag);if(css)e.style.cssText=css;if(html!=null)e.innerHTML=html;if(parent)parent.appendChild(e);return e;};
+
+/* ================= glass ================= */
+const MAPS=new Map(); const MARGIN=48;
+function glassMap(w,h,r,bezel){
+  const key=[w,h,r,bezel].map(v=>Math.round(v)).join('_');
+  if(MAPS.has(key)) return MAPS.get(key);
+  const cw=Math.ceil(w+2*MARGIN), ch=Math.ceil(h+2*MARGIN);
+  const c=document.createElement('canvas'); c.width=cw; c.height=ch;
+  const g=c.getContext('2d'); const img=g.createImageData(cw,ch); const d=img.data;
+  const cx=cw/2, cy=ch/2, hw=w/2-r, hh=h/2-r;
+  for(let y=0;y<ch;y++)for(let x=0;x<cw;x++){
+    const qx=Math.abs(x+.5-cx)-hw, qy=Math.abs(y+.5-cy)-hh;
+    const ox=Math.max(qx,0), oy=Math.max(qy,0);
+    const sd=Math.hypot(ox,oy)+Math.min(Math.max(qx,qy),0)-r;   // <0 inside
+    const dist=-sd;                                               // >0 inside
+    let m=0,nx=0,ny=0;
+    if(dist>0&&dist<bezel){
+      const u=1-dist/bezel; m=u*u*(3-2*u)*u;                      // strongest at the rim
+      // gradient of sd (outward normal)
+      if(ox>0||oy>0){const L=Math.hypot(ox,oy)||1;nx=ox/L*Math.sign(x+.5-cx);ny=oy/L*Math.sign(y+.5-cy);}
+      else if(qx>qy){nx=Math.sign(x+.5-cx);ny=0;} else {nx=0;ny=Math.sign(y+.5-cy);}
+    }
+    const i=(y*cw+x)*4;
+    d[i]=128-127*nx*m; d[i+1]=128-127*ny*m; d[i+2]=128; d[i+3]=255;   // sample from the inside -> magnify rim
+  }
+  g.putImageData(img,0,0);
+  const out={url:c.toDataURL('image/png'),cw,ch}; MAPS.set(key,out); return out;
+}
+let gid=0;
+const CH=['1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0','0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0','0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0'];
+function glass(layer,{x,y,w,h,r,bezel=Math.min(w,h)*.5,k=1,tint=.10,sat=1.35,bright=1.06,shadow=true}){
+  const gk=Math.round(gid++);
+  const host=el('div',`left:${px(x)};top:${px(y)};width:${px(w)};height:${px(h)}`,layer); host.className='glass';
+  if(shadow) el('div',`position:absolute;inset:0;border-radius:${px(r)};box-shadow:0 ${px(Math.min(h*.22,26))} ${px(Math.min(h*.7,56))} rgba(5,8,22,.38),0 2px 6px rgba(5,8,22,.22)`,host);
+  const clip=el('div',`left:0;top:0;width:${px(w)};height:${px(h)};border-radius:${px(r)}`,host); clip.className='clip';
+  const m=glassMap(w,h,r,bezel);
+  // filter lives in #defs, rebuilt per frame (pure function of the frame)
+  const f=document.createElementNS('http://www.w3.org/2000/svg','filter');
+  f.setAttribute('id','gf'+gk); f.setAttribute('x','0');f.setAttribute('y','0');f.setAttribute('width','100%');f.setAttribute('height','100%');
+  f.setAttribute('color-interpolation-filters','sRGB');
+  const S=[38*k,46*k,54*k];
+  f.innerHTML=`<feImage href="${m.url}" x="0" y="0" width="${m.cw}" height="${m.ch}" preserveAspectRatio="none" result="map"/>`+
+    S.map((s,i)=>`<feDisplacementMap in="SourceGraphic" in2="map" scale="${s}" xChannelSelector="R" yChannelSelector="G" result="d${i}"/>`+
+      `<feColorMatrix in="d${i}" type="matrix" values="${CH[i]}" result="c${i}"/>`).join('')+
+    `<feBlend in="c0" in2="c1" mode="screen" result="rg"/><feBlend in="rg" in2="c2" mode="screen"/>`;
+  document.getElementById('gfs').appendChild(f);
+  // padded, filtered clone of the scene behind the glass
+  const pad=el('div',`position:absolute;left:${px(-MARGIN)};top:${px(-MARGIN)};width:${px(m.cw)};height:${px(m.ch)};overflow:hidden;filter:url(#gf${gk}) saturate(${sat}) brightness(${bright})`,clip);
+  const world=document.getElementById('world').cloneNode(true); world.removeAttribute('id');
+  world.querySelectorAll('[id]').forEach(n=>n.removeAttribute('id'));
+  world.style.cssText=`position:absolute;left:${px(-(x-MARGIN))};top:${px(-(y-MARGIN))};width:1440px;height:1440px`;
+  pad.appendChild(world);
+  el('div',`position:absolute;inset:0;background:rgba(255,255,255,${tint})`,clip);
+  const rim=el('div',`left:0;top:0;width:${px(w)};height:${px(h)};border-radius:${px(r)};`+
+    `box-shadow:inset 0 0 0 1.2px rgba(255,255,255,.38),inset 0 2px 2px rgba(255,255,255,.75),inset 0 -2px 3px rgba(255,255,255,.28),inset 0 0 ${px(Math.min(h*.35,30))} rgba(255,255,255,.14);`+
+    `background:linear-gradient(155deg,rgba(255,255,255,.34) 0%,rgba(255,255,255,0) 34%,rgba(255,255,255,0) 66%,rgba(255,255,255,.18) 100%)`,host);
+  rim.className='rim';
+  return host;
+}
+
+/* ================= static scene builders (once) ================= */
+const $=id=>document.getElementById(id);
+const fs=document.createElementNS('http://www.w3.org/2000/svg','defs'); fs.id='gfs'; $('defs').appendChild(fs);
+
+/* ---- wordmark metrics ---- */
+const WORD='Brain', LABEL='Dubai', FS=250;
+const M={};
+function measureLetters(){
+  const m=$('measure'); m.style.fontSize=FS+'px';
+  const wd=a=>{m.style.fontStretch=a+'%';return [...WORD].map(ch=>{m.textContent=ch;return m.getBoundingClientRect().width;});};
+  M.w125=wd(125); M.w62=wd(62);
+  M.Tw=M.w125.reduce((a,b)=>a+b,0);
+  M.D=FS*.205; M.gap=FS*.075;
+  M.left0=720-(M.Tw+M.gap+M.D)/2; M.dotX0=M.left0+M.Tw+M.gap+M.D/2;
+  M.base=720+FS*.36; M.dotY0=M.base-M.D/2-FS*.012;
+  M.x=[];let a=0;for(const w of M.w125){M.x.push(a);a+=w;}
+}
+let OPEN;
+function buildOpen(){
+  const s=$('sOpen'); OPEN={letters:[],dot:null,pill:null,label:null};
+  [...WORD].forEach((ch,i)=>{const e=el('div',`font-size:${FS}px`,s,ch);e.className='letter';OPEN.letters.push(e);});
+  OPEN.dot=el('div','position:absolute;background:#080b1c;border-radius:999px',s);
+  OPEN.dotInk=OPEN.dot;
+  OPEN.mask=el('div','position:absolute;overflow:hidden',s);
+  OPEN.label=el('div',`position:absolute;left:0;width:100%;text-align:center;font:600 64px/1 Geist;color:#f4efe6;letter-spacing:-.01em;white-space:nowrap`,OPEN.mask,LABEL);
+}
+function renderOpen(t){
+  const b=t/B;
+  const sq=eIO(prog(b,1,3));                       // 0..1 squeeze progress
+  const k=1-sq;
+  const dotX=lerp(M.dotX0,720,sq), dotY=lerp(M.dotY0,720,eIO(prog(b,2.2,3.4)));
+  OPEN.letters.forEach((e,i)=>{
+    const wTarget=M.w125[i]*k;
+    const w62=M.w62[i], w125=M.w125[i];
+    let a=125,sx=1;
+    if(wTarget>=w62){a=62+63*((wTarget-w62)/(w125-w62||1));}
+    else{a=62;sx=Math.max(wTarget/w62,0);}
+    const distL=((M.dotX0-M.D/2)-(M.left0+M.x[i]))*k;
+    const left=(dotX-M.D/2)-distL;
+    const vis=wTarget>.8;
+    e.style.display=vis?'block':'none';
+    e.style.left=px(left); e.style.top=px(M.base-FS*.78);
+    e.style.fontStretch=a.toFixed(2)+'%';
+    e.style.transform=`scaleX(${sx.toFixed(4)})`;
+  });
+  // dot -> pill
+  const g=spring(b,3,2.2,.5);
+  const pw=lerp(M.D,460,g), ph=lerp(M.D,150,g);
+  const dt=OPEN.dot.style;
+  dt.left=px(dotX-pw/2); dt.top=px(dotY-ph/2); dt.width=px(pw); dt.height=px(ph);
+  dt.borderRadius=px(Math.min(pw,ph)/2);
+  const ci=prog(b,2.95,3.6); dt.background=`rgb(${lerp(244,8,ci)|0},${lerp(239,11,ci)|0},${lerp(230,28,ci)|0})`;
+  // label rises out of a mask line inside the pill
+  const mk=OPEN.mask.style; mk.left=px(dotX-pw/2+30); mk.top=px(dotY-ph/2+(ph-84)/2); mk.width=px(Math.max(pw-60,0)); mk.height=px(84);
+  const rise=spring(b,4,2.0,.62);
+  OPEN.label.style.top=px(10+(1-rise)*96); OPEN.label.style.display=g>.6?'block':'none';
+}
+
+/* ---- stage ---- */
+let STAGE;
+function buildStage(){
+  const s=$('sStage');
+  const phone=el('div','position:absolute;left:90px;top:200px;width:560px;height:1120px;border-radius:98px;background:#05060d;box-shadow:0 0 0 3px #2b2f45,0 40px 90px rgba(0,0,0,.5)',s);
+  const scr=el('div','position:absolute;left:16px;top:16px;width:528px;height:1088px;border-radius:84px;overflow:hidden;background:#000',phone);
+  el('img','position:absolute;left:-250px;top:0;width:1088px;height:1088px;object-fit:cover',scr).src='assets/p02.jpg';
+  el('div','position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,11,28,.25),rgba(8,11,28,0) 30%,rgba(8,11,28,.4))',scr);
+  el('div','position:absolute;left:0;width:100%;top:150px;text-align:center;color:#fff;font:200 150px/1 Geist;letter-spacing:-.04em',scr,'9:41');
+  el('div','position:absolute;left:0;width:100%;top:116px;text-align:center;color:rgba(255,255,255,.85);font:500 26px/1 Geist',scr,'Tuesday, 13 October');
+  el('div','position:absolute;left:184px;bottom:14px;width:160px;height:6px;border-radius:3px;background:rgba(255,255,255,.85)',scr);
+  const goo=el('div','position:absolute;left:0;top:0;width:1440px;height:1440px;filter:url(#goo)',s);
+  const isl=el('div','position:absolute;background:#000',goo);
+  const drop=el('div','position:absolute;background:#000',goo);
+  // Mac window
+  const mac=el('div','position:absolute;overflow:hidden;background:#f4efe6;border-radius:26px;box-shadow:0 50px 120px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.12);transform-origin:50% 0',s);
+  const bar=el('div','position:absolute;left:0;top:0;width:100%;height:64px;background:#e6e0d4;border-bottom:1px solid rgba(0,0,0,.08)',mac);
+  [['#ff5f57',26],['#febc2e',54],['#28c840',82]].forEach(([c,x])=>el('div',`position:absolute;top:25px;left:${x-10}px;width:14px;height:14px;border-radius:50%;background:${c}`,bar));
+  el('div','position:absolute;left:150px;top:14px;width:360px;height:36px;border-radius:18px;background:rgba(0,0,0,.07);font:500 18px/36px Geist;color:#3a3a46;text-align:center',bar,'braindubai.com');
+  const body=el('div','position:absolute;left:0;top:64px;right:0;bottom:0',mac);
+  el('img','position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover',body).src='assets/p05.jpg';
+  STAGE={phone,isl,drop,mac,body};
+}
+function bez(p,a,b,c){const u=1-p;return [u*u*a[0]+2*u*p*b[0]+p*p*c[0],u*u*a[1]+2*u*p*b[1]+p*p*c[1]];}
+function renderStage(t){
+  const b=t/B;
+  // the phone grows out of the screen edge
+  const IS=[370,262], MAC=[1050,560];
+  const stretch=eIO(prog(b,31.2,32.2));     // island stretches like liquid
+  const fly=eIO(prog(b,32.1,33.1));         // pinched-off droplet flies over
+  const grow=spring(b,33.0,1.9,.62);         // grows into a Mac window
+  const isl=STAGE.isl.style;
+  const iw=lerp(150,150+120*stretch,1), ih=lerp(44,44+10*stretch,1);
+  isl.left=px(IS[0]-iw/2); isl.top=px(IS[1]-ih/2); isl.width=px(iw); isl.height=px(ih); isl.borderRadius='99px';
+  const pos=bez(fly,IS,[700,200],[MAC[0],MAC[1]-70]);
+  const dx=fly>0?Math.sin(fly*Math.PI):0;
+  const dw=lerp(44,44+70*dx,1), dh=lerp(44,44-6*dx,1);
+  const dd=STAGE.drop.style;
+  dd.left=px(lerp(IS[0]+60*stretch,pos[0],fly>0?1:0)-dw/2); dd.top=px(lerp(IS[1],pos[1],fly>0?1:0)-dh/2);
+  dd.width=px(lerp(0,dw,prog(b,31.6,32.2))); dd.height=px(lerp(0,dh,prog(b,31.6,32.2))); dd.borderRadius='99px';
+  dd.display=grow>.25?'none':'block';
+  // Mac window (scaled around its top centre)
+  const mw=720, mh=500, mx=MAC[0]-mw/2, my=MAC[1]-70;
+  const m=STAGE.mac.style; const sc=clamp(grow,0,1.04);
+  m.display=sc>.02?'block':'none';
+  m.left=px(mx); m.top=px(my); m.width=px(mw); m.height=px(mh);
+  m.transform=`translate(0,${px((1-sc)*60)}) scale(${sc.toFixed(4)})`;
+}
+
+/* ---- photo/glass scene ---- */
+let GL;
+function buildGlassScene(){ GL={}; }
+const gp=b=>clamp(prog(b,20.5,23.5));             // drag progress 0..1
+function renderGlassScene(t,layer){
+  const b=t/B, p=eIO(gp(b));
+  $('imgGold').style.opacity=p;
+  // toolbar glass (stretched out of the droplet)
+  const tb=spring(b,18.6,2.0,.55);
+  const bw=lerp(120,700,tb), bh=lerp(120,132,tb), bx=720-bw/2, by=1190;
+  glass(layer,{x:bx,y:by,w:bw,h:bh,r:bh/2,k:1,tint:.12});
+  // slider contents (drawn over the glass in the overlay)
+  const ov=$('overlay');
+  const tx0=bx+110, tx1=bx+bw-110, kx=lerp(tx0,tx1,p), ky=by+bh/2;
+  el('div',`position:absolute;left:${px(tx0)};top:${px(ky-5)};width:${px(tx1-tx0)};height:10px;border-radius:5px;background:rgba(255,255,255,.34)`,ov);
+  el('div',`position:absolute;left:${px(tx0)};top:${px(ky-5)};width:${px(kx-tx0)};height:10px;border-radius:5px;background:rgba(255,255,255,.95)`,ov);
+  // sun / sunset glyphs
+  const sun=(cx,cy,warm)=>`<svg style="position:absolute;left:${px(cx-24)};top:${px(cy-24)}" width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="rgba(255,255,255,.95)" stroke-width="3" stroke-linecap="round"><circle cx="24" cy="24" r="8" ${warm?'fill="rgba(255,205,120,.9)"':''}/>${[0,45,90,135,180,225,270,315].map(a=>`<line x1="${24+14*Math.cos(a*Math.PI/180)}" y1="${24+14*Math.sin(a*Math.PI/180)}" x2="${24+20*Math.cos(a*Math.PI/180)}" y2="${24+20*Math.sin(a*Math.PI/180)}"/>`).join('')}</svg>`;
+  ov.insertAdjacentHTML('beforeend',sun(bx+62,ky,false)+sun(bx+bw-62,ky,true));
+  // knob turns into a glass lens while held
+  const held=prog(b,20.5,20.9)*(1-prog(b,23.5,23.9));
+  const ks=lerp(70,112,spring(b,20.5,2.6,.5))*(1-held+held)* (held>0?1:1);
+  const kw=lerp(70,124,held), kh=lerp(70,96,held);
+  glass(layer,{x:kx-kw/2,y:ky-kh/2,w:kw,h:kh,r:kh/2,bezel:kh*.5,k:lerp(.7,1.5,held),tint:.04,sat:1.2,bright:1.12});
+  // value caption
+  const lbl=p<.35?'Day':p<.75?'Late afternoon':'Golden hour';
+  el('div',`position:absolute;left:0;width:1440px;top:${px(by-70)};text-align:center;color:#fff;font:600 34px/1 Geist;letter-spacing:-.01em;text-shadow:0 2px 14px rgba(0,0,0,.45)`,ov,lbl);
+  return {kx,ky,held};
+}
+
+/* ---- wall ---- */
+let WALL;
+function buildWall(){
+  const s=$('sWall');
+  WALL={};
+  WALL.bg=el('div','position:absolute;left:0;top:0;width:1440px;height:1440px;background:radial-gradient(120% 90% at 30% 20%,#e6dccb 0%,#d6c9b4 55%,#bfae93 100%)',s);
+  WALL.shadows=el('div','position:absolute;left:-200px;top:-200px;width:1840px;height:1840px;filter:blur(7px);opacity:.9',s);
+  let leaves='';
+  const rnd=(i)=>{const x=Math.sin(i*127.1)*43758.5453;return x-Math.floor(x);};
+  for(let i=0;i<46;i++){const a=rnd(i)*360,lx=220+rnd(i+9)*1400,ly=100+rnd(i+31)*1500,sz=.35+rnd(i+5)*.7;
+    leaves+=`<g transform="translate(${lx} ${ly}) rotate(${a}) scale(${sz})"><path d="M0 0 C60 -70 190 -70 250 0 C190 70 60 70 0 0Z" fill="rgba(52,40,26,.30)"/></g>`;}
+  for(let i=0;i<9;i++){const x=rnd(i+70)*1700;leaves+=`<path d="M${x} -50 C${x+160} 480 ${x-120} 980 ${x+60} 1900" stroke="rgba(52,40,26,.26)" stroke-width="10" fill="none"/>`;}
+  WALL.shadows.innerHTML=`<svg width="1840" height="1840" viewBox="0 0 1840 1840">${leaves}</svg>`;
+  WALL.fade=el('div','position:absolute;left:0;top:0;width:1440px;height:1440px;background:radial-gradient(70% 70% at 50% 45%,rgba(255,250,240,.28),rgba(60,45,30,.18))',s);
+  WALL.black=el('div','position:absolute;background:#080b1c',s);
+  WALL.mat=el('div','position:absolute;background:#f4efe6',s);
+  WALL.img=el('img','position:absolute;object-fit:cover',s); WALL.img.src='assets/p01.jpg';
+  WALL.wire=el('div','position:absolute;left:0;top:0;width:100%;height:100%',s);
+}
+function renderWall(t){
+  const b=t/B;
+  const sway=Math.sin(t*1.1)*40, sway2=Math.cos(t*.8)*26;
+  WALL.shadows.style.filter='blur(4px)';WALL.shadows.style.transform=`translate(${px(sway)},${px(sway2)}) rotate(${(Math.sin(t*.6)*1.4).toFixed(3)}deg)`;
+  // black flood contracts into the frame
+  const q=eIO(prog(b,48.8,49.8));
+  const F={x:410,y:310,w:620,h:620};
+  const full={x:-260,y:-260,w:1960,h:1960};
+  const r=(k)=>lerp(full[k],F[k],q);
+  const bk=WALL.black.style; bk.left=px(r('x'));bk.top=px(r('y'));bk.width=px(r('w'));bk.height=px(r('h'));
+  bk.borderRadius=px(lerp(0,10,q));
+  bk.boxShadow=q>.95?'0 60px 90px rgba(40,26,10,.40),0 6px 14px rgba(40,26,10,.35)':'none';
+  // mat and photo grow out of the frame edge
+  const g=spring(b,49.5,2.0,.7);
+  const molding=34, mat=lerp(0,58,g);
+  const mx=F.x+molding, my=F.y+molding, mw=F.w-2*molding, mh=F.h-2*molding;
+  const ms=WALL.mat.style; ms.display=g>.01?'block':'none';
+  const grow=g;
+  ms.left=px(lerp(F.x+F.w/2,mx,grow));ms.top=px(lerp(F.y+F.h/2,my,grow));ms.width=px(mw*grow);ms.height=px(mh*grow);
+  const ps=WALL.img.style; ps.display=g>.01?'block':'none';
+  const pw=Math.max((mw-2*mat)*grow,0);
+  ps.left=px(lerp(F.x+F.w/2,mx+mat,grow));ps.top=px(lerp(F.y+F.h/2,my+mat,grow));ps.width=px(pw);ps.height=px(Math.max((mh-2*mat)*grow,0));
+  WALL.fade.style.opacity=1;
+}
+
+/* ================= cameras & cursor ================= */
+function camera(scene,t){
+  const b=t/B;
+  let s=1,cx=720,cy=720;
+  if(scene==='open'){ s=lerp(1.45,1.7,eIO(prog(b,0,3))); cx=720; cy=720; }
+  else if(scene==='glass'){ const z=eIO(prog(b,19,20.2)); s=lerp(1,1.55,z); cx=720; cy=lerp(720,1060,z); }
+  else if(scene==='stage'){ s=1.0; cx=720; cy=720; }
+  else if(scene==='wall'){ s=1.12; cx=720; cy=640; }
+  return {s,cx,cy};
+}
+function applyCamera(c){
+  const hv=720/c.s; c.cx=clamp(c.cx,hv,1440-hv); c.cy=clamp(c.cy,hv,1440-hv);
+  const tx=720-c.cx*c.s, ty=720-c.cy*c.s;
+  $('cam').style.transform=`translate(${px(tx)},${px(ty)}) scale(${c.s.toFixed(5)})`;
+}
+function placeCursor(x,y,press){
+  const c=$('cursor');
+  c.style.transform=`translate(${px(x-6)},${px(y-4)}) scale(${(press?.86:1)})`;
+}
+
+/* ================= master render ================= */
+const SCENES={open:'sOpen',glass:'sPhoto',stage:'sStage',wall:'sWall'};
+let READY=false;
+async function seek(t,scene){
+  scene=scene||sceneAt(t);
+  Object.entries(SCENES).forEach(([k,id])=>{$(id).style.display=(k===scene)?'block':'none';});
+  $('glassLayer').replaceChildren(); $('overlay').replaceChildren(); $('gfs').replaceChildren(); gid=0;
+  $('app').style.background=scene==='open'?'#192249':'#080b1c';
+  let cur=null;
+  if(scene==='open'){ renderOpen(t); }
+  if(scene==='glass'){ cur=renderGlassScene(t,$('glassLayer')); }
+  if(scene==='stage'){ renderStage(t); }
+  if(scene==='wall'){ renderWall(t); }
+  applyCamera(camera(scene,t));
+  if(cur) placeCursor(cur.kx+8,cur.ky+14,cur.held>.5); else $('cursor').style.display='none';
+  if(cur) $('cursor').style.display='block';
+  await document.fonts.ready;
+  await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})));
+  await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+}
+function sceneAt(t){const b=t/B;return b<8?'open':b<30?'glass':b<44?'stage':'wall';}
+window.seek=seek;
+(async()=>{
+  await document.fonts.load('800 250px Archivo'); await document.fonts.load('600 64px Geist');
+  measureLetters(); buildOpen(); buildStage(); buildGlassScene(); buildWall();
+  READY=true; window.READY=true;
+})();
+</script>
+</body>
+</html>
