@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Invoice MDM/A/359</title>
+<style>
+  @page { size: A4; margin: 0; }
+  :root {
+    --ink: #232323;
+    --muted: #6b6b6b;
+    --line: #dcdcdc;
+    --soft: #f4f4f2;
+    --accent: #232323;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    font-size: 10pt;
+    color: var(--ink);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page {
+    width: 210mm;
+    height: 296mm;
+    overflow: hidden;
+    padding: 11mm 16mm 8mm;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* header */
+  .head { display: flex; justify-content: space-between; align-items: flex-start; }
+  .logo { width: 50mm; display: block; margin-left: -2mm; mix-blend-mode: multiply; }
+  .doc-title { text-align: right; }
+  .doc-title h1 {
+    margin: 2mm 0 0; font-size: 30pt; font-weight: 300; letter-spacing: 6px;
+    text-transform: uppercase; color: var(--ink);
+  }
+  .doc-title .sub { color: var(--muted); font-size: 8.5pt; letter-spacing: 2px; text-transform: uppercase; margin-top: 1mm; }
+
+  .rule { height: 1.2mm; background: var(--accent); margin: 4mm 0 6mm; }
+
+  /* info row */
+  .info { display: flex; justify-content: space-between; gap: 10mm; }
+  .company { line-height: 1.55; color: var(--muted); font-size: 9pt; }
+  .company strong { color: var(--ink); font-size: 10pt; font-weight: 600; }
+  .meta { border: 1px solid var(--line); border-radius: 2mm; min-width: 68mm; }
+  .meta div { display: flex; justify-content: space-between; padding: 2.2mm 4mm; font-size: 9pt; }
+  .meta div + div { border-top: 1px solid var(--line); }
+  .meta span:first-child { color: var(--muted); letter-spacing: 1px; text-transform: uppercase; font-size: 8pt; align-self: center; }
+  .meta span:last-child { font-weight: 600; }
+
+  /* bill to */
+  .bill { margin-top: 7mm; background: var(--soft); border-left: 1.2mm solid var(--accent); padding: 4mm 5mm; border-radius: 0 2mm 2mm 0; }
+  .bill .label { font-size: 8pt; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5mm; }
+  .bill .name { font-size: 12pt; font-weight: 600; }
+  .bill .row { margin-top: 1mm; font-size: 9.5pt; color: var(--ink); }
+  .bill .row b { color: var(--muted); font-weight: 500; display: inline-block; width: 18mm; }
+
+  /* items */
+  table.items { width: 100%; border-collapse: collapse; margin-top: 7mm; }
+  .items th {
+    background: var(--accent); color: #fff; font-size: 8.5pt; letter-spacing: 1.5px;
+    text-transform: uppercase; font-weight: 600; padding: 3mm 4mm; text-align: left;
+  }
+  .items th.c, .items td.c { text-align: center; width: 18mm; }
+  .items th.r, .items td.r { text-align: right; width: 40mm; white-space: nowrap; }
+  .items td { padding: 4mm 4mm; vertical-align: top; border-bottom: 1px solid var(--line); }
+  .items td.desc { line-height: 1.55; }
+  .items td.desc .t { font-weight: 600; margin-top: 2mm; }
+  .items td.desc .t:first-child { margin-top: 0; }
+  .items td.desc ul { margin: 1mm 0 0; padding-left: 4.5mm; color: #3d3d3d; }
+  .items td.desc li { margin: 0.4mm 0; }
+  .items td.amt { font-weight: 600; white-space: nowrap; }
+
+  /* totals */
+  .bottom { display: flex; justify-content: space-between; gap: 10mm; margin-top: 7mm; }
+  .notes { flex: 1; }
+  .notes .label { font-size: 8pt; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5mm; }
+  .notes p { margin: 0 0 4mm; font-size: 9.5pt; }
+  .bank { border: 1px solid var(--line); border-radius: 2mm; padding: 3.5mm 4.5mm; font-size: 9pt; }
+  .bank .label { margin-bottom: 2mm; }
+  .bank table { border-collapse: collapse; }
+  .bank td { padding: 0.8mm 0; }
+  .bank td:first-child { color: var(--muted); width: 30mm; }
+  .bank td:last-child { font-weight: 600; letter-spacing: .3px; }
+
+  .totals { width: 70mm; }
+  .totals div { display: flex; justify-content: space-between; padding: 2.4mm 4mm; font-size: 9.5pt; }
+  .totals div + div { border-top: 1px solid var(--line); }
+  .totals .grand { background: var(--accent); color: #fff; font-weight: 700; font-size: 11pt; border-radius: 0 0 2mm 2mm; }
+  .totals .cur { color: var(--muted); }
+  .totals .grand .cur { color: #cfcfcf; }
+
+  /* signature */
+  .sign { margin-top: auto; padding-top: 4mm; display: flex; justify-content: space-between; align-items: flex-end; }
+  .sign .box { width: 62mm; border-top: 1px solid var(--ink); padding-top: 2mm; font-size: 8.5pt; color: var(--muted); }
+  .sign .company-sign { text-align: right; font-weight: 600; font-size: 9pt; letter-spacing: 1px; }
+
+  .foot { text-align: center; border-top: 1px solid var(--line); margin-top: 4mm; padding-top: 3mm; color: var(--muted); font-size: 8.5pt; }
+  .foot strong { color: var(--ink); display: block; font-size: 10pt; margin-bottom: 1mm; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="head">
+    <img class="logo" src="logo.jpg" alt="Metropolitan Digital Marketing">
+    <div class="doc-title">
+      <h1>Invoice</h1>
+      <div class="sub">Tax Invoice</div>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="info">
+    <div class="company">
+      <strong>Metropolitan Digital Marketing</strong><br>
+      UAE, Dubai<br>
+      Phone: +971 50 822 1108<br>
+      info@metropolitandigitalmarketing.com<br>
+      www.metropolitandigitalmarketing.com
+    </div>
+    <div class="meta">
+      <div><span>Date</span><span>{{date}}</span></div>
+      <div><span>Invoice No.</span><span>{{invoice_no}}</span></div>
+      <div><span>Customer ID</span><span>{{customer_id}}</span></div>
+    </div>
+  </div>
+
+  <div class="bill">
+    <div class="label">Bill To</div>
+    <div class="name">{{client_name}}</div>
+    <div class="row"><b>Attn</b>{{attention}}</div>
+    <div class="row"><b>Project</b>{{project}}</div>
+  </div>
+
+  <table class="items">
+    <thead>
+      <tr><th>Description</th><th class="c">UOM</th><th class="c">Qty</th><th class="r">Amount (AED)</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="desc">{{scope_html}}</td>
+        <td class="c">Nos</td>
+        <td class="c">{{qty}}</td>
+        <td class="r amt">{{amount}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="bottom">
+    <div class="notes">
+      <div class="label">Other Comments</div>
+      <p>{{comments}}</p>
+      <div class="bank">
+        <div class="label notes-label" style="font-size:8pt;letter-spacing:2px;text-transform:uppercase;color:var(--muted)">Bank Details</div>
+        <table>
+          <tr><td>Account Type</td><td>Business Connect Current - AED</td></tr>
+          <tr><td>Account Class</td><td>CURRENT ACCOUNT</td></tr>
+          <tr><td>Account No</td><td>19347089</td></tr>
+          <tr><td>IBAN</td><td>AE550500000000019347089</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="totals">
+      <div><span>Subtotal</span><span>{{subtotal}} <span class="cur">AED</span></span></div>
+      <div><span>VAT 5%</span><span>{{vat}} <span class="cur">AED</span></span></div>
+      <div class="grand"><span>TOTAL</span><span>{{total}} <span class="cur">AED</span></span></div>
+    </div>
+  </div>
+
+  <div class="sign">
+    <div class="box">Customer's Seal &amp; Signature</div>
+    <div class="company-sign">METROPOLITAN DIGITAL MARKETING</div>
+  </div>
+
+  <div class="foot">
+    <strong>Thank You For Your Business!</strong>
+    info@metropolitandigitalmarketing.com &nbsp;·&nbsp; www.metropolitandigitalmarketing.com &nbsp;·&nbsp; +971 50 822 1108
+  </div>
+
+</div>
+</body>
+</html>
