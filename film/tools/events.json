@@ -1,0 +1,15 @@
+{"bpm":120,"beats":54,"music":{"start_beat":0,"drop_beat":16,"breakdown":[48,52]},
+ "events":[
+ {"sfx":"click","beat":5.0},{"sfx":"iris_close","beat":5.0},{"sfx":"iris_open","beat":6.0},
+ {"sfx":"whoosh_soft","beat":7.6},{"sfx":"unfold","beat":9.0},{"sfx":"unfold","beat":9.65},{"sfx":"whoosh_soft","beat":11.0},
+ {"sfx":"click","beat":13.6},{"sfx":"zoom_riser","beat":13.8},{"sfx":"impact","beat":16.0},
+ {"sfx":"pop","beat":16.0},{"sfx":"pop","beat":16.22},{"sfx":"pop","beat":16.44},{"sfx":"pop","beat":16.66},{"sfx":"pop","beat":16.88},
+ {"sfx":"droplet","beat":17.75},{"sfx":"stretch","beat":18.35},{"sfx":"click","beat":19.65},{"sfx":"pop","beat":20.2},
+ {"sfx":"press","beat":20.55},{"sfx":"slide_loop","beat":20.7},{"sfx":"release","beat":23.5},{"sfx":"lift","beat":23.7},
+ {"sfx":"pop","beat":24.9},{"sfx":"whoosh_big","beat":25.9},{"sfx":"pop","beat":27.7},{"sfx":"pop","beat":27.86},{"sfx":"pop","beat":28.02},{"sfx":"pop","beat":28.18},
+ {"sfx":"stretch","beat":28.85},{"sfx":"whoosh_soft","beat":30.0},{"sfx":"pop","beat":30.9},{"sfx":"stretch","beat":31.5},{"sfx":"pinch","beat":32.2},{"sfx":"whoosh_soft","beat":32.5},
+ {"sfx":"pop","beat":33.15},{"sfx":"blind_roll","beat":34.25},{"sfx":"press","beat":35.0},{"sfx":"whoosh_soft","beat":36.4},{"sfx":"release","beat":37.6},{"sfx":"scroll","beat":38.85},
+ {"sfx":"grow","beat":39.8},{"sfx":"click","beat":40.92},{"sfx":"paint","beat":41.05},{"sfx":"click","beat":41.92},{"sfx":"whoosh_soft","beat":42.6},
+ {"sfx":"click","beat":44.0},{"sfx":"success","beat":44.05},{"sfx":"tick","beat":44.95},{"sfx":"van","beat":45.85},{"sfx":"success","beat":46.9},
+ {"sfx":"flood","beat":48.0},{"sfx":"iris_close","beat":50.55},{"sfx":"iris_open","beat":51.0},{"sfx":"iris_close","beat":51.4},{"sfx":"flood","beat":51.6},
+ {"sfx":"whoosh_soft","beat":52.3},{"sfx":"spring_out","beat":53.4}]}

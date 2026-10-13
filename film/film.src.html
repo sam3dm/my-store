@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Brain Dubai — launch film</title>
+<style>
+@font-face{font-family:"Archivo";src:url(fonts/archivo.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%}
+@font-face{font-family:"Geist";src:url(fonts/geist.woff2) format("woff2");font-weight:100 900}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#000;width:1440px;height:1440px;overflow:hidden}
+#app{position:absolute;left:0;top:0;width:1440px;height:1440px;overflow:hidden;background:#192249;font-family:"Geist",sans-serif;color:#080b1c}
+#cam{position:absolute;left:0;top:0;width:1440px;height:1440px;transform-origin:0 0}
+#world{position:absolute;left:0;top:0;width:1440px;height:1440px}
+.sc{position:absolute;left:0;top:0;width:1440px;height:1440px}
+.abs{position:absolute}
+.letter{position:absolute;font-family:"Archivo";font-weight:800;color:#f4efe6;line-height:1;white-space:pre;transform-origin:0 0}
+#measure{position:absolute;left:-9999px;top:0;visibility:hidden;font-family:"Archivo";font-weight:800;white-space:pre;line-height:1}
+#cursor{position:absolute;left:0;top:0;width:44px;height:44px;transform-origin:6px 4px;pointer-events:none;z-index:200}
+img{display:block}
+</style>
+</head>
+<body>
+<div id="app"><div id="cam"><div id="world"></div>
+<svg id="cursor" viewBox="0 0 44 44"><path d="M6 4 L6 33 L13.5 26.5 L18.5 38 L24 35.6 L19 24.2 L29 24 Z" fill="#0a0c18" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/></svg>
+</div></div>
+<div id="measure"></div>
+<svg width="0" height="0" style="position:absolute" id="defs"><defs>
+<filter id="goo" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+<feGaussianBlur in="SourceGraphic" stdDeviation="11" result="b"/>
+<feColorMatrix in="b" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 26 -11" result="t"/>
+<feComposite in="SourceGraphic" in2="t" operator="atop"/></filter>
+<g id="gfs"></g></defs></svg>
+<script>
+/*JS*/
+</script>
+</body>
+</html>
