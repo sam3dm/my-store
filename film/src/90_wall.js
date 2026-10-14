@@ -6,7 +6,7 @@ function renderFlood(b) {
   const on = b >= 51.7 && b < 52.9; vis(flood, on); if (!on) return;
   const e1 = eIO(prog(b, 51.7, 52.25)), e2 = eIO(prog(b, 52.3, 52.9));
   let r;
-  if (b < 52.3) r = lerpA([FR[0] + FR[2] / 2, FR[1] + FR[3] / 2, FR[2], FR[3], 10], [720, 720, 5200, 5200, 2600], e1);
+  if (b < 52.3) r = lerpA([720, 620, 36, 36, 18], [720, 720, 5200, 5200, 2600], e1);   // the flood grows out of the closed iris
   else r = lerpA([720, 720, 5200, 5200, 2600], [720, 720, PILL.w, PILL.h, PILL.h / 2], e2);
   R(flood, r[0] - r[2] / 2, r[1] - r[3] / 2, r[2], r[3], r[4]); flood.style.background = lerpColor(C_BLUE, C_INK, prog(b, 52.4, 52.9));
 }
