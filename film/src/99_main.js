@@ -23,8 +23,8 @@ async function seek(t) {
   if (b >= 32.9 && b < 48.6) renderMac(b);
   if (b >= 48.4 && b < 52.4) renderWall(b);
   renderShape(b); renderFlood(b);
-  const [a, rot] = irisState(b); irisDraw(a, rot);
-  applyCamera(camAt(b)); renderCursor(b);
+  const cam = camAt(b), hv = 720 / cam.s; const [a, rot] = irisState(b); irisDraw(a, rot, clamp(cam.cx, hv, 1440 - hv), clamp(cam.cy, hv, 1440 - hv));
+  applyCamera(cam); renderCursor(b);
   await document.fonts.ready;
   await Promise.all([...document.images].map(i => i.decode().catch(() => { })).concat(PEND.splice(0)));
   await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));

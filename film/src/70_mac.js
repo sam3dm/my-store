@@ -88,5 +88,5 @@ function renderMac(b) {
   const chipI = springSeq(b, 0, [[42.0, 2, 2.6, .7]]); MAC.chipSel.style.left = (430 + chipI * 68) + 'px';
   MAC.chips.forEach((c, i) => c.style.color = Math.abs(i - chipI) < .5 ? '#fff' : '#10131f');
   // the dragged wallpaper
-  const d = dragRect(b); vis(MAC.drag, d.on); if (d.on) R(MAC.drag, d.r[0], d.r[1], d.r[2], d.r[3], d.r[4]);
+  const d = dragRect(b); vis(MAC.drag, d.on); if (d.on) { R(MAC.drag, d.r[0], d.r[1], d.r[2], d.r[3], d.r[4]); const land = b >= 37.6 ? spring(b, 37.6, 2.2, .7) : 0; MAC.drag.style.boxShadow = `0 30px 70px rgba(0,0,0,${(.5 * (1 - clamp(land))).toFixed(3)})`; }
 }

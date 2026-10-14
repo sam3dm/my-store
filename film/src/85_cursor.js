@@ -28,8 +28,8 @@ function renderCursor(b) {
   c.style.transform = `translate(${x - 6}px,${y - 4}px) scale(${(.9 + .1 * shown) * (1 - .14 * press)})`;
 }
 function dragRect(b) {
-  if (b < 35.0 || b >= 38.75) return { on: false };
-  const [cx, cy] = cursorAt(b), lift = spring(b, 35.05, 2.4, .7);
+  if (b < 35.3 || b >= 38.75) return { on: false };
+  const [cx, cy] = cursorAt(b), lift = spring(b, 35.3, 2.6, .7);
   const thumb = [cx + 80 - 115, cy + 70 - 115, 230, 230, 28];
   let r = lerpA([PH.x, PH.y, PH.w, PH.h, PH.r], thumb, lift);
   if (b >= 37.6) r = lerpA(thumb, [MACW.x + 40, MACW.y + VP.y + 76, 720, 300, 22], spring(b, 37.6, 2.2, .7));

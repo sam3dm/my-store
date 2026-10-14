@@ -1,0 +1,10 @@
+import { chromium } from 'playwright'; import path from 'path'; import http from 'http'; import fs from 'fs';
+const root=path.resolve('.');const mime={'.html':'text/html','.jpg':'image/jpeg','.png':'image/png','.woff2':'font/woff2'};
+const srv=http.createServer((q,r)=>{const f=path.join(root,decodeURIComponent(q.url.split('?')[0]));fs.readFile(f,(e,d)=>{if(e){r.writeHead(404);r.end();}else{r.writeHead(200,{'content-type':mime[path.extname(f)]||'x'});r.end(d);}});}).listen(0);
+const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium-1194/chrome-linux/chrome',args:['--no-sandbox']});
+const pg=await b.newPage({viewport:{width:1440,height:1440}});
+await pg.goto(`http://localhost:${srv.address().port}/film.html`); await pg.waitForFunction('window.READY===true');
+await pg.evaluate(t=>seek(t),+process.argv[2]);
+const info=await pg.evaluate(()=>{const g=document.getElementById('sGlassUI');return [...g.children].map(c=>({tag:c.tagName,css:c.style.cssText.replace(/url\([^)]*\)/g,'url(..)').slice(0,200),html:c.innerHTML.replace(/(href|src)="[^"]{60,}"/g,'$1=".."').replace(/url\([^)]*\)/g,'url(..)').slice(0,300)}))});
+console.log(JSON.stringify(info,null,1));
+await b.close();srv.close();

@@ -24,6 +24,8 @@ function renderLock(b) {
   const bz = 20 * spring(b, 30.35, 2.0, .7) * (b >= 30 ? 1 : 0);
   R(phoneBody, rect[0] - bz, rect[1] - bz, rect[2] + 2 * bz, rect[3] + 2 * bz, rect[4] + bz);
   phoneBody.style.boxShadow = `0 0 0 ${3 * clamp(u * 3)}px #2b2f45,0 ${40 * u}px ${90 * u}px rgba(0,0,0,${.5 * u})`;
+  const ui = b >= 35.0 ? Math.max(0, 1 - spring(b, 35.0, 3.4, .85)) : 1;
+  for (const c of [lockGlass, lockUI]) { c.style.transform = ui < .995 ? `scale(${ui})` : 'none'; c.style.transformOrigin = '720px 760px'; c.style.display = ui < .01 ? 'none' : 'block'; }
   // ---- lock screen content (static after the player has formed)
   const key = b < 29.9 ? 'dyn' + b : 'static';
   if (key !== lockKey || key !== 'static') {

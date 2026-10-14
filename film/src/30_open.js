@@ -59,17 +59,17 @@ function renderOpen(b) {
    Each blade is the half-plane beyond one aperture edge, clipped to a big disc:
    two vertices on the rim, the two edge extensions, and the SHORT arc between them. */
 const IRIS = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); IRIS.setAttribute('width', '1440'); IRIS.setAttribute('height', '1440'); IRIS.setAttribute('viewBox', '0 0 1440 1440'); IRIS.style.cssText = 'position:absolute;left:0;top:0'; sIris.appendChild(IRIS);
-function irisDraw(a, rot) {
+function irisDraw(a, rot, cx = 720, cy = 720) {
   if (a >= 1000) { sIris.style.display = 'none'; return; }
   sIris.style.display = 'block';
   const Rb = 2600; const polys = [];
   for (let k = 0; k < 6; k++) {
     const th = rot + k * Math.PI / 3, nx = Math.cos(th), ny = Math.sin(th), phi = Math.acos(clamp(Math.max(a, 0) / Rb, -1, 1));
     const pts = [];
-    for (let i = 0; i <= 14; i++) { const an = th - phi + (2 * phi) * i / 14; pts.push(`${(720 + Rb * Math.cos(an)).toFixed(1)},${(720 + Rb * Math.sin(an)).toFixed(1)}`); }
+    for (let i = 0; i <= 14; i++) { const an = th - phi + (2 * phi) * i / 14; pts.push(`${(cx + Rb * Math.cos(an)).toFixed(1)},${(cy + Rb * Math.sin(an)).toFixed(1)}`); }
     polys.push(`<polygon points="${pts.join(' ')}" fill="url(#bl${k})" stroke="rgba(120,130,170,.35)" stroke-width="1.6"/>`);
   }
-  let defs = ''; for (let k = 0; k < 6; k++) { const th = rot + k * Math.PI / 3; defs += `<linearGradient id="bl${k}" gradientUnits="userSpaceOnUse" x1="${720 + Math.cos(th) * a}" y1="${720 + Math.sin(th) * a}" x2="${720 + Math.cos(th) * (a + 700)}" y2="${720 + Math.sin(th) * (a + 700)}"><stop offset="0" stop-color="#1b2140"/><stop offset=".35" stop-color="#0c1022"/><stop offset="1" stop-color="#060813"/></linearGradient>`; }
+  let defs = ''; for (let k = 0; k < 6; k++) { const th = rot + k * Math.PI / 3; defs += `<linearGradient id="bl${k}" gradientUnits="userSpaceOnUse" x1="${cx + Math.cos(th) * a}" y1="${cy + Math.sin(th) * a}" x2="${cx + Math.cos(th) * (a + 700)}" y2="${cy + Math.sin(th) * (a + 700)}"><stop offset="0" stop-color="#1b2140"/><stop offset=".35" stop-color="#0c1022"/><stop offset="1" stop-color="#060813"/></linearGradient>`; }
   IRIS.innerHTML = `<defs>${defs}</defs>${polys.join('')}`;
 }
 function irisState(b) {                                           // returns [aperture apothem, rotation]
@@ -78,9 +78,9 @@ function irisState(b) {                                           // returns [ap
     const a = b < 6.0 ? lerp(900, 0, close) : Math.max(0, 1500 * open); return [a, -close * .5 + open * .5];
   }
   if (b >= 50.55 && b < 52.4) {
-    const close1 = eIO(prog(b, 50.55, 50.95)), open = spring(b, 51.0, 3.4, .72), close2 = eIO(prog(b, 51.4, 51.85));
-    let a; if (b < 51.0) a = lerp(900, 0, close1); else if (b < 51.4) a = 1500 * open; else a = lerp(1500, 0, close2);
-    return [b >= 51.85 ? 0 : a, (b < 51.0 ? -close1 : b < 51.4 ? open : -close2) * .5];
+    const close1 = eIO(prog(b, 50.55, 50.95)), open = spring(b, 51.0, 3.4, .72), close2 = eIO(prog(b, 51.3, 51.7));
+    let a; if (b < 51.0) a = lerp(900, 0, close1); else if (b < 51.3) a = 1500 * open; else a = lerp(900, 0, close2);
+    return [b >= 51.7 ? 0 : a, (b < 51.0 ? -close1 : b < 51.3 ? open : -close2) * .5];
   }
   return [1500, 0];
 }

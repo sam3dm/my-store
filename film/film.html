@@ -301,17 +301,17 @@ function renderOpen(b) {
    Each blade is the half-plane beyond one aperture edge, clipped to a big disc:
    two vertices on the rim, the two edge extensions, and the SHORT arc between them. */
 const IRIS = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); IRIS.setAttribute('width', '1440'); IRIS.setAttribute('height', '1440'); IRIS.setAttribute('viewBox', '0 0 1440 1440'); IRIS.style.cssText = 'position:absolute;left:0;top:0'; sIris.appendChild(IRIS);
-function irisDraw(a, rot) {
+function irisDraw(a, rot, cx = 720, cy = 720) {
   if (a >= 1000) { sIris.style.display = 'none'; return; }
   sIris.style.display = 'block';
   const Rb = 2600; const polys = [];
   for (let k = 0; k < 6; k++) {
     const th = rot + k * Math.PI / 3, nx = Math.cos(th), ny = Math.sin(th), phi = Math.acos(clamp(Math.max(a, 0) / Rb, -1, 1));
     const pts = [];
-    for (let i = 0; i <= 14; i++) { const an = th - phi + (2 * phi) * i / 14; pts.push(`${(720 + Rb * Math.cos(an)).toFixed(1)},${(720 + Rb * Math.sin(an)).toFixed(1)}`); }
+    for (let i = 0; i <= 14; i++) { const an = th - phi + (2 * phi) * i / 14; pts.push(`${(cx + Rb * Math.cos(an)).toFixed(1)},${(cy + Rb * Math.sin(an)).toFixed(1)}`); }
     polys.push(`<polygon points="${pts.join(' ')}" fill="url(#bl${k})" stroke="rgba(120,130,170,.35)" stroke-width="1.6"/>`);
   }
-  let defs = ''; for (let k = 0; k < 6; k++) { const th = rot + k * Math.PI / 3; defs += `<linearGradient id="bl${k}" gradientUnits="userSpaceOnUse" x1="${720 + Math.cos(th) * a}" y1="${720 + Math.sin(th) * a}" x2="${720 + Math.cos(th) * (a + 700)}" y2="${720 + Math.sin(th) * (a + 700)}"><stop offset="0" stop-color="#1b2140"/><stop offset=".35" stop-color="#0c1022"/><stop offset="1" stop-color="#060813"/></linearGradient>`; }
+  let defs = ''; for (let k = 0; k < 6; k++) { const th = rot + k * Math.PI / 3; defs += `<linearGradient id="bl${k}" gradientUnits="userSpaceOnUse" x1="${cx + Math.cos(th) * a}" y1="${cy + Math.sin(th) * a}" x2="${cx + Math.cos(th) * (a + 700)}" y2="${cy + Math.sin(th) * (a + 700)}"><stop offset="0" stop-color="#1b2140"/><stop offset=".35" stop-color="#0c1022"/><stop offset="1" stop-color="#060813"/></linearGradient>`; }
   IRIS.innerHTML = `<defs>${defs}</defs>${polys.join('')}`;
 }
 function irisState(b) {                                           // returns [aperture apothem, rotation]
@@ -320,9 +320,9 @@ function irisState(b) {                                           // returns [ap
     const a = b < 6.0 ? lerp(900, 0, close) : Math.max(0, 1500 * open); return [a, -close * .5 + open * .5];
   }
   if (b >= 50.55 && b < 52.4) {
-    const close1 = eIO(prog(b, 50.55, 50.95)), open = spring(b, 51.0, 3.4, .72), close2 = eIO(prog(b, 51.4, 51.85));
-    let a; if (b < 51.0) a = lerp(900, 0, close1); else if (b < 51.4) a = 1500 * open; else a = lerp(1500, 0, close2);
-    return [b >= 51.85 ? 0 : a, (b < 51.0 ? -close1 : b < 51.4 ? open : -close2) * .5];
+    const close1 = eIO(prog(b, 50.55, 50.95)), open = spring(b, 51.0, 3.4, .72), close2 = eIO(prog(b, 51.3, 51.7));
+    let a; if (b < 51.0) a = lerp(900, 0, close1); else if (b < 51.3) a = 1500 * open; else a = lerp(900, 0, close2);
+    return [b >= 51.7 ? 0 : a, (b < 51.0 ? -close1 : b < 51.3 ? open : -close2) * .5];
   }
   return [1500, 0];
 }
@@ -339,7 +339,9 @@ function buildGrid() {
   sGrid.style.background = NAVY;
   TILE_SRC.forEach((src, i) => {
     const t = el('div', 'position:absolute;overflow:hidden;background:#0b1030;transform-origin:' + ORIGIN[i], sGrid);
-    el('img', 'position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover', t).src = src; TILES.push(t);
+    el('img', 'position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover', t).src = src;
+    if (i === 0) el('div', 'position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,11,28,0) 55%,rgba(8,11,28,.5) 100%)', t);
+    TILES.push(t);
   });
 }
 function gridState(b) {
@@ -373,7 +375,7 @@ function renderGrid(b) {
   const st = gridState(b);
   st.forEach((s, i) => { const t = TILES[i]; vis(t, s.on); if (!s.on) return; R(t, s.rect[0], s.rect[1], s.rect[2], s.rect[3], s.rr); t.style.transform = `scale(${s.sx},${s.sy})`; });
   const press = i => 1; // click feedback on the hero tile
-  const pr = 1 - .03 * (1 - spring(b, 13.6, 3.0, .7)) * (b > 13.6 ? 1 : 0);
+  const pr = 1 - .03 * (prog(b, 13.5, 13.62) * (1 - spring(b, 13.7, 3.0, .7)));
   TILES[0].style.transform = `scale(${pr})`;
 }
 
@@ -429,14 +431,14 @@ function renderGlassScene(b) {
     if (b >= 25.9) { dia = lerp(300, 2400, eIO(expand)); ow = oh = dia; ocy = lerp(700, 720, eIO(expand)); }
     const dropIn = spring(b, 17.75, 2.6, .55);
     if (b < 18.35) { ow = oh = 124 * dropIn; }
-    if (ow > 4 && ow < 780) {
+    if (ow > 4 && (ow < 780 || b < 25.9)) {
       const h = glass(GU, sPhoto, { x: ocx - ow / 2, y: ocy - oh / 2, w: ow, h: oh, r: Math.min(ow, oh) / 2, k: 1, tint: .12 });
       if (b >= 24.9) {                                                        // the next photo opens inside the orb as a circle
         const dr = (Math.min(ow, oh) / 2 - 7) * spring(b, 24.9, 2.2, .72);
         el('div', `position:absolute;left:${ow / 2 - dr}px;top:${oh / 2 - dr}px;width:${dr * 2}px;height:${dr * 2}px;border-radius:50%;overflow:hidden`, h.inner,
           orbImg(b, ocx, ocy, dr, ocx - dr, ocy - dr));
       }
-    } else if (ow >= 780) {                                                     // past ~780px the orb is just the photo disc
+    } else if (ow >= 780 && b >= 25.9) {                                                     // past ~780px the orb is just the photo disc
       el('div', `position:absolute;left:${ocx - ow / 2}px;top:${ocy - oh / 2}px;width:${ow}px;height:${oh}px;border-radius:50%;overflow:hidden;box-shadow:inset 0 0 0 2px rgba(255,255,255,.45)`, GU,
         orbImg(b, ocx, ocy, ow / 2, ocx - ow / 2, ocy - oh / 2));
     }
@@ -498,6 +500,8 @@ function renderLock(b) {
   const bz = 20 * spring(b, 30.35, 2.0, .7) * (b >= 30 ? 1 : 0);
   R(phoneBody, rect[0] - bz, rect[1] - bz, rect[2] + 2 * bz, rect[3] + 2 * bz, rect[4] + bz);
   phoneBody.style.boxShadow = `0 0 0 ${3 * clamp(u * 3)}px #2b2f45,0 ${40 * u}px ${90 * u}px rgba(0,0,0,${.5 * u})`;
+  const ui = b >= 35.0 ? Math.max(0, 1 - spring(b, 35.0, 3.4, .85)) : 1;
+  for (const c of [lockGlass, lockUI]) { c.style.transform = ui < .995 ? `scale(${ui})` : 'none'; c.style.transformOrigin = '720px 760px'; c.style.display = ui < .01 ? 'none' : 'block'; }
   // ---- lock screen content (static after the player has formed)
   const key = b < 29.9 ? 'dyn' + b : 'static';
   if (key !== lockKey || key !== 'static') {
@@ -635,7 +639,7 @@ function renderMac(b) {
   const chipI = springSeq(b, 0, [[42.0, 2, 2.6, .7]]); MAC.chipSel.style.left = (430 + chipI * 68) + 'px';
   MAC.chips.forEach((c, i) => c.style.color = Math.abs(i - chipI) < .5 ? '#fff' : '#10131f');
   // the dragged wallpaper
-  const d = dragRect(b); vis(MAC.drag, d.on); if (d.on) R(MAC.drag, d.r[0], d.r[1], d.r[2], d.r[3], d.r[4]);
+  const d = dragRect(b); vis(MAC.drag, d.on); if (d.on) { R(MAC.drag, d.r[0], d.r[1], d.r[2], d.r[3], d.r[4]); const land = b >= 37.6 ? spring(b, 37.6, 2.2, .7) : 0; MAC.drag.style.boxShadow = `0 30px 70px rgba(0,0,0,${(.5 * (1 - clamp(land))).toFixed(3)})`; }
 }
 
 /* ================= one black shape: Order -> Ordered -> Printing -> On its way -> Delivered -> flood ================= */
@@ -671,7 +675,7 @@ function shapeRect(b) {
   return r;
 }
 function renderShape(b) {
-  const show = b >= 35.2 && b < 51.55; vis(SH.el, show); if (!show) { vis(SH.mat, false); vis(SH.photo, false); return; }
+  const show = b >= 35.2 && b < 51.7; vis(SH.el, show); if (!show) { vis(SH.mat, false); vis(SH.photo, false); return; }
   let [cx, cy, w, h, rr] = shapeRect(b);
   const pop = b < 36 ? spring(b, 35.2, 3.0, .55) : 1;
   let color = INK;
@@ -740,8 +744,8 @@ function renderCursor(b) {
   c.style.transform = `translate(${x - 6}px,${y - 4}px) scale(${(.9 + .1 * shown) * (1 - .14 * press)})`;
 }
 function dragRect(b) {
-  if (b < 35.0 || b >= 38.75) return { on: false };
-  const [cx, cy] = cursorAt(b), lift = spring(b, 35.05, 2.4, .7);
+  if (b < 35.3 || b >= 38.75) return { on: false };
+  const [cx, cy] = cursorAt(b), lift = spring(b, 35.3, 2.6, .7);
   const thumb = [cx + 80 - 115, cy + 70 - 115, 230, 230, 28];
   let r = lerpA([PH.x, PH.y, PH.w, PH.h, PH.r], thumb, lift);
   if (b >= 37.6) r = lerpA(thumb, [MACW.x + 40, MACW.y + VP.y + 76, 720, 300, 22], spring(b, 37.6, 2.2, .7));
@@ -753,8 +757,8 @@ const WALLC = document.createElement('canvas'); WALLC.width = WALLC.height = 144
 function renderWall(b) { drawWall(WALLC.getContext('2d'), b * B); }
 const flood = el('div', `position:absolute;background:${BLUE}`, sFlood);
 function renderFlood(b) {
-  const on = b >= 51.6 && b < 52.9; vis(flood, on); if (!on) return;
-  const e1 = eIO(prog(b, 51.6, 52.2)), e2 = eIO(prog(b, 52.3, 52.9));
+  const on = b >= 51.7 && b < 52.9; vis(flood, on); if (!on) return;
+  const e1 = eIO(prog(b, 51.7, 52.25)), e2 = eIO(prog(b, 52.3, 52.9));
   let r;
   if (b < 52.3) r = lerpA([FR[0] + FR[2] / 2, FR[1] + FR[3] / 2, FR[2], FR[3], 10], [720, 720, 5200, 5200, 2600], e1);
   else r = lerpA([720, 720, 5200, 5200, 2600], [720, 720, PILL.w, PILL.h, PILL.h / 2], e2);
@@ -786,8 +790,8 @@ async function seek(t) {
   if (b >= 32.9 && b < 48.6) renderMac(b);
   if (b >= 48.4 && b < 52.4) renderWall(b);
   renderShape(b); renderFlood(b);
-  const [a, rot] = irisState(b); irisDraw(a, rot);
-  applyCamera(camAt(b)); renderCursor(b);
+  const cam = camAt(b), hv = 720 / cam.s; const [a, rot] = irisState(b); irisDraw(a, rot, clamp(cam.cx, hv, 1440 - hv), clamp(cam.cy, hv, 1440 - hv));
+  applyCamera(cam); renderCursor(b);
   await document.fonts.ready;
   await Promise.all([...document.images].map(i => i.decode().catch(() => { })).concat(PEND.splice(0)));
   await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));

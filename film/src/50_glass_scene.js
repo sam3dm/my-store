@@ -50,14 +50,14 @@ function renderGlassScene(b) {
     if (b >= 25.9) { dia = lerp(300, 2400, eIO(expand)); ow = oh = dia; ocy = lerp(700, 720, eIO(expand)); }
     const dropIn = spring(b, 17.75, 2.6, .55);
     if (b < 18.35) { ow = oh = 124 * dropIn; }
-    if (ow > 4 && ow < 780) {
+    if (ow > 4 && (ow < 780 || b < 25.9)) {
       const h = glass(GU, sPhoto, { x: ocx - ow / 2, y: ocy - oh / 2, w: ow, h: oh, r: Math.min(ow, oh) / 2, k: 1, tint: .12 });
       if (b >= 24.9) {                                                        // the next photo opens inside the orb as a circle
         const dr = (Math.min(ow, oh) / 2 - 7) * spring(b, 24.9, 2.2, .72);
         el('div', `position:absolute;left:${ow / 2 - dr}px;top:${oh / 2 - dr}px;width:${dr * 2}px;height:${dr * 2}px;border-radius:50%;overflow:hidden`, h.inner,
           orbImg(b, ocx, ocy, dr, ocx - dr, ocy - dr));
       }
-    } else if (ow >= 780) {                                                     // past ~780px the orb is just the photo disc
+    } else if (ow >= 780 && b >= 25.9) {                                                     // past ~780px the orb is just the photo disc
       el('div', `position:absolute;left:${ocx - ow / 2}px;top:${ocy - oh / 2}px;width:${ow}px;height:${oh}px;border-radius:50%;overflow:hidden;box-shadow:inset 0 0 0 2px rgba(255,255,255,.45)`, GU,
         orbImg(b, ocx, ocy, ow / 2, ocx - ow / 2, ocy - oh / 2));
     }

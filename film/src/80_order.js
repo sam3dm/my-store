@@ -31,7 +31,7 @@ function shapeRect(b) {
   return r;
 }
 function renderShape(b) {
-  const show = b >= 35.2 && b < 51.55; vis(SH.el, show); if (!show) { vis(SH.mat, false); vis(SH.photo, false); return; }
+  const show = b >= 35.2 && b < 51.7; vis(SH.el, show); if (!show) { vis(SH.mat, false); vis(SH.photo, false); return; }
   let [cx, cy, w, h, rr] = shapeRect(b);
   const pop = b < 36 ? spring(b, 35.2, 3.0, .55) : 1;
   let color = INK;

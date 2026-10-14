@@ -12,7 +12,7 @@ const pg = await br.newPage({ viewport: { width: 1440, height: 1440 } });
 pg.on('pageerror', e => console.log('[err]', e.message));
 await pg.goto(`http://localhost:${srv.address().port}/film.html`); await pg.waitForFunction('window.READY===true', null, { timeout: 60000 });
 const t00 = Date.now(); let done = 0;
-for (let f = 0; f < N; f++) {
+for (let k = 0; k < N; k++) { const f = process.env.REV ? N - 1 - k : k;
   if (Math.floor(f / BLOCK) % nw !== w) continue;
   const out = path.join(outDir, 'f' + String(f).padStart(5, '0') + '.jpg'); if (fs.existsSync(out)) continue;
   const acc = new Uint16Array(1440 * 1440 * 3);

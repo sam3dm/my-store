@@ -10,7 +10,9 @@ function buildGrid() {
   sGrid.style.background = NAVY;
   TILE_SRC.forEach((src, i) => {
     const t = el('div', 'position:absolute;overflow:hidden;background:#0b1030;transform-origin:' + ORIGIN[i], sGrid);
-    el('img', 'position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover', t).src = src; TILES.push(t);
+    el('img', 'position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover', t).src = src;
+    if (i === 0) el('div', 'position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,11,28,0) 55%,rgba(8,11,28,.5) 100%)', t);
+    TILES.push(t);
   });
 }
 function gridState(b) {
@@ -44,6 +46,6 @@ function renderGrid(b) {
   const st = gridState(b);
   st.forEach((s, i) => { const t = TILES[i]; vis(t, s.on); if (!s.on) return; R(t, s.rect[0], s.rect[1], s.rect[2], s.rect[3], s.rr); t.style.transform = `scale(${s.sx},${s.sy})`; });
   const press = i => 1; // click feedback on the hero tile
-  const pr = 1 - .03 * (1 - spring(b, 13.6, 3.0, .7)) * (b > 13.6 ? 1 : 0);
+  const pr = 1 - .03 * (prog(b, 13.5, 13.62) * (1 - spring(b, 13.7, 3.0, .7)));
   TILES[0].style.transform = `scale(${pr})`;
 }
